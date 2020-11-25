@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SSDTUnitTestPath Condition="'$(SSDTUnitTestPath)' == ''">$(VsInstallRoot)\Common7\IDE\Extensions\Microsoft\SQLDB</SSDTUnitTestPath>
+    <ShouldCreateLogs>True</ShouldCreateLogs>
+    <AdvancedSettingsExpanded>False</AdvancedSettingsExpanded>
+    <UpdateAssemblyVersion>False</UpdateAssemblyVersion>
+    <UpdateAssemblyFileVersion>False</UpdateAssemblyFileVersion>
+    <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
+    <UpdatePackageVersion>False</UpdatePackageVersion>
+    <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
+    <InheritWinAppVersionFrom>AssemblyFileVersion</InheritWinAppVersionFrom>
+    <PublishUrl>D:\MyBankEXE\MyBank\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Background</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>false</MapFileExtensions>
+    <UpdateUrl>https://github.com/BrianJ4/MyBankEXE/setup.exe/</UpdateUrl>
+    <ProductName>MyBank</ProductName>
+    <PublisherName>Brian Johnson</PublisherName>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <TrustUrlParameters>true</TrustUrlParameters>
+    <ApplicationRevision>50</ApplicationRevision>
+    <ApplicationVersion>1.3.3.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SSDTPath Condition="'$(SSDTPath)' == ''">$(VsInstallRoot)\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\130</SSDTPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>53DEC95844FFBC7DA353475B022178D244F4CDBD</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>MyBank_3_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>MyBank.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DelaySign>false</DelaySign>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9BD128FC-2C2E-4121-8BC0-621607FAAAB6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Sub Main</StartupObject>
+    <RootNamespace>MyBank</RootNamespace>
+    <AssemblyName>MyBank</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsFormsWithCustomSubMain</MyType>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>MyBank.xml</DocumentationFile>
+    <NoWarn>
+    </NoWarn>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>MyBank.xml</DocumentationFile>
+    <NoWarn>
+    </NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FrAdjustments.Designer.vb">
+      <DependentUpon>FrAdjustments.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrAdjustments.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="FrAnnualIncome.Designer.vb">
+      <DependentUpon>FrAnnualIncome.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrAnnualIncome.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrCalculator.Designer.vb">
+      <DependentUpon>FrCalculator.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrCalculator.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrCalendar.Designer.vb">
+      <DependentUpon>FrCalendar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrCalendar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrCloseAccount.Designer.vb">
+      <DependentUpon>FrCloseAccount.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrCloseAccount.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrFirstTime.Designer.vb">
+      <DependentUpon>FrFirstTime.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrFirstTime.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrNewCalander.Designer.vb">
+      <DependentUpon>FrNewCalander.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrNewCalander.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrStart.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrStart.Designer.vb">
+      <DependentUpon>FrStart.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrOptions.Designer.vb">
+      <DependentUpon>FrOptions.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrOptions.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrBackUp.Designer.vb">
+      <DependentUpon>FrBackUp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrBackUp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrError.Designer.vb">
+      <DependentUpon>FrError.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrError.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrEditTransactions.Designer.vb">
+      <DependentUpon>FrEditTransactions.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrEditTransactions.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrTest.Designer.vb">
+      <DependentUpon>FrTest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrTest.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrPrint.Designer.vb">
+      <DependentUpon>FrPrint.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrPrint.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrEditDirectDebits.Designer.vb">
+      <DependentUpon>FrEditDirectDebits.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrEditDirectDebits.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrMainMenu.Designer.vb">
+      <DependentUpon>FrMainMenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrMainMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrTransactions.Designer.vb">
+      <DependentUpon>FrTransactions.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrTransactions.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrNewAcc.Designer.vb">
+      <DependentUpon>FrNewAcc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrNewAcc.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrNewTransaction.Designer.vb">
+      <DependentUpon>FrNewTransaction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrNewTransaction.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrAddNewDetails.Designer.vb">
+      <DependentUpon>FrAddNewDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrAddNewDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrNewDirectDebit.Designer.vb">
+      <DependentUpon>FrNewDirectDebit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrNewDirectDebit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrProcessDirectDebits.Designer.vb">
+      <DependentUpon>FrProcessDirectDebits.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrProcessDirectDebits.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module Program.vb" />
+    <Compile Include="Module1.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Form7.Designer.vb">
+      <DependentUpon>Form7.vb</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Form7.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="MyBankAbout.Designer.vb">
+      <DependentUpon>MyBankAbout.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MyBankAbout.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FrAdjustments.resx">
+      <DependentUpon>FrAdjustments.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrAnnualIncome.resx">
+      <DependentUpon>FrAnnualIncome.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrCalculator.resx">
+      <DependentUpon>FrCalculator.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrCloseAccount.resx">
+      <DependentUpon>FrCloseAccount.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrFirstTime.resx">
+      <DependentUpon>FrFirstTime.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrNewCalander.resx">
+      <DependentUpon>FrNewCalander.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrStart.resx">
+      <DependentUpon>FrStart.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrOptions.resx">
+      <DependentUpon>FrOptions.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrBackUp.resx">
+      <DependentUpon>FrBackUp.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrError.resx">
+      <DependentUpon>FrError.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrEditTransactions.resx">
+      <DependentUpon>FrEditTransactions.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrTest.resx">
+      <DependentUpon>FrTest.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrPrint.resx">
+      <DependentUpon>FrPrint.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrEditDirectDebits.resx">
+      <DependentUpon>FrEditDirectDebits.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrMainMenu.resx">
+      <DependentUpon>FrMainMenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrTransactions.resx">
+      <DependentUpon>FrTransactions.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrNewAcc.resx">
+      <DependentUpon>FrNewAcc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrNewTransaction.resx">
+      <DependentUpon>FrNewTransaction.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrAddNewDetails.resx">
+      <DependentUpon>FrAddNewDetails.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrNewDirectDebit.resx">
+      <DependentUpon>FrNewDirectDebit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrProcessDirectDebits.resx">
+      <DependentUpon>FrProcessDirectDebits.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Form7.resx">
+      <DependentUpon>Form7.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyBankAbout.resx">
+      <DependentUpon>MyBankAbout.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gold.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white-Doves-In-Clouds-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\large.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MyBank.ico" />
+    <None Include="Resources\MyButton01.wav" />
+    <None Include="Resources\MyButton01.bmp" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <PropertyGroup>
+    <SsdtUnitTestVersion>3.1</SsdtUnitTestVersion>
+  </PropertyGroup>
+  <Import Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="$(VisualStudioVersion) != '15.0' And '$(SQLDBExtensionsRefPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="$(VisualStudioVersion) != '15.0' And '$(SQLDBExtensionsRefPath)' == ''" />
+</Project>
