@@ -125,46 +125,71 @@ Public Class FrNewDirectDebit
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BtnSaveDebit.Click
         My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
-        FrDebCre = "D"
-        Task = "None"
-        Timer1.Stop()
-        Me.BtnSaveDebit.BackColor = Color.Green
-        Call SaveCloseAll()
-        FrMainMenu.Show()
-        Me.Close()
+        If CDbl(tbAmount.Text) = 0 Then
+            MyMsg = "Order Value £0.00 Not Aloud"
+            MyMsgFlag = False
+            FrMsgOk.ShowDialog()
+        Else
+            FrDebCre = "D"
+            Task = "None"
+            Timer1.Stop()
+            Me.BtnSaveDebit.BackColor = Color.Green
+            Call SaveCloseAll()
+            FrMainMenu.Show()
+            Me.Close()
+        End If
     End Sub
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles BtnSaveCredit.Click
         My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
-        FrDebCre = "C"
-        Task = "None"
-        Timer1.Stop()
-        Me.BtnSaveDebit.BackColor = Color.Green
-        Call SaveCloseAll()
-        FrMainMenu.Show()
-        Me.Close()
+        If CDbl(tbAmount.Text) = 0 Then
+            MyMsg = "Order Value £0.00 Not Aloud"
+            MyMsgFlag = False
+            FrMsgOk.ShowDialog()
+        Else
+            FrDebCre = "C"
+            Task = "None"
+            Timer1.Stop()
+            Me.BtnSaveDebit.BackColor = Color.Green
+            Call SaveCloseAll()
+            FrMainMenu.Show()
+            Me.Close()
+        End If
     End Sub
     Private Sub BtnTransDeb_Click(sender As Object, e As EventArgs) Handles BtnTransDeb.Click
-        FrDebCre = "D"
-        Task = "None"
-        Timer1.Stop()
-        Me.BtnSaveDebit.BackColor = Color.Green
-        Call SaveCloseAll()
-        TransDebCre = "C"
-        TransBank = FrAccName
-        TransAccount = FrAccType
-        Call Transfer()
+        My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
+        If CDbl(tbAmount.Text) = 0 Then
+            MyMsg = "Order Value £0.00 Not Aloud"
+            MyMsgFlag = False
+            FrMsgOk.ShowDialog()
+        Else
+            FrDebCre = "D"
+            Task = "None"
+            Timer1.Stop()
+            Me.BtnSaveDebit.BackColor = Color.Green
+            Call SaveCloseAll()
+            TransDebCre = "C"
+            TransBank = FrAccName
+            TransAccount = FrAccType
+            Call Transfer()
+        End If
     End Sub
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles BtnTransCre.Click
         My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
-        FrDebCre = "C"
-        Task = "None"
-        Timer1.Stop()
-        Me.BtnSaveDebit.BackColor = Color.Green
-        Call SaveCloseAll()
-        TransDebCre = "D"
-        TransBank = FrAccName
-        TransAccount = FrAccType
-        Call Transfer()
+        If CDbl(tbAmount.Text) = 0 Then
+            MyMsg = "Order Value £0.00 Not Aloud"
+            MyMsgFlag = False
+            FrMsgOk.ShowDialog()
+        Else
+            FrDebCre = "C"
+            Task = "None"
+            Timer1.Stop()
+            Me.BtnSaveDebit.BackColor = Color.Green
+            Call SaveCloseAll()
+            TransDebCre = "D"
+            TransBank = FrAccName
+            TransAccount = FrAccType
+            Call Transfer()
+        End If
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles BtnCancel.Click
@@ -221,13 +246,17 @@ Timer1_Tick:
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CBoxBank.SelectedIndexChanged
         Try
             My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
+#Disable Warning BC42032 ' Operands of type Object used for operator '<>'; use the 'IsNot' operator to test object identity.
             If CBoxBank.SelectedItem <> "" Then
+#Enable Warning BC42032 ' Operands of type Object used for operator '<>'; use the 'IsNot' operator to test object identity.
                 CBoxAccount.Visible = True
                 CBoxAccount.ResetText()
                 CBoxAccount.Items.Clear()
                 CommonLoadAccount()
                 For I = 1 To AccIndex
+#Disable Warning BC42018 ' Operands of type Object used for operator '='; use the 'Is' operator to test object identity.
                     If LvBank(I) = CBoxBank.SelectedItem Then
+#Enable Warning BC42018 ' Operands of type Object used for operator '='; use the 'Is' operator to test object identity.
                         CBoxAccount.Items.Add(LvType(I))
                     End If
                 Next I
@@ -282,7 +311,9 @@ Timer1_Tick:
             Do
                 sline = thereader.ReadLine
                 If sline = Nothing Then Exit Do
+#Disable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 Dim words() As String = sline.Split(",")
+#Enable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 I = I + 1
                 ToFrom(I) = words(0)
                 Category(I) = words(1)
@@ -509,6 +540,7 @@ Timer1_Tick:
             LblValue.Visible = False
             LblFrequence.Visible = False
             LblSelect2.Visible = False
+
         Catch ex As Exception
             MyErrors = ex.Message
             FrError.Show()
@@ -585,13 +617,17 @@ Timer1_Tick:
     End Sub
     Private Sub CBoxTransBank_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CBoxTransBank.SelectedIndexChanged
         My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
+#Disable Warning BC42032 ' Operands of type Object used for operator '<>'; use the 'IsNot' operator to test object identity.
         If CBoxTransBank.SelectedItem <> "" Then
+#Enable Warning BC42032 ' Operands of type Object used for operator '<>'; use the 'IsNot' operator to test object identity.
             CBoxTransAcc.Visible = True
             CBoxTransAcc.ResetText()
             CBoxTransAcc.Items.Clear()
             CommonLoadAccount()
             For I = 1 To AccIndex
+#Disable Warning BC42018 ' Operands of type Object used for operator '='; use the 'Is' operator to test object identity.
                 If LvBank(I) = CBoxTransBank.SelectedItem Then
+#Enable Warning BC42018 ' Operands of type Object used for operator '='; use the 'Is' operator to test object identity.
                     CBoxTransAcc.Items.Add(LvType(I))
                 End If
             Next

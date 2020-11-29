@@ -47,15 +47,9 @@ Partial Class FrNewAcc
         Me.BtnCancel = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.PnlLimit = New System.Windows.Forms.Panel()
-        Me.BtnClose = New System.Windows.Forms.Button()
-        Me.LblLimitSorry = New System.Windows.Forms.Label()
-        Me.LblLimitAcc = New System.Windows.Forms.Label()
-        Me.LblLimitMax = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.BtnNewAccType = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PnlLimit.SuspendLayout()
         Me.SuspendLayout()
         '
         'LblHeader
@@ -304,62 +298,6 @@ Partial Class FrNewAcc
         Me.PictureBox1.TabIndex = 37
         Me.PictureBox1.TabStop = False
         '
-        'PnlLimit
-        '
-        Me.PnlLimit.Controls.Add(Me.BtnClose)
-        Me.PnlLimit.Controls.Add(Me.LblLimitSorry)
-        Me.PnlLimit.Controls.Add(Me.LblLimitAcc)
-        Me.PnlLimit.Controls.Add(Me.LblLimitMax)
-        Me.PnlLimit.Location = New System.Drawing.Point(276, 132)
-        Me.PnlLimit.Name = "PnlLimit"
-        Me.PnlLimit.Size = New System.Drawing.Size(315, 188)
-        Me.PnlLimit.TabIndex = 39
-        '
-        'BtnClose
-        '
-        Me.BtnClose.BackColor = System.Drawing.Color.Tomato
-        Me.BtnClose.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnClose.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.BtnClose.FlatAppearance.BorderSize = 2
-        Me.BtnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
-        Me.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnClose.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnClose.ForeColor = System.Drawing.Color.Black
-        Me.BtnClose.Location = New System.Drawing.Point(188, 136)
-        Me.BtnClose.Name = "BtnClose"
-        Me.BtnClose.Size = New System.Drawing.Size(96, 30)
-        Me.BtnClose.TabIndex = 23
-        Me.BtnClose.Text = "(: Close :)"
-        Me.BtnClose.UseVisualStyleBackColor = False
-        '
-        'LblLimitSorry
-        '
-        Me.LblLimitSorry.AutoSize = True
-        Me.LblLimitSorry.Font = New System.Drawing.Font("Arial Black", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblLimitSorry.Location = New System.Drawing.Point(117, 31)
-        Me.LblLimitSorry.Name = "LblLimitSorry"
-        Me.LblLimitSorry.Size = New System.Drawing.Size(96, 27)
-        Me.LblLimitSorry.TabIndex = 2
-        Me.LblLimitSorry.Text = "Label15"
-        '
-        'LblLimitAcc
-        '
-        Me.LblLimitAcc.AutoSize = True
-        Me.LblLimitAcc.Location = New System.Drawing.Point(85, 101)
-        Me.LblLimitAcc.Name = "LblLimitAcc"
-        Me.LblLimitAcc.Size = New System.Drawing.Size(63, 18)
-        Me.LblLimitAcc.TabIndex = 1
-        Me.LblLimitAcc.Text = "Label14"
-        '
-        'LblLimitMax
-        '
-        Me.LblLimitMax.AutoSize = True
-        Me.LblLimitMax.Location = New System.Drawing.Point(42, 72)
-        Me.LblLimitMax.Name = "LblLimitMax"
-        Me.LblLimitMax.Size = New System.Drawing.Size(63, 18)
-        Me.LblLimitMax.TabIndex = 0
-        Me.LblLimitMax.Text = "Label13"
-        '
         'ComboBox1
         '
         Me.ComboBox1.BackColor = System.Drawing.Color.White
@@ -399,7 +337,6 @@ Partial Class FrNewAcc
         Me.ControlBox = False
         Me.Controls.Add(Me.BtnNewAccType)
         Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.PnlLimit)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.BtnCancel)
@@ -430,8 +367,6 @@ Partial Class FrNewAcc
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Create New Account"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.PnlLimit.ResumeLayout(False)
-        Me.PnlLimit.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -460,11 +395,6 @@ Partial Class FrNewAcc
     Friend WithEvents BtnCancel As Button
     Friend WithEvents Label9 As Label
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents PnlLimit As Panel
-    Friend WithEvents LblLimitMax As Label
-    Friend WithEvents LblLimitAcc As Label
-    Friend WithEvents LblLimitSorry As Label
-    Friend WithEvents BtnClose As Button
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents BtnNewAccType As Button
 End Class

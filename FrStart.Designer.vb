@@ -54,7 +54,6 @@ Partial Class FrStart
         Me.TextBox10 = New System.Windows.Forms.TextBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
-        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -372,24 +371,6 @@ Partial Class FrStart
         Me.Timer2.Enabled = True
         Me.Timer2.Interval = 500
         '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.RosyBrown
-        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.Button1.FlatAppearance.BorderSize = 2
-        Me.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonShadow
-        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.Black
-        Me.Button1.Location = New System.Drawing.Point(160, 326)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(139, 39)
-        Me.Button1.TabIndex = 45
-        Me.Button1.Text = "Calendar"
-        Me.Button1.UseVisualStyleBackColor = False
-        '
         'FrStart
         '
         Me.AccessibleName = "Form1"
@@ -399,7 +380,6 @@ Partial Class FrStart
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.CancelButton = Me.BtnExit
         Me.ClientSize = New System.Drawing.Size(580, 377)
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.TextBox10)
         Me.Controls.Add(Me.Label13)
@@ -476,5 +456,4 @@ Partial Class FrStart
     Friend WithEvents TextBox10 As TextBox
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents Timer2 As Timer
-    Friend WithEvents Button1 As Button
 End Class

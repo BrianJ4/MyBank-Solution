@@ -23,19 +23,25 @@ Public Class FrProcessDirectDebits
         Call LoadOrders()
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BtnRefresh.Click
-        My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
-        If DateTimePicker1.Value < Now Then
-            MessageBox.Show("Date Must be some time after Today's Date", "MyBank Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        Else
-            Panel4.Visible = False
-            Label2.Visible = False
-            BtnSave.Visible = False
-            LblNoOrders.Visible = True
-            Call LoadOrders()
-            Call GridUpdate()
-            Call AddTransactonRows()
-        End If
-        NotifyIcon1.ShowBalloonTip(10000, "Info", "Available Transactions Complete", ToolTipIcon.Info)
+        Try
+            My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
+            If DateTimePicker1.Value < Now Then
+                MyMsg = " Date must be some time" & vbNewLine & " after today's date."
+                MyMsgFlag = False
+                FrMsgOk.ShowDialog()
+            Else
+                Panel4.Visible = False
+                Label2.Visible = False
+                BtnSave.Visible = False
+                LblNoOrders.Visible = True
+                Call LoadOrders()
+                Call GridUpdate()
+                Call AddTransactonRows()
+            End If
+        Catch ex As Exception
+            MyErrors = ex.Message
+            FrError.Show()
+        End Try
     End Sub
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
         My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
@@ -44,6 +50,9 @@ Public Class FrProcessDirectDebits
         My.Settings.TransRefNo = TotalRef
         My.Settings.TransDataChanged = True
         My.Settings.Save()
+        MyMsg = "Successfully Completed Transactions"
+        MyMsgFlag = False
+        FrMsgOk.ShowDialog()
         FrMainMenu.Show()
         Me.Close()
     End Sub
@@ -62,7 +71,9 @@ Public Class FrProcessDirectDebits
             Do
                 sline = thereader.ReadLine
                 If sline = Nothing Then Exit Do
+#Disable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 Dim words() As String = sline.Split(",")
+#Enable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 If words.Length = colsexpected Then
                     OrderRef(I) = CInt(words(0))
                     OrderAccRef(I) = CInt(words(1))
@@ -80,7 +91,8 @@ Public Class FrProcessDirectDebits
                     OrderState(I) = words(13)
                     OrderTransDate(I) = OrderPointDate(I)
                 Else
-                    MsgBox("Error On Line :-" & I.ToString & "---" & words.Length.ToString)
+                    MyErrors = " ERROR Orders file corrupt"
+                    FrError.Show()
                 End If
                 I = I + 1
             Loop
@@ -99,7 +111,7 @@ Public Class FrProcessDirectDebits
                 PrintLine(1, OrderRef(I) & "," & OrderAccRef(I) & "," & OrderStartDate(I) & "," & OrderEndDate(I) & "," & OrderPointDate(I) & "," & OrderValue(I) & "," & OrderDebCre(I) & "," & OrderType(I) & "," & OrderToFrom(I) & "," & OrderCategory(I) & "," & OrderSubCategory(I) & "," & OrderDayCount(I) & "," & OrderIntervalType(I) & "," & OrderState(I))
             Next
             FileClose(1)
-            NotifyIcon1.ShowBalloonTip(10000, "Info", "Transactions Complete", ToolTipIcon.Info)
+            'NotifyIcon1.ShowBalloonTip(10000, "Info", "Transactions Complete", ToolTipIcon.Info)
             For I = 1 To 1000
             Next
             FileClose(1)
@@ -116,10 +128,20 @@ Public Class FrProcessDirectDebits
             For Each row As DataGridViewRow In DataGridView1.Rows
                 'get the cells
                 For Each cell As DataGridViewCell In row.Cells
+#Disable Warning BC42016 ' Implicit conversion from 'Object' to 'String'.
+#Disable Warning BC42017 ' Late bound resolution; runtime errors could occur.
+#Disable Warning BC42019 ' Operands of type Object used for operator '&'; runtime errors could occur.
+#Disable Warning BC42019 ' Operands of type Object used for operator '&'; runtime errors could occur.
                     thecsvfile = thecsvfile & cell.FormattedValue.replace(",", "") & ","
+#Enable Warning BC42019 ' Operands of type Object used for operator '&'; runtime errors could occur.
+#Enable Warning BC42019 ' Operands of type Object used for operator '&'; runtime errors could occur.
+#Enable Warning BC42017 ' Late bound resolution; runtime errors could occur.
+#Enable Warning BC42016 ' Implicit conversion from 'Object' to 'String'.
                 Next
                 'trim the last comma
+#Disable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 thecsvfile = thecsvfile.TrimEnd(",")
+#Enable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 'Add the line to the output
                 thecsvfile = thecsvfile & vbCr & vbLf
             Next

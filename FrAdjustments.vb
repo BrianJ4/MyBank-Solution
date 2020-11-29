@@ -76,7 +76,9 @@ Public Class FrAdjustments
             Do
                 sline = thereader.ReadLine
                 If sline = Nothing Then Exit Do
+#Disable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 Dim words() As String = sline.Split(",")
+#Enable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 AccRef = CInt(words(0))
                 FrDate = CDate(words(1))
                 TransNo = CInt(words(2))

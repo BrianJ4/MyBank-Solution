@@ -42,7 +42,7 @@ Partial Class FrCalculator
         Me.CmdClear = New System.Windows.Forms.Button()
         Me.CmdPer = New System.Windows.Forms.Button()
         Me.TxtOutput = New System.Windows.Forms.TextBox()
-        Me.Button20 = New System.Windows.Forms.Button()
+        Me.BtnClose = New System.Windows.Forms.Button()
         Me.LblHeader = New System.Windows.Forms.Label()
         Me.LblList = New System.Windows.Forms.Label()
         Me.LblFooter = New System.Windows.Forms.Label()
@@ -56,11 +56,11 @@ Partial Class FrCalculator
         Me.Btn0.FlatAppearance.BorderSize = 2
         Me.Btn0.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
         Me.Btn0.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Btn0.Font = New System.Drawing.Font("Arial", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn0.Location = New System.Drawing.Point(34, 328)
+        Me.Btn0.Font = New System.Drawing.Font("Arial Black", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btn0.Location = New System.Drawing.Point(26, 298)
         Me.Btn0.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Btn0.Name = "Btn0"
-        Me.Btn0.Size = New System.Drawing.Size(108, 50)
+        Me.Btn0.Size = New System.Drawing.Size(88, 40)
         Me.Btn0.TabIndex = 0
         Me.Btn0.Text = "0"
         Me.Btn0.UseVisualStyleBackColor = False
@@ -73,11 +73,11 @@ Partial Class FrCalculator
         Me.CmdDot.FlatAppearance.BorderSize = 2
         Me.CmdDot.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
         Me.CmdDot.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CmdDot.Font = New System.Drawing.Font("Arial Black", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CmdDot.Location = New System.Drawing.Point(153, 326)
+        Me.CmdDot.Font = New System.Drawing.Font("Arial Black", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdDot.Location = New System.Drawing.Point(122, 298)
         Me.CmdDot.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CmdDot.Name = "CmdDot"
-        Me.CmdDot.Size = New System.Drawing.Size(50, 50)
+        Me.CmdDot.Size = New System.Drawing.Size(40, 40)
         Me.CmdDot.TabIndex = 1
         Me.CmdDot.Text = "."
         Me.CmdDot.UseVisualStyleBackColor = False
@@ -90,11 +90,11 @@ Partial Class FrCalculator
         Me.CmdPlus.FlatAppearance.BorderSize = 2
         Me.CmdPlus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
         Me.CmdPlus.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CmdPlus.Font = New System.Drawing.Font("Arial Black", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CmdPlus.Location = New System.Drawing.Point(211, 327)
+        Me.CmdPlus.Font = New System.Drawing.Font("Arial Black", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdPlus.Location = New System.Drawing.Point(170, 297)
         Me.CmdPlus.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CmdPlus.Name = "CmdPlus"
-        Me.CmdPlus.Size = New System.Drawing.Size(50, 50)
+        Me.CmdPlus.Size = New System.Drawing.Size(40, 40)
         Me.CmdPlus.TabIndex = 2
         Me.CmdPlus.Text = "+"
         Me.CmdPlus.UseVisualStyleBackColor = False
@@ -107,11 +107,11 @@ Partial Class FrCalculator
         Me.CmdEqual.FlatAppearance.BorderSize = 2
         Me.CmdEqual.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
         Me.CmdEqual.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CmdEqual.Font = New System.Drawing.Font("Arial Black", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CmdEqual.Location = New System.Drawing.Point(269, 328)
+        Me.CmdEqual.Font = New System.Drawing.Font("Arial Black", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdEqual.Location = New System.Drawing.Point(218, 297)
         Me.CmdEqual.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CmdEqual.Name = "CmdEqual"
-        Me.CmdEqual.Size = New System.Drawing.Size(50, 50)
+        Me.CmdEqual.Size = New System.Drawing.Size(40, 40)
         Me.CmdEqual.TabIndex = 3
         Me.CmdEqual.Text = "="
         Me.CmdEqual.UseVisualStyleBackColor = False
@@ -124,11 +124,11 @@ Partial Class FrCalculator
         Me.Btn1.FlatAppearance.BorderSize = 2
         Me.Btn1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
         Me.Btn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Btn1.Font = New System.Drawing.Font("Arial Black", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn1.Location = New System.Drawing.Point(34, 270)
+        Me.Btn1.Font = New System.Drawing.Font("Arial Black", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btn1.Location = New System.Drawing.Point(26, 250)
         Me.Btn1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Btn1.Name = "Btn1"
-        Me.Btn1.Size = New System.Drawing.Size(50, 50)
+        Me.Btn1.Size = New System.Drawing.Size(40, 40)
         Me.Btn1.TabIndex = 4
         Me.Btn1.Text = "1"
         Me.Btn1.UseVisualStyleBackColor = False
@@ -141,11 +141,11 @@ Partial Class FrCalculator
         Me.Btn2.FlatAppearance.BorderSize = 2
         Me.Btn2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
         Me.Btn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Btn2.Font = New System.Drawing.Font("Arial Black", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn2.Location = New System.Drawing.Point(92, 270)
+        Me.Btn2.Font = New System.Drawing.Font("Arial Black", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btn2.Location = New System.Drawing.Point(74, 251)
         Me.Btn2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Btn2.Name = "Btn2"
-        Me.Btn2.Size = New System.Drawing.Size(50, 50)
+        Me.Btn2.Size = New System.Drawing.Size(40, 40)
         Me.Btn2.TabIndex = 5
         Me.Btn2.Text = "2"
         Me.Btn2.UseVisualStyleBackColor = False
@@ -158,11 +158,11 @@ Partial Class FrCalculator
         Me.Btn3.FlatAppearance.BorderSize = 2
         Me.Btn3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
         Me.Btn3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Btn3.Font = New System.Drawing.Font("Arial Black", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn3.Location = New System.Drawing.Point(153, 270)
+        Me.Btn3.Font = New System.Drawing.Font("Arial Black", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btn3.Location = New System.Drawing.Point(122, 250)
         Me.Btn3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Btn3.Name = "Btn3"
-        Me.Btn3.Size = New System.Drawing.Size(50, 50)
+        Me.Btn3.Size = New System.Drawing.Size(40, 40)
         Me.Btn3.TabIndex = 6
         Me.Btn3.Text = "3"
         Me.Btn3.UseVisualStyleBackColor = False
@@ -175,11 +175,11 @@ Partial Class FrCalculator
         Me.CmdMinus.FlatAppearance.BorderSize = 2
         Me.CmdMinus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
         Me.CmdMinus.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CmdMinus.Font = New System.Drawing.Font("Arial Black", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CmdMinus.Location = New System.Drawing.Point(211, 270)
+        Me.CmdMinus.Font = New System.Drawing.Font("Arial Black", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdMinus.Location = New System.Drawing.Point(170, 251)
         Me.CmdMinus.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CmdMinus.Name = "CmdMinus"
-        Me.CmdMinus.Size = New System.Drawing.Size(50, 50)
+        Me.CmdMinus.Size = New System.Drawing.Size(40, 40)
         Me.CmdMinus.TabIndex = 7
         Me.CmdMinus.Text = "-"
         Me.CmdMinus.UseVisualStyleBackColor = False
@@ -193,10 +193,10 @@ Partial Class FrCalculator
         Me.CmdSquare.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
         Me.CmdSquare.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmdSquare.Font = New System.Drawing.Font("Arial Black", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CmdSquare.Location = New System.Drawing.Point(269, 272)
+        Me.CmdSquare.Location = New System.Drawing.Point(218, 251)
         Me.CmdSquare.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CmdSquare.Name = "CmdSquare"
-        Me.CmdSquare.Size = New System.Drawing.Size(50, 50)
+        Me.CmdSquare.Size = New System.Drawing.Size(40, 40)
         Me.CmdSquare.TabIndex = 8
         Me.CmdSquare.Text = "^"
         Me.CmdSquare.UseVisualStyleBackColor = False
@@ -209,11 +209,11 @@ Partial Class FrCalculator
         Me.Btn4.FlatAppearance.BorderSize = 2
         Me.Btn4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
         Me.Btn4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Btn4.Font = New System.Drawing.Font("Arial Black", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn4.Location = New System.Drawing.Point(34, 214)
+        Me.Btn4.Font = New System.Drawing.Font("Arial Black", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btn4.Location = New System.Drawing.Point(26, 204)
         Me.Btn4.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Btn4.Name = "Btn4"
-        Me.Btn4.Size = New System.Drawing.Size(50, 50)
+        Me.Btn4.Size = New System.Drawing.Size(40, 40)
         Me.Btn4.TabIndex = 9
         Me.Btn4.Text = "4"
         Me.Btn4.UseVisualStyleBackColor = False
@@ -226,11 +226,11 @@ Partial Class FrCalculator
         Me.Btn5.FlatAppearance.BorderSize = 2
         Me.Btn5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
         Me.Btn5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Btn5.Font = New System.Drawing.Font("Arial Black", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn5.Location = New System.Drawing.Point(92, 214)
+        Me.Btn5.Font = New System.Drawing.Font("Arial Black", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btn5.Location = New System.Drawing.Point(74, 204)
         Me.Btn5.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Btn5.Name = "Btn5"
-        Me.Btn5.Size = New System.Drawing.Size(50, 50)
+        Me.Btn5.Size = New System.Drawing.Size(40, 40)
         Me.Btn5.TabIndex = 10
         Me.Btn5.Text = "5"
         Me.Btn5.UseVisualStyleBackColor = False
@@ -243,11 +243,11 @@ Partial Class FrCalculator
         Me.Btn6.FlatAppearance.BorderSize = 2
         Me.Btn6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
         Me.Btn6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Btn6.Font = New System.Drawing.Font("Arial Black", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn6.Location = New System.Drawing.Point(153, 214)
+        Me.Btn6.Font = New System.Drawing.Font("Arial Black", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btn6.Location = New System.Drawing.Point(122, 204)
         Me.Btn6.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Btn6.Name = "Btn6"
-        Me.Btn6.Size = New System.Drawing.Size(50, 50)
+        Me.Btn6.Size = New System.Drawing.Size(40, 40)
         Me.Btn6.TabIndex = 11
         Me.Btn6.Text = "6"
         Me.Btn6.UseVisualStyleBackColor = False
@@ -260,11 +260,11 @@ Partial Class FrCalculator
         Me.CmdTimes.FlatAppearance.BorderSize = 2
         Me.CmdTimes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
         Me.CmdTimes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CmdTimes.Font = New System.Drawing.Font("Arial Black", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CmdTimes.Location = New System.Drawing.Point(211, 214)
+        Me.CmdTimes.Font = New System.Drawing.Font("Arial Black", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdTimes.Location = New System.Drawing.Point(170, 204)
         Me.CmdTimes.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CmdTimes.Name = "CmdTimes"
-        Me.CmdTimes.Size = New System.Drawing.Size(50, 50)
+        Me.CmdTimes.Size = New System.Drawing.Size(40, 40)
         Me.CmdTimes.TabIndex = 12
         Me.CmdTimes.Text = "*"
         Me.CmdTimes.UseVisualStyleBackColor = False
@@ -277,11 +277,11 @@ Partial Class FrCalculator
         Me.CmdDivide.FlatAppearance.BorderSize = 2
         Me.CmdDivide.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
         Me.CmdDivide.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CmdDivide.Font = New System.Drawing.Font("Arial Black", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CmdDivide.Location = New System.Drawing.Point(269, 216)
+        Me.CmdDivide.Font = New System.Drawing.Font("Arial Black", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdDivide.Location = New System.Drawing.Point(218, 205)
         Me.CmdDivide.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CmdDivide.Name = "CmdDivide"
-        Me.CmdDivide.Size = New System.Drawing.Size(50, 50)
+        Me.CmdDivide.Size = New System.Drawing.Size(40, 40)
         Me.CmdDivide.TabIndex = 13
         Me.CmdDivide.Text = "/"
         Me.CmdDivide.UseVisualStyleBackColor = False
@@ -294,11 +294,11 @@ Partial Class FrCalculator
         Me.Btn7.FlatAppearance.BorderSize = 2
         Me.Btn7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
         Me.Btn7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Btn7.Font = New System.Drawing.Font("Arial Black", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn7.Location = New System.Drawing.Point(34, 158)
+        Me.Btn7.Font = New System.Drawing.Font("Arial Black", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btn7.Location = New System.Drawing.Point(26, 158)
         Me.Btn7.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Btn7.Name = "Btn7"
-        Me.Btn7.Size = New System.Drawing.Size(50, 50)
+        Me.Btn7.Size = New System.Drawing.Size(40, 40)
         Me.Btn7.TabIndex = 14
         Me.Btn7.Text = "7"
         Me.Btn7.UseVisualStyleBackColor = False
@@ -311,11 +311,11 @@ Partial Class FrCalculator
         Me.Btn8.FlatAppearance.BorderSize = 2
         Me.Btn8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
         Me.Btn8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Btn8.Font = New System.Drawing.Font("Arial Black", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn8.Location = New System.Drawing.Point(92, 158)
+        Me.Btn8.Font = New System.Drawing.Font("Arial Black", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btn8.Location = New System.Drawing.Point(74, 158)
         Me.Btn8.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Btn8.Name = "Btn8"
-        Me.Btn8.Size = New System.Drawing.Size(50, 50)
+        Me.Btn8.Size = New System.Drawing.Size(40, 40)
         Me.Btn8.TabIndex = 15
         Me.Btn8.Text = "8"
         Me.Btn8.UseVisualStyleBackColor = False
@@ -328,11 +328,11 @@ Partial Class FrCalculator
         Me.Btn9.FlatAppearance.BorderSize = 2
         Me.Btn9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
         Me.Btn9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Btn9.Font = New System.Drawing.Font("Arial Black", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn9.Location = New System.Drawing.Point(153, 158)
+        Me.Btn9.Font = New System.Drawing.Font("Arial Black", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btn9.Location = New System.Drawing.Point(122, 158)
         Me.Btn9.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Btn9.Name = "Btn9"
-        Me.Btn9.Size = New System.Drawing.Size(50, 50)
+        Me.Btn9.Size = New System.Drawing.Size(40, 40)
         Me.Btn9.TabIndex = 16
         Me.Btn9.Text = "9"
         Me.Btn9.UseVisualStyleBackColor = False
@@ -345,11 +345,11 @@ Partial Class FrCalculator
         Me.CmdClear.FlatAppearance.BorderSize = 2
         Me.CmdClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
         Me.CmdClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CmdClear.Font = New System.Drawing.Font("Arial Black", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CmdClear.Location = New System.Drawing.Point(211, 158)
+        Me.CmdClear.Font = New System.Drawing.Font("Arial Black", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdClear.Location = New System.Drawing.Point(170, 158)
         Me.CmdClear.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CmdClear.Name = "CmdClear"
-        Me.CmdClear.Size = New System.Drawing.Size(50, 50)
+        Me.CmdClear.Size = New System.Drawing.Size(40, 40)
         Me.CmdClear.TabIndex = 17
         Me.CmdClear.Text = "C"
         Me.CmdClear.UseVisualStyleBackColor = False
@@ -362,11 +362,11 @@ Partial Class FrCalculator
         Me.CmdPer.FlatAppearance.BorderSize = 2
         Me.CmdPer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
         Me.CmdPer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CmdPer.Font = New System.Drawing.Font("Arial Black", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CmdPer.Location = New System.Drawing.Point(269, 158)
+        Me.CmdPer.Font = New System.Drawing.Font("Arial Black", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdPer.Location = New System.Drawing.Point(218, 159)
         Me.CmdPer.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.CmdPer.Name = "CmdPer"
-        Me.CmdPer.Size = New System.Drawing.Size(50, 50)
+        Me.CmdPer.Size = New System.Drawing.Size(40, 40)
         Me.CmdPer.TabIndex = 18
         Me.CmdPer.Text = "%"
         Me.CmdPer.UseVisualStyleBackColor = False
@@ -374,54 +374,55 @@ Partial Class FrCalculator
         'TxtOutput
         '
         Me.TxtOutput.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtOutput.Font = New System.Drawing.Font("Arial Black", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtOutput.Location = New System.Drawing.Point(34, 80)
+        Me.TxtOutput.Font = New System.Drawing.Font("Arial Black", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtOutput.Location = New System.Drawing.Point(32, 77)
         Me.TxtOutput.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TxtOutput.Name = "TxtOutput"
         Me.TxtOutput.ReadOnly = True
-        Me.TxtOutput.Size = New System.Drawing.Size(285, 34)
+        Me.TxtOutput.Size = New System.Drawing.Size(216, 27)
         Me.TxtOutput.TabIndex = 75
         Me.TxtOutput.Text = "0"
         Me.TxtOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'Button20
+        'BtnClose
         '
-        Me.Button20.BackColor = System.Drawing.Color.Tomato
-        Me.Button20.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button20.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.Button20.FlatAppearance.BorderSize = 2
-        Me.Button20.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
-        Me.Button20.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button20.Font = New System.Drawing.Font("Arial", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button20.Location = New System.Drawing.Point(111, 384)
-        Me.Button20.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.Button20.Name = "Button20"
-        Me.Button20.Size = New System.Drawing.Size(150, 40)
-        Me.Button20.TabIndex = 76
-        Me.Button20.Text = "Close"
-        Me.Button20.UseVisualStyleBackColor = False
+        Me.BtnClose.BackColor = System.Drawing.Color.Tomato
+        Me.BtnClose.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnClose.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.BtnClose.FlatAppearance.BorderSize = 2
+        Me.BtnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
+        Me.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnClose.Font = New System.Drawing.Font("Arial Black", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnClose.Location = New System.Drawing.Point(26, 344)
+        Me.BtnClose.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.BtnClose.Name = "BtnClose"
+        Me.BtnClose.Size = New System.Drawing.Size(232, 32)
+        Me.BtnClose.TabIndex = 76
+        Me.BtnClose.Text = "Close"
+        Me.BtnClose.UseVisualStyleBackColor = False
         '
         'LblHeader
         '
         Me.LblHeader.AutoSize = True
         Me.LblHeader.BackColor = System.Drawing.Color.Transparent
-        Me.LblHeader.Font = New System.Drawing.Font("Arial Black", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblHeader.Font = New System.Drawing.Font("Arial", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblHeader.ForeColor = System.Drawing.Color.White
-        Me.LblHeader.Location = New System.Drawing.Point(51, 35)
+        Me.LblHeader.Location = New System.Drawing.Point(55, 41)
         Me.LblHeader.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LblHeader.Name = "LblHeader"
-        Me.LblHeader.Size = New System.Drawing.Size(265, 33)
+        Me.LblHeader.Size = New System.Drawing.Size(186, 22)
         Me.LblHeader.TabIndex = 77
         Me.LblHeader.Text = "MyBank Calculator"
         '
         'LblList
         '
         Me.LblList.BackColor = System.Drawing.Color.Transparent
+        Me.LblList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.LblList.Font = New System.Drawing.Font("Arial Black", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblList.ForeColor = System.Drawing.Color.White
-        Me.LblList.Location = New System.Drawing.Point(44, 126)
+        Me.LblList.Location = New System.Drawing.Point(32, 119)
         Me.LblList.Name = "LblList"
-        Me.LblList.Size = New System.Drawing.Size(263, 20)
+        Me.LblList.Size = New System.Drawing.Size(209, 20)
         Me.LblList.TabIndex = 78
         Me.LblList.Text = "List"
         Me.LblList.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -431,7 +432,7 @@ Partial Class FrCalculator
         Me.LblFooter.AutoSize = True
         Me.LblFooter.Font = New System.Drawing.Font("Arial Black", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblFooter.ForeColor = System.Drawing.Color.White
-        Me.LblFooter.Location = New System.Drawing.Point(70, 427)
+        Me.LblFooter.Location = New System.Drawing.Point(28, 391)
         Me.LblFooter.Name = "LblFooter"
         Me.LblFooter.Size = New System.Drawing.Size(223, 23)
         Me.LblFooter.TabIndex = 79
@@ -441,13 +442,13 @@ Partial Class FrCalculator
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.Navy
-        Me.ClientSize = New System.Drawing.Size(359, 451)
+        Me.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.ClientSize = New System.Drawing.Size(284, 451)
         Me.ControlBox = False
         Me.Controls.Add(Me.LblFooter)
         Me.Controls.Add(Me.LblList)
         Me.Controls.Add(Me.LblHeader)
-        Me.Controls.Add(Me.Button20)
+        Me.Controls.Add(Me.BtnClose)
         Me.Controls.Add(Me.TxtOutput)
         Me.Controls.Add(Me.CmdPer)
         Me.Controls.Add(Me.CmdClear)
@@ -472,9 +473,9 @@ Partial Class FrCalculator
         Me.Font = New System.Drawing.Font("Arial Black", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(375, 490)
+        Me.MaximumSize = New System.Drawing.Size(300, 490)
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(375, 490)
+        Me.MinimumSize = New System.Drawing.Size(300, 490)
         Me.Name = "FrCalculator"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FrCalculator"
@@ -503,7 +504,7 @@ Partial Class FrCalculator
     Friend WithEvents CmdClear As Button
     Friend WithEvents CmdPer As Button
     Friend WithEvents TxtOutput As TextBox
-    Friend WithEvents Button20 As Button
+    Friend WithEvents BtnClose As Button
     Friend WithEvents LblHeader As Label
     Friend WithEvents LblList As Label
     Friend WithEvents LblFooter As Label

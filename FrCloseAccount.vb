@@ -4,14 +4,11 @@ Public Class FrCloseAccount
     Dim blink As Boolean
     Private Sub FrCloseAccount_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.BackColor = My.Settings.BkColour
-        Label1.ForeColor = My.Settings.TxColour
-        Label2.ForeColor = My.Settings.TxColour
-        Label3.ForeColor = My.Settings.TxColour
-        Label4.ForeColor = My.Settings.TxColour
-
-        BtnClose.Visible = False
+        LblHead.ForeColor = My.Settings.TxColour
+        LblBank.ForeColor = My.Settings.TxColour
+        LblAccount.ForeColor = My.Settings.TxColour
         BtnCloseAcc.Visible = False
-        Label2.Text = ""
+        BtnCloseAcc.Enabled = False
         Call BaseForm_Load()
         Call LoadAccounts()
     End Sub
@@ -28,32 +25,36 @@ Public Class FrCloseAccount
         Me.Close()
     End Sub
     Private Sub BtnCloseAcc_Click(sender As Object, e As EventArgs) Handles BtnCloseAcc.Click
-        Flag = False
-        If MsgBox("Remove this Account will permanently delete all associate Transactions", MsgBoxStyle.OkCancel) = MsgBoxResult.Ok Then
+        My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
+        Try
             If My.Settings.CloseAccount = True Then
                 Timer1.Stop()
                 Me.BtnCloseAcc.BackColor = Color.Green
+                BtnCancel.Visible = False
+                BtnCancel.Enabled = False
                 Call CloseAccount()
                 My.Settings.CloseAccount = False
                 My.Settings.Save()
                 BtnCloseAcc.Visible = False
-                BtnCancel.Visible = False
-                BtnClose.Visible = True
-                Flag = True
-            End If
-        End If
-        If Flag = False Then
-            If MessageBox.Show("Account Remains Active", "MyBank Information", MessageBoxButtons.OK, MessageBoxIcon.Information) = MsgBoxResult.Ok Then
+                BtnCloseAcc.Enabled = False
+                BtnCancel.Enabled = True
+                BtnCancel.Visible = True
+                MyMsg = "   Account Successfully Deleted"
+                MyMsgFlag = False
+                FrMsgOk.ShowDialog()
+                FrMainMenu.Show()
+                Me.Close()
+            Else
+                MyMsg = "   Account Remains Active"
+                MyMsgFlag = False
+                FrMsgOk.ShowDialog()
                 FrMainMenu.Show()
                 Me.Close()
             End If
-        End If
-        If Flag = True Then
-            If MessageBox.Show("Account Successfully Deleted", "MyBank Information", MessageBoxButtons.OK, MessageBoxIcon.Information) = MsgBoxResult.Ok Then
-                FrMainMenu.Show()
-                Me.Close()
-            End If
-        End If
+        Catch ex As Exception
+            MyErrors = ex.Message
+            FrError.Show()
+        End Try
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
@@ -71,14 +72,17 @@ Timer1_Tick:
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CBoxBank.SelectedIndexChanged
         Try
             'Load Accounts
-            Label2.Text = ""
+#Disable Warning BC42032 ' Operands of type Object used for operator '<>'; use the 'IsNot' operator to test object identity.
             If CBoxBank.SelectedItem <> "" Then
+#Enable Warning BC42032 ' Operands of type Object used for operator '<>'; use the 'IsNot' operator to test object identity.
                 CBoxAccount.Visible = True
                 CBoxAccount.ResetText()
                 CBoxAccount.Items.Clear()
                 CommonLoadAccount()
                 For I = 1 To AccIndex
+#Disable Warning BC42018 ' Operands of type Object used for operator '='; use the 'Is' operator to test object identity.
                     If LvBank(I) = CBoxBank.SelectedItem Then
+#Enable Warning BC42018 ' Operands of type Object used for operator '='; use the 'Is' operator to test object identity.
                         CBoxAccount.Items.Add(LvType(I))
                     End If
                 Next
@@ -117,7 +121,6 @@ Timer1_Tick:
             My.Settings.CloseAccount = False
             My.Settings.Save()
             AccState = 0
-            Label2.Text = ""
             BtnCloseAcc.Visible = False
             'Set Chosen Account 
             FrAccName = CStr(CBoxBank.SelectedItem)
@@ -148,9 +151,14 @@ Timer1_Tick:
                     My.Settings.CloseAccount = True
                     My.Settings.Save()
                     BtnCloseAcc.Visible = True
+                    BtnCloseAcc.Enabled = True
                 End If
             Else
-                Label2.Text = "Account must have a £0.00 Balance"
+                BtnCloseAcc.Visible = False
+                BtnCloseAcc.Enabled = False
+                MyMsg = " Account must have a £0.00 Balance"
+                MyMsgFlag = False
+                FrMsgOk.ShowDialog()
             End If
         Catch ex As Exception
             MyErrors = ex.Message
@@ -213,7 +221,9 @@ Timer1_Tick:
             Do
                 sline = thereader.ReadLine
                 If sline = Nothing Then Exit Do
+#Disable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 Dim words() As String = sline.Split(",")
+#Enable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 If words.Length = colsexpected Then
                     AccRef = CInt(words(0))
                     FrDates = words(1)
@@ -265,7 +275,9 @@ Timer1_Tick:
             Do
                 sline = thereader1.ReadLine
                 If sline = Nothing Then Exit Do
+#Disable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 Dim words() As String = sline.Split(",")
+#Enable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 If words.Length = colsexpected Then
                     OrderRef(I) = CInt(words(0))
                     OrderAccRef(I) = CInt(words(1))
@@ -304,11 +316,6 @@ Timer1_Tick:
             MakePathOld = My.Settings.ProSetPath & "Current_Orders1.mbtd"
             MakePath = "Current_Orders.mbtd"
             My.Computer.FileSystem.RenameFile(MakePathOld, MakePath)
-
-            'Notify
-            Label2.Text = "You have Closed :- " & FrAccName & "  " & FrAccType
-            MyNotify = "You have Closed :- " & Environment.NewLine & FrAccName & Environment.NewLine & FrAccType & " Account"
-            NotifyIcon1.ShowBalloonTip(10000, " Information", MyNotify, ToolTipIcon.Info)
         Catch ex As Exception
             MyErrors = ex.Message
             FrError.Show()
@@ -336,6 +343,4 @@ Timer1_Tick:
             p.Dispose()
         End If
     End Sub
-
-
 End Class

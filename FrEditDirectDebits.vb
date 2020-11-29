@@ -67,19 +67,8 @@ Public Class FrEditDirectDebits
     End Sub
     Private Sub DataGridView1_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellClick
         Dim row As DataGridViewRow = DataGridView1.CurrentRow
-        'Me.tbAmount.Text = row.Cells(4).Value.ToString()
         BlankValue = 0.00
         Me.tbAmount.Text = Format(BlankValue, "##,##0.00").ToString
-        'Me.Label4.Text = row.Cells(4).Value.ToString()
-        'Me.TextBox2.Text = row.Cells(2).Value.ToString()
-        'Me.ComboBox1.Text = row.Cells(3).Value.ToString()
-        'Me.ComboBox2.Text = row.Cells(4).Value.ToString()
-        'Me.TextBox5.Text = row.Cells(5).Value.ToString()
-        'Me.TextBox3.Text = row.Cells(6).Value.ToString()
-        'Me.TextBox4.Text = row.Cells(7).Value.ToString()
-        'Me.RichTextBox1.Text = row.Cells(8).Value.ToString()
-        'Me.RichTextBox2.Text = row.Cells(9).Value.ToString()
-        'Me.Label14.Text = row.Cells(10).Value.ToString()
     End Sub
     Public Sub LoadOrders()
         Try
@@ -91,7 +80,9 @@ Public Class FrEditDirectDebits
             Do
                 sline = thereader.ReadLine
                 If sline = Nothing Then Exit Do
+#Disable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 Dim words() As String = sline.Split(",")
+#Enable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 If words.Length = colsexpected Then
                     OrderRef(I) = CInt(words(0))
                     OrderAccRef(I) = CInt(words(1))
@@ -131,7 +122,9 @@ Public Class FrEditDirectDebits
                 PrintLine(1, OrderRef(I) & "," & OrderAccRef(I) & "," & OrderStartDate(I) & "," & OrderEndDate(I) & "," & OrderPointDate(I) & "," & OrderValue(I) & "," & OrderDebCre(I) & "," & OrderType(I) & "," & OrderToFrom(I) & "," & OrderCategory(I) & "," & OrderSubCategory(I) & "," & OrderDayCount(I) & "," & OrderIntervalType(I) & "," & OrderState(I))
             Next I
             FileClose(1)
-            NotifyIcon1.ShowBalloonTip(10000, "Info", "Orders have been Saved", ToolTipIcon.Info)
+            MyMsg = " Changes have been Saved"
+            MyMsgFlag = False
+            FrMsgOk.ShowDialog()
         Catch ex As Exception
             MyErrors = ex.Message
             FrError.Show()
@@ -141,7 +134,10 @@ Public Class FrEditDirectDebits
         Try
             My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
             If CInt(DataGridView1.CurrentRow.Cells(4).Value) > 1 Then
-                If MsgBox("Are you sure that you want to Remove this Order", MsgBoxStyle.OkCancel) = MsgBoxResult.Ok Then
+                MyMsg = "Deleting Order. Continue?"
+                MyMsgFlag = False
+                FrMsgYesNo.ShowDialog()
+                If MyMsgFlag = True Then
                     My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
                     My.Settings.EditTransNo = CInt(DataGridView1.CurrentRow.Cells(0).Value)
                     My.Settings.Save()
@@ -156,11 +152,11 @@ Public Class FrEditDirectDebits
                         End If
                     Next I
                     FileClose(1)
-                    NotifyIcon1.ShowBalloonTip(10000, "Info", "Orders have been Deleted", ToolTipIcon.Info)
                 End If
             Else
-                MsgBox("You Must Select an Order")
-
+                MyMsg = " You Must Select an Order"
+                MyMsgFlag = False
+                FrMsgOk.ShowDialog()
             End If
         Catch ex As Exception
             MyErrors = ex.Message
@@ -172,7 +168,6 @@ Public Class FrEditDirectDebits
             'ADD ROWS 
             For I = 1 To NumberOfEntries
                 'Fill Row Details
-                Dim Bal As Double
                 Dim R As New DataGridViewRow
                 Dim Rt As New DataGridViewTextBoxCell
                 Rt = New DataGridViewTextBoxCell With {
@@ -207,8 +202,6 @@ Public Class FrEditDirectDebits
                                 }
                     R.Cells.Add(Rt)
                 End If
-
-
                 Me.DataGridView1.Rows.Add(R)
             Next I
         Catch ex As Exception

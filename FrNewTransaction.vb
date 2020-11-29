@@ -294,7 +294,9 @@ Public Class FrNewTransaction
             Do
                 sline = thereader.ReadLine
                 If sline = Nothing Then Exit Do
+#Disable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 Dim words() As String = sline.Split(",")
+#Enable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 I = I + 1
                 ToFrom(I) = words(0)
                 Category(I) = words(1)
@@ -338,7 +340,9 @@ Public Class FrNewTransaction
             Do
                 sline = thereader.ReadLine
                 If sline = Nothing Then Exit Do
+#Disable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 Dim words() As String = sline.Split(",")
+#Enable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 I += 1
                 ToFrom(I) = words(5)
                 Category(I) = words(6)

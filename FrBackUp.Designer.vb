@@ -51,7 +51,7 @@ Partial Class FrBackUp
         Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(12, 100)
+        Me.Button1.Location = New System.Drawing.Point(47, 153)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(166, 30)
         Me.Button1.TabIndex = 0
@@ -67,7 +67,7 @@ Partial Class FrBackUp
         Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(12, 149)
+        Me.Button2.Location = New System.Drawing.Point(47, 204)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(166, 30)
         Me.Button2.TabIndex = 1
@@ -83,7 +83,7 @@ Partial Class FrBackUp
         Me.BtnCopy.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
         Me.BtnCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnCopy.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCopy.Location = New System.Drawing.Point(88, 203)
+        Me.BtnCopy.Location = New System.Drawing.Point(123, 260)
         Me.BtnCopy.Name = "BtnCopy"
         Me.BtnCopy.Size = New System.Drawing.Size(90, 30)
         Me.BtnCopy.TabIndex = 2
@@ -93,22 +93,22 @@ Partial Class FrBackUp
         'LblCurrentDir
         '
         Me.LblCurrentDir.AutoSize = True
-        Me.LblCurrentDir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblCurrentDir.Font = New System.Drawing.Font("Arial Black", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblCurrentDir.ForeColor = System.Drawing.Color.White
-        Me.LblCurrentDir.Location = New System.Drawing.Point(184, 114)
+        Me.LblCurrentDir.Location = New System.Drawing.Point(231, 161)
         Me.LblCurrentDir.Name = "LblCurrentDir"
-        Me.LblCurrentDir.Size = New System.Drawing.Size(124, 16)
+        Me.LblCurrentDir.Size = New System.Drawing.Size(157, 22)
         Me.LblCurrentDir.TabIndex = 4
         Me.LblCurrentDir.Text = "Current Directory"
         '
         'LblBackUpDir
         '
         Me.LblBackUpDir.AutoSize = True
-        Me.LblBackUpDir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblBackUpDir.Font = New System.Drawing.Font("Arial Black", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblBackUpDir.ForeColor = System.Drawing.Color.White
-        Me.LblBackUpDir.Location = New System.Drawing.Point(184, 163)
+        Me.LblBackUpDir.Location = New System.Drawing.Point(231, 212)
         Me.LblBackUpDir.Name = "LblBackUpDir"
-        Me.LblBackUpDir.Size = New System.Drawing.Size(130, 16)
+        Me.LblBackUpDir.Size = New System.Drawing.Size(158, 22)
         Me.LblBackUpDir.TabIndex = 5
         Me.LblBackUpDir.Text = "BackUp Directory"
         '
@@ -131,7 +131,7 @@ Partial Class FrBackUp
         Me.BtnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
         Me.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnClose.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnClose.Location = New System.Drawing.Point(372, 203)
+        Me.BtnClose.Location = New System.Drawing.Point(441, 304)
         Me.BtnClose.Name = "BtnClose"
         Me.BtnClose.Size = New System.Drawing.Size(90, 30)
         Me.BtnClose.TabIndex = 9
@@ -141,11 +141,11 @@ Partial Class FrBackUp
         'LblHead
         '
         Me.LblHead.AutoSize = True
-        Me.LblHead.Font = New System.Drawing.Font("Arial Black", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblHead.Font = New System.Drawing.Font("Arial Black", 15.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblHead.ForeColor = System.Drawing.Color.White
-        Me.LblHead.Location = New System.Drawing.Point(161, 35)
+        Me.LblHead.Location = New System.Drawing.Point(153, 45)
         Me.LblHead.Name = "LblHead"
-        Me.LblHead.Size = New System.Drawing.Size(147, 27)
+        Me.LblHead.Size = New System.Drawing.Size(159, 30)
         Me.LblHead.TabIndex = 10
         Me.LblHead.Text = "Data Backup"
         '
@@ -158,7 +158,7 @@ Partial Class FrBackUp
         '
         Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(341, 58)
+        Me.PictureBox2.Location = New System.Drawing.Point(429, 80)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(75, 50)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -170,7 +170,7 @@ Partial Class FrBackUp
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.LightGreen
-        Me.Label2.Location = New System.Drawing.Point(328, 29)
+        Me.Label2.Location = New System.Drawing.Point(415, 35)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(104, 26)
         Me.Label2.TabIndex = 39
@@ -180,11 +180,11 @@ Partial Class FrBackUp
         'LblComplete
         '
         Me.LblComplete.AutoSize = True
-        Me.LblComplete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblComplete.Font = New System.Drawing.Font("Arial Black", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblComplete.ForeColor = System.Drawing.Color.White
-        Me.LblComplete.Location = New System.Drawing.Point(199, 236)
+        Me.LblComplete.Location = New System.Drawing.Point(231, 307)
         Me.LblComplete.Name = "LblComplete"
-        Me.LblComplete.Size = New System.Drawing.Size(130, 16)
+        Me.LblComplete.Size = New System.Drawing.Size(156, 22)
         Me.LblComplete.TabIndex = 40
         Me.LblComplete.Text = "Backup Complete"
         '
@@ -192,9 +192,9 @@ Partial Class FrBackUp
         '
         Me.ProgressBar1.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ProgressBar1.ForeColor = System.Drawing.Color.DarkGreen
-        Me.ProgressBar1.Location = New System.Drawing.Point(199, 218)
+        Me.ProgressBar1.Location = New System.Drawing.Point(235, 275)
         Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(130, 15)
+        Me.ProgressBar1.Size = New System.Drawing.Size(248, 15)
         Me.ProgressBar1.TabIndex = 41
         '
         'FrBackUp
@@ -202,7 +202,7 @@ Partial Class FrBackUp
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Navy
-        Me.ClientSize = New System.Drawing.Size(484, 261)
+        Me.ClientSize = New System.Drawing.Size(634, 361)
         Me.ControlBox = False
         Me.Controls.Add(Me.ProgressBar1)
         Me.Controls.Add(Me.LblComplete)
@@ -218,8 +218,8 @@ Partial Class FrBackUp
         Me.Controls.Add(Me.Button1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MaximumSize = New System.Drawing.Size(500, 300)
-        Me.MinimumSize = New System.Drawing.Size(500, 300)
+        Me.MaximumSize = New System.Drawing.Size(650, 400)
+        Me.MinimumSize = New System.Drawing.Size(650, 400)
         Me.Name = "FrBackUp"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "BackUp"

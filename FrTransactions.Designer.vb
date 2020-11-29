@@ -22,8 +22,6 @@ Partial Class FrTransactions
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrTransactions))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -37,8 +35,7 @@ Partial Class FrTransactions
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrTransactions))
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.DgAccReff = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -67,17 +64,6 @@ Partial Class FrTransactions
         Me.BtnCalculator = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'Timer1
-        '
-        Me.Timer1.Enabled = True
-        '
-        'NotifyIcon1
-        '
-        Me.NotifyIcon1.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info
-        Me.NotifyIcon1.Icon = CType(resources.GetObject("NotifyIcon1.Icon"), System.Drawing.Icon)
-        Me.NotifyIcon1.Text = "NotifyIcon1"
-        Me.NotifyIcon1.Visible = True
         '
         'DataGridView1
         '
@@ -484,11 +470,11 @@ Partial Class FrTransactions
         Me.BtnCalculator.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnCalculator.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCalculator.ForeColor = System.Drawing.Color.Black
-        Me.BtnCalculator.Location = New System.Drawing.Point(1116, 427)
+        Me.BtnCalculator.Location = New System.Drawing.Point(851, 567)
         Me.BtnCalculator.Name = "BtnCalculator"
-        Me.BtnCalculator.Size = New System.Drawing.Size(56, 23)
+        Me.BtnCalculator.Size = New System.Drawing.Size(103, 23)
         Me.BtnCalculator.TabIndex = 36
-        Me.BtnCalculator.Text = "Calc"
+        Me.BtnCalculator.Text = "Calculator"
         Me.BtnCalculator.UseVisualStyleBackColor = False
         '
         'FrTransactions
@@ -530,8 +516,6 @@ Partial Class FrTransactions
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Timer1 As Timer
-    Friend WithEvents NotifyIcon1 As NotifyIcon
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents DgAccReff As DataGridViewTextBoxColumn
     Friend WithEvents dgDate As DataGridViewTextBoxColumn

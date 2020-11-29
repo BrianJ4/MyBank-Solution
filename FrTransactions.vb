@@ -3,7 +3,6 @@ Imports System.Text
 Public Class FrTransactions
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         '######################################  Manual  Set Number of Transactions   #########################
-
         'My.Settings.TransRefNo = 1300
         'My.Settings.TotalTrans = 1000
         'My.Settings.Save()
@@ -17,7 +16,6 @@ Public Class FrTransactions
         BtnAdd.Enabled = False
         BtnEdit.Enabled = False
         DataGridView1.BackgroundColor = My.Settings.BkColour
-
         Call BaseForm_Load()
         UseWaitCursor = False
         SetPath = My.Settings.ProSetPath
@@ -30,15 +28,18 @@ Public Class FrTransactions
         If FrNewTransaction.Flag = True Then
             CBoxBank.SelectedItem = My.Settings.AccBank
             CBoxAccount.SelectedItem = My.Settings.AccType
-            Timer1.Interval = 1000
         End If
         If FrEditTransactions.Flag = True Then
             CBoxBank.SelectedItem = My.Settings.AccBank
             CBoxAccount.SelectedItem = My.Settings.AccType
-            Timer1.Interval = 1000
         End If
         Call SortTransactionData()
         LblLastAction.Text = "Total Number of Entries = " & My.Settings.TotalTrans.ToString & "  Last AccRef :-" & My.Settings.TransRefNo.ToString
+        With ProgressBar1
+            .Minimum = 0
+            .Maximum = 20000
+            .Increment(1)
+        End With
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BtnClear.Click
         My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
@@ -52,7 +53,9 @@ Public Class FrTransactions
             Call SortTransactionData()
             Call ViewAcc()
         Else
-            MsgBox("You Must Select a Transaction")
+            MyMsg = "You Must Select a Transaction"
+            MyMsgFlag = False
+            FrMsgOk.ShowDialog()
         End If
     End Sub
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles BtnNotClear.Click
@@ -67,7 +70,9 @@ Public Class FrTransactions
             Call SortTransactionData()
             Call ViewAcc()
         Else
-            MsgBox("You Must Select a Transaction")
+            MyMsg = "You Must Select a Transaction"
+            MyMsgFlag = False
+            FrMsgOk.ShowDialog()
         End If
     End Sub
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
@@ -91,14 +96,19 @@ Public Class FrTransactions
             FrEditTransactions.Show()
             Me.Close()
         Else
-            MsgBox("You Must Select a Transaction")
+            MyMsg = "You Must Select a Transaction"
+            MyMsgFlag = False
+            FrMsgOk.ShowDialog()
         End If
     End Sub
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles BtnDelete.Click
         My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
         RowValue = CInt(DataGridView1.CurrentRow.Cells(2).Value)
         If RowValue > 1 Then
-            If MsgBox("Are you sure that you want to Remove this Transaction", MsgBoxStyle.OkCancel) = MsgBoxResult.Ok Then
+            MyMsg = "Deleting Transaction.continue?"
+            MyMsgFlag = False
+            FrMsgYesNo.ShowDialog()
+            If MyMsgFlag = True Then
                 My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
                 My.Settings.EditTransNo = RowValue
                 My.Settings.StateC = False
@@ -109,8 +119,9 @@ Public Class FrTransactions
                 Call ViewAcc()
             End If
         Else
-            MsgBox("You Must Select a Transaction")
-
+                MyMsg = "You Must Select a Transaction"
+            MyMsgFlag = False
+            FrMsgOk.ShowDialog()
         End If
     End Sub
     Private Sub BtnCalculator_Click(sender As Object, e As EventArgs) Handles BtnCalculator.Click
@@ -132,14 +143,18 @@ Public Class FrTransactions
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CBoxBank.SelectedIndexChanged
         Dim NumberOfAccouts As Integer = 0
         Dim SelectedAccType As String = ""
+#Disable Warning BC42032 ' Operands of type Object used for operator '<>'; use the 'IsNot' operator to test object identity.
         If CBoxBank.SelectedItem <> "" Then
+#Enable Warning BC42032 ' Operands of type Object used for operator '<>'; use the 'IsNot' operator to test object identity.
             LblLastAction.Text = CBoxBank.SelectedItem.ToString
             CBoxAccount.Visible = True
             CBoxAccount.ResetText()
             CBoxAccount.Items.Clear()
             CommonLoadAccount()
             For I = 1 To AccIndex
+#Disable Warning BC42018 ' Operands of type Object used for operator '='; use the 'Is' operator to test object identity.
                 If LvBank(I) = CBoxBank.SelectedItem Then
+#Enable Warning BC42018 ' Operands of type Object used for operator '='; use the 'Is' operator to test object identity.
                     CBoxAccount.Items.Add(LvType(I))
                     NumberOfAccouts = NumberOfAccouts + 1
                     SelectedAccType = LvType(I)
@@ -153,8 +168,6 @@ Public Class FrTransactions
     End Sub
     Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CBoxAccount.SelectedIndexChanged
         Call SetAccDetails()
-    End Sub
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
     End Sub
     Private Sub LoadAccounts()
         Try
@@ -203,7 +216,9 @@ Public Class FrTransactions
                 End If
                 Call ViewAcc()
             Else
-                MsgBox("You Must Select A Bank Account And An Account Type")
+                MyMsg = "You must Select a Bank" & vbNewLine & "and  Account Type"
+                MyMsgFlag = False
+                FrMsgOk.ShowDialog()
             End If
         Catch ex As Exception
             MyErrors = ex.Message
@@ -212,19 +227,15 @@ Public Class FrTransactions
     End Sub
     Private Sub ViewAcc()
         Try
-            With ProgressBar1
-                .Minimum = 0
-                .Maximum = My.Settings.TotalTrans
-            End With
-            ProgressBar1.Value = 0
             DataGridView1.Show()
             Me.DataGridView1.Rows.Clear()
-
             MakePath = My.Settings.ProSetPath & "Current_Transaction_Data.mbtd"
             Dim Bal As Double
             Dim Deb As Double
             Dim Cre As Double
+#Disable Warning BC42024 ' Unused local variable: 'P'.
             Dim Cr, I, P, RunNo As Integer
+#Enable Warning BC42024 ' Unused local variable: 'P'.
             Dim LastBalance As Double
             Dim LastBalDate As Date
             Dim ScrollPoint As Integer = 0
@@ -235,7 +246,9 @@ Public Class FrTransactions
             Do
                 sline = thereader.ReadLine
                 If sline = Nothing Then Exit Do
+#Disable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 Dim words() As String = sline.Split(",")
+#Enable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 If CInt(words(0)) = My.Settings.ProAccRef Then
                     DataGridView1.Rows.Add("")
                     Cr = DataGridView1.Rows.Count - 1
@@ -273,7 +286,6 @@ Public Class FrTransactions
                     End If
                     I = I + 1
                 End If
-                ProgressBar1.Increment(1)
                 Z = Z + 1
             Loop
             thereader.Close()
@@ -298,6 +310,9 @@ Public Class FrTransactions
             'My.Settings.TotalTrans = 214
             'My.Settings.Save()
             '####################################################################################
+            For I = 1 To 20000
+                ProgressBar1.Value = I
+            Next
         Catch ex As Exception
             MyErrors = ex.Message
             FrError.Show()
@@ -315,7 +330,6 @@ Public Class FrTransactions
             Dim TempCat As String
             Dim TempSubCat As String
             Dim TempState As String
-            ProgressBar1.Value = 0
             'Load File Length And Inisilize Variables
             NumberOfEntries = My.Settings.TotalTrans
             NumberOfEntries = NumberOfEntries + 200
@@ -336,7 +350,9 @@ Public Class FrTransactions
                 '#################################  Read Data  #############
                 sline = thereader.ReadLine
                 If sline = Nothing Then Exit Do
+#Disable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 Dim Words() As String = sline.Split(",")
+#Enable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 '############################################# Add Row  ################
                 LedgerAcc(I) = CInt(Words(0))
                 LedgerDate(I) = CDate(Words(1))
@@ -350,7 +366,6 @@ Public Class FrTransactions
                 I = I + 1
             Loop
             thereader.Close()
-            ProgressBar1.Value = CInt(My.Settings.TotalTrans / 2)
             NumberOfEntries = I - 1
             My.Settings.TotalTrans = NumberOfEntries
             My.Settings.Save()
@@ -418,7 +433,6 @@ Public Class FrTransactions
                         End If
                     End If
                 Next I
-
             End While
             '################################################ Clear and Not Clear Transactions  #####################
             If My.Settings.EditTransNo > 0 Then
@@ -453,7 +467,6 @@ Public Class FrTransactions
             My.Settings.StateNotC = False
             My.Settings.TotalTrans = NumberOfEntries
             My.Settings.Save()
-            ProgressBar1.Value = Int(My.Settings.TotalTrans)
             LblLastAction.Text = "Sorting Complete"
         Catch ex As Exception
             MyErrors = ex.Message

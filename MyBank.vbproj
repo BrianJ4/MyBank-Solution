@@ -25,7 +25,7 @@
     <PublisherName>Brian Johnson</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <TrustUrlParameters>true</TrustUrlParameters>
-    <ApplicationRevision>50</ApplicationRevision>
+    <ApplicationRevision>59</ApplicationRevision>
     <ApplicationVersion>1.3.3.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -161,12 +161,6 @@
     <Compile Include="FrCalculator.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrCalendar.Designer.vb">
-      <DependentUpon>FrCalendar.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FrCalendar.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="FrCloseAccount.Designer.vb">
       <DependentUpon>FrCloseAccount.vb</DependentUpon>
     </Compile>
@@ -179,10 +173,22 @@
     <Compile Include="FrFirstTime.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrNewCalander.Designer.vb">
-      <DependentUpon>FrNewCalander.vb</DependentUpon>
+    <Compile Include="FrMsgOk.Designer.vb">
+      <DependentUpon>FrMsgOk.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrNewCalander.vb">
+    <Compile Include="FrMsgOk.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrMsgYesNo.Designer.vb">
+      <DependentUpon>FrMsgYesNo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrMsgYesNo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrEvents.Designer.vb">
+      <DependentUpon>FrEvents.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrEvents.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrStart.vb">
@@ -326,8 +332,14 @@
     <EmbeddedResource Include="FrFirstTime.resx">
       <DependentUpon>FrFirstTime.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrNewCalander.resx">
-      <DependentUpon>FrNewCalander.vb</DependentUpon>
+    <EmbeddedResource Include="FrMsgOk.resx">
+      <DependentUpon>FrMsgOk.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrMsgYesNo.resx">
+      <DependentUpon>FrMsgYesNo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrEvents.resx">
+      <DependentUpon>FrEvents.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrStart.resx">
       <DependentUpon>FrStart.vb</DependentUpon>

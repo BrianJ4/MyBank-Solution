@@ -476,7 +476,7 @@ Partial Class FrNewDirectDebit
         Me.Panel1.Controls.Add(Me.CBoxTransBank)
         Me.Panel1.Controls.Add(Me.LblChooseAcc)
         Me.Panel1.Controls.Add(Me.LblTransfer)
-        Me.Panel1.Location = New System.Drawing.Point(23, 12)
+        Me.Panel1.Location = New System.Drawing.Point(117, 48)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(441, 313)
         Me.Panel1.TabIndex = 43

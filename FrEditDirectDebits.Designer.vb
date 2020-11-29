@@ -22,26 +22,29 @@ Partial Class FrEditDirectDebits
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrEditDirectDebits))
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrEditDirectDebits))
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.COrderRef = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CToFrom = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CCat = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CSubCat = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CValue = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cDebCred = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BtnClose = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.BtnEdit = New System.Windows.Forms.Button()
         Me.BtnDelete = New System.Windows.Forms.Button()
-        Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
@@ -50,12 +53,6 @@ Partial Class FrEditDirectDebits
         Me.Button3 = New System.Windows.Forms.Button()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.PageSetupDialog1 = New System.Windows.Forms.PageSetupDialog()
-        Me.COrderRef = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CToFrom = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CCat = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CSubCat = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CValue = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cDebCred = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -83,210 +80,11 @@ Partial Class FrEditDirectDebits
         DataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black
         DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle8
-        Me.DataGridView1.Location = New System.Drawing.Point(32, 37)
+        Me.DataGridView1.Location = New System.Drawing.Point(70, 37)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(872, 511)
+        Me.DataGridView1.Size = New System.Drawing.Size(872, 526)
         Me.DataGridView1.TabIndex = 1
-        '
-        'BtnClose
-        '
-        Me.BtnClose.BackColor = System.Drawing.Color.Tomato
-        Me.BtnClose.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnClose.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.BtnClose.FlatAppearance.BorderSize = 2
-        Me.BtnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
-        Me.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnClose.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnClose.ForeColor = System.Drawing.Color.Black
-        Me.BtnClose.Location = New System.Drawing.Point(910, 487)
-        Me.BtnClose.Name = "BtnClose"
-        Me.BtnClose.Size = New System.Drawing.Size(92, 37)
-        Me.BtnClose.TabIndex = 26
-        Me.BtnClose.Text = "(: Close :)"
-        Me.BtnClose.UseVisualStyleBackColor = False
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Arial Black", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.Black
-        Me.Label1.Location = New System.Drawing.Point(365, 4)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(214, 30)
-        Me.Label1.TabIndex = 28
-        Me.Label1.Text = "Edit Order Values"
-        '
-        'BtnEdit
-        '
-        Me.BtnEdit.BackColor = System.Drawing.Color.RosyBrown
-        Me.BtnEdit.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnEdit.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.BtnEdit.FlatAppearance.BorderSize = 2
-        Me.BtnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
-        Me.BtnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnEdit.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnEdit.ForeColor = System.Drawing.Color.Black
-        Me.BtnEdit.Location = New System.Drawing.Point(910, 313)
-        Me.BtnEdit.Name = "BtnEdit"
-        Me.BtnEdit.Size = New System.Drawing.Size(95, 36)
-        Me.BtnEdit.TabIndex = 29
-        Me.BtnEdit.Text = "(: Edit :)"
-        Me.BtnEdit.UseVisualStyleBackColor = False
-        '
-        'BtnDelete
-        '
-        Me.BtnDelete.BackColor = System.Drawing.Color.RosyBrown
-        Me.BtnDelete.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnDelete.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.BtnDelete.FlatAppearance.BorderSize = 2
-        Me.BtnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
-        Me.BtnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnDelete.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnDelete.ForeColor = System.Drawing.Color.Black
-        Me.BtnDelete.Location = New System.Drawing.Point(910, 369)
-        Me.BtnDelete.Name = "BtnDelete"
-        Me.BtnDelete.Size = New System.Drawing.Size(92, 38)
-        Me.BtnDelete.TabIndex = 32
-        Me.BtnDelete.Text = "(:Delete:)"
-        Me.BtnDelete.UseVisualStyleBackColor = False
-        '
-        'NotifyIcon1
-        '
-        Me.NotifyIcon1.Text = "NotifyIcon1"
-        Me.NotifyIcon1.Visible = True
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Arial Black", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(232, 551)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(57, 18)
-        Me.Label2.TabIndex = 33
-        Me.Label2.Text = "Label2"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Arial Black", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(232, 569)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(57, 18)
-        Me.Label3.TabIndex = 34
-        Me.Label3.Text = "Label3"
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(910, 71)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(75, 50)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 42
-        Me.PictureBox2.TabStop = False
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Arial Black", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(922, 167)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(57, 18)
-        Me.Label4.TabIndex = 43
-        Me.Label4.Text = "Label4"
-        '
-        'Panel1
-        '
-        Me.Panel1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Panel1.BackColor = System.Drawing.Color.White
-        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Panel1.Controls.Add(Me.Label5)
-        Me.Panel1.Controls.Add(Me.Button2)
-        Me.Panel1.Controls.Add(Me.Button1)
-        Me.Panel1.Controls.Add(Me.tbAmount)
-        Me.Panel1.Location = New System.Drawing.Point(415, 237)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(322, 158)
-        Me.Panel1.TabIndex = 44
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Arial Black", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.Color.Black
-        Me.Label5.Location = New System.Drawing.Point(87, 32)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(143, 18)
-        Me.Label5.TabIndex = 45
-        Me.Label5.Text = "Enter New Amount"
-        '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.Color.Tomato
-        Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.Button2.FlatAppearance.BorderSize = 2
-        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.Color.Black
-        Me.Button2.Location = New System.Drawing.Point(223, 98)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(92, 37)
-        Me.Button2.TabIndex = 45
-        Me.Button2.Text = "(: Close :)"
-        Me.Button2.UseVisualStyleBackColor = False
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.RosyBrown
-        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.Button1.FlatAppearance.BorderSize = 2
-        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.Black
-        Me.Button1.Location = New System.Drawing.Point(105, 98)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(95, 36)
-        Me.Button1.TabIndex = 45
-        Me.Button1.Text = "(: Edit :)"
-        Me.Button1.UseVisualStyleBackColor = False
-        '
-        'tbAmount
-        '
-        Me.tbAmount.Font = New System.Drawing.Font("Arial Black", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbAmount.Location = New System.Drawing.Point(88, 63)
-        Me.tbAmount.Name = "tbAmount"
-        Me.tbAmount.Size = New System.Drawing.Size(142, 29)
-        Me.tbAmount.TabIndex = 0
-        '
-        'Button3
-        '
-        Me.Button3.BackColor = System.Drawing.Color.RosyBrown
-        Me.Button3.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button3.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.Button3.FlatAppearance.BorderSize = 2
-        Me.Button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.ForeColor = System.Drawing.Color.Black
-        Me.Button3.Location = New System.Drawing.Point(910, 432)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(92, 38)
-        Me.Button3.TabIndex = 45
-        Me.Button3.Text = "(: Print :)"
-        Me.Button3.UseVisualStyleBackColor = False
-        '
-        'PrintDocument1
-        '
         '
         'COrderRef
         '
@@ -384,14 +182,196 @@ Partial Class FrEditDirectDebits
         Me.cDebCred.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         Me.cDebCred.Width = 70
         '
+        'BtnClose
+        '
+        Me.BtnClose.BackColor = System.Drawing.Color.Tomato
+        Me.BtnClose.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnClose.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.BtnClose.FlatAppearance.BorderSize = 2
+        Me.BtnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
+        Me.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnClose.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnClose.ForeColor = System.Drawing.Color.Black
+        Me.BtnClose.Location = New System.Drawing.Point(951, 479)
+        Me.BtnClose.Name = "BtnClose"
+        Me.BtnClose.Size = New System.Drawing.Size(92, 37)
+        Me.BtnClose.TabIndex = 26
+        Me.BtnClose.Text = "(: Close :)"
+        Me.BtnClose.UseVisualStyleBackColor = False
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Arial Black", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.Black
+        Me.Label1.Location = New System.Drawing.Point(365, 4)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(214, 30)
+        Me.Label1.TabIndex = 28
+        Me.Label1.Text = "Edit Order Values"
+        '
+        'BtnEdit
+        '
+        Me.BtnEdit.BackColor = System.Drawing.Color.RosyBrown
+        Me.BtnEdit.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnEdit.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.BtnEdit.FlatAppearance.BorderSize = 2
+        Me.BtnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
+        Me.BtnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnEdit.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnEdit.ForeColor = System.Drawing.Color.Black
+        Me.BtnEdit.Location = New System.Drawing.Point(948, 299)
+        Me.BtnEdit.Name = "BtnEdit"
+        Me.BtnEdit.Size = New System.Drawing.Size(95, 36)
+        Me.BtnEdit.TabIndex = 29
+        Me.BtnEdit.Text = "(: Edit :)"
+        Me.BtnEdit.UseVisualStyleBackColor = False
+        '
+        'BtnDelete
+        '
+        Me.BtnDelete.BackColor = System.Drawing.Color.RosyBrown
+        Me.BtnDelete.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnDelete.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.BtnDelete.FlatAppearance.BorderSize = 2
+        Me.BtnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
+        Me.BtnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnDelete.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnDelete.ForeColor = System.Drawing.Color.Black
+        Me.BtnDelete.Location = New System.Drawing.Point(951, 357)
+        Me.BtnDelete.Name = "BtnDelete"
+        Me.BtnDelete.Size = New System.Drawing.Size(92, 38)
+        Me.BtnDelete.TabIndex = 32
+        Me.BtnDelete.Text = "(:Delete:)"
+        Me.BtnDelete.UseVisualStyleBackColor = False
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Arial Black", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(232, 575)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(57, 18)
+        Me.Label2.TabIndex = 33
+        Me.Label2.Text = "Label2"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Arial Black", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(232, 593)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(57, 18)
+        Me.Label3.TabIndex = 34
+        Me.Label3.Text = "Label3"
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
+        Me.PictureBox2.Location = New System.Drawing.Point(951, 83)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(75, 50)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 42
+        Me.PictureBox2.TabStop = False
+        '
+        'Panel1
+        '
+        Me.Panel1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel1.BackColor = System.Drawing.Color.White
+        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Panel1.Controls.Add(Me.Label5)
+        Me.Panel1.Controls.Add(Me.Button2)
+        Me.Panel1.Controls.Add(Me.Button1)
+        Me.Panel1.Controls.Add(Me.tbAmount)
+        Me.Panel1.Location = New System.Drawing.Point(415, 237)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(372, 158)
+        Me.Panel1.TabIndex = 44
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Arial Black", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.Black
+        Me.Label5.Location = New System.Drawing.Point(87, 32)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(125, 18)
+        Me.Label5.TabIndex = 45
+        Me.Label5.Text = "Edit Order Value"
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.Tomato
+        Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.Button2.FlatAppearance.BorderSize = 2
+        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ForeColor = System.Drawing.Color.Black
+        Me.Button2.Location = New System.Drawing.Point(223, 98)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(92, 37)
+        Me.Button2.TabIndex = 45
+        Me.Button2.Text = "(: Close :)"
+        Me.Button2.UseVisualStyleBackColor = False
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.RosyBrown
+        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.Button1.FlatAppearance.BorderSize = 2
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.Black
+        Me.Button1.Location = New System.Drawing.Point(105, 98)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(95, 36)
+        Me.Button1.TabIndex = 45
+        Me.Button1.Text = "(: Edit :)"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'tbAmount
+        '
+        Me.tbAmount.Font = New System.Drawing.Font("Arial Black", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbAmount.Location = New System.Drawing.Point(88, 63)
+        Me.tbAmount.Name = "tbAmount"
+        Me.tbAmount.Size = New System.Drawing.Size(142, 29)
+        Me.tbAmount.TabIndex = 0
+        '
+        'Button3
+        '
+        Me.Button3.BackColor = System.Drawing.Color.RosyBrown
+        Me.Button3.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button3.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.Button3.FlatAppearance.BorderSize = 2
+        Me.Button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.ForeColor = System.Drawing.Color.Black
+        Me.Button3.Location = New System.Drawing.Point(951, 419)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(92, 38)
+        Me.Button3.TabIndex = 45
+        Me.Button3.Text = "(: Print :)"
+        Me.Button3.UseVisualStyleBackColor = False
+        '
+        'PrintDocument1
+        '
+        '
         'FrEditDirectDebits
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1009, 611)
+        Me.ClientSize = New System.Drawing.Size(1059, 611)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
@@ -400,8 +380,8 @@ Partial Class FrEditDirectDebits
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.BtnClose)
         Me.Controls.Add(Me.DataGridView1)
-        Me.MaximumSize = New System.Drawing.Size(1025, 650)
-        Me.MinimumSize = New System.Drawing.Size(1025, 600)
+        Me.MaximumSize = New System.Drawing.Size(1075, 650)
+        Me.MinimumSize = New System.Drawing.Size(1075, 650)
         Me.Name = "FrEditDirectDebits"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form17"
@@ -419,11 +399,9 @@ Partial Class FrEditDirectDebits
     Friend WithEvents Label1 As Label
     Friend WithEvents BtnEdit As Button
     Friend WithEvents BtnDelete As Button
-    Friend WithEvents NotifyIcon1 As NotifyIcon
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents PictureBox2 As PictureBox
-    Friend WithEvents Label4 As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents tbAmount As TextBox
     Friend WithEvents Label5 As Label

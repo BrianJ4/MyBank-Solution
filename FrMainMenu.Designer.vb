@@ -25,7 +25,6 @@ Partial Class FrMainMenu
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrMainMenu))
         Me.BtnNewAccount = New System.Windows.Forms.Button()
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.BtnExit = New System.Windows.Forms.Button()
         Me.BtnTransactions = New System.Windows.Forms.Button()
@@ -51,7 +50,7 @@ Partial Class FrMainMenu
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
-        Me.BtnCalsnder = New System.Windows.Forms.Button()
+        Me.BtnEvent = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.LblFooter = New System.Windows.Forms.Label()
         Me.BtnCalculator = New System.Windows.Forms.Button()
@@ -79,22 +78,10 @@ Partial Class FrMainMenu
         Me.BtnNewAccount.Text = "New Account"
         Me.BtnNewAccount.UseVisualStyleBackColor = False
         '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.BackColor = System.Drawing.Color.Transparent
-        Me.Label8.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.Color.White
-        Me.Label8.Location = New System.Drawing.Point(711, 46)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(112, 18)
-        Me.Label8.TabIndex = 16
-        Me.Label8.Text = "Date and Time"
-        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'Timer1
         '
         Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 500
         '
         'BtnExit
         '
@@ -405,22 +392,22 @@ Partial Class FrMainMenu
         Me.PictureBox4.TabIndex = 45
         Me.PictureBox4.TabStop = False
         '
-        'BtnCalsnder
+        'BtnEvent
         '
-        Me.BtnCalsnder.BackColor = System.Drawing.Color.RosyBrown
-        Me.BtnCalsnder.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnCalsnder.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.BtnCalsnder.FlatAppearance.BorderSize = 2
-        Me.BtnCalsnder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
-        Me.BtnCalsnder.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnCalsnder.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCalsnder.ForeColor = System.Drawing.Color.Black
-        Me.BtnCalsnder.Location = New System.Drawing.Point(46, 307)
-        Me.BtnCalsnder.Name = "BtnCalsnder"
-        Me.BtnCalsnder.Size = New System.Drawing.Size(170, 40)
-        Me.BtnCalsnder.TabIndex = 46
-        Me.BtnCalsnder.Text = "Calendar"
-        Me.BtnCalsnder.UseVisualStyleBackColor = False
+        Me.BtnEvent.BackColor = System.Drawing.Color.RosyBrown
+        Me.BtnEvent.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnEvent.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.BtnEvent.FlatAppearance.BorderSize = 2
+        Me.BtnEvent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
+        Me.BtnEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnEvent.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnEvent.ForeColor = System.Drawing.Color.Black
+        Me.BtnEvent.Location = New System.Drawing.Point(46, 307)
+        Me.BtnEvent.Name = "BtnEvent"
+        Me.BtnEvent.Size = New System.Drawing.Size(170, 40)
+        Me.BtnEvent.TabIndex = 46
+        Me.BtnEvent.Text = "Events"
+        Me.BtnEvent.UseVisualStyleBackColor = False
         '
         'Label3
         '
@@ -473,7 +460,7 @@ Partial Class FrMainMenu
         Me.Controls.Add(Me.BtnCalculator)
         Me.Controls.Add(Me.LblFooter)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.BtnCalsnder)
+        Me.Controls.Add(Me.BtnEvent)
         Me.Controls.Add(Me.PictureBox4)
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.PictureBox1)
@@ -494,7 +481,6 @@ Partial Class FrMainMenu
         Me.Controls.Add(Me.ListView1)
         Me.Controls.Add(Me.BtnTransactions)
         Me.Controls.Add(Me.BtnExit)
-        Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.BtnNewAccount)
         Me.ForeColor = System.Drawing.Color.Black
         Me.HelpButton = True
@@ -515,7 +501,6 @@ Partial Class FrMainMenu
 
     End Sub
     Friend WithEvents BtnNewAccount As Button
-    Friend WithEvents Label8 As Label
     Friend WithEvents Timer1 As Timer
     Friend WithEvents BtnExit As Button
     Friend WithEvents BtnTransactions As Button
@@ -541,7 +526,7 @@ Partial Class FrMainMenu
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents PictureBox4 As PictureBox
-    Friend WithEvents BtnCalsnder As Button
+    Friend WithEvents BtnEvent As Button
     Friend WithEvents Label3 As Label
     Friend WithEvents LblFooter As Label
     Friend WithEvents BtnCalculator As Button

@@ -71,7 +71,9 @@ Public Class FrEditTransactions
                 '#################################  Read Data  #############
                 sline = thereader.ReadLine
                 If sline = Nothing Then Exit Do
+#Disable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 Dim Words() As String = sline.Split(",")
+#Enable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 '############################################# Add Row  ################
                 LedgerAcc(I) = CInt(Words(0))
                 LedgerDate(I) = CDate(Words(1))

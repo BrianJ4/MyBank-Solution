@@ -6,6 +6,7 @@ Public Class FrStart
     Dim OldDir As String
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
+
             'LoadOldSettings()
             'My.Settings.AccLive = True
             'My.Settings.Save()
@@ -42,8 +43,7 @@ Public Class FrStart
             Label10.Text = My.Settings.ProSetPath
             Label10.Text = My.Settings.ProSetPath
             OldDir = ""
-            UpdateEvent()
-
+            CheckForEvent()
             If My.Settings.AccLive = True Then
                 LoadOldSettings()
                 My.Settings.AccLive = True
@@ -113,7 +113,10 @@ Timer1_Tick:
         Try
             '########## If AccReff=True then  ####################
             '########## Ask if you want to copy files  ####################
-            If MessageBox.Show("Do you want to Move all your files to the New Directory?", "MyBank Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
+            MyMsg = "Move files to New Directory?"
+            MyMsgFlag = False
+            FrMsgYesNo.ShowDialog()
+            If MyMsgFlag = True Then
                 My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
                 YesMoveFiles()
             Else
@@ -165,7 +168,6 @@ Timer1_Tick:
             PrintLine(1, "Loan")
             PrintLine(1, "House Rental")
             FileClose(1)
-            MsgBox("New Files Created.")
             '########## Set New Dir Path  ####################
             My.Settings.ProSetPath = SetPath
             My.Settings.AccLive = True
@@ -183,6 +185,9 @@ Timer1_Tick:
             Label12.Text = "Directory Set Ok"
             Label10.Text = My.Settings.ProSetPath
             Me.BtnSetFolder.BackColor = Color.RosyBrown
+            MyMsg = "    New Files Created"
+            MyMsgFlag = False
+            FrMsgOk.ShowDialog()
         Catch ex As Exception
             MyErrors = ex.Message
             FrError.Show()
@@ -194,7 +199,10 @@ Timer1_Tick:
 
             '########## Check If New Direcrory Exiists ####################
             If My.Computer.FileSystem.DirectoryExists(SetPath) Then
-                If MessageBox.Show("The New Directory already Exists Do you want to overrite It?", "MyBank Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
+                MyMsg = "New Directory Exists. overrite It?"
+                MyMsgFlag = False
+                FrMsgYesNo.ShowDialog()
+                If MyMsgFlag = True Then
                     My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
                     '########## If New Dir has files then delete  ####################
                     My.Computer.FileSystem.DeleteDirectory(
@@ -206,14 +214,17 @@ Timer1_Tick:
                     My.Computer.FileSystem.CopyDirectory(My.Settings.ProSetPath, SetPath)
                 End If
             Else
-                '########## Copy Files to new Dir  ####################
-                My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
+                    '########## Copy Files to new Dir  ####################
+                    My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
                 My.Computer.FileSystem.CopyDirectory(My.Settings.ProSetPath, SetPath)
             End If
 
 
             '##########  Delete Old Dir ####################
-            If MessageBox.Show("Do you want to Delete the Old Directory?", "MyBank Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
+            MyMsg = "   Delete the Old Directory?"
+            MyMsgFlag = False
+            FrMsgYesNo.ShowDialog()
+            If MyMsgFlag = True Then
                 My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
                 If My.Computer.FileSystem.DirectoryExists(My.Settings.ProSetPath) Then
                     My.Computer.FileSystem.DeleteDirectory(
@@ -223,6 +234,7 @@ Timer1_Tick:
          FileIO.UICancelOption.ThrowException)
                 End If
             Else
+                MyMsgFlag = False
                 My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
             End If
 
@@ -237,6 +249,9 @@ Timer1_Tick:
             Label12.Text = "Directory Set Ok"
             Label10.Text = My.Settings.ProSetPath
             Me.BtnSetFolder.BackColor = Color.RosyBrown
+            MyMsg = " New Directory Path Created"
+            MyMsgFlag = False
+            FrMsgOk.ShowDialog()
         Catch ex As Exception
             MyErrors = ex.Message
             FrError.Show()
@@ -247,10 +262,15 @@ Timer1_Tick:
             '##########  Question = No then   ####################
             My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
             '##########  WARNING  ####################
-            If MessageBox.Show("WARNING this will Reset Your Account. Do you want to continue?", "MyBank Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
-                My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
+            MyMsg = "WARNING. Reseting Account.continue?"
+            MyMsgFlag = False
+            FrMsgYesNo.ShowDialog()
+            If MyMsgFlag = True Then
                 If My.Computer.FileSystem.DirectoryExists(My.Settings.ProSetPath) Then
-                    If MessageBox.Show("Do you want to Delete the Old Directory?", "MyBank Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
+                    MyMsg = "Delete Old Directory?"
+                    MyMsgFlag = False
+                    FrMsgYesNo.ShowDialog()
+                    If MyMsgFlag = True Then
                         '##########  Delete Old Dir ####################
                         My.Computer.FileSystem.DeleteDirectory(
                                 My.Settings.ProSetPath,
@@ -374,7 +394,9 @@ Timer1_Tick:
                 '#################################  Read Data  #############
                 sline = thereader.ReadLine
                 If sline = Nothing Then Exit Do
+#Disable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 Dim Words() As String = sline.Split(",")
+#Enable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 '############################################# Add Row  ################
                 TempList = Words(0)
                 TempList = Words(1)
@@ -399,51 +421,33 @@ Timer1_Tick:
             FrError.Show()
         End Try
     End Sub
-    Private Sub UpdateEvent()
-        If File.Exists(My.Settings.ProSetPath & "Events.mbtd") Then
-            '################ Load Events  ##############
-            EventFlag = False
-            FileOpen(1, My.Settings.ProSetPath & "Events.mbtd", OpenMode.Input)
-            EventNo = CInt(LineInput(1))
-            If EventNo = 0 Then
-                ' Do Nothing
+    Private Sub CheckForEvent()
+        Try
+            If File.Exists(My.Settings.ProSetPath & "Events.mbtd") Then
+                CommonLoadEvent()
+                '################ Load Events  ##############
+                EventFlag = False
+                If EventNo = 0 Then
+                    ' Do Nothing
+                Else
+                    For I = 1 To EventNo
+                        '################ Check for Events  ##############
+                        If EventDate(I) < DateAdd(DateInterval.Day, +7, Now) Then
+                            EventFlag = True
+                        End If
+                    Next I
+                End If
             Else
-                For I = 1 To EventNo
-                    EventDate(I) = CDate(LineInput(1))
-                    EventItem(I) = LineInput(1)
-                    EventDayCount(I) = CInt(LineInput(1))
-                    EventIntervalType(I) = LineInput(1)
-                    '################ Check for Events  ##############
-                    If EventDate(I) > DateAdd(DateInterval.Day, -7, Now) And EventDate(I) < DateAdd(DateInterval.Day, 1, Now) Then
-                        EventFlag = True
-                    End If
-                    '################ Update Events  ##############
-                    If EventDate(I) < Now Then
-                        EventDate(I) = DateAdd(DateInterval.Year, 1, EventDate(I))
-                    End If
-                Next I
+                '################ If No File then create Events  ##############
+                FileOpen(1, SetPath & "Events.mbtd", OpenMode.Output)
+                PrintLine(1, 0)
+                FileClose(1)
             End If
-            FileClose(1)
-            '################ Save Events  ##############
-            FileOpen(1, My.Settings.ProSetPath & "Events.mbtd", OpenMode.Output)
-            PrintLine(1, EventNo)
-            For I = 1 To EventNo
-                PrintLine(1, EventDate(I).ToShortDateString())
-                PrintLine(1, EventItem(I))
-                PrintLine(1, EventDayCount(I))
-                PrintLine(1, EventIntervalType(I))
-            Next I
-            FileClose(1)
-        Else
-            '################ If No File then create Events  ##############
-            FileOpen(1, SetPath & "Events.mbtd", OpenMode.Output)
-            PrintLine(1, 0)
-            FileClose(1)
-        End If
+        Catch ex As Exception
+            MyErrors = ex.Message
+            FrError.Show()
+        End Try
     End Sub
 
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
-        FrNewCalander.Show()
-    End Sub
 End Class
 

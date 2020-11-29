@@ -44,7 +44,7 @@ Partial Class FrAnnualIncome
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Arial Black", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(51, 21)
+        Me.Label1.Location = New System.Drawing.Point(64, 21)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(336, 27)
         Me.Label1.TabIndex = 0
@@ -59,7 +59,7 @@ Partial Class FrAnnualIncome
         Me.ListView1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListView1.ForeColor = System.Drawing.Color.LightGreen
         Me.ListView1.HideSelection = False
-        Me.ListView1.Location = New System.Drawing.Point(32, 51)
+        Me.ListView1.Location = New System.Drawing.Point(45, 51)
         Me.ListView1.MultiSelect = False
         Me.ListView1.Name = "ListView1"
         Me.ListView1.Scrollable = False
@@ -110,7 +110,7 @@ Partial Class FrAnnualIncome
         Me.ListView2.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListView2.ForeColor = System.Drawing.Color.LightGreen
         Me.ListView2.HideSelection = False
-        Me.ListView2.Location = New System.Drawing.Point(32, 235)
+        Me.ListView2.Location = New System.Drawing.Point(45, 235)
         Me.ListView2.MultiSelect = False
         Me.ListView2.Name = "ListView2"
         Me.ListView2.Scrollable = False
@@ -186,7 +186,7 @@ Partial Class FrAnnualIncome
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Navy
-        Me.ClientSize = New System.Drawing.Size(424, 661)
+        Me.ClientSize = New System.Drawing.Size(484, 661)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Button2)
@@ -194,8 +194,10 @@ Partial Class FrAnnualIncome
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.ListView1)
         Me.Controls.Add(Me.Label1)
-        Me.MaximumSize = New System.Drawing.Size(440, 700)
-        Me.MinimumSize = New System.Drawing.Size(440, 700)
+        Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(500, 700)
+        Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(500, 700)
         Me.Name = "FrAnnualIncome"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FrAnnualIncome"

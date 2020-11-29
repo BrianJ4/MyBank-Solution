@@ -8,15 +8,16 @@ Public Class FrCalculator
     Dim Output As String
     Private Sub FrCalculator_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            Me.BackColor = My.Settings.BkColour
-            LblHeader.ForeColor = My.Settings.TxColour
-            LblList.ForeColor = My.Settings.TxColour
-            LblFooter.ForeColor = My.Settings.TxColour
-            Oper = 0
             LblList.Text = ""
             TxtOutput.Text = ""
             result = 0
             BaseForm_Load()
+            Dim a As Integer
+            For a = 10 To 100 Step +1
+                Me.Opacity = a / 100
+                Me.Refresh()
+                Threading.Thread.Sleep(15)
+            Next
         Catch ex As Exception
             MyErrors = ex.Message
             FrError.Show()
@@ -180,7 +181,9 @@ Public Class FrCalculator
         Try
             My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
             If TxtOutput.Text = "" Then
+#Disable Warning BC42016 ' Implicit conversion from 'MessageBoxButtons' to 'MsgBoxStyle'.
                 MsgBox("Must be more than Zero", MessageBoxButtons.OK)
+#Enable Warning BC42016 ' Implicit conversion from 'MessageBoxButtons' to 'MsgBoxStyle'.
             Else
                 Calc = CDec(TxtOutput.Text)
                 Oper = 1
@@ -222,7 +225,9 @@ Public Class FrCalculator
             End If
             If Oper = 4 Then
                 If CDec(TxtOutput.Text) = 0 Then
+#Disable Warning BC42016 ' Implicit conversion from 'MessageBoxButtons' to 'MsgBoxStyle'.
                     MsgBox("You Can't Divide by Zero", MessageBoxButtons.OK)
+#Enable Warning BC42016 ' Implicit conversion from 'MessageBoxButtons' to 'MsgBoxStyle'.
                     TxtOutput.Text = Calc.ToString
                 Else
                     result = Calc / CDec(TxtOutput.Text)
@@ -244,7 +249,9 @@ Public Class FrCalculator
         Try
             My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
             If TxtOutput.Text = "" Then
+#Disable Warning BC42016 ' Implicit conversion from 'MessageBoxButtons' to 'MsgBoxStyle'.
                 MsgBox("Must be more than Zero", MessageBoxButtons.OK)
+#Enable Warning BC42016 ' Implicit conversion from 'MessageBoxButtons' to 'MsgBoxStyle'.
             Else
                 Calc = CDec(TxtOutput.Text)
                 Oper = 2
@@ -264,7 +271,9 @@ Public Class FrCalculator
         Try
             My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
             If TxtOutput.Text = "" Then
+#Disable Warning BC42016 ' Implicit conversion from 'MessageBoxButtons' to 'MsgBoxStyle'.
                 MsgBox("Must be more than Zero", MessageBoxButtons.OK)
+#Enable Warning BC42016 ' Implicit conversion from 'MessageBoxButtons' to 'MsgBoxStyle'.
             Else
                 Calc = CDec(TxtOutput.Text)
                 Oper = 5
@@ -284,7 +293,9 @@ Public Class FrCalculator
         Try
             My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
             If TxtOutput.Text = "" Then
+#Disable Warning BC42016 ' Implicit conversion from 'MessageBoxButtons' to 'MsgBoxStyle'.
                 MsgBox("Must be more than Zero", MessageBoxButtons.OK)
+#Enable Warning BC42016 ' Implicit conversion from 'MessageBoxButtons' to 'MsgBoxStyle'.
             Else
                 Calc = CDec(TxtOutput.Text)
                 Oper = 3
@@ -304,7 +315,9 @@ Public Class FrCalculator
         Try
             My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
             If TxtOutput.Text = "" Then
+#Disable Warning BC42016 ' Implicit conversion from 'MessageBoxButtons' to 'MsgBoxStyle'.
                 MsgBox("Must be more than Zero", MessageBoxButtons.OK)
+#Enable Warning BC42016 ' Implicit conversion from 'MessageBoxButtons' to 'MsgBoxStyle'.
             Else
                 Calc = CDec(TxtOutput.Text)
                 Oper = 4
@@ -324,7 +337,9 @@ Public Class FrCalculator
         Try
             My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
             If TxtOutput.Text = "" Then
+#Disable Warning BC42016 ' Implicit conversion from 'MessageBoxButtons' to 'MsgBoxStyle'.
                 MsgBox("Must be more than Zero", MessageBoxButtons.OK)
+#Enable Warning BC42016 ' Implicit conversion from 'MessageBoxButtons' to 'MsgBoxStyle'.
             Else
                 Calc = CDec(TxtOutput.Text)
                 result = Calc / 100
@@ -352,9 +367,15 @@ Public Class FrCalculator
             FrError.Show()
         End Try
     End Sub
-    Private Sub Button20_Click(sender As Object, e As EventArgs) Handles Button20.Click
+    Private Sub Button20_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Try
             My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
+            Dim a As Integer
+            For a = 100 To 10 Step -1
+                Me.Opacity = a / 100
+                Me.Refresh()
+                Threading.Thread.Sleep(15)
+            Next
             Me.Close()
         Catch ex As Exception
             MyErrors = ex.Message
@@ -405,7 +426,11 @@ Public Class FrCalculator
     MyBase.MouseMove ' Add more handles here (Example: PictureBox1.MouseMove)
         Try
             If MoveForm Then
+#Disable Warning BC42016 ' Implicit conversion from 'Point' to 'Size'.
+#Disable Warning BC42016 ' Implicit conversion from 'Point' to 'Size'.
                 Me.Location = Me.Location + (e.Location - MoveForm_MousePosition)
+#Enable Warning BC42016 ' Implicit conversion from 'Point' to 'Size'.
+#Enable Warning BC42016 ' Implicit conversion from 'Point' to 'Size'.
             End If
         Catch ex As Exception
             MyErrors = ex.Message

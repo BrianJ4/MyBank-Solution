@@ -5,7 +5,6 @@ Public Class FrMainMenu
         ListView1.BackColor = My.Settings.BkColour
         Label2.ForeColor = My.Settings.TxColour
         Label3.ForeColor = My.Settings.TxColour
-        Label8.ForeColor = My.Settings.TxColour
         Label9.ForeColor = My.Settings.TxColour
         Label11.ForeColor = My.Settings.TxColour
         LblInfo.ForeColor = My.Settings.TxColour
@@ -34,8 +33,15 @@ Public Class FrMainMenu
             BtnBackup.Visible = True
             BtnStatements.Visible = True
             BtnCloseAccount.Visible = True
+            LblInfo.Text = "This is the Main Menu”
         End If
-        LblInfo.Text = "This is the Main Menu”
+        If EventFlag = True Then
+            LblFooter.Text = "     You Have an Event”
+            Timer1.Start()
+        Else
+            LblFooter.Text = "Left click to move Panel”
+            Timer1.Stop()
+        End If
     End Sub
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles BtnStandingOrder.Click
         My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
@@ -44,8 +50,14 @@ Public Class FrMainMenu
     End Sub
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles BtnNewAccount.Click
         My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
-        FrNewAcc.Show()
-        Me.Close()
+        If AccIndex = 10 Then
+            MyMsg = "Sorry you have reached the Account Limit"
+            MyMsgFlag = False
+            FrMsgOk.ShowDialog()
+        Else
+            FrNewAcc.Show()
+            Me.Close()
+        End If
     End Sub
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles BtnTransactions.Click
         My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
@@ -59,8 +71,14 @@ Public Class FrMainMenu
     End Sub
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles BtnCloseAccount.Click
         My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
-        FrCloseAccount.Show()
-        Me.Close()
+        Flag = False
+        MyMsg = "Removing Accounts will permanently " & vbNewLine & "delete all associate Transactions"
+        MyMsgFlag = False
+        FrMsgYesNo.ShowDialog()
+        If MyMsgFlag = True Then
+            FrCloseAccount.Show()
+            Me.Close()
+        End If
     End Sub
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles BtnOptions.Click
         My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
@@ -79,29 +97,37 @@ Public Class FrMainMenu
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BtnQuickLook.Click
         FrAnnualIncome.Show()
-        Me.Hide()
+        Me.Close()
     End Sub
     Private Sub Button1_Click_2(sender As Object, e As EventArgs) Handles BtnStatements.Click
         FrPrint.Show()
-        Me.Hide()
+        Me.Close()
     End Sub
-    Private Sub Button1_Click_3(sender As Object, e As EventArgs) Handles BtnBackup.Click
+    Private Sub BtnBackup1_Click_3(sender As Object, e As EventArgs) Handles BtnBackup.Click
         My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
         FrBackUp.Show()
-        Me.Hide()
+        Me.Close()
     End Sub
-    Private Sub BtnBlank_Click(sender As Object, e As EventArgs) Handles BtnCalsnder.Click
+    Private Sub BtnEvent_Click(sender As Object, e As EventArgs) Handles BtnEvent.Click
         My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
-        FrNewCalander.Show()
+        FrEvents.Show()
+        Me.Close()
     End Sub
     Private Sub Button1_Click_4(sender As Object, e As EventArgs) Handles BtnCalculator.Click
         FrCalculator.Show()
     End Sub
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        Label8.Text = Date.Now.ToString("dd/MM/yyyy -- hh:mm:ss")
-        LblInfo.Left -= 5
-        If LblInfo.Left <= -Width Then
-            LblInfo.Left = Width
+Timer1_Tick:
+        If (blink) Then
+            LblFooter.ForeColor = Color.Lime
+            BtnEvent.BackColor = Color.Lime
+            blink = False
+            Application.DoEvents()
+        Else
+            LblFooter.ForeColor = Color.Orange
+            BtnEvent.BackColor = Color.Orange
+            blink = True
+            Application.DoEvents()
         End If
     End Sub
     Sub AccountLoad()
@@ -141,7 +167,6 @@ Public Class FrMainMenu
             lvi2.SubItems.Add(ToDay.ToString)
             lvi2.SubItems.Add(Format(RuningBal, "£##,#00.00"))
             ListView1.Items.Add(lvi2)
-
         Catch ex As Exception
             MyErrors = ex.Message
             FrError.Show()
@@ -202,7 +227,7 @@ Public Class FrMainMenu
     Private Sub BtnBackup_MouseHover(sender As Object, e As EventArgs) Handles BtnBackup.MouseHover
         LblInfo.Text = “(: Backup :)   Click Here to Backup all of your valuable Data”
     End Sub
-    Private Sub BtnAbount_MouseHover(sender As Object, e As EventArgs) Handles BtnCalsnder.MouseHover
+    Private Sub BtnAbount_MouseHover(sender As Object, e As EventArgs) Handles BtnEvent.MouseHover
         LblInfo.Text = “(: About :)  MyBank's Versions Information”
     End Sub
     Private Sub Button6_MouseHover(sender As Object, e As EventArgs) Handles BtnOptions.MouseHover
@@ -260,7 +285,11 @@ Public Class FrMainMenu
     MyBase.MouseMove ' Add more handles here (Example: PictureBox1.MouseMove)
         Try
             If MoveForm Then
+#Disable Warning BC42016 ' Implicit conversion from 'Point' to 'Size'.
+#Disable Warning BC42016 ' Implicit conversion from 'Point' to 'Size'.
                 Me.Location = Me.Location + (e.Location - MoveForm_MousePosition)
+#Enable Warning BC42016 ' Implicit conversion from 'Point' to 'Size'.
+#Enable Warning BC42016 ' Implicit conversion from 'Point' to 'Size'.
             End If
         Catch ex As Exception
             MyErrors = ex.Message

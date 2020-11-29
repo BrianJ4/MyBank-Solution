@@ -6,11 +6,10 @@ Public Class FrNewAcc
             'My.Settings.AccRefNo = 7
             'My.Settings.Save()
             Me.BackColor = My.Settings.BkColour
-            PnlLimit.BackColor = Color.Red
-            PnlLimit.Visible = False
-            LblLimitSorry.Text = "Sorry"
-            LblLimitMax.Text = "You have reached the Maximum"
-            LblLimitAcc.Text = "Number of Accounts"
+
+            'LblLimitSorry.Text = "Sorry"
+            'LblLimitMax.Text = "You have reached the Maximum"
+            'LblLimitAcc.Text = "Number of Accounts"
             ListView1.BackColor = My.Settings.BkColour
             LblHeader.ForeColor = My.Settings.TxColour
             LblAccIndex.ForeColor = My.Settings.TxColour
@@ -38,18 +37,18 @@ Public Class FrNewAcc
             Next
             ' SetUp New Account Options and Format
             AccIndex += 1
-            FrAccIndex = Convert.ToString(AccIndex)
-            LblAccIndexNo.Text = My.Settings.AccRefNo.ToString
-            TxtAccName.Text = FrAccName
-            TxtAccNo.Text = FrAccNumber
-            tbAmount.Text = Format(FrBalance, "0.0")
-            FileOpen(1, My.Settings.ProSetPath & "BankAccTyps.mbtd", OpenMode.Input)
-            Z = CInt(LineInput(1))
-            For I = 1 To Z
-                FrAccType = LineInput(1)
-                ComboBox1.Items.Add(FrAccType)
-            Next I
-            FileClose(1)
+                FrAccIndex = Convert.ToString(AccIndex)
+                LblAccIndexNo.Text = My.Settings.AccRefNo.ToString
+                TxtAccName.Text = FrAccName
+                TxtAccNo.Text = FrAccNumber
+                tbAmount.Text = Format(FrBalance, "0.0")
+                FileOpen(1, My.Settings.ProSetPath & "BankAccTyps.mbtd", OpenMode.Input)
+                Z = CInt(LineInput(1))
+                For I = 1 To Z
+                    FrAccType = LineInput(1)
+                    ComboBox1.Items.Add(FrAccType)
+                Next I
+                FileClose(1)
             ComboBox1.SelectedItem = "Select Type"
         Catch ex As Exception
             MyErrors = ex.Message
@@ -62,10 +61,15 @@ Public Class FrNewAcc
             FrDebCre = "D"
             Call CheckAccDetails()
             If FormErr <> "" Then
-                MsgBox(FormErr)
+                MyMsg = FormErr
+                MyMsgFlag = False
+                FrMsgOk.ShowDialog()
             Else
                 Call SaveNewAccount()
-                If MessageBox.Show("A New Account has been Created ", "MyBank Information", MessageBoxButtons.OK, MessageBoxIcon.Information) = MsgBoxResult.Ok Then
+                MyMsg = "  New Account. Created"
+                MyMsgFlag = False
+                FrMsgOk.ShowDialog()
+                If MyMsgFlag = True Then
                     FrMainMenu.Show()
                     Me.Close()
                 End If
@@ -81,10 +85,15 @@ Public Class FrNewAcc
             FrDebCre = "C"
             Call CheckAccDetails()
             If FormErr <> "" Then
-                MsgBox(FormErr)
+                MyMsg = FormErr
+                MyMsgFlag = False
+                FrMsgOk.ShowDialog()
             Else
                 Call SaveNewAccount()
-                If MessageBox.Show("A New Account has been Created ", "MyBank Information", MessageBoxButtons.OK, MessageBoxIcon.Information) = MsgBoxResult.Ok Then
+                MyMsg = "  New Account. Created"
+                MyMsgFlag = False
+                FrMsgOk.ShowDialog()
+                If MyMsgFlag = True Then
                     FrMainMenu.Show()
                     Me.Close()
                 End If
@@ -113,7 +122,7 @@ Public Class FrNewAcc
             FrError.Show()
         End Try
     End Sub
-    Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
+    Private Sub BtnClose_Click(sender As Object, e As EventArgs)
         My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
         FrMainMenu.Show()
         Me.Close()

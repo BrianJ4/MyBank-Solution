@@ -22,7 +22,6 @@ Partial Class FrProcessDirectDebits
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrProcessDirectDebits))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.BtnCancel = New System.Windows.Forms.Button()
@@ -39,7 +38,6 @@ Partial Class FrProcessDirectDebits
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.BtnSave = New System.Windows.Forms.Button()
-        Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -230,11 +228,6 @@ Partial Class FrProcessDirectDebits
         Me.BtnSave.Text = "Save"
         Me.BtnSave.UseVisualStyleBackColor = False
         '
-        'NotifyIcon1
-        '
-        Me.NotifyIcon1.Text = "NotifyIcon1"
-        Me.NotifyIcon1.Visible = True
-        '
         'Label4
         '
         Me.Label4.BackColor = System.Drawing.Color.Transparent
@@ -335,7 +328,6 @@ Partial Class FrProcessDirectDebits
     Friend WithEvents Label3 As Label
     Friend WithEvents Panel4 As Panel
     Friend WithEvents LblNoOrders As Label
-    Friend WithEvents NotifyIcon1 As NotifyIcon
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents PictureBox1 As PictureBox

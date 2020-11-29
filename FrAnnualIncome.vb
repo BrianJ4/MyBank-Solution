@@ -136,7 +136,9 @@ ByVal dwRop As Int32) As Boolean
             Do
                 sline = thereader.ReadLine
                 If sline = Nothing Then Exit Do
+#Disable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 Dim words() As String = sline.Split(",")
+#Enable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 If words.Length = colsexpected Then
                     TransDeb = TransDeb + CDbl(words(3))
                     ToFrom = words(5)
@@ -174,7 +176,9 @@ ByVal dwRop As Int32) As Boolean
             Do
                 sline = thereader.ReadLine
                 If sline = Nothing Then Exit Do
+#Disable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 Dim words() As String = sline.Split(",")
+#Enable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 If words.Length = colsexpected Then
                     OrderRef(I) = CInt(words(0))
                     OrderAccRef(I) = CInt(words(1))

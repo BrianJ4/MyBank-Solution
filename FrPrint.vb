@@ -126,14 +126,18 @@ Public Class FrPrint
         Try
             Dim NumberOfAccouts As Integer = 0
             Dim SelectedAccType As String = ""
+#Disable Warning BC42032 ' Operands of type Object used for operator '<>'; use the 'IsNot' operator to test object identity.
             If CBoxBank.SelectedItem <> "" Then
+#Enable Warning BC42032 ' Operands of type Object used for operator '<>'; use the 'IsNot' operator to test object identity.
                 CBoxAccount.Visible = True
                 CBoxAccount.ResetText()
                 CBoxAccount.Items.Clear()
                 CommonLoadAccount()
                 CBoxAccount.Items.Add("")
                 For I = 1 To AccIndex
+#Disable Warning BC42018 ' Operands of type Object used for operator '='; use the 'Is' operator to test object identity.
                     If LvBank(I) = CBoxBank.SelectedItem Then
+#Enable Warning BC42018 ' Operands of type Object used for operator '='; use the 'Is' operator to test object identity.
                         CBoxAccount.Items.Add(LvType(I))
                         NumberOfAccouts = NumberOfAccouts + 1
                         SelectedAccType = LvType(I)
@@ -416,7 +420,9 @@ Public Class FrPrint
             Do
                 sline = thereader.ReadLine
                 If sline = Nothing Then Exit Do
+#Disable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 Dim words() As String = sline.Split(",")
+#Enable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 If words.Length = colsexpected Then
                     PrintBank(I) = CInt(words(0))
                     PrintDate(I) = CDate(words(1))
@@ -445,10 +451,14 @@ Public Class FrPrint
             CommonLoadAccount()
             DataGridView1.Show()
             Me.DataGridView1.Rows.Clear()
+#Disable Warning BC42024 ' Unused local variable: 'Cr'.
             Dim Cr As Integer
+#Enable Warning BC42024 ' Unused local variable: 'Cr'.
             Dim PrBank As String
             Dim PrAccount As String
+#Disable Warning BC42024 ' Unused local variable: 'PrRef'.
             Dim PrRef As Integer
+#Enable Warning BC42024 ' Unused local variable: 'PrRef'.
             Balance = 0
             For I = 1 To NumberOfEntries
                 If PrintDate(I) > DateTimePicker1.Value And PrintDate(I) < DateTimePicker2.Value Then
@@ -464,13 +474,17 @@ Public Class FrPrint
                                 PrAccount = LvType(P)
                             End If
                         Next P
+#Disable Warning BC42104 ' Variable 'PrBank' is used before it has been assigned a value. A null reference exception could result at runtime.
                         Rt = New DataGridViewTextBoxCell With {
                                 .Value = PrBank
                             }
+#Enable Warning BC42104 ' Variable 'PrBank' is used before it has been assigned a value. A null reference exception could result at runtime.
                         R.Cells.Add(Rt)
+#Disable Warning BC42104 ' Variable 'PrAccount' is used before it has been assigned a value. A null reference exception could result at runtime.
                         Rt = New DataGridViewTextBoxCell With {
                                .Value = PrAccount
                            }
+#Enable Warning BC42104 ' Variable 'PrAccount' is used before it has been assigned a value. A null reference exception could result at runtime.
                         R.Cells.Add(Rt)
                     End If
                     '###########################  Date  ##############################
@@ -567,10 +581,14 @@ Public Class FrPrint
             CommonLoadAccount()
             DataGridView1.Show()
             Me.DataGridView1.Rows.Clear()
+#Disable Warning BC42024 ' Unused local variable: 'Cr'.
             Dim Cr As Integer
+#Enable Warning BC42024 ' Unused local variable: 'Cr'.
             Dim PrBank As String
             Dim PrAccount As String
+#Disable Warning BC42024 ' Unused local variable: 'PrRef'.
             Dim PrRef As Integer
+#Enable Warning BC42024 ' Unused local variable: 'PrRef'.
             Balance = 0
             Z = 0
             T = 0
@@ -599,13 +617,17 @@ Public Class FrPrint
                                     PrAccount = LvType(P)
                                 End If
                             Next P
+#Disable Warning BC42104 ' Variable 'PrBank' is used before it has been assigned a value. A null reference exception could result at runtime.
                             Rt = New DataGridViewTextBoxCell With {
                                 .Value = PrBank
                             }
+#Enable Warning BC42104 ' Variable 'PrBank' is used before it has been assigned a value. A null reference exception could result at runtime.
                             R.Cells.Add(Rt)
+#Disable Warning BC42104 ' Variable 'PrAccount' is used before it has been assigned a value. A null reference exception could result at runtime.
                             Rt = New DataGridViewTextBoxCell With {
                                .Value = PrAccount
                            }
+#Enable Warning BC42104 ' Variable 'PrAccount' is used before it has been assigned a value. A null reference exception could result at runtime.
                             R.Cells.Add(Rt)
                         End If
                         '###########################  Date  ##############################
@@ -724,7 +746,9 @@ Public Class FrPrint
                 'get the cells
                 For Each cell As DataGridViewCell In row.Cells
 
+#Disable Warning BC42016 ' Implicit conversion from 'Object' to 'String'.
                     Dim cellcontent As String = cell.FormattedValue
+#Enable Warning BC42016 ' Implicit conversion from 'Object' to 'String'.
                     'replace < and > with html entities
                     cellcontent = Replace(cellcontent, "<", "&lt;")
                     cellcontent = Replace(cellcontent, ">", "&gt;")

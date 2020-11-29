@@ -19,7 +19,7 @@
         End If
         With ProgressBar1
             .Minimum = 0
-            .Maximum = 50000
+            .Maximum = 20000
             .Increment(1)
         End With
     End Sub
@@ -30,20 +30,10 @@
             With FolderBrowserDialog1
                 If .ShowDialog() = DialogResult.OK Then
                     CurrenDirectory = .SelectedPath
-                    If CurrenDirectory = My.Settings.BkUpDir Then
-                        BtnCopy.Enabled = False
-                        BtnCopy.Visible = False
-                        LblCurrentDir.Text = "No Directory"
-                        My.Settings.activeDir = ""
-                        My.Settings.Save()
-                        MsgBox("Current Directory can Not be the same as the Destination Directory")
-                    Else
-                        My.Settings.activeDir = CurrenDirectory
-                        My.Settings.Save()
-                        BtnCopy.Enabled = True
-                        BtnCopy.Visible = True
-                        LblCurrentDir.Text = CurrenDirectory
-                    End If
+                    CurrenDirectory = CurrenDirectory & "\MyBankData\"
+                    LblCurrentDir.Text = CurrenDirectory
+                    My.Settings.activeDir = CurrenDirectory
+                    My.Settings.Save()
                 End If
             End With
         Catch ex As Exception
@@ -58,20 +48,10 @@
             With FolderBrowserDialog2
                 If .ShowDialog() = DialogResult.OK Then
                     destinationDirector = .SelectedPath
-                    If destinationDirector = My.Settings.activeDir Then
-                        BtnCopy.Enabled = False
-                        BtnCopy.Visible = False
-                        LblBackUpDir.Text = "No Directory"
-                        My.Settings.BkUpDir = ""
-                        My.Settings.Save()
-                        MsgBox("Destination Directory can Not be the same as the Current Directory")
-                    Else
-                        My.Settings.BkUpDir = destinationDirector & "\MyBankData"
-                        My.Settings.Save()
-                        BtnCopy.Enabled = True
-                        BtnCopy.Visible = True
-                        LblBackUpDir.Text = My.Settings.BkUpDir
-                    End If
+                    destinationDirector = destinationDirector & "\MyBankData\"
+                    LblBackUpDir.Text = My.Settings.BkUpDir
+                    My.Settings.BkUpDir = destinationDirector
+                    My.Settings.Save()
                 End If
             End With
         Catch ex As Exception
@@ -81,20 +61,29 @@
     End Sub
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles BtnCopy.Click
         Try
-            My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
-            BtnClose.Visible = False
-            Me.BtnCopy.Visible = False
-            LblComplete.Text = ""
-            DeleteFolders()
-            '################ Backup  ##############
-            My.Computer.FileSystem.CopyDirectory(My.Settings.activeDir, My.Settings.BkUpDir)
-            '################ Complete Reset  ##############
-            For I = 1 To 50000
-                ProgressBar1.Value = I
-            Next
-            LblComplete.Text = "Backup Complete"
-            BtnCopy.Visible = True
-            BtnClose.Visible = True
+            If My.Settings.BkUpDir = My.Settings.activeDir Then
+                MyMsg = " Directory paths can not" & vbNewLine & " be the same"
+                MyMsgFlag = False
+                FrMsgOk.ShowDialog()
+            Else
+                My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
+                BtnClose.Visible = False
+                Me.BtnCopy.Visible = False
+                LblComplete.Text = ""
+                DeleteFolders()
+                '################ Backup  ##############
+                My.Computer.FileSystem.CopyDirectory(My.Settings.activeDir, My.Settings.BkUpDir)
+                '################ Complete Reset  ##############
+                For I = 1 To 20000
+                    ProgressBar1.Value = I
+                Next
+                LblComplete.Text = "Backup Complete"
+                BtnCopy.Visible = True
+                BtnClose.Visible = True
+                MyMsg = "Successfully Backed Up"
+                MyMsgFlag = False
+                FrMsgOk.ShowDialog()
+            End If
         Catch ex As Exception
             MyErrors = ex.Message
             FrError.Show()
