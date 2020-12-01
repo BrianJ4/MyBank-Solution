@@ -168,7 +168,7 @@ Timer1_Tick:
     Private Sub CloseAccount()
         Try
             CommonLoadAccount()
-            '##################### Delet Account
+            '##################### Delete Account
             I = AccIndex + 1
             LvBank(I) = ""
             LvType(I) = ""
@@ -201,14 +201,14 @@ Timer1_Tick:
             Next I
             FileClose(1)
             CommonLoadAccount()
-            '##################### Delet Account Settings
+            '##################### Delete Account Settings
             MakePath = My.Settings.ProSetPath + FrAccName + "_" + FrAccType + "_CBalData.txt"
             Dim fi As New IO.FileInfo(MakePath)
             fi.Delete()
             MakePath = My.Settings.ProSetPath + FrAccName + "_" + FrAccType + "_.txt"
             Dim fi1 As New IO.FileInfo(MakePath)
             fi1.Delete()
-            '##################### Delet Transactions
+            '##################### Delete Transactions
             Dim MakePath2 As String
             MakePath = My.Settings.ProSetPath & "Current_Transaction_Data.mbtd"
             MakePath2 = My.Settings.ProSetPath & "Current_Transaction1_Data.mbtd"
@@ -251,7 +251,7 @@ Timer1_Tick:
             My.Settings.TotalTrans = I - 1
             My.Settings.Save()
 
-            '##################### Delet Old Transaction File
+            '##################### Delete Old Transaction File
             MakePath = My.Settings.ProSetPath & "Current_Transaction_Data.mbtd"
             Dim fi2 As New IO.FileInfo(MakePath)
             fi2.Delete()
@@ -263,7 +263,7 @@ Timer1_Tick:
             My.Computer.FileSystem.RenameFile(MakePathOld, MakePath)
 
 
-            '##################### Delet Standing Orders
+            '##################### Delete Standing Orders
             MakePath = My.Settings.ProSetPath & "Current_Orders.mbtd"
             MakePath2 = My.Settings.ProSetPath & "Current_Orders1.mbtd"
             FileOpen(2, MakePath2, OpenMode.Append)
@@ -307,7 +307,7 @@ Timer1_Tick:
             NumberOfEntries = I - 1
             thereader1.Close()
             FileClose(2)
-            '##################### Delet Old Standing Order File
+            '##################### Delete Old Standing Order File
             MakePath = My.Settings.ProSetPath & "Current_Orders.mbtd"
             Dim fi3 As New IO.FileInfo(MakePath)
             fi3.Delete()

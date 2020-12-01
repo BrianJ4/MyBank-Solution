@@ -162,7 +162,7 @@ Public Class FrProcessDirectDebits
             .Width = 50,
             .ReadOnly = True,
             .MaxInputLength = 10,
-            .ToolTipText = "Entery Account Reference"
+            .ToolTipText = "Entry Account Reference"
         }
         Me.DataGridView1.Columns.Add(Col)
         Col = New DataGridViewTextBoxColumn With {
@@ -171,7 +171,7 @@ Public Class FrProcessDirectDebits
             .Width = 87,
             .ReadOnly = True,
             .MaxInputLength = 12,
-            .ToolTipText = "Entery Date"
+            .ToolTipText = "Entry Date"
         }
         Me.DataGridView1.Columns.Add(Col)
         Col = New DataGridViewTextBoxColumn With {
@@ -180,7 +180,7 @@ Public Class FrProcessDirectDebits
             .Width = 60,
             .ReadOnly = True,
             .MaxInputLength = 10,
-            .ToolTipText = "Entery Account Reference"
+            .ToolTipText = "Entry Account Reference"
         }
         Me.DataGridView1.Columns.Add(Col)
         Col = New DataGridViewTextBoxColumn With {
@@ -189,7 +189,7 @@ Public Class FrProcessDirectDebits
             .Width = 80,
             .ReadOnly = True,
             .MaxInputLength = 10,
-            .ToolTipText = "Entery Debit Value"
+            .ToolTipText = "Entry Debit Value"
         }
         Me.DataGridView1.Columns.Add(Col)
         Col = New DataGridViewTextBoxColumn With {
@@ -198,7 +198,7 @@ Public Class FrProcessDirectDebits
             .Width = 80,
             .ReadOnly = True,
             .MaxInputLength = 10,
-            .ToolTipText = "Entery Credit Value"
+            .ToolTipText = "Entry Credit Value"
         }
         Me.DataGridView1.Columns.Add(Col)
         Col = New DataGridViewTextBoxColumn With {
@@ -207,7 +207,7 @@ Public Class FrProcessDirectDebits
             .Width = 200,
             .ReadOnly = True,
             .MaxInputLength = 30,
-            .ToolTipText = "Entery Paid To or Received From"
+            .ToolTipText = "Entry Paid To or Received From"
         }
         Me.DataGridView1.Columns.Add(Col)
         Col = New DataGridViewTextBoxColumn With {
@@ -216,7 +216,7 @@ Public Class FrProcessDirectDebits
             .Width = 200,
             .ReadOnly = True,
             .MaxInputLength = 30,
-            .ToolTipText = "Entery Falls in to this Category"
+            .ToolTipText = "Entry Falls in to this Category"
         }
         Me.DataGridView1.Columns.Add(Col)
         Col = New DataGridViewTextBoxColumn With {
@@ -225,7 +225,7 @@ Public Class FrProcessDirectDebits
             .Width = 200,
             .ReadOnly = True,
             .MaxInputLength = 30,
-            .ToolTipText = "Entery Falls in to this SubCategory"
+            .ToolTipText = "Entry Falls in to this SubCategory"
         }
         Me.DataGridView1.Columns.Add(Col)
         Col = New DataGridViewTextBoxColumn With {
@@ -234,7 +234,7 @@ Public Class FrProcessDirectDebits
             .Width = 80,
             .ReadOnly = True,
             .MaxInputLength = 10,
-            .ToolTipText = "Entery Credit Value"
+            .ToolTipText = "Entry Credit Value"
         }
         Me.DataGridView1.Columns.Add(Col)
         Col = New DataGridViewTextBoxColumn With {
@@ -243,7 +243,7 @@ Public Class FrProcessDirectDebits
            .Width = 50,
            .ReadOnly = True,
            .MaxInputLength = 10,
-           .ToolTipText = "Entery Transaction Type"
+           .ToolTipText = "Entry Transaction Type"
        }
         Me.DataGridView1.Columns.Add(Col)
     End Sub
@@ -265,7 +265,7 @@ Public Class FrProcessDirectDebits
                     BtnSave.Visible = False
                     Me.DataGridView1.Rows.Clear()
                     TempPointDate = CDate(Format(DateTimePicker1.Value, "dd/MM/yyyy"))
-                    LblExceed1.Text = "Sorry you have Exceeded the number of Transactions that areallowed in One pass"
+                    LblExceed1.Text = "Sorry you have Exceeded the number of Transactions that are allowed in One pass"
                     LblExceed2.Text = "You must try again using A Refresh Date smaller than :- " & TempPointDate.ToString
                 Else
                     TempPointDate = CDate(Format(DateTimePicker1.Value, "dd/MM/yyyy"))

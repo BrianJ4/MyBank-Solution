@@ -3,14 +3,15 @@ Public Class FrMainMenu
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.BackColor = My.Settings.BkColour
         ListView1.BackColor = My.Settings.BkColour
-        Label2.ForeColor = My.Settings.TxColour
+        LblMyBank.ForeColor = My.Settings.TxColour
         Label3.ForeColor = My.Settings.TxColour
-        Label9.ForeColor = My.Settings.TxColour
-        Label11.ForeColor = My.Settings.TxColour
+        LblHead2.ForeColor = My.Settings.TxColour
+        LblHead.ForeColor = My.Settings.TxColour
         LblInfo.ForeColor = My.Settings.TxColour
         LblInfo.BackColor = My.Settings.BkColour
         LblFooter.ForeColor = My.Settings.TxColour
         ListView1.ForeColor = My.Settings.TxColour
+        LblBalances.ForeColor = My.Settings.TxColour
         ToDay = Now.Date
         RuningBal = 0
         Call BaseForm_Load()
@@ -22,7 +23,7 @@ Public Class FrMainMenu
             BtnEditOrder.Visible = False
             BtnQuickLook.Visible = False
             BtnBackup.Visible = False
-            BtnStatements.Visible = False
+            BtnPrint.Visible = False
             BtnCloseAccount.Visible = False
         Else
             BtnStandingOrder.Visible = True
@@ -31,7 +32,7 @@ Public Class FrMainMenu
             BtnEditOrder.Visible = True
             BtnQuickLook.Visible = True
             BtnBackup.Visible = True
-            BtnStatements.Visible = True
+            BtnPrint.Visible = True
             BtnCloseAccount.Visible = True
             LblInfo.Text = "This is the Main Menu”
         End If
@@ -92,6 +93,12 @@ Public Class FrMainMenu
     End Sub
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles BtnExit.Click
         My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
+        Dim a As Integer
+        For a = 100 To 10 Step -1
+            Me.Opacity = a / 100
+            Me.Refresh()
+            Threading.Thread.Sleep(15)
+        Next
         ExitApp()
         End
     End Sub
@@ -99,7 +106,7 @@ Public Class FrMainMenu
         FrAnnualIncome.Show()
         Me.Close()
     End Sub
-    Private Sub Button1_Click_2(sender As Object, e As EventArgs) Handles BtnStatements.Click
+    Private Sub Button1_Click_2(sender As Object, e As EventArgs) Handles BtnPrint.Click
         FrPrint.Show()
         Me.Close()
     End Sub
@@ -200,22 +207,22 @@ Timer1_Tick:
     Private Sub BtnExit_MouseHover(sender As Object, e As EventArgs) Handles BtnExit.MouseHover
         LblInfo.Text = “(: EXit :)  Click Here to Exit this program  (: See You Soon :)”
     End Sub
-    Private Sub Button1_MouseHover(sender As Object, e As EventArgs) Handles BtnStandingOrder.MouseHover
+    Private Sub BtnStandingOrder_MouseHover(sender As Object, e As EventArgs) Handles BtnStandingOrder.MouseHover
         LblInfo.Text = “(: New D.D's or S.O's :)   Click Here to Create:- New Standing Orders and Direct Debits.”
     End Sub
-    Private Sub Button2_MouseHover(sender As Object, e As EventArgs) Handles BtnNewAccount.MouseHover
+    Private Sub BtnNewAccount_MouseHover(sender As Object, e As EventArgs) Handles BtnNewAccount.MouseHover
         LblInfo.Text = “(: Create New Accounts :)   Click Here to Create  New Current, Savings, Credit Card or Loan Accounts”
     End Sub
     Private Sub BtnCloseAccount_MouseHover(sender As Object, e As EventArgs) Handles BtnCloseAccount.MouseHover
         LblInfo.Text = “(: Close Account :)   Click Here to Close 1 of your Accounts and delete all associate Transactions”
     End Sub
-    Private Sub BtnPrint_MouseHover(sender As Object, e As EventArgs) Handles BtnStatements.MouseHover
+    Private Sub BtnPrint_MouseHover(sender As Object, e As EventArgs) Handles BtnPrint.MouseHover
         LblInfo.Text = “(: Print Statements :)  Click Here to Print Statements and Create SnapShots of your Transactions”
     End Sub
-    Private Sub Button3_MouseHover(sender As Object, e As EventArgs) Handles BtnTransactions.MouseHover
+    Private Sub BtnTransactions_MouseHover(sender As Object, e As EventArgs) Handles BtnTransactions.MouseHover
         LblInfo.Text = “(: Transactions :)   Click Here to View, Add or Edit the Transactions”
     End Sub
-    Private Sub Button4_MouseHover(sender As Object, e As EventArgs) Handles BtnProcessOrders.MouseHover
+    Private Sub BtnProcessOrders_MouseHover(sender As Object, e As EventArgs) Handles BtnProcessOrders.MouseHover
         LblInfo.Text = “(: Process Orders :)   Click Here to Convert the Standing Orders and Direct Debits in to Transactions"
     End Sub
     Private Sub BtnEditOrder_MouseHover(sender As Object, e As EventArgs) Handles BtnEditOrder.MouseHover
@@ -227,10 +234,10 @@ Timer1_Tick:
     Private Sub BtnBackup_MouseHover(sender As Object, e As EventArgs) Handles BtnBackup.MouseHover
         LblInfo.Text = “(: Backup :)   Click Here to Backup all of your valuable Data”
     End Sub
-    Private Sub BtnAbount_MouseHover(sender As Object, e As EventArgs) Handles BtnEvent.MouseHover
-        LblInfo.Text = “(: About :)  MyBank's Versions Information”
+    Private Sub BtnEvent_MouseHover(sender As Object, e As EventArgs) Handles BtnEvent.MouseHover
+        LblInfo.Text = “(: Event :)  MyBank's Event Calendar”
     End Sub
-    Private Sub Button6_MouseHover(sender As Object, e As EventArgs) Handles BtnOptions.MouseHover
+    Private Sub BtnOptions_MouseHover(sender As Object, e As EventArgs) Handles BtnOptions.MouseHover
         LblInfo.Text = “(: Options :)   Click Here to Adjust some of MyBank Settings and BackUp Transactions Etc :)”
     End Sub
     Private Sub Label1_MouseHover(sender As Object, e As EventArgs) Handles Label1.MouseHover
@@ -308,6 +315,4 @@ Timer1_Tick:
             FrError.Show()
         End Try
     End Sub
-
-
 End Class

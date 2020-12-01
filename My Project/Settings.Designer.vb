@@ -68,7 +68,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("White")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("255, 255, 192")>  _
         Public Property TxColour() As Global.System.Drawing.Color
             Get
                 Return CType(Me("TxColour"),Global.System.Drawing.Color)
@@ -531,6 +531,18 @@ Namespace My
             End Get
             Set
                 Me("EventNum") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property TipNo() As Integer
+            Get
+                Return CType(Me("TipNo"),Integer)
+            End Get
+            Set
+                Me("TipNo") = value
             End Set
         End Property
     End Class

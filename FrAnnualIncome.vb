@@ -1,19 +1,6 @@
 ﻿Imports System.IO
 Imports System.Text
-Imports System.Data
 Public Class FrAnnualIncome
-    Friend WithEvents prntDoc As New System.Drawing.Printing.PrintDocument
-    Friend Print_Image As Image
-    Declare Auto Function BitBlt Lib "GDI32.DLL" (
-ByVal hdcDest As IntPtr,
-ByVal nXDest As Integer,
-ByVal nYDest As Integer,
-ByVal nWidth As Integer,
-ByVal nHeight As Integer,
-ByVal hdcSrc As IntPtr,
-ByVal nXSrc As Integer,
-ByVal nYSrc As Integer,
-ByVal dwRop As Int32) As Boolean
     Dim WeeklyIncome As Double
     Dim WeeklyDebit As Double
     Dim BlankValue As String
@@ -45,7 +32,7 @@ ByVal dwRop As Int32) As Boolean
             RuningBal = 0
             RuningTrans = 0
             For I = 1 To NumberOfEntries
-                '******************  Calcs  *************************
+                '******************  Cal's  *************************
                 OrderCredit(I) = OrderValue(I) * 12
                 OrderNumOfTrans(I) = 12
                 If OrderDayCount(I) = 4 And OrderIntervalType(I) = "ww" Then
@@ -233,39 +220,5 @@ ByVal dwRop As Int32) As Boolean
             MyErrors = ex.Message
             FrError.Show()
         End Try
-    End Sub
-    Private Sub MakeImage()
-        Dim prnDialog As New PrintDialog
-        Application.DoEvents()
-        Me.Refresh()
-        Application.DoEvents()
-        'Get a Graphics Object from the form
-        Dim FormG As Graphics = ListView1.CreateGraphics
-        'Create a bitmap from that graphics
-        Dim i As New Bitmap(ListView1.Width, ListView1.Height, FormG)
-        'Create a Graphics object in memory from that bitmap
-        Dim memG As Graphics = Graphics.FromImage(I)
-        'get the IntPtr's of the graphics
-        Dim HDC1 As IntPtr = FormG.GetHdc
-        Dim HDC2 As IntPtr = memG.GetHdc
-        'get the picture
-        BitBlt(HDC2, 0, 0, ListView1.ClientRectangle.Width, ListView1.ClientRectangle.Height, HDC1, 0, 0, 13369376)
-        'Clone the bitmap so we can dispose this one
-        Me.Print_Image = CType(I.Clone(), Image)
-        'Clean Up
-        FormG.ReleaseHdc(HDC1)
-        memG.ReleaseHdc(HDC2)
-        FormG.Dispose()
-        memG.Dispose()
-        I.Dispose()
-        prnDialog.Document = prntDoc
-        Dim r As DialogResult = prnDialog.ShowDialog
-        If r = DialogResult.OK Then
-            prntDoc.Print()
-        End If
-    End Sub
-
-    Private Sub prntDoc_PrintPage(ByVal sender As Object, ByVal e As System.Drawing.Printing.PrintPageEventArgs) Handles prntDoc.PrintPage
-        e.Graphics.DrawImage(Print_Image, 20, 90)
     End Sub
 End Class

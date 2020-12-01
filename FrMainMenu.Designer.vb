@@ -33,19 +33,19 @@ Partial Class FrMainMenu
         Me.ClType = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ClDate = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ClBalance = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.Label9 = New System.Windows.Forms.Label()
+        Me.LblHead2 = New System.Windows.Forms.Label()
         Me.LblInfo = New System.Windows.Forms.Label()
         Me.BtnStandingOrder = New System.Windows.Forms.Button()
-        Me.Label11 = New System.Windows.Forms.Label()
+        Me.LblHead = New System.Windows.Forms.Label()
         Me.BtnProcessOrders = New System.Windows.Forms.Button()
         Me.BtnOptions = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.LblMyBank = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.BtnEditOrder = New System.Windows.Forms.Button()
         Me.BtnCloseAccount = New System.Windows.Forms.Button()
         Me.BtnQuickLook = New System.Windows.Forms.Button()
-        Me.BtnStatements = New System.Windows.Forms.Button()
+        Me.BtnPrint = New System.Windows.Forms.Button()
         Me.BtnBackup = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
@@ -54,6 +54,7 @@ Partial Class FrMainMenu
         Me.Label3 = New System.Windows.Forms.Label()
         Me.LblFooter = New System.Windows.Forms.Label()
         Me.BtnCalculator = New System.Windows.Forms.Button()
+        Me.LblBalances = New System.Windows.Forms.Label()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -156,17 +157,17 @@ Partial Class FrMainMenu
         Me.ClBalance.Text = "Balance"
         Me.ClBalance.Width = 105
         '
-        'Label9
+        'LblHead2
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.BackColor = System.Drawing.Color.Transparent
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.ForeColor = System.Drawing.Color.White
-        Me.Label9.Location = New System.Drawing.Point(354, 61)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(223, 16)
-        Me.Label9.TabIndex = 20
-        Me.Label9.Text = "Accounts and Current Balances"
+        Me.LblHead2.AutoSize = True
+        Me.LblHead2.BackColor = System.Drawing.Color.Transparent
+        Me.LblHead2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblHead2.ForeColor = System.Drawing.Color.White
+        Me.LblHead2.Location = New System.Drawing.Point(354, 61)
+        Me.LblHead2.Name = "LblHead2"
+        Me.LblHead2.Size = New System.Drawing.Size(223, 16)
+        Me.LblHead2.TabIndex = 20
+        Me.LblHead2.Text = "Accounts and Current Balances"
         '
         'LblInfo
         '
@@ -197,16 +198,16 @@ Partial Class FrMainMenu
         Me.BtnStandingOrder.Text = "D.D's or S.O's"
         Me.BtnStandingOrder.UseVisualStyleBackColor = False
         '
-        'Label11
+        'LblHead
         '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.ForeColor = System.Drawing.Color.White
-        Me.Label11.Location = New System.Drawing.Point(410, 32)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(128, 25)
-        Me.Label11.TabIndex = 23
-        Me.Label11.Text = "Main Menu"
+        Me.LblHead.AutoSize = True
+        Me.LblHead.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblHead.ForeColor = System.Drawing.Color.White
+        Me.LblHead.Location = New System.Drawing.Point(410, 32)
+        Me.LblHead.Name = "LblHead"
+        Me.LblHead.Size = New System.Drawing.Size(128, 25)
+        Me.LblHead.TabIndex = 23
+        Me.LblHead.Text = "Main Menu"
         '
         'BtnProcessOrders
         '
@@ -251,17 +252,17 @@ Partial Class FrMainMenu
         Me.Label1.Size = New System.Drawing.Size(486, 46)
         Me.Label1.TabIndex = 30
         '
-        'Label2
+        'LblMyBank
         '
-        Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.LightGreen
-        Me.Label2.Location = New System.Drawing.Point(42, 44)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(184, 27)
-        Me.Label2.TabIndex = 35
-        Me.Label2.Text = "My Bank"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LblMyBank.BackColor = System.Drawing.Color.Transparent
+        Me.LblMyBank.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblMyBank.ForeColor = System.Drawing.Color.LightGreen
+        Me.LblMyBank.Location = New System.Drawing.Point(42, 44)
+        Me.LblMyBank.Name = "LblMyBank"
+        Me.LblMyBank.Size = New System.Drawing.Size(184, 27)
+        Me.LblMyBank.TabIndex = 35
+        Me.LblMyBank.Text = "My Bank"
+        Me.LblMyBank.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'PictureBox2
         '
@@ -325,22 +326,22 @@ Partial Class FrMainMenu
         Me.BtnQuickLook.Text = "(: Quick Look :)"
         Me.BtnQuickLook.UseVisualStyleBackColor = False
         '
-        'BtnStatements
+        'BtnPrint
         '
-        Me.BtnStatements.BackColor = System.Drawing.Color.RosyBrown
-        Me.BtnStatements.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnStatements.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.BtnStatements.FlatAppearance.BorderSize = 2
-        Me.BtnStatements.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
-        Me.BtnStatements.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnStatements.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnStatements.ForeColor = System.Drawing.Color.Black
-        Me.BtnStatements.Location = New System.Drawing.Point(46, 250)
-        Me.BtnStatements.Name = "BtnStatements"
-        Me.BtnStatements.Size = New System.Drawing.Size(170, 40)
-        Me.BtnStatements.TabIndex = 41
-        Me.BtnStatements.Text = "Statements"
-        Me.BtnStatements.UseVisualStyleBackColor = False
+        Me.BtnPrint.BackColor = System.Drawing.Color.RosyBrown
+        Me.BtnPrint.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnPrint.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.BtnPrint.FlatAppearance.BorderSize = 2
+        Me.BtnPrint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
+        Me.BtnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnPrint.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnPrint.ForeColor = System.Drawing.Color.Black
+        Me.BtnPrint.Location = New System.Drawing.Point(46, 250)
+        Me.BtnPrint.Name = "BtnPrint"
+        Me.BtnPrint.Size = New System.Drawing.Size(170, 40)
+        Me.BtnPrint.TabIndex = 41
+        Me.BtnPrint.Text = "Statements"
+        Me.BtnPrint.UseVisualStyleBackColor = False
         '
         'BtnBackup
         '
@@ -450,6 +451,18 @@ Partial Class FrMainMenu
         Me.BtnCalculator.Text = "(: Calculatorr :)"
         Me.BtnCalculator.UseVisualStyleBackColor = False
         '
+        'LblBalances
+        '
+        Me.LblBalances.AutoSize = True
+        Me.LblBalances.BackColor = System.Drawing.Color.Transparent
+        Me.LblBalances.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblBalances.ForeColor = System.Drawing.Color.White
+        Me.LblBalances.Location = New System.Drawing.Point(269, 291)
+        Me.LblBalances.Name = "LblBalances"
+        Me.LblBalances.Size = New System.Drawing.Size(410, 16)
+        Me.LblBalances.TabIndex = 82
+        Me.LblBalances.Text = "Note Balanes show only up to Last 'C' leared Transactions"
+        '
         'FrMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -457,6 +470,7 @@ Partial Class FrMainMenu
         Me.BackColor = System.Drawing.Color.Navy
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(934, 411)
+        Me.Controls.Add(Me.LblBalances)
         Me.Controls.Add(Me.BtnCalculator)
         Me.Controls.Add(Me.LblFooter)
         Me.Controls.Add(Me.Label3)
@@ -465,19 +479,19 @@ Partial Class FrMainMenu
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.BtnBackup)
-        Me.Controls.Add(Me.BtnStatements)
+        Me.Controls.Add(Me.BtnPrint)
         Me.Controls.Add(Me.BtnQuickLook)
         Me.Controls.Add(Me.BtnCloseAccount)
         Me.Controls.Add(Me.BtnEditOrder)
         Me.Controls.Add(Me.PictureBox2)
-        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.LblMyBank)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.BtnOptions)
         Me.Controls.Add(Me.BtnProcessOrders)
-        Me.Controls.Add(Me.Label11)
+        Me.Controls.Add(Me.LblHead)
         Me.Controls.Add(Me.BtnStandingOrder)
         Me.Controls.Add(Me.LblInfo)
-        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.LblHead2)
         Me.Controls.Add(Me.ListView1)
         Me.Controls.Add(Me.BtnTransactions)
         Me.Controls.Add(Me.BtnExit)
@@ -507,21 +521,21 @@ Partial Class FrMainMenu
     Friend WithEvents ListView1 As ListView
     Friend WithEvents ClName As ColumnHeader
     Friend WithEvents ClType As ColumnHeader
-    Friend WithEvents Label9 As Label
+    Friend WithEvents LblHead2 As Label
     Friend WithEvents LblInfo As Label
     Friend WithEvents BtnStandingOrder As Button
-    Friend WithEvents Label11 As Label
+    Friend WithEvents LblHead As Label
     Friend WithEvents BtnProcessOrders As Button
     Friend WithEvents BtnOptions As Button
     Friend WithEvents ClDate As ColumnHeader
     Friend WithEvents ClBalance As ColumnHeader
     Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
+    Friend WithEvents LblMyBank As Label
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents BtnEditOrder As Button
     Friend WithEvents BtnCloseAccount As Button
     Friend WithEvents BtnQuickLook As Button
-    Friend WithEvents BtnStatements As Button
+    Friend WithEvents BtnPrint As Button
     Friend WithEvents BtnBackup As Button
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents PictureBox3 As PictureBox
@@ -530,4 +544,5 @@ Partial Class FrMainMenu
     Friend WithEvents Label3 As Label
     Friend WithEvents LblFooter As Label
     Friend WithEvents BtnCalculator As Button
+    Friend WithEvents LblBalances As Label
 End Class

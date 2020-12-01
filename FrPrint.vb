@@ -55,10 +55,10 @@ Public Class FrPrint
         CheckBox11.BackColor = My.Settings.BkColour
         'PageSetupDialog1.Document.DefaultPageSettings.Color = False
         'PageSetupDialog1.Document.DefaultPageSettings.Landscape = My.Settings.DocLandscape
-        Label2.Text = "Each transaction is made up of 10 parts. You can choose which parts of the transaction that you want to Printby ticking each Box."
+        Label2.Text = "Each transaction is made up of 10 parts. You can choose which parts of the transaction that you want to Print by ticking each Box."
         Label3.Text = "You can Select which account that you want to Print or Select All Accounts"
         Label4.Text = "You also have to Choose the START Date and END Dates"
-        Label6.Text = "Print Document, This saves the document as a webpage and will open it in your default browser"
+        Label6.Text = "Print Document, This saves the document as a web page and will open it in your default browser"
         Flag = False
         Dim CBflag1 As Boolean = False
         My.Settings.ProAccRef = 0
@@ -285,7 +285,7 @@ Public Class FrPrint
                 .Width = 120,
                 .ReadOnly = True,
                 .MaxInputLength = 10,
-                .ToolTipText = "Entery Account Reference"
+                .ToolTipText = "Entry Account Reference"
             }
                 Me.DataGridView1.Columns.Add(Col)
                 Col = New DataGridViewTextBoxColumn With {
@@ -294,7 +294,7 @@ Public Class FrPrint
                .Width = 120,
                .ReadOnly = True,
                .MaxInputLength = 10,
-               .ToolTipText = "Entery Account Reference"
+               .ToolTipText = "Entry Account Reference"
            }
                 Me.DataGridView1.Columns.Add(Col)
             End If
@@ -305,7 +305,7 @@ Public Class FrPrint
                .Width = 90,
                .ReadOnly = True,
                .MaxInputLength = 12,
-               .ToolTipText = "Entery Date"
+               .ToolTipText = "Entry Date"
            }
                 Me.DataGridView1.Columns.Add(Col)
             End If
@@ -316,7 +316,7 @@ Public Class FrPrint
                 .Width = 65,
                 .ReadOnly = True,
                 .MaxInputLength = 12,
-                .ToolTipText = "Entery Account Reference"
+                .ToolTipText = "Entry Account Reference"
             }
                 Me.DataGridView1.Columns.Add(Col)
             End If
@@ -327,7 +327,7 @@ Public Class FrPrint
                 .Width = 75,
                 .ReadOnly = True,
                 .MaxInputLength = 10,
-                .ToolTipText = "Entery Debit Value"
+                .ToolTipText = "Entry Debit Value"
             }
                 Me.DataGridView1.Columns.Add(Col)
             End If
@@ -338,7 +338,7 @@ Public Class FrPrint
                 .Width = 75,
                 .ReadOnly = True,
                 .MaxInputLength = 10,
-                .ToolTipText = "Entery Credit Value"
+                .ToolTipText = "Entry Credit Value"
             }
                 Me.DataGridView1.Columns.Add(Col)
             End If
@@ -349,7 +349,7 @@ Public Class FrPrint
                 .Width = 140,
                 .ReadOnly = True,
                 .MaxInputLength = 30,
-                .ToolTipText = "Entery Paid To or Received From"
+                .ToolTipText = "Entry Paid To or Received From"
             }
                 Me.DataGridView1.Columns.Add(Col)
             End If
@@ -360,7 +360,7 @@ Public Class FrPrint
                .Width = 140,
                .ReadOnly = True,
                .MaxInputLength = 30,
-               .ToolTipText = "Entery Falls in to this Category"
+               .ToolTipText = "Entry Falls in to this Category"
            }
                 Me.DataGridView1.Columns.Add(Col)
             End If
@@ -371,7 +371,7 @@ Public Class FrPrint
                .Width = 140,
                .ReadOnly = True,
                .MaxInputLength = 30,
-               .ToolTipText = "Entery Falls in to this SubCategory"
+               .ToolTipText = "Entry Falls in to this SubCategory"
            }
                 Me.DataGridView1.Columns.Add(Col)
             End If
@@ -382,7 +382,7 @@ Public Class FrPrint
               .Width = 45,
               .ReadOnly = True,
               .MaxInputLength = 10,
-              .ToolTipText = "Entery Transaction Type"
+              .ToolTipText = "Entry Transaction Type"
           }
                 Me.DataGridView1.Columns.Add(Col)
             End If
@@ -392,7 +392,7 @@ Public Class FrPrint
                 .Width = 80,
                 .ReadOnly = True,
                 .MaxInputLength = 10,
-                .ToolTipText = "Entery Credit Value"
+                .ToolTipText = "Entry Credit Value"
             }
             Me.DataGridView1.Columns.Add(Col)
             Flag = False

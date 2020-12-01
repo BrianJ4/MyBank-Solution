@@ -10,6 +10,7 @@ Public Class FrTransactions
         Me.BackColor = My.Settings.BkColour
         LblAction.ForeColor = My.Settings.TxColour
         LblLastAction.ForeColor = My.Settings.TxColour
+        LblNotCleared.Text = "You have Transactions that have Not Been Cleared yet. Please Clear Transactions with a Date Less than " & Now.ToShortDateString
         BtnClear.Enabled = False
         BtnNotClear.Enabled = False
         BtnDelete.Enabled = False
@@ -24,6 +25,8 @@ Public Class FrTransactions
         My.Settings.StateC = False
         My.Settings.StateNotC = False
         My.Settings.Save()
+        Timer1.Stop()
+        LblNotCleared.Visible = False
         Call LoadAccounts()
         If FrNewTransaction.Flag = True Then
             CBoxBank.SelectedItem = My.Settings.AccBank
@@ -37,7 +40,7 @@ Public Class FrTransactions
         LblLastAction.Text = "Total Number of Entries = " & My.Settings.TotalTrans.ToString & "  Last AccRef :-" & My.Settings.TransRefNo.ToString
         With ProgressBar1
             .Minimum = 0
-            .Maximum = 20000
+            .Maximum = 10000
             .Increment(1)
         End With
     End Sub
@@ -126,6 +129,20 @@ Public Class FrTransactions
     End Sub
     Private Sub BtnCalculator_Click(sender As Object, e As EventArgs) Handles BtnCalculator.Click
         FrCalculator.Show()
+    End Sub
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+Timer1_Tick:
+        If (blink) Then
+            Me.BtnClear.BackColor = Color.LimeGreen
+            LblNotCleared.ForeColor = Color.LimeGreen
+            blink = False
+            Application.DoEvents()
+        Else
+            Me.BtnClear.BackColor = Color.Orange
+            LblNotCleared.ForeColor = Color.Orange
+            blink = True
+            Application.DoEvents()
+        End If
     End Sub
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles BtnClose.Click
         My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
@@ -243,6 +260,9 @@ Public Class FrTransactions
             Dim thereader As New StreamReader(MakePath, Encoding.Default)
             Dim sline As String = ""
             Z = 0
+            Timer1.Stop()
+            LblNotCleared.Visible = False
+            BtnClear.BackColor = Color.RosyBrown
             Do
                 sline = thereader.ReadLine
                 If sline = Nothing Then Exit Do
@@ -274,6 +294,12 @@ Public Class FrTransactions
                             ScrollPoint = I
                             RunNo = I
                         End If
+                        '#####  check that transactions are cleared  #####
+                        If CDate(DataGridView1.Rows(Cr).Cells(1).Value) <= Now And CStr(DataGridView1.Rows(Cr).Cells(9).Value) = "---" Then
+                            Timer1.Start()
+                            LblNotCleared.Visible = True
+                        End If
+                        '######################  Errors  ###########################
                         If Not IsNumeric(words(0)) Then DataGridView1.Rows(Cr).Cells(0).Style.BackColor = Color.Yellow
                         If Not IsDate(words(1)) Then DataGridView1.Rows(Cr).Cells(1).Style.BackColor = Color.Yellow
                         If Not IsNumeric(words(2)) Then DataGridView1.Rows(Cr).Cells(2).Style.BackColor = Color.Yellow
@@ -310,7 +336,7 @@ Public Class FrTransactions
             'My.Settings.TotalTrans = 214
             'My.Settings.Save()
             '####################################################################################
-            For I = 1 To 20000
+            For I = 1 To 10000
                 ProgressBar1.Value = I
             Next
         Catch ex As Exception
@@ -330,7 +356,7 @@ Public Class FrTransactions
             Dim TempCat As String
             Dim TempSubCat As String
             Dim TempState As String
-            'Load File Length And Inisilize Variables
+            'Load File Length And Initialize Variables
             NumberOfEntries = My.Settings.TotalTrans
             NumberOfEntries = NumberOfEntries + 200
             Dim LedgerAcc(NumberOfEntries) As Integer

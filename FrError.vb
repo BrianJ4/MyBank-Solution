@@ -2,8 +2,13 @@
     Private Sub Form12_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         BaseForm_Load()
         Label2.Text = MyErrors
+        Dim MyErrorList As String
+        MyErrorList = Now.ToShortDateString & " ) " & MyErrors
+        MakePath = My.Settings.ProSetPath & "ErrorLog.mbtd"
+        FileOpen(1, MakePath, OpenMode.Append)
+        PrintLine(1, MyErrorList)
+        FileClose(1)
     End Sub
-
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles BtnLeaveData.Click
         Me.Close()
     End Sub

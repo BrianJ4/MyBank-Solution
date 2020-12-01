@@ -22,6 +22,7 @@ Partial Class FrTransactions
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -62,6 +63,8 @@ Partial Class FrTransactions
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.BtnCalculator = New System.Windows.Forms.Button()
+        Me.LblNotCleared = New System.Windows.Forms.Label()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -91,8 +94,8 @@ Partial Class FrTransactions
         Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle12
         Me.DataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.DataGridView1.Location = New System.Drawing.Point(90, 37)
-        Me.DataGridView1.MaximumSize = New System.Drawing.Size(1000, 524)
-        Me.DataGridView1.MinimumSize = New System.Drawing.Size(1020, 524)
+        Me.DataGridView1.MaximumSize = New System.Drawing.Size(1000, 500)
+        Me.DataGridView1.MinimumSize = New System.Drawing.Size(1020, 500)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -106,7 +109,7 @@ Partial Class FrTransactions
         Me.DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.DataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(1020, 524)
+        Me.DataGridView1.Size = New System.Drawing.Size(1020, 500)
         Me.DataGridView1.TabIndex = 22
         '
         'DgAccReff
@@ -470,12 +473,30 @@ Partial Class FrTransactions
         Me.BtnCalculator.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnCalculator.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCalculator.ForeColor = System.Drawing.Color.Black
-        Me.BtnCalculator.Location = New System.Drawing.Point(851, 567)
+        Me.BtnCalculator.Location = New System.Drawing.Point(944, 567)
         Me.BtnCalculator.Name = "BtnCalculator"
         Me.BtnCalculator.Size = New System.Drawing.Size(103, 23)
         Me.BtnCalculator.TabIndex = 36
         Me.BtnCalculator.Text = "Calculator"
         Me.BtnCalculator.UseVisualStyleBackColor = False
+        '
+        'LblNotCleared
+        '
+        Me.LblNotCleared.AutoSize = True
+        Me.LblNotCleared.BackColor = System.Drawing.Color.Transparent
+        Me.LblNotCleared.Font = New System.Drawing.Font("Arial Black", 11.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblNotCleared.ForeColor = System.Drawing.Color.Lime
+        Me.LblNotCleared.Location = New System.Drawing.Point(86, 540)
+        Me.LblNotCleared.Name = "LblNotCleared"
+        Me.LblNotCleared.Size = New System.Drawing.Size(109, 22)
+        Me.LblNotCleared.TabIndex = 37
+        Me.LblNotCleared.Text = "Not Cleared"
+        Me.LblNotCleared.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 500
         '
         'FrTransactions
         '
@@ -484,6 +505,7 @@ Partial Class FrTransactions
         Me.BackColor = System.Drawing.Color.Black
         Me.ClientSize = New System.Drawing.Size(1184, 591)
         Me.ControlBox = False
+        Me.Controls.Add(Me.LblNotCleared)
         Me.Controls.Add(Me.BtnCalculator)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -542,4 +564,6 @@ Partial Class FrTransactions
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents BtnCalculator As Button
+    Friend WithEvents LblNotCleared As Label
+    Friend WithEvents Timer1 As Timer
 End Class

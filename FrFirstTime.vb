@@ -3,7 +3,7 @@
         Label3.Text = "By default you data will be Stored on your C drive In the 'Bank Project' folder"
         Label6.Text = "But you can change the file location at any time "
         Label6.Text = "Note: That your data is secure as it's only stored on your computer"
-        'BaseForm_Load()
+        My.Settings.Save()
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         CreateNewFiles()
@@ -30,7 +30,7 @@
         FileOpen(1, My.Settings.ProSetPath & "Master_List_Data.mbtd", OpenMode.Output)
         PrintLine(1, "Water Rates,House,Water")
         PrintLine(1, "Council Tax,House,Council Tax")
-        PrintLine(1, "TV Licence,House,TV Licence")
+        PrintLine(1, "TV License,House,TV Licence")
         PrintLine(1, "Gas/Elec,House,Gas/Elec")
         PrintLine(1, "Rent,House,Rent")
         PrintLine(1, "Mortgage,House,Mortgage")

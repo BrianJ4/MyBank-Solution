@@ -6,10 +6,10 @@ Module PubVars
     '######   String  #########
     Public ToFrom, Cat, IntervalType, SubCat, FrAccount, FrAccIndex, FrAccName, FrAccNumber, FrAccType, FrBank, FrDates, FrDebCre, FrName, FrState, FrSODD As String
     Public Labels, MakePath, StateChange, MyNotify, SCat, SetPath, SSubCat, SToFrom, strCurrency, Temp, TransBank, FormErr, ErrOnForm, SODDshort As String
-
+    Public TipOfTheDay As String
     '######   Int  #########
     Public I, Q, T, P, S, Z, AccIndex, AccRef, AccState, DayCount, EditTransNo, GridRowCount, index As Integer
-    Public NumberOfEntries, NumberOfTransactions, RuningTrans, RowValue, TotalRef, TransNo As Integer
+    Public NumberOfEntries, NumberOfTransactions, RuningTrans, RowValue, TotalRef, TransNo, TipNumber As Integer
     '######   Doubles  #########
     Public Balance, FrBalance, FrValue, LastBalance, RuningBal, TransDeb, TransCre As Double
 

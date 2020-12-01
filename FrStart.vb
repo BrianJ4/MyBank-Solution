@@ -6,7 +6,8 @@ Public Class FrStart
     Dim OldDir As String
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-
+            'FileOpen(1, My.Settings.ProSetPath & "ErrorLog.mbtd", OpenMode.Output)
+            'FileClose(1)
             'LoadOldSettings()
             'My.Settings.AccLive = True
             'My.Settings.Save()
@@ -18,18 +19,21 @@ Public Class FrStart
             'My.Settings.Save()
             'My.Computer.FileSystem.CreateDirectory(My.Settings.ProSetPath & "\Documents")
             Me.BackColor = My.Settings.BkColour
-            Label1.ForeColor = My.Settings.TxColour
-            Label2.ForeColor = My.Settings.TxColour
-            Label3.ForeColor = My.Settings.TxColour
-            Label4.ForeColor = My.Settings.TxColour
-            Label6.ForeColor = My.Settings.TxColour
-            Label8.ForeColor = My.Settings.TxColour
-            Label9.ForeColor = My.Settings.TxColour
-            Label10.ForeColor = My.Settings.TxColour
-            Label11.ForeColor = My.Settings.TxColour
-            Label12.ForeColor = My.Settings.TxColour
-            Label13.ForeColor = My.Settings.TxColour
+            LblName.ForeColor = My.Settings.TxColour
+            LblAddresss1.ForeColor = My.Settings.TxColour
+            LblAddress2.ForeColor = My.Settings.TxColour
+            LblTown.ForeColor = My.Settings.TxColour
+            LblCity.ForeColor = My.Settings.TxColour
+            LblCounty.ForeColor = My.Settings.TxColour
+            LblPostCode.ForeColor = My.Settings.TxColour
+            LblTel.ForeColor = My.Settings.TxColour
+            LblFileLocation.ForeColor = My.Settings.TxColour
+            LblFilePath.ForeColor = My.Settings.TxColour
+            LblHead.ForeColor = My.Settings.TxColour
+            LblFileSaved.ForeColor = My.Settings.TxColour
+            LblMail.ForeColor = My.Settings.TxColour
             Label14.ForeColor = My.Settings.TxColour
+            LblTiip.ForeColor = My.Settings.TxColour
             BaseForm_Load()
             TextBox1.Text = My.Settings.ProName
             TextBox2.Text = My.Settings.ProAdr1
@@ -40,8 +44,8 @@ Public Class FrStart
             TextBox8.Text = My.Settings.ProPostCode
             TextBox7.Text = My.Settings.ProTel
             TextBox10.Text = My.Settings.ProEmail
-            Label10.Text = My.Settings.ProSetPath
-            Label10.Text = My.Settings.ProSetPath
+            LblFilePath.Text = My.Settings.ProSetPath
+            LblFilePath.Text = My.Settings.ProSetPath
             OldDir = ""
             CheckForEvent()
             If My.Settings.AccLive = True Then
@@ -51,17 +55,25 @@ Public Class FrStart
                 My.Settings.Save()
                 Timer1.Start()
                 Me.BtnSetFolder.BackColor = Color.RosyBrown
-                Label12.Text = "Directory Set Ok"
+                LblFileSaved.Text = "Directory Set OK"
             End If
             If My.Settings.AccLive = False Then
                 Me.BtnContinue.Enabled = False
                 Me.BtnContinue.Visible = False
-                Label12.Text = "Directory Not Set"
+                LblFileSaved.Text = "Directory Not Set"
             End If
+            TipOfTheDay()
+            'Dim a As Integer
+            'For a = 10 To 100 Step +1
+            '    Me.Opacity = a / 100
+            '    Me.Refresh()
+            '    Threading.Thread.Sleep(15)
+            'Next
         Catch ex As Exception
             MyErrors = ex.Message
             FrError.Show()
         End Try
+        'FrTip1.Show()
     End Sub
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles BtnContinue.Click
         My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
@@ -73,17 +85,25 @@ Public Class FrStart
     End Sub
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles BtnExit.Click
         My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
+        Dim a As Integer
+        'For a = 100 To 10 Step -1
+        '    Me.Opacity = a / 100
+        '    Me.Refresh()
+        '    Threading.Thread.Sleep(15)
+        'Next
         ExitApp()
         End
     End Sub
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
 Timer1_Tick:
         If (blink) Then
-            Me.BtnContinue.BackColor = Color.Red
+            Me.BtnContinue.BackColor = Color.LimeGreen
+            LblInfo.ForeColor = Color.LimeGreen
             blink = False
             Application.DoEvents()
         Else
             Me.BtnContinue.BackColor = Color.Orange
+            LblInfo.ForeColor = My.Settings.TxColour
             blink = True
             Application.DoEvents()
         End If
@@ -95,7 +115,7 @@ Timer1_Tick:
                 If .ShowDialog = Windows.Forms.DialogResult.OK Then
                     SetPath = .SelectedPath
                     SetPath += "\MyBanKData\"
-                    Label10.Text = SetPath
+                    LblFilePath.Text = SetPath
                     If My.Settings.AccLive = True Then
                         MoveFiles()
                     End If
@@ -145,12 +165,14 @@ Timer1_Tick:
             FileClose(1)
             FileOpen(1, SetPath & "Current_Orders.mbtd", OpenMode.Output)
             FileClose(1)
+            FileOpen(1, SetPath & "ErrorLog.mbtd", OpenMode.Output)
+            FileClose(1)
             FileOpen(1, SetPath & "Current_Transaction_Data.mbtd", OpenMode.Output)
             FileClose(1)
             FileOpen(1, SetPath & "Master_List_Data.mbtd", OpenMode.Output)
             PrintLine(1, "Water Rates,House,Water")
             PrintLine(1, "Council Tax,House,Council Tax")
-            PrintLine(1, "TV Licence,House,TV Licence")
+            PrintLine(1, "TV License,House,TV License")
             PrintLine(1, "Gas/Elec,House,Gas/Elec")
             PrintLine(1, "Rent,House,Rent")
             PrintLine(1, "Mortgage,House,Mortgage")
@@ -167,6 +189,7 @@ Timer1_Tick:
             PrintLine(1, "ISA")
             PrintLine(1, "Loan")
             PrintLine(1, "House Rental")
+            PrintLine(1, "Mortgage")
             FileClose(1)
             '########## Set New Dir Path  ####################
             My.Settings.ProSetPath = SetPath
@@ -182,8 +205,8 @@ Timer1_Tick:
             ExitApp() 'Create Settings File
             Me.BtnContinue.Enabled = True
             Me.BtnContinue.Visible = True
-            Label12.Text = "Directory Set Ok"
-            Label10.Text = My.Settings.ProSetPath
+            LblFileSaved.Text = "Directory Set Ok"
+            LblFilePath.Text = My.Settings.ProSetPath
             Me.BtnSetFolder.BackColor = Color.RosyBrown
             MyMsg = "    New Files Created"
             MyMsgFlag = False
@@ -197,9 +220,9 @@ Timer1_Tick:
         Try
             My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
 
-            '########## Check If New Direcrory Exiists ####################
+            '########## Check If New Directory Exists ####################
             If My.Computer.FileSystem.DirectoryExists(SetPath) Then
-                MyMsg = "New Directory Exists. overrite It?"
+                MyMsg = "New Directory Exists. overwrite It?"
                 MyMsgFlag = False
                 FrMsgYesNo.ShowDialog()
                 If MyMsgFlag = True Then
@@ -214,8 +237,8 @@ Timer1_Tick:
                     My.Computer.FileSystem.CopyDirectory(My.Settings.ProSetPath, SetPath)
                 End If
             Else
-                    '########## Copy Files to new Dir  ####################
-                    My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
+                '########## Copy Files to new Dir  ####################
+                My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
                 My.Computer.FileSystem.CopyDirectory(My.Settings.ProSetPath, SetPath)
             End If
 
@@ -246,8 +269,8 @@ Timer1_Tick:
             My.Settings.Save()
             Me.BtnContinue.Enabled = True
             Me.BtnContinue.Visible = True
-            Label12.Text = "Directory Set Ok"
-            Label10.Text = My.Settings.ProSetPath
+            LblFileSaved.Text = "Directory Set Ok"
+            LblFilePath.Text = My.Settings.ProSetPath
             Me.BtnSetFolder.BackColor = Color.RosyBrown
             MyMsg = " New Directory Path Created"
             MyMsgFlag = False
@@ -285,7 +308,7 @@ Timer1_Tick:
                 My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
                 My.Settings.ProSetPath = OldDir
                 My.Settings.Save()
-                Label10.Text = My.Settings.ProSetPath
+                LblFilePath.Text = My.Settings.ProSetPath
             End If
         Catch ex As Exception
             MyErrors = ex.Message
@@ -448,6 +471,62 @@ Timer1_Tick:
             FrError.Show()
         End Try
     End Sub
-
+    Private Sub TipOfTheDay()
+        TipNumber = My.Settings.TipNo
+        TipNumber = TipNumber + 1
+        If TipNumber = 17 Then
+            TipNumber = 1
+        End If
+        If TipNumber = 1 Then
+            LblInfo.Text = "The path to your files are shown here"
+        End If
+        If TipNumber = 2 Then
+            LblInfo.Text = "This Information Can be Entered or Changed at any time"
+        End If
+        If TipNumber = 3 Then
+            LblInfo.Text = "Create up to 10 different bank accounts"
+        End If
+        If TipNumber = 4 Then
+            LblInfo.Text = "Try setting reminders for Birthdays"
+        End If
+        If TipNumber = 5 Then
+            LblInfo.Text = "In 3 clicks you can delete an account and all it's Transactions"
+        End If
+        If TipNumber = 6 Then
+            LblInfo.Text = "View or print Transactions by dates"
+        End If
+        If TipNumber = 7 Then
+            LblInfo.Text = "Try updating your Direct Debits or Standing Orders"
+        End If
+        If TipNumber = 8 Then
+            LblInfo.Text = "Notifying you 7 days before an event is due"
+        End If
+        If TipNumber = 9 Then
+            LblInfo.Text = "Changing your Standing Orders Values made easy"
+        End If
+        If TipNumber = 10 Then
+            LblInfo.Text = "Backup all of your data in a couple of clicks"
+        End If
+        If TipNumber = 11 Then
+            LblInfo.Text = "Create,View, Edit or Delete your transactions"
+        End If
+        If TipNumber = 12 Then
+            LblInfo.Text = "There is even a built in Calendar and Calculator "
+        End If
+        If TipNumber = 13 Then
+            LblInfo.Text = "Keep track of property renting or mortgages"
+        End If
+        If TipNumber = 14 Then
+            LblInfo.Text = "Thank you for trying MyBank"
+        End If
+        If TipNumber = 15 Then
+            LblInfo.Text = "Auto Complete will learn from your Transactions"
+        End If
+        If TipNumber = 16 Then
+            LblInfo.Text = "Try setting up a Direct Debits or Standing Orders"
+        End If
+        My.Settings.TipNo = TipNumber
+        My.Settings.Save()
+    End Sub
 End Class
 

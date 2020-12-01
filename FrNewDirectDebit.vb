@@ -88,7 +88,7 @@ Public Class FrNewDirectDebit
         ComboBox3.Items.Add("Direct Debit")
         ComboBox3.SelectedItem = "Please Select"
         ComboBox4.Items.Add("Income")
-        ComboBox5.Items.Add("Benifit")
+        ComboBox5.Items.Add("Benefit")
         Panel1.Visible = False
         CBoxAccount.Visible = False
         ComboBox3.Visible = False
@@ -446,7 +446,7 @@ Timer1_Tick:
     End Sub
     Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker1.ValueChanged
         My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
-        LblHelp.Text = "Help" & Environment.NewLine & "~~~~~~~~" & Environment.NewLine & "Step 8" & Environment.NewLine & "~~~~~~~~~~" & Environment.NewLine & "Select" & Environment.NewLine & "The Frequence"
+        LblHelp.Text = "Help" & Environment.NewLine & "~~~~~~~~" & Environment.NewLine & "Step 8" & Environment.NewLine & "~~~~~~~~~~" & Environment.NewLine & "Select" & Environment.NewLine & "The Frequency"
     End Sub
     Private Sub ComboBox6_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox6.SelectedIndexChanged
         '###########################  Pick Frequence  ############################

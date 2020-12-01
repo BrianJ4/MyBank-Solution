@@ -6,7 +6,7 @@
       <Value Profile="(Default)">Navy</Value>
     </Setting>
     <Setting Name="TxColour" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">White</Value>
+      <Value Profile="(Default)">255, 255, 192</Value>
     </Setting>
     <Setting Name="ProName" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
@@ -120,6 +120,9 @@
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="EventNum" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="TipNo" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
   </Settings>

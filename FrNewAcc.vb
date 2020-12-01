@@ -185,7 +185,7 @@ Public Class FrNewAcc
             PrintLine(1, FrBalance)
             FileClose(1)
 
-            '############## Append Transactin File  ############################
+            '############## Append Transaction File  ############################
             ' Set Transaction Value
             Dim CBBal As Double = FrBalance
             If FrDebCre = "D" Then
