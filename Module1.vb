@@ -19,7 +19,7 @@ Module PubVars
     Public acceptableKey As Boolean
     Public Flag As Boolean
     Public PrintFlag As Boolean
-    Public blink As Boolean
+    Public blink, blink1, blink2 As Boolean
     '###############   Move Mouse #########
     Public MoveForm As Boolean
     Public MoveForm_MousePosition As Point
@@ -27,12 +27,12 @@ Module PubVars
     Public MyMsg As String
     Public MyMsgFlag As Boolean
     '#################   Accounts  ###################
-    Public LvBank(20) As String
-    Public LvType(20) As String
-    Public LvRef(20) As Integer
-    Public LvState(20) As Integer
-    Public LBalance(20) As Double
-    Public LBalDate(20) As Date
+    Public LvBank(12) As String
+    Public LvType(12) As String
+    Public LvRef(12) As Integer
+    Public LvState(12) As Integer
+    Public LBalance(12) As Double
+    Public LBalDate(12) As Date
     '#################   Transactions    ###################
     Public TransAccount, TransRef, TransToFrom, TransCategoty, TransSubCategory, TransState As String
     Public TransDebit, TransCredit, TransBalance As Double

@@ -25,8 +25,6 @@ Public Class FrTransactions
         My.Settings.StateC = False
         My.Settings.StateNotC = False
         My.Settings.Save()
-        Timer1.Stop()
-        LblNotCleared.Visible = False
         Call LoadAccounts()
         If FrNewTransaction.Flag = True Then
             CBoxBank.SelectedItem = My.Settings.AccBank
@@ -37,7 +35,11 @@ Public Class FrTransactions
             CBoxAccount.SelectedItem = My.Settings.AccType
         End If
         Call SortTransactionData()
-        LblLastAction.Text = "Total Number of Entries = " & My.Settings.TotalTrans.ToString & "  Last AccRef :-" & My.Settings.TransRefNo.ToString
+        LblLastAction.Text = "Please Choose a Bank"
+        Timer2.Start()
+        Timer1.Stop()
+        BtnClear.BackColor = Color.RosyBrown
+        LblNotCleared.Visible = False
         With ProgressBar1
             .Minimum = 0
             .Maximum = 10000
@@ -122,25 +124,38 @@ Public Class FrTransactions
                 Call ViewAcc()
             End If
         Else
-                MyMsg = "You Must Select a Transaction"
+            MyMsg = "You Must Select a Transaction"
             MyMsgFlag = False
             FrMsgOk.ShowDialog()
         End If
     End Sub
     Private Sub BtnCalculator_Click(sender As Object, e As EventArgs) Handles BtnCalculator.Click
         FrCalculator.Show()
+
     End Sub
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
 Timer1_Tick:
-        If (blink) Then
-            Me.BtnClear.BackColor = Color.LimeGreen
-            LblNotCleared.ForeColor = Color.LimeGreen
-            blink = False
+        If (blink1) Then
+            Me.LblNotCleared.ForeColor = Color.LimeGreen
+            Me.BtnClear.BackColor = Color.White
+            blink1 = False
             Application.DoEvents()
         Else
-            Me.BtnClear.BackColor = Color.Orange
-            LblNotCleared.ForeColor = Color.Orange
-            blink = True
+            Me.LblNotCleared.ForeColor = My.Settings.TxColour
+            Me.BtnClear.BackColor = Color.RosyBrown
+            blink1 = True
+            Application.DoEvents()
+        End If
+    End Sub
+    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
+Timer2_Tick:
+        If (blink2) Then
+            Me.CBoxBank.BackColor = Color.LightGray
+            blink2 = False
+            Application.DoEvents()
+        Else
+            Me.CBoxBank.BackColor = Color.White
+            blink2 = True
             Application.DoEvents()
         End If
     End Sub
@@ -160,6 +175,8 @@ Timer1_Tick:
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CBoxBank.SelectedIndexChanged
         Dim NumberOfAccouts As Integer = 0
         Dim SelectedAccType As String = ""
+        CBoxBank.BackColor = Color.White
+        Timer2.Stop()
 #Disable Warning BC42032 ' Operands of type Object used for operator '<>'; use the 'IsNot' operator to test object identity.
         If CBoxBank.SelectedItem <> "" Then
 #Enable Warning BC42032 ' Operands of type Object used for operator '<>'; use the 'IsNot' operator to test object identity.
@@ -259,7 +276,6 @@ Timer1_Tick:
             Dim colsexpected As Integer = 10
             Dim thereader As New StreamReader(MakePath, Encoding.Default)
             Dim sline As String = ""
-            Z = 0
             Timer1.Stop()
             LblNotCleared.Visible = False
             BtnClear.BackColor = Color.RosyBrown
@@ -336,7 +352,7 @@ Timer1_Tick:
             'My.Settings.TotalTrans = 214
             'My.Settings.Save()
             '####################################################################################
-            For I = 1 To 10000
+            For I = 1 To 9999
                 ProgressBar1.Value = I
             Next
         Catch ex As Exception
@@ -358,7 +374,7 @@ Timer1_Tick:
             Dim TempState As String
             'Load File Length And Initialize Variables
             NumberOfEntries = My.Settings.TotalTrans
-            NumberOfEntries = NumberOfEntries + 200
+            NumberOfEntries = NumberOfEntries + 50
             Dim LedgerAcc(NumberOfEntries) As Integer
             Dim LedgerDate(NumberOfEntries) As Date
             Dim LedgerRef(NumberOfEntries) As Integer

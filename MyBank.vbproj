@@ -24,7 +24,7 @@
     <PublisherName>Brian Johnson</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <TrustUrlParameters>true</TrustUrlParameters>
-    <ApplicationRevision>67</ApplicationRevision>
+    <ApplicationRevision>73</ApplicationRevision>
     <ApplicationVersion>1.3.3.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -221,10 +221,10 @@
     <Compile Include="FrEditTransactions.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrTest.Designer.vb">
-      <DependentUpon>FrTest.vb</DependentUpon>
+    <Compile Include="FrDeleteTransactions.Designer.vb">
+      <DependentUpon>FrDeleteTransactions.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrTest.vb">
+    <Compile Include="FrDeleteTransactions.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrPrint.Designer.vb">
@@ -356,8 +356,8 @@
     <EmbeddedResource Include="FrEditTransactions.resx">
       <DependentUpon>FrEditTransactions.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrTest.resx">
-      <DependentUpon>FrTest.vb</DependentUpon>
+    <EmbeddedResource Include="FrDeleteTransactions.resx">
+      <DependentUpon>FrDeleteTransactions.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrPrint.resx">
       <DependentUpon>FrPrint.vb</DependentUpon>

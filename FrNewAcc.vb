@@ -6,10 +6,6 @@ Public Class FrNewAcc
             'My.Settings.AccRefNo = 7
             'My.Settings.Save()
             Me.BackColor = My.Settings.BkColour
-
-            'LblLimitSorry.Text = "Sorry"
-            'LblLimitMax.Text = "You have reached the Maximum"
-            'LblLimitAcc.Text = "Number of Accounts"
             ListView1.BackColor = My.Settings.BkColour
             LblHeader.ForeColor = My.Settings.TxColour
             LblAccIndex.ForeColor = My.Settings.TxColour
@@ -25,7 +21,7 @@ Public Class FrNewAcc
             FrAccName = "Account Name"
             FrAccType = ""
             FrBalance = 0
-            tbAmount.Text = "0"
+            strCurrency = ""
             Flag = False
             Call BaseForm_Load()
             'Check for number of accounts and List Them

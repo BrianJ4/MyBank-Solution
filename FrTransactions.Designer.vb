@@ -65,6 +65,7 @@ Partial Class FrTransactions
         Me.BtnCalculator = New System.Windows.Forms.Button()
         Me.LblNotCleared = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -498,6 +499,11 @@ Partial Class FrTransactions
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 500
         '
+        'Timer2
+        '
+        Me.Timer2.Enabled = True
+        Me.Timer2.Interval = 500
+        '
         'FrTransactions
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -566,4 +572,5 @@ Partial Class FrTransactions
     Friend WithEvents BtnCalculator As Button
     Friend WithEvents LblNotCleared As Label
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents Timer2 As Timer
 End Class

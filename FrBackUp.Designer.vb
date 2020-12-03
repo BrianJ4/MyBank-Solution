@@ -30,7 +30,6 @@ Partial Class FrBackUp
         Me.LblCurrentDir = New System.Windows.Forms.Label()
         Me.LblBackUpDir = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.BtnClose = New System.Windows.Forms.Button()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
         Me.FolderBrowserDialog2 = New System.Windows.Forms.FolderBrowserDialog()
         Me.LblHead = New System.Windows.Forms.Label()
@@ -39,6 +38,7 @@ Partial Class FrBackUp
         Me.Label2 = New System.Windows.Forms.Label()
         Me.LblComplete = New System.Windows.Forms.Label()
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
+        Me.BtnClose = New System.Windows.Forms.Button()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -122,22 +122,6 @@ Partial Class FrBackUp
         Me.Label3.Size = New System.Drawing.Size(0, 16)
         Me.Label3.TabIndex = 6
         '
-        'BtnClose
-        '
-        Me.BtnClose.BackColor = System.Drawing.Color.Tomato
-        Me.BtnClose.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnClose.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.BtnClose.FlatAppearance.BorderSize = 2
-        Me.BtnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
-        Me.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnClose.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnClose.Location = New System.Drawing.Point(441, 304)
-        Me.BtnClose.Name = "BtnClose"
-        Me.BtnClose.Size = New System.Drawing.Size(90, 30)
-        Me.BtnClose.TabIndex = 9
-        Me.BtnClose.Text = "(: Close :)"
-        Me.BtnClose.UseVisualStyleBackColor = False
-        '
         'LblHead
         '
         Me.LblHead.AutoSize = True
@@ -197,6 +181,24 @@ Partial Class FrBackUp
         Me.ProgressBar1.Size = New System.Drawing.Size(248, 15)
         Me.ProgressBar1.TabIndex = 41
         '
+        'BtnClose
+        '
+        Me.BtnClose.BackColor = System.Drawing.Color.RosyBrown
+        Me.BtnClose.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.BtnClose.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.BtnClose.FlatAppearance.BorderSize = 2
+        Me.BtnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
+        Me.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnClose.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnClose.ForeColor = System.Drawing.Color.Black
+        Me.BtnClose.Location = New System.Drawing.Point(506, 307)
+        Me.BtnClose.Name = "BtnClose"
+        Me.BtnClose.Size = New System.Drawing.Size(97, 35)
+        Me.BtnClose.TabIndex = 42
+        Me.BtnClose.Text = "(: Close :)"
+        Me.BtnClose.UseVisualStyleBackColor = False
+        '
         'FrBackUp
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 13.0!)
@@ -204,12 +206,12 @@ Partial Class FrBackUp
         Me.BackColor = System.Drawing.Color.Navy
         Me.ClientSize = New System.Drawing.Size(634, 361)
         Me.ControlBox = False
+        Me.Controls.Add(Me.BtnClose)
         Me.Controls.Add(Me.ProgressBar1)
         Me.Controls.Add(Me.LblComplete)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.LblHead)
-        Me.Controls.Add(Me.BtnClose)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.LblBackUpDir)
         Me.Controls.Add(Me.LblCurrentDir)
@@ -235,7 +237,6 @@ Partial Class FrBackUp
     Friend WithEvents LblCurrentDir As Label
     Friend WithEvents LblBackUpDir As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents BtnClose As Button
     Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
     Friend WithEvents FolderBrowserDialog2 As FolderBrowserDialog
     Friend WithEvents LblHead As Label
@@ -244,4 +245,5 @@ Partial Class FrBackUp
     Friend WithEvents Label2 As Label
     Friend WithEvents LblComplete As Label
     Friend WithEvents ProgressBar1 As ProgressBar
+    Friend WithEvents BtnClose As Button
 End Class

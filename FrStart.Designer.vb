@@ -56,6 +56,7 @@ Partial Class FrStart
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.LblInfo = New System.Windows.Forms.Label()
         Me.LblTiip = New System.Windows.Forms.Label()
+        Me.BtnDelTrans = New System.Windows.Forms.Button()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -400,6 +401,24 @@ Partial Class FrStart
         Me.LblTiip.TabIndex = 46
         Me.LblTiip.Text = "Tip of the day :-"
         '
+        'BtnDelTrans
+        '
+        Me.BtnDelTrans.BackColor = System.Drawing.Color.RosyBrown
+        Me.BtnDelTrans.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnDelTrans.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.BtnDelTrans.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.BtnDelTrans.FlatAppearance.BorderSize = 2
+        Me.BtnDelTrans.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
+        Me.BtnDelTrans.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnDelTrans.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnDelTrans.ForeColor = System.Drawing.Color.Black
+        Me.BtnDelTrans.Location = New System.Drawing.Point(343, 338)
+        Me.BtnDelTrans.Name = "BtnDelTrans"
+        Me.BtnDelTrans.Size = New System.Drawing.Size(97, 35)
+        Me.BtnDelTrans.TabIndex = 47
+        Me.BtnDelTrans.Text = "Del Trans"
+        Me.BtnDelTrans.UseVisualStyleBackColor = False
+        '
         'FrStart
         '
         Me.AccessibleName = "Form1"
@@ -409,6 +428,7 @@ Partial Class FrStart
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.CancelButton = Me.BtnExit
         Me.ClientSize = New System.Drawing.Size(580, 382)
+        Me.Controls.Add(Me.BtnDelTrans)
         Me.Controls.Add(Me.LblTiip)
         Me.Controls.Add(Me.LblInfo)
         Me.Controls.Add(Me.PictureBox2)
@@ -489,4 +509,5 @@ Partial Class FrStart
     Friend WithEvents Timer2 As Timer
     Friend WithEvents LblInfo As Label
     Friend WithEvents LblTiip As Label
+    Friend WithEvents BtnDelTrans As Button
 End Class

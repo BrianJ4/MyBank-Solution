@@ -1,7 +1,6 @@
 ﻿Imports System.IO
 Imports System.Text
 Public Class FrStart
-    Dim blink As Boolean
     Dim MyTest As Boolean
     Dim OldDir As String
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -18,6 +17,11 @@ Public Class FrStart
             'My.Settings.ProStart = False
             'My.Settings.Save()
             'My.Computer.FileSystem.CreateDirectory(My.Settings.ProSetPath & "\Documents")
+
+            BtnDelTrans.Visible = False
+            BtnDelTrans.Enabled = False
+
+
             Me.BackColor = My.Settings.BkColour
             LblName.ForeColor = My.Settings.TxColour
             LblAddresss1.ForeColor = My.Settings.TxColour
@@ -73,7 +77,6 @@ Public Class FrStart
             MyErrors = ex.Message
             FrError.Show()
         End Try
-        'FrTip1.Show()
     End Sub
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles BtnContinue.Click
         My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
@@ -86,11 +89,11 @@ Public Class FrStart
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles BtnExit.Click
         My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
         Dim a As Integer
-        'For a = 100 To 10 Step -1
-        '    Me.Opacity = a / 100
-        '    Me.Refresh()
-        '    Threading.Thread.Sleep(15)
-        'Next
+        For a = 100 To 10 Step -1
+            Me.Opacity = a / 100
+            Me.Refresh()
+            Threading.Thread.Sleep(15)
+        Next
         ExitApp()
         End
     End Sub
@@ -525,8 +528,15 @@ Timer1_Tick:
         If TipNumber = 16 Then
             LblInfo.Text = "Try setting up a Direct Debits or Standing Orders"
         End If
+        If TipNumber = 16 Then
+            LblInfo.Text = "Transactions should be clear up to " & Now.ToShortDateString
+        End If
         My.Settings.TipNo = TipNumber
         My.Settings.Save()
+    End Sub
+
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles BtnDelTrans.Click
+        FrDeleteTransactions.Show()
     End Sub
 End Class
 

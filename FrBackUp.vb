@@ -83,13 +83,22 @@
                 MyMsg = "Successfully Backed Up"
                 MyMsgFlag = False
                 FrMsgOk.ShowDialog()
+                If MyMsgFlag = True Then
+                    FrMainMenu.Show()
+                    Me.Close()
+                End If
             End If
         Catch ex As Exception
             MyErrors = ex.Message
             FrError.Show()
         End Try
     End Sub
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
+    Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
+        My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
+        FrMainMenu.Show()
+        Me.Close()
+    End Sub
+    Private Sub Button5_Click(sender As Object, e As EventArgs)
         My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
         FrMainMenu.Show()
         Me.Close()

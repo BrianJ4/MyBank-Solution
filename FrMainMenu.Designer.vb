@@ -47,17 +47,14 @@ Partial Class FrMainMenu
         Me.BtnQuickLook = New System.Windows.Forms.Button()
         Me.BtnPrint = New System.Windows.Forms.Button()
         Me.BtnBackup = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.BtnEvent = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.LblFooter = New System.Windows.Forms.Label()
         Me.BtnCalculator = New System.Windows.Forms.Button()
         Me.LblBalances = New System.Windows.Forms.Label()
+        Me.BtnDelTrans = New System.Windows.Forms.Button()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -116,7 +113,7 @@ Partial Class FrMainMenu
         Me.BtnTransactions.Name = "BtnTransactions"
         Me.BtnTransactions.Size = New System.Drawing.Size(170, 40)
         Me.BtnTransactions.TabIndex = 18
-        Me.BtnTransactions.Text = "(:  Transactions :)"
+        Me.BtnTransactions.Text = "Transactions"
         Me.BtnTransactions.UseVisualStyleBackColor = False
         '
         'ListView1
@@ -219,11 +216,11 @@ Partial Class FrMainMenu
         Me.BtnProcessOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnProcessOrders.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnProcessOrders.ForeColor = System.Drawing.Color.Black
-        Me.BtnProcessOrders.Location = New System.Drawing.Point(714, 135)
+        Me.BtnProcessOrders.Location = New System.Drawing.Point(714, 191)
         Me.BtnProcessOrders.Name = "BtnProcessOrders"
         Me.BtnProcessOrders.Size = New System.Drawing.Size(170, 40)
         Me.BtnProcessOrders.TabIndex = 24
-        Me.BtnProcessOrders.Text = "(: Process Ordes :)"
+        Me.BtnProcessOrders.Text = " Process Ordes"
         Me.BtnProcessOrders.UseVisualStyleBackColor = False
         '
         'BtnOptions
@@ -285,11 +282,11 @@ Partial Class FrMainMenu
         Me.BtnEditOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnEditOrder.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnEditOrder.ForeColor = System.Drawing.Color.Black
-        Me.BtnEditOrder.Location = New System.Drawing.Point(714, 191)
+        Me.BtnEditOrder.Location = New System.Drawing.Point(714, 250)
         Me.BtnEditOrder.Name = "BtnEditOrder"
         Me.BtnEditOrder.Size = New System.Drawing.Size(170, 40)
         Me.BtnEditOrder.TabIndex = 38
-        Me.BtnEditOrder.Text = "(: Edit Ordes :)"
+        Me.BtnEditOrder.Text = "Edit Ordes"
         Me.BtnEditOrder.UseVisualStyleBackColor = False
         '
         'BtnCloseAccount
@@ -319,9 +316,9 @@ Partial Class FrMainMenu
         Me.BtnQuickLook.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnQuickLook.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnQuickLook.ForeColor = System.Drawing.Color.Black
-        Me.BtnQuickLook.Location = New System.Drawing.Point(714, 250)
+        Me.BtnQuickLook.Location = New System.Drawing.Point(466, 376)
         Me.BtnQuickLook.Name = "BtnQuickLook"
-        Me.BtnQuickLook.Size = New System.Drawing.Size(170, 40)
+        Me.BtnQuickLook.Size = New System.Drawing.Size(148, 33)
         Me.BtnQuickLook.TabIndex = 40
         Me.BtnQuickLook.Text = "(: Quick Look :)"
         Me.BtnQuickLook.UseVisualStyleBackColor = False
@@ -357,30 +354,8 @@ Partial Class FrMainMenu
         Me.BtnBackup.Name = "BtnBackup"
         Me.BtnBackup.Size = New System.Drawing.Size(170, 40)
         Me.BtnBackup.TabIndex = 42
-        Me.BtnBackup.Text = "(: Backup :)"
+        Me.BtnBackup.Text = "Backup"
         Me.BtnBackup.UseVisualStyleBackColor = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(303, 358)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(75, 50)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 43
-        Me.PictureBox1.TabStop = False
-        '
-        'PictureBox3
-        '
-        Me.PictureBox3.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
-        Me.PictureBox3.Location = New System.Drawing.Point(562, 359)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(75, 50)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox3.TabIndex = 44
-        Me.PictureBox3.TabStop = False
         '
         'PictureBox4
         '
@@ -444,9 +419,9 @@ Partial Class FrMainMenu
         Me.BtnCalculator.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnCalculator.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCalculator.ForeColor = System.Drawing.Color.Black
-        Me.BtnCalculator.Location = New System.Drawing.Point(385, 375)
+        Me.BtnCalculator.Location = New System.Drawing.Point(303, 376)
         Me.BtnCalculator.Name = "BtnCalculator"
-        Me.BtnCalculator.Size = New System.Drawing.Size(170, 33)
+        Me.BtnCalculator.Size = New System.Drawing.Size(148, 33)
         Me.BtnCalculator.TabIndex = 81
         Me.BtnCalculator.Text = "(: Calculatorr :)"
         Me.BtnCalculator.UseVisualStyleBackColor = False
@@ -463,6 +438,23 @@ Partial Class FrMainMenu
         Me.LblBalances.TabIndex = 82
         Me.LblBalances.Text = "Note Balanes show only up to Last 'C' leared Transactions"
         '
+        'BtnDelTrans
+        '
+        Me.BtnDelTrans.BackColor = System.Drawing.Color.RosyBrown
+        Me.BtnDelTrans.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnDelTrans.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.BtnDelTrans.FlatAppearance.BorderSize = 2
+        Me.BtnDelTrans.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
+        Me.BtnDelTrans.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnDelTrans.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnDelTrans.ForeColor = System.Drawing.Color.Black
+        Me.BtnDelTrans.Location = New System.Drawing.Point(714, 135)
+        Me.BtnDelTrans.Name = "BtnDelTrans"
+        Me.BtnDelTrans.Size = New System.Drawing.Size(170, 40)
+        Me.BtnDelTrans.TabIndex = 83
+        Me.BtnDelTrans.Text = "Delet Transactions"
+        Me.BtnDelTrans.UseVisualStyleBackColor = False
+        '
         'FrMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -470,14 +462,13 @@ Partial Class FrMainMenu
         Me.BackColor = System.Drawing.Color.Navy
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(934, 411)
+        Me.Controls.Add(Me.BtnDelTrans)
         Me.Controls.Add(Me.LblBalances)
         Me.Controls.Add(Me.BtnCalculator)
         Me.Controls.Add(Me.LblFooter)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.BtnEvent)
         Me.Controls.Add(Me.PictureBox4)
-        Me.Controls.Add(Me.PictureBox3)
-        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.BtnBackup)
         Me.Controls.Add(Me.BtnPrint)
         Me.Controls.Add(Me.BtnQuickLook)
@@ -507,8 +498,6 @@ Partial Class FrMainMenu
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Main Menu"
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -537,12 +526,11 @@ Partial Class FrMainMenu
     Friend WithEvents BtnQuickLook As Button
     Friend WithEvents BtnPrint As Button
     Friend WithEvents BtnBackup As Button
-    Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents PictureBox4 As PictureBox
     Friend WithEvents BtnEvent As Button
     Friend WithEvents Label3 As Label
     Friend WithEvents LblFooter As Label
     Friend WithEvents BtnCalculator As Button
     Friend WithEvents LblBalances As Label
+    Friend WithEvents BtnDelTrans As Button
 End Class

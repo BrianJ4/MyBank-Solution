@@ -272,7 +272,7 @@ Public Class FrNewTransaction
             FileOpen(1, MakePath, OpenMode.Append)
             PrintLine(1, AccRef & "," & FrDate & "," & TransRef & "," & TransDeb & "," & TransCre & "," & ToFrom & "," & Cat & "," & SubCat & "," & Balance & "," & TransState)
             FileClose(1)
-            For I = 1 To 10000
+            For I = 1 To 9999
                 ProgressBar1.Value = I
             Next I
             My.Settings.TransDataChanged = True
