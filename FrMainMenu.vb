@@ -66,7 +66,8 @@ Public Class FrMainMenu
         Me.Close()
     End Sub
     Private Sub BtnDelTrans_Click(sender As Object, e As EventArgs) Handles BtnDelTrans.Click
-
+        FrDeleteTransactions.Show()
+        Me.Close()
     End Sub
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles BtnProcessOrders.Click
         My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)

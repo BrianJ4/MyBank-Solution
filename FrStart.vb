@@ -18,8 +18,8 @@ Public Class FrStart
             'My.Settings.Save()
             'My.Computer.FileSystem.CreateDirectory(My.Settings.ProSetPath & "\Documents")
 
-            BtnDelTrans.Visible = False
-            BtnDelTrans.Enabled = False
+            'BtnDelTrans.Visible = False
+            'BtnDelTrans.Enabled = False
 
 
             Me.BackColor = My.Settings.BkColour
@@ -533,10 +533,6 @@ Timer1_Tick:
         End If
         My.Settings.TipNo = TipNumber
         My.Settings.Save()
-    End Sub
-
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles BtnDelTrans.Click
-        FrDeleteTransactions.Show()
     End Sub
 End Class
 
