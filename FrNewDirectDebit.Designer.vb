@@ -74,6 +74,7 @@ Partial Class FrNewDirectDebit
         Me.BtnTransDeb = New System.Windows.Forms.Button()
         Me.LblHelp1 = New System.Windows.Forms.Label()
         Me.LblHelp2 = New System.Windows.Forms.Label()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -133,6 +134,7 @@ Partial Class FrNewDirectDebit
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(200, 22)
         Me.DateTimePicker1.TabIndex = 8
+        Me.ToolTip1.SetToolTip(Me.DateTimePicker1, "Select Start Date")
         '
         'CBoxBank
         '
@@ -143,6 +145,7 @@ Partial Class FrNewDirectDebit
         Me.CBoxBank.Size = New System.Drawing.Size(200, 24)
         Me.CBoxBank.Sorted = True
         Me.CBoxBank.TabIndex = 9
+        Me.ToolTip1.SetToolTip(Me.CBoxBank, "Select Bank")
         '
         'CBoxAccount
         '
@@ -153,6 +156,7 @@ Partial Class FrNewDirectDebit
         Me.CBoxAccount.Size = New System.Drawing.Size(200, 24)
         Me.CBoxAccount.Sorted = True
         Me.CBoxAccount.TabIndex = 10
+        Me.ToolTip1.SetToolTip(Me.CBoxAccount, "Select Account")
         '
         'ComboBox3
         '
@@ -162,6 +166,7 @@ Partial Class FrNewDirectDebit
         Me.ComboBox3.Name = "ComboBox3"
         Me.ComboBox3.Size = New System.Drawing.Size(200, 24)
         Me.ComboBox3.TabIndex = 12
+        Me.ToolTip1.SetToolTip(Me.ComboBox3, "Select Standing Order or Direct Debit")
         '
         'ComboBox4
         '
@@ -172,6 +177,7 @@ Partial Class FrNewDirectDebit
         Me.ComboBox4.Size = New System.Drawing.Size(200, 24)
         Me.ComboBox4.Sorted = True
         Me.ComboBox4.TabIndex = 13
+        Me.ToolTip1.SetToolTip(Me.ComboBox4, "Select Main Catergory or Creare New")
         '
         'LblCat
         '
@@ -230,6 +236,7 @@ Partial Class FrNewDirectDebit
         Me.ComboBox5.Size = New System.Drawing.Size(200, 24)
         Me.ComboBox5.Sorted = True
         Me.ComboBox5.TabIndex = 19
+        Me.ToolTip1.SetToolTip(Me.ComboBox5, "Select Sub Category or Create New")
         '
         'LblAccount
         '
@@ -251,6 +258,7 @@ Partial Class FrNewDirectDebit
         Me.ComboBox6.Name = "ComboBox6"
         Me.ComboBox6.Size = New System.Drawing.Size(200, 24)
         Me.ComboBox6.TabIndex = 22
+        Me.ToolTip1.SetToolTip(Me.ComboBox6, "Select Frequence")
         '
         'BtnSaveDebit
         '
@@ -267,6 +275,7 @@ Partial Class FrNewDirectDebit
         Me.BtnSaveDebit.Size = New System.Drawing.Size(91, 32)
         Me.BtnSaveDebit.TabIndex = 23
         Me.BtnSaveDebit.Text = "(: Debit:)"
+        Me.ToolTip1.SetToolTip(Me.BtnSaveDebit, "Save as Debit")
         Me.BtnSaveDebit.UseVisualStyleBackColor = False
         '
         'BtnSaveCredit
@@ -284,6 +293,7 @@ Partial Class FrNewDirectDebit
         Me.BtnSaveCredit.Size = New System.Drawing.Size(95, 32)
         Me.BtnSaveCredit.TabIndex = 24
         Me.BtnSaveCredit.Text = "(:Credit:)"
+        Me.ToolTip1.SetToolTip(Me.BtnSaveCredit, "Save as Credit")
         Me.BtnSaveCredit.UseVisualStyleBackColor = False
         '
         'BtnCancel
@@ -301,6 +311,7 @@ Partial Class FrNewDirectDebit
         Me.BtnCancel.Size = New System.Drawing.Size(86, 32)
         Me.BtnCancel.TabIndex = 25
         Me.BtnCancel.Text = "Cancel"
+        Me.ToolTip1.SetToolTip(Me.BtnCancel, "Cancel and return to Main Menu")
         Me.BtnCancel.UseVisualStyleBackColor = False
         '
         'LblValue
@@ -334,6 +345,7 @@ Partial Class FrNewDirectDebit
         Me.BtnAddCat.Size = New System.Drawing.Size(88, 25)
         Me.BtnAddCat.TabIndex = 31
         Me.BtnAddCat.Text = "Add New"
+        Me.ToolTip1.SetToolTip(Me.BtnAddCat, "Add New Main Category")
         Me.BtnAddCat.UseVisualStyleBackColor = False
         '
         'BTnAddSubCat
@@ -350,6 +362,7 @@ Partial Class FrNewDirectDebit
         Me.BTnAddSubCat.Size = New System.Drawing.Size(88, 25)
         Me.BTnAddSubCat.TabIndex = 32
         Me.BTnAddSubCat.Text = "Add New"
+        Me.ToolTip1.SetToolTip(Me.BTnAddSubCat, "Create New Sub Category")
         Me.BTnAddSubCat.UseVisualStyleBackColor = False
         '
         'tbAmount
@@ -359,6 +372,7 @@ Partial Class FrNewDirectDebit
         Me.tbAmount.Name = "tbAmount"
         Me.tbAmount.Size = New System.Drawing.Size(122, 22)
         Me.tbAmount.TabIndex = 33
+        Me.ToolTip1.SetToolTip(Me.tbAmount, "Enter Value")
         '
         'LblSelect1
         '
@@ -398,6 +412,7 @@ Partial Class FrNewDirectDebit
         Me.BtnAddToFrom.Size = New System.Drawing.Size(88, 27)
         Me.BtnAddToFrom.TabIndex = 36
         Me.BtnAddToFrom.Text = "Add New"
+        Me.ToolTip1.SetToolTip(Me.BtnAddToFrom, "Create New To/From")
         Me.BtnAddToFrom.UseVisualStyleBackColor = False
         '
         'ComboBox7
@@ -409,6 +424,7 @@ Partial Class FrNewDirectDebit
         Me.ComboBox7.Size = New System.Drawing.Size(200, 24)
         Me.ComboBox7.Sorted = True
         Me.ComboBox7.TabIndex = 37
+        Me.ToolTip1.SetToolTip(Me.ComboBox7, "Select To/From or Add New")
         '
         'BtnTransCre
         '
@@ -425,6 +441,7 @@ Partial Class FrNewDirectDebit
         Me.BtnTransCre.Size = New System.Drawing.Size(150, 32)
         Me.BtnTransCre.TabIndex = 39
         Me.BtnTransCre.Text = "(:Transfer Credit:)"
+        Me.ToolTip1.SetToolTip(Me.BtnTransCre, "This Creates a Credit for this Account" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "and Creates Debit for a Second Account")
         Me.BtnTransCre.UseVisualStyleBackColor = False
         '
         'Label15
@@ -476,7 +493,7 @@ Partial Class FrNewDirectDebit
         Me.Panel1.Controls.Add(Me.CBoxTransBank)
         Me.Panel1.Controls.Add(Me.LblChooseAcc)
         Me.Panel1.Controls.Add(Me.LblTransfer)
-        Me.Panel1.Location = New System.Drawing.Point(117, 48)
+        Me.Panel1.Location = New System.Drawing.Point(149, 12)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(441, 313)
         Me.Panel1.TabIndex = 43
@@ -557,6 +574,7 @@ Partial Class FrNewDirectDebit
         Me.BtnTDeb.Size = New System.Drawing.Size(91, 32)
         Me.BtnTDeb.TabIndex = 28
         Me.BtnTDeb.Text = "(: Debit:)"
+        Me.ToolTip1.SetToolTip(Me.BtnTDeb, "Save as Debit")
         Me.BtnTDeb.UseVisualStyleBackColor = False
         '
         'Label19
@@ -594,6 +612,7 @@ Partial Class FrNewDirectDebit
         Me.BtnTCre.Size = New System.Drawing.Size(97, 32)
         Me.BtnTCre.TabIndex = 25
         Me.BtnTCre.Text = "(:Credit:)"
+        Me.ToolTip1.SetToolTip(Me.BtnTCre, "Save as Credit")
         Me.BtnTCre.UseVisualStyleBackColor = False
         '
         'CBoxTransAcc
@@ -604,6 +623,7 @@ Partial Class FrNewDirectDebit
         Me.CBoxTransAcc.Name = "CBoxTransAcc"
         Me.CBoxTransAcc.Size = New System.Drawing.Size(164, 24)
         Me.CBoxTransAcc.TabIndex = 3
+        Me.ToolTip1.SetToolTip(Me.CBoxTransAcc, "Select Account")
         '
         'CBoxTransBank
         '
@@ -613,6 +633,7 @@ Partial Class FrNewDirectDebit
         Me.CBoxTransBank.Name = "CBoxTransBank"
         Me.CBoxTransBank.Size = New System.Drawing.Size(164, 24)
         Me.CBoxTransBank.TabIndex = 2
+        Me.ToolTip1.SetToolTip(Me.CBoxTransBank, "Select Bank")
         '
         'LblChooseAcc
         '
@@ -649,6 +670,7 @@ Partial Class FrNewDirectDebit
         Me.BtnTransDeb.Size = New System.Drawing.Size(150, 32)
         Me.BtnTransDeb.TabIndex = 44
         Me.BtnTransDeb.Text = "(:Transfer Debit:)"
+        Me.ToolTip1.SetToolTip(Me.BtnTransDeb, "This Creates a Debit for this Account" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "and a Credit for a Second Account")
         Me.BtnTransDeb.UseVisualStyleBackColor = False
         '
         'LblHelp1
@@ -674,6 +696,15 @@ Partial Class FrNewDirectDebit
         Me.LblHelp2.Size = New System.Drawing.Size(49, 16)
         Me.LblHelp2.TabIndex = 46
         Me.LblHelp2.Text = "Help2"
+        '
+        'ToolTip1
+        '
+        Me.ToolTip1.AutoPopDelay = 5000
+        Me.ToolTip1.InitialDelay = 1000
+        Me.ToolTip1.IsBalloon = True
+        Me.ToolTip1.ReshowDelay = 100
+        Me.ToolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
+        Me.ToolTip1.ToolTipTitle = "MyBank"
         '
         'FrNewDirectDebit
         '
@@ -783,4 +814,5 @@ Partial Class FrNewDirectDebit
     Friend WithEvents LblTransDebCre As Label
     Friend WithEvents LblHelp1 As Label
     Friend WithEvents LblHelp2 As Label
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

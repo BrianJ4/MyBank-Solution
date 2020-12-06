@@ -22,6 +22,7 @@ Partial Class FrAdjustments
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.BtnClose = New System.Windows.Forms.Button()
         Me.BtnReset = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -33,6 +34,7 @@ Partial Class FrAdjustments
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.SuspendLayout()
         '
         'BtnClose
@@ -50,6 +52,7 @@ Partial Class FrAdjustments
         Me.BtnClose.Size = New System.Drawing.Size(225, 28)
         Me.BtnClose.TabIndex = 9
         Me.BtnClose.Text = "(: Close :)"
+        Me.ToolTip1.SetToolTip(Me.BtnClose, "Close and go back to Options")
         Me.BtnClose.UseVisualStyleBackColor = False
         '
         'BtnReset
@@ -66,6 +69,7 @@ Partial Class FrAdjustments
         Me.BtnReset.Size = New System.Drawing.Size(160, 33)
         Me.BtnReset.TabIndex = 31
         Me.BtnReset.Text = "(: RESET :)"
+        Me.ToolTip1.SetToolTip(Me.BtnReset, "Resets and cleans up your transactions")
         Me.BtnReset.UseVisualStyleBackColor = False
         '
         'Label4
@@ -88,6 +92,7 @@ Partial Class FrAdjustments
         Me.ProgressBar1.Name = "ProgressBar1"
         Me.ProgressBar1.Size = New System.Drawing.Size(130, 15)
         Me.ProgressBar1.TabIndex = 42
+        Me.ToolTip1.SetToolTip(Me.ProgressBar1, "Shows the progress of the Reset")
         '
         'Label1
         '
@@ -175,6 +180,15 @@ Partial Class FrAdjustments
         Me.Label8.TabIndex = 49
         Me.Label8.Text = "Line 5"
         '
+        'ToolTip1
+        '
+        Me.ToolTip1.AutoPopDelay = 5000
+        Me.ToolTip1.InitialDelay = 1000
+        Me.ToolTip1.IsBalloon = True
+        Me.ToolTip1.ReshowDelay = 100
+        Me.ToolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
+        Me.ToolTip1.ToolTipTitle = "MyBank"
+        '
         'FrAdjustments
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -212,4 +226,5 @@ Partial Class FrAdjustments
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

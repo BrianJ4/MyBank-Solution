@@ -241,7 +241,7 @@ Public Class FrCalculator
             End If
             Oper = 0
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrCalculator CmdEqual " & ex.Message
             FrError.Show()
         End Try
     End Sub

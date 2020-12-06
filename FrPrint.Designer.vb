@@ -22,7 +22,7 @@ Partial Class FrPrint
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrPrint))
         Me.BtnClose = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -58,6 +58,7 @@ Partial Class FrPrint
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -77,6 +78,7 @@ Partial Class FrPrint
         Me.BtnClose.Size = New System.Drawing.Size(165, 35)
         Me.BtnClose.TabIndex = 3
         Me.BtnClose.Text = "Close"
+        Me.ToolTip1.SetToolTip(Me.BtnClose, "Close and return to Main Menu")
         Me.BtnClose.UseVisualStyleBackColor = False
         '
         'Label1
@@ -169,6 +171,7 @@ Partial Class FrPrint
         Me.CheckBox4.Size = New System.Drawing.Size(118, 22)
         Me.CheckBox4.TabIndex = 11
         Me.CheckBox4.Text = "All Accounts"
+        Me.ToolTip1.SetToolTip(Me.CheckBox4, "Select All Accounts")
         Me.CheckBox4.UseVisualStyleBackColor = True
         '
         'CheckBox5
@@ -251,14 +254,6 @@ Partial Class FrPrint
         Me.DataGridView1.AllowUserToResizeRows = False
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView1.Location = New System.Drawing.Point(273, 129)
         Me.DataGridView1.Margin = New System.Windows.Forms.Padding(2)
         Me.DataGridView1.Name = "DataGridView1"
@@ -288,6 +283,7 @@ Partial Class FrPrint
         Me.CBoxBank.Name = "CBoxBank"
         Me.CBoxBank.Size = New System.Drawing.Size(163, 24)
         Me.CBoxBank.TabIndex = 20
+        Me.ToolTip1.SetToolTip(Me.CBoxBank, "Select Bank")
         '
         'CBoxAccount
         '
@@ -299,6 +295,7 @@ Partial Class FrPrint
         Me.CBoxAccount.Name = "CBoxAccount"
         Me.CBoxAccount.Size = New System.Drawing.Size(163, 24)
         Me.CBoxAccount.TabIndex = 21
+        Me.ToolTip1.SetToolTip(Me.CBoxAccount, "Select Account")
         Me.CBoxAccount.Visible = False
         '
         'BtnAccLoad
@@ -315,6 +312,7 @@ Partial Class FrPrint
         Me.BtnAccLoad.Size = New System.Drawing.Size(165, 30)
         Me.BtnAccLoad.TabIndex = 23
         Me.BtnAccLoad.Text = "Load Accounts"
+        Me.ToolTip1.SetToolTip(Me.BtnAccLoad, "This Loads the Transactions")
         Me.BtnAccLoad.UseVisualStyleBackColor = False
         '
         'BtnSaveDoc
@@ -331,6 +329,7 @@ Partial Class FrPrint
         Me.BtnSaveDoc.Size = New System.Drawing.Size(165, 30)
         Me.BtnSaveDoc.TabIndex = 24
         Me.BtnSaveDoc.Text = "Save Document"
+        Me.ToolTip1.SetToolTip(Me.BtnSaveDoc, "Saves the selected Transactions to a Web Document")
         Me.BtnSaveDoc.UseVisualStyleBackColor = False
         '
         'BtnOpenDoc
@@ -347,6 +346,7 @@ Partial Class FrPrint
         Me.BtnOpenDoc.Size = New System.Drawing.Size(165, 30)
         Me.BtnOpenDoc.TabIndex = 26
         Me.BtnOpenDoc.Text = "Open Docunent"
+        Me.ToolTip1.SetToolTip(Me.BtnOpenDoc, "Select File that you have Saved")
         Me.BtnOpenDoc.UseVisualStyleBackColor = False
         '
         'Label7
@@ -399,6 +399,7 @@ Partial Class FrPrint
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(224, 26)
         Me.DateTimePicker1.TabIndex = 31
+        Me.ToolTip1.SetToolTip(Me.DateTimePicker1, "Select Start Date")
         '
         'Label11
         '
@@ -417,6 +418,7 @@ Partial Class FrPrint
         Me.DateTimePicker2.Name = "DateTimePicker2"
         Me.DateTimePicker2.Size = New System.Drawing.Size(224, 26)
         Me.DateTimePicker2.TabIndex = 33
+        Me.ToolTip1.SetToolTip(Me.DateTimePicker2, "Select End Date")
         '
         'CheckBox11
         '
@@ -466,6 +468,15 @@ Partial Class FrPrint
         Me.Label13.Size = New System.Drawing.Size(123, 18)
         Me.Label13.TabIndex = 37
         Me.Label13.Text = "In Your Browser"
+        '
+        'ToolTip1
+        '
+        Me.ToolTip1.AutoPopDelay = 5000
+        Me.ToolTip1.InitialDelay = 1000
+        Me.ToolTip1.IsBalloon = True
+        Me.ToolTip1.ReshowDelay = 100
+        Me.ToolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
+        Me.ToolTip1.ToolTipTitle = "MyBank"
         '
         'FrPrint
         '
@@ -554,4 +565,5 @@ Partial Class FrPrint
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents Label12 As Label
     Friend WithEvents Label13 As Label
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

@@ -107,7 +107,7 @@ Public Class FrEditDirectDebits
             NumberOfEntries = I - 1
             thereader.Close()
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrEditDirectDebits LoadOrders " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -126,7 +126,7 @@ Public Class FrEditDirectDebits
             MyMsgFlag = False
             FrMsgOk.ShowDialog()
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrEditDirectDebits SaveOrders " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -159,7 +159,7 @@ Public Class FrEditDirectDebits
                 FrMsgOk.ShowDialog()
             End If
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrEditDirectDebits DeleteOrder " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -205,7 +205,7 @@ Public Class FrEditDirectDebits
                 Me.DataGridView1.Rows.Add(R)
             Next I
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrEditDirectDebits AddTransactonRows " & ex.Message
             FrError.Show()
         End Try
     End Sub

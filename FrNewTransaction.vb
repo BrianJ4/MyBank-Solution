@@ -200,7 +200,7 @@ Public Class FrNewTransaction
             Next
             ComboBox3.SelectedItem = "Please Select"
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrNewTransaction LoadFormData " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -243,7 +243,7 @@ Public Class FrNewTransaction
                 FormErr = "Please Select a SubCategory or Create a New Item"
             End If
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrNewTransaction CheckAccDetails " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -272,7 +272,7 @@ Public Class FrNewTransaction
             FileOpen(1, MakePath, OpenMode.Append)
             PrintLine(1, AccRef & "," & FrDate & "," & TransRef & "," & TransDeb & "," & TransCre & "," & ToFrom & "," & Cat & "," & SubCat & "," & Balance & "," & TransState)
             FileClose(1)
-            For I = 1 To 9999
+            For I = 1 To 9900
                 ProgressBar1.Value = I
             Next I
             My.Settings.TransDataChanged = True
@@ -280,7 +280,7 @@ Public Class FrNewTransaction
             My.Settings.Save()
             Flag = True
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrNewTransaction SaveData " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -304,7 +304,7 @@ Public Class FrNewTransaction
             Loop
             thereader.Close()
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrNewTransaction LoadMasterLis " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -351,7 +351,7 @@ Public Class FrNewTransaction
             thereader.Close()
             NumberOfEntries = I
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrNewTransaction LoadTransactions " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -389,7 +389,7 @@ Public Class FrNewTransaction
             My.Settings.MLIndex = P
             My.Settings.Save()
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrNewTransaction CreateMasterList " & ex.Message
             FrError.Show()
         End Try
     End Sub

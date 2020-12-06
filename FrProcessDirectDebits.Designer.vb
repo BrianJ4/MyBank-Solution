@@ -22,6 +22,7 @@ Partial Class FrProcessDirectDebits
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrProcessDirectDebits))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.BtnCancel = New System.Windows.Forms.Button()
@@ -42,6 +43,7 @@ Partial Class FrProcessDirectDebits
         Me.Label5 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -76,7 +78,8 @@ Partial Class FrProcessDirectDebits
         Me.BtnCancel.Name = "BtnCancel"
         Me.BtnCancel.Size = New System.Drawing.Size(86, 32)
         Me.BtnCancel.TabIndex = 26
-        Me.BtnCancel.Text = "Cancel"
+        Me.BtnCancel.Text = "Close"
+        Me.ToolTip1.SetToolTip(Me.BtnCancel, "Close and return to Main Menu")
         Me.BtnCancel.UseVisualStyleBackColor = False
         '
         'Panel1
@@ -123,6 +126,7 @@ Partial Class FrProcessDirectDebits
         Me.BtnRefresh.Size = New System.Drawing.Size(86, 32)
         Me.BtnRefresh.TabIndex = 30
         Me.BtnRefresh.Text = "Refresh"
+        Me.ToolTip1.SetToolTip(Me.BtnRefresh, "Shows the Transactions to be Created")
         Me.BtnRefresh.UseVisualStyleBackColor = False
         '
         'Panel3
@@ -202,6 +206,7 @@ Partial Class FrProcessDirectDebits
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.Size = New System.Drawing.Size(1151, 371)
         Me.DataGridView1.TabIndex = 0
+        Me.ToolTip1.SetToolTip(Me.DataGridView1, "Transaction Window")
         '
         'DateTimePicker1
         '
@@ -210,6 +215,7 @@ Partial Class FrProcessDirectDebits
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(200, 20)
         Me.DateTimePicker1.TabIndex = 30
+        Me.ToolTip1.SetToolTip(Me.DateTimePicker1, "Process the Orders up to this Date")
         '
         'BtnSave
         '
@@ -226,6 +232,7 @@ Partial Class FrProcessDirectDebits
         Me.BtnSave.Size = New System.Drawing.Size(166, 32)
         Me.BtnSave.TabIndex = 31
         Me.BtnSave.Text = "Save"
+        Me.ToolTip1.SetToolTip(Me.BtnSave, "Creates and Saves the New Transactions")
         Me.BtnSave.UseVisualStyleBackColor = False
         '
         'Label4
@@ -273,6 +280,15 @@ Partial Class FrProcessDirectDebits
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 37
         Me.PictureBox2.TabStop = False
+        '
+        'ToolTip1
+        '
+        Me.ToolTip1.AutoPopDelay = 5000
+        Me.ToolTip1.InitialDelay = 1000
+        Me.ToolTip1.IsBalloon = True
+        Me.ToolTip1.ReshowDelay = 100
+        Me.ToolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
+        Me.ToolTip1.ToolTipTitle = "MyBank"
         '
         'FrProcessDirectDebits
         '
@@ -334,4 +350,5 @@ Partial Class FrProcessDirectDebits
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents LblExceed1 As Label
     Friend WithEvents LblExceed2 As Label
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

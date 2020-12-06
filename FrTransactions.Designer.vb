@@ -53,7 +53,6 @@ Partial Class FrTransactions
         Me.CBoxBank = New System.Windows.Forms.ComboBox()
         Me.CBoxAccount = New System.Windows.Forms.ComboBox()
         Me.BtnDelete = New System.Windows.Forms.Button()
-        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.BtnEdit = New System.Windows.Forms.Button()
         Me.BtnAdd = New System.Windows.Forms.Button()
         Me.BtnNotClear = New System.Windows.Forms.Button()
@@ -66,6 +65,7 @@ Partial Class FrTransactions
         Me.LblNotCleared = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -112,6 +112,7 @@ Partial Class FrTransactions
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView1.Size = New System.Drawing.Size(1020, 500)
         Me.DataGridView1.TabIndex = 22
+        Me.ToolTip1.SetToolTip(Me.DataGridView1, "Transaction List")
         '
         'DgAccReff
         '
@@ -310,10 +311,11 @@ Partial Class FrTransactions
         Me.CBoxBank.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CBoxBank.ForeColor = System.Drawing.Color.Black
         Me.CBoxBank.FormattingEnabled = True
-        Me.CBoxBank.Location = New System.Drawing.Point(321, 7)
+        Me.CBoxBank.Location = New System.Drawing.Point(410, 7)
         Me.CBoxBank.Name = "CBoxBank"
         Me.CBoxBank.Size = New System.Drawing.Size(145, 24)
         Me.CBoxBank.TabIndex = 9
+        Me.ToolTip1.SetToolTip(Me.CBoxBank, "Select Bank")
         '
         'CBoxAccount
         '
@@ -321,10 +323,11 @@ Partial Class FrTransactions
         Me.CBoxAccount.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CBoxAccount.ForeColor = System.Drawing.Color.Black
         Me.CBoxAccount.FormattingEnabled = True
-        Me.CBoxAccount.Location = New System.Drawing.Point(526, 7)
+        Me.CBoxAccount.Location = New System.Drawing.Point(602, 7)
         Me.CBoxAccount.Name = "CBoxAccount"
         Me.CBoxAccount.Size = New System.Drawing.Size(140, 24)
         Me.CBoxAccount.TabIndex = 10
+        Me.ToolTip1.SetToolTip(Me.CBoxAccount, "Select Account")
         Me.CBoxAccount.Visible = False
         '
         'BtnDelete
@@ -341,16 +344,8 @@ Partial Class FrTransactions
         Me.BtnDelete.Size = New System.Drawing.Size(56, 23)
         Me.BtnDelete.TabIndex = 2
         Me.BtnDelete.Text = "Delete"
+        Me.ToolTip1.SetToolTip(Me.BtnDelete, "Delete a Transaction")
         Me.BtnDelete.UseVisualStyleBackColor = False
-        '
-        'ProgressBar1
-        '
-        Me.ProgressBar1.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.ProgressBar1.ForeColor = System.Drawing.Color.DarkGreen
-        Me.ProgressBar1.Location = New System.Drawing.Point(772, 12)
-        Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(173, 16)
-        Me.ProgressBar1.TabIndex = 11
         '
         'BtnEdit
         '
@@ -365,6 +360,7 @@ Partial Class FrTransactions
         Me.BtnEdit.Size = New System.Drawing.Size(56, 23)
         Me.BtnEdit.TabIndex = 4
         Me.BtnEdit.Text = "Edit"
+        Me.ToolTip1.SetToolTip(Me.BtnEdit, "Edit A Transaction")
         Me.BtnEdit.UseVisualStyleBackColor = False
         '
         'BtnAdd
@@ -380,6 +376,7 @@ Partial Class FrTransactions
         Me.BtnAdd.Size = New System.Drawing.Size(56, 23)
         Me.BtnAdd.TabIndex = 3
         Me.BtnAdd.Text = "Add"
+        Me.ToolTip1.SetToolTip(Me.BtnAdd, "Create New Transaction")
         Me.BtnAdd.UseVisualStyleBackColor = False
         '
         'BtnNotClear
@@ -396,6 +393,7 @@ Partial Class FrTransactions
         Me.BtnNotClear.Size = New System.Drawing.Size(56, 23)
         Me.BtnNotClear.TabIndex = 1
         Me.BtnNotClear.Text = "Not Clr"
+        Me.ToolTip1.SetToolTip(Me.BtnNotClear, "Marks the Transaction as Not Cleared")
         Me.BtnNotClear.UseVisualStyleBackColor = False
         '
         'BtnClear
@@ -411,6 +409,7 @@ Partial Class FrTransactions
         Me.BtnClear.Size = New System.Drawing.Size(56, 23)
         Me.BtnClear.TabIndex = 0
         Me.BtnClear.Text = "Clear"
+        Me.ToolTip1.SetToolTip(Me.BtnClear, "Marks Transaction as Cleared")
         Me.BtnClear.UseVisualStyleBackColor = False
         '
         'BtnClose
@@ -427,6 +426,7 @@ Partial Class FrTransactions
         Me.BtnClose.Size = New System.Drawing.Size(56, 23)
         Me.BtnClose.TabIndex = 23
         Me.BtnClose.Text = "Close"
+        Me.ToolTip1.SetToolTip(Me.BtnClose, "Close and return to Main Menu")
         Me.BtnClose.UseVisualStyleBackColor = False
         '
         'Label3
@@ -504,6 +504,15 @@ Partial Class FrTransactions
         Me.Timer2.Enabled = True
         Me.Timer2.Interval = 500
         '
+        'ToolTip1
+        '
+        Me.ToolTip1.AutoPopDelay = 5000
+        Me.ToolTip1.InitialDelay = 1000
+        Me.ToolTip1.IsBalloon = True
+        Me.ToolTip1.ReshowDelay = 100
+        Me.ToolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
+        Me.ToolTip1.ToolTipTitle = "MyBank"
+        '
         'FrTransactions
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -527,7 +536,6 @@ Partial Class FrTransactions
         Me.Controls.Add(Me.LblLastAction)
         Me.Controls.Add(Me.LblAction)
         Me.Controls.Add(Me.CBoxAccount)
-        Me.Controls.Add(Me.ProgressBar1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ForeColor = System.Drawing.Color.Black
         Me.HelpButton = True
@@ -560,7 +568,6 @@ Partial Class FrTransactions
     Friend WithEvents CBoxBank As ComboBox
     Friend WithEvents CBoxAccount As ComboBox
     Friend WithEvents BtnDelete As Button
-    Friend WithEvents ProgressBar1 As ProgressBar
     Friend WithEvents BtnEdit As Button
     Friend WithEvents BtnAdd As Button
     Friend WithEvents BtnNotClear As Button
@@ -573,4 +580,5 @@ Partial Class FrTransactions
     Friend WithEvents LblNotCleared As Label
     Friend WithEvents Timer1 As Timer
     Friend WithEvents Timer2 As Timer
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

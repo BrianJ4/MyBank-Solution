@@ -94,7 +94,7 @@ Public Class FrDeleteTransactions
                 End If
             End If
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrDeleteTransactions BtnContinue " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -152,7 +152,7 @@ Public Class FrDeleteTransactions
                 '###  Do Nothing
             End If
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrDeleteTransactions DeleteTransactions " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -235,7 +235,7 @@ Public Class FrDeleteTransactions
                 LblAfterDate.Visible = False
             End If
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrDeleteTransactions CheckForChanges " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -361,7 +361,7 @@ Public Class FrDeleteTransactions
             My.Settings.TotalTrans = NumberOfEntries
             My.Settings.Save()
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrDeleteTransactions LoadTrans " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -405,7 +405,7 @@ Public Class FrDeleteTransactions
                 '######  Do Nothing  #####
             End If
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrDeleteTransactions DeleteAllTransactions " & ex.Message
             FrError.Show()
         End Try
     End Sub

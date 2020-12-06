@@ -40,12 +40,13 @@ Partial Class FrEvents
         Me.LblRepeat = New System.Windows.Forms.Label()
         Me.LblInfo = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.LblReminderFooter = New System.Windows.Forms.Label()
         Me.BtnEventUpDate = New System.Windows.Forms.Button()
         Me.LblUpdate = New System.Windows.Forms.Label()
         Me.ListBox2 = New System.Windows.Forms.ListBox()
         Me.BtnEventClose = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.LblReminderFooter = New System.Windows.Forms.Label()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -58,6 +59,7 @@ Partial Class FrEvents
         Me.MonthCalendar1.Name = "MonthCalendar1"
         Me.MonthCalendar1.TabIndex = 1
         Me.MonthCalendar1.TitleBackColor = System.Drawing.Color.White
+        Me.ToolTip1.SetToolTip(Me.MonthCalendar1, "Choose the Date for your Event")
         '
         'ListBox1
         '
@@ -68,6 +70,7 @@ Partial Class FrEvents
         Me.ListBox1.Name = "ListBox1"
         Me.ListBox1.Size = New System.Drawing.Size(365, 616)
         Me.ListBox1.TabIndex = 2
+        Me.ToolTip1.SetToolTip(Me.ListBox1, "List of yoour Current Events")
         '
         'LblBlindDate
         '
@@ -106,6 +109,7 @@ Partial Class FrEvents
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(189, 24)
         Me.TextBox1.TabIndex = 23
+        Me.ToolTip1.SetToolTip(Me.TextBox1, "Enter Event Title")
         '
         'BtnAddEvent
         '
@@ -122,6 +126,7 @@ Partial Class FrEvents
         Me.BtnAddEvent.Size = New System.Drawing.Size(138, 33)
         Me.BtnAddEvent.TabIndex = 24
         Me.BtnAddEvent.Text = "(: Add Event :)"
+        Me.ToolTip1.SetToolTip(Me.BtnAddEvent, "Add's an Event to the List")
         Me.BtnAddEvent.UseVisualStyleBackColor = False
         '
         'NumericUpDown1
@@ -131,6 +136,7 @@ Partial Class FrEvents
         Me.NumericUpDown1.Name = "NumericUpDown1"
         Me.NumericUpDown1.Size = New System.Drawing.Size(53, 30)
         Me.NumericUpDown1.TabIndex = 32
+        Me.ToolTip1.SetToolTip(Me.NumericUpDown1, "Choose the Event to Delete")
         '
         'BtnDeleteEvent
         '
@@ -147,6 +153,7 @@ Partial Class FrEvents
         Me.BtnDeleteEvent.Size = New System.Drawing.Size(138, 33)
         Me.BtnDeleteEvent.TabIndex = 35
         Me.BtnDeleteEvent.Text = "(: Delete Event :)"
+        Me.ToolTip1.SetToolTip(Me.BtnDeleteEvent, "Deletes the current Event")
         Me.BtnDeleteEvent.UseVisualStyleBackColor = False
         '
         'BtnExit
@@ -165,6 +172,7 @@ Partial Class FrEvents
         Me.BtnExit.Size = New System.Drawing.Size(97, 35)
         Me.BtnExit.TabIndex = 36
         Me.BtnExit.Text = "(: Exit :)"
+        Me.ToolTip1.SetToolTip(Me.BtnExit, "Exit back to Main Menu")
         Me.BtnExit.UseVisualStyleBackColor = False
         '
         'LblSelectNo
@@ -205,6 +213,7 @@ Partial Class FrEvents
         Me.ComboBox6.Name = "ComboBox6"
         Me.ComboBox6.Size = New System.Drawing.Size(121, 26)
         Me.ComboBox6.TabIndex = 40
+        Me.ToolTip1.SetToolTip(Me.ComboBox6, "choose the Repeat Frequency")
         '
         'LblRepeat
         '
@@ -240,6 +249,17 @@ Partial Class FrEvents
         Me.Panel1.Size = New System.Drawing.Size(434, 201)
         Me.Panel1.TabIndex = 43
         '
+        'LblReminderFooter
+        '
+        Me.LblReminderFooter.AutoSize = True
+        Me.LblReminderFooter.Font = New System.Drawing.Font("Arial Black", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblReminderFooter.ForeColor = System.Drawing.Color.White
+        Me.LblReminderFooter.Location = New System.Drawing.Point(8, 158)
+        Me.LblReminderFooter.Name = "LblReminderFooter"
+        Me.LblReminderFooter.Size = New System.Drawing.Size(273, 23)
+        Me.LblReminderFooter.TabIndex = 41
+        Me.LblReminderFooter.Text = "You can (UpDate Events up to"
+        '
         'BtnEventUpDate
         '
         Me.BtnEventUpDate.BackColor = System.Drawing.Color.RosyBrown
@@ -256,6 +276,7 @@ Partial Class FrEvents
         Me.BtnEventUpDate.Size = New System.Drawing.Size(97, 35)
         Me.BtnEventUpDate.TabIndex = 40
         Me.BtnEventUpDate.Text = "UpDate"
+        Me.ToolTip1.SetToolTip(Me.BtnEventUpDate, "This Updates the Event to the next Date depending on the Repeat Setting")
         Me.BtnEventUpDate.UseVisualStyleBackColor = False
         '
         'LblUpdate
@@ -295,6 +316,7 @@ Partial Class FrEvents
         Me.BtnEventClose.Size = New System.Drawing.Size(97, 35)
         Me.BtnEventClose.TabIndex = 37
         Me.BtnEventClose.Text = "Close"
+        Me.ToolTip1.SetToolTip(Me.BtnEventClose, "Close Update window")
         Me.BtnEventClose.UseVisualStyleBackColor = False
         '
         'Timer1
@@ -302,18 +324,16 @@ Partial Class FrEvents
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 500
         '
-        'LblReminderFooter
+        'ToolTip1
         '
-        Me.LblReminderFooter.AutoSize = True
-        Me.LblReminderFooter.Font = New System.Drawing.Font("Arial Black", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblReminderFooter.ForeColor = System.Drawing.Color.White
-        Me.LblReminderFooter.Location = New System.Drawing.Point(8, 158)
-        Me.LblReminderFooter.Name = "LblReminderFooter"
-        Me.LblReminderFooter.Size = New System.Drawing.Size(273, 23)
-        Me.LblReminderFooter.TabIndex = 41
-        Me.LblReminderFooter.Text = "You can (UpDate Events up to"
+        Me.ToolTip1.AutoPopDelay = 5000
+        Me.ToolTip1.InitialDelay = 1000
+        Me.ToolTip1.IsBalloon = True
+        Me.ToolTip1.ReshowDelay = 100
+        Me.ToolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
+        Me.ToolTip1.ToolTipTitle = "MyBank"
         '
-        'FrNewCalander
+        'FrEvents
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -339,7 +359,7 @@ Partial Class FrEvents
         Me.MaximumSize = New System.Drawing.Size(1224, 716)
         Me.MinimizeBox = False
         Me.MinimumSize = New System.Drawing.Size(1224, 716)
-        Me.Name = "FrNewCalander"
+        Me.Name = "FrEvents"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FrNewCalander"
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -373,4 +393,5 @@ Partial Class FrEvents
     Friend WithEvents BtnEventUpDate As Button
     Friend WithEvents Timer1 As Timer
     Friend WithEvents LblReminderFooter As Label
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

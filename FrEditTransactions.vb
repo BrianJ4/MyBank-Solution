@@ -113,7 +113,7 @@ Public Class FrEditTransactions
                 End If
 
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrEditTransactions EditThisTrans " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -142,7 +142,7 @@ Public Class FrEditTransactions
             My.Settings.EditTransNo = 0
             My.Settings.Save()
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrEditTransactions SaveEditedTran " & ex.Message
             FrError.Show()
         End Try
     End Sub

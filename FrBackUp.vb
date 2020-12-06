@@ -37,7 +37,7 @@
                 End If
             End With
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrBackUp Current Directory " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -55,7 +55,7 @@
                 End If
             End With
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrBackUp Destination Directory " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -89,7 +89,7 @@
                 End If
             End If
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrBackUp Copy Files " & ex.Message
             FrError.Show()
         End Try
     End Sub

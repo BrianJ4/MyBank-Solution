@@ -56,7 +56,7 @@ Public Class FrEvents
             NumericUpDown1.Minimum = 0
             CheckForEvent()
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrEvents  FrNewCalander " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -161,7 +161,7 @@ Timer1_Tick:
                 NumericUpDown1.Maximum = My.Settings.EventNum
                 NumericUpDown1.Minimum = 0
                 LblSelectNo.Text = "Select a Number to Delete"
-                MyMsg = "    Event successfully Deleted"
+                MyMsg = "  Event successfully Deleted"
                 MyMsgFlag = False
                 FrMsgOk.ShowDialog()
                 CheckForEvent()
@@ -172,7 +172,7 @@ Timer1_Tick:
                 FrMsgOk.ShowDialog()
             End If
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrEvents DeleteEven " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -240,7 +240,7 @@ Timer1_Tick:
             NumericUpDown1.Maximum = My.Settings.EventNum
             NumericUpDown1.Minimum = 0
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrEvents AddEvent " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -278,7 +278,7 @@ Timer1_Tick:
                 FileClose(1)
             End If
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrEvents CheckForEven " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -329,7 +329,7 @@ Timer1_Tick:
                 ListBox1.Items.Add(I.ToString & ") " & EventDate(I).ToShortDateString & " :- " & EventItem(I))
             Next I
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrEvents  UpdateEvent " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -356,7 +356,7 @@ Timer1_Tick:
                 FileClose(1)
             End If
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrEvents   EventAppClose " & ex.Message
             FrError.Show()
         End Try
     End Sub

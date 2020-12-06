@@ -49,6 +49,7 @@ Partial Class FrNewAcc
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.BtnNewAccType = New System.Windows.Forms.Button()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -136,6 +137,7 @@ Partial Class FrNewAcc
         Me.TxtAccName.Name = "TxtAccName"
         Me.TxtAccName.Size = New System.Drawing.Size(202, 25)
         Me.TxtAccName.TabIndex = 7
+        Me.ToolTip1.SetToolTip(Me.TxtAccName, "Enter Account Name")
         '
         'TxtAccNo
         '
@@ -143,6 +145,7 @@ Partial Class FrNewAcc
         Me.TxtAccNo.Name = "TxtAccNo"
         Me.TxtAccNo.Size = New System.Drawing.Size(131, 25)
         Me.TxtAccNo.TabIndex = 8
+        Me.ToolTip1.SetToolTip(Me.TxtAccNo, "Enter Account Number")
         '
         'tbAmount
         '
@@ -152,6 +155,7 @@ Partial Class FrNewAcc
         Me.tbAmount.Size = New System.Drawing.Size(131, 25)
         Me.tbAmount.TabIndex = 11
         Me.tbAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.ToolTip1.SetToolTip(Me.tbAmount, "Enter Opening Balance")
         '
         'DateTimePicker1
         '
@@ -159,6 +163,7 @@ Partial Class FrNewAcc
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(224, 25)
         Me.DateTimePicker1.TabIndex = 12
+        Me.ToolTip1.SetToolTip(Me.DateTimePicker1, "Select the New Account Starting Date")
         '
         'LblStartDate
         '
@@ -186,6 +191,7 @@ Partial Class FrNewAcc
         Me.BtnSaveDebit.Size = New System.Drawing.Size(160, 35)
         Me.BtnSaveDebit.TabIndex = 15
         Me.BtnSaveDebit.Text = "(: Save As Debit :)"
+        Me.ToolTip1.SetToolTip(Me.BtnSaveDebit, "Saves the New Account with an Opening Balance as a Debit")
         Me.BtnSaveDebit.UseVisualStyleBackColor = False
         '
         'BtnSaveCredit
@@ -203,6 +209,7 @@ Partial Class FrNewAcc
         Me.BtnSaveCredit.Size = New System.Drawing.Size(160, 35)
         Me.BtnSaveCredit.TabIndex = 16
         Me.BtnSaveCredit.Text = "(: Save As Credit :)"
+        Me.ToolTip1.SetToolTip(Me.BtnSaveCredit, "Saves the New Account with an Opening Balance as a Credit")
         Me.BtnSaveCredit.UseVisualStyleBackColor = False
         '
         'ListView1
@@ -218,6 +225,7 @@ Partial Class FrNewAcc
         Me.ListView1.Name = "ListView1"
         Me.ListView1.Size = New System.Drawing.Size(237, 173)
         Me.ListView1.TabIndex = 18
+        Me.ToolTip1.SetToolTip(Me.ListView1, "List of your Accounts")
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details
         '
@@ -273,6 +281,7 @@ Partial Class FrNewAcc
         Me.BtnCancel.Size = New System.Drawing.Size(150, 35)
         Me.BtnCancel.TabIndex = 22
         Me.BtnCancel.Text = "(: Cancel :)"
+        Me.ToolTip1.SetToolTip(Me.BtnCancel, "Cancel and return to Main Menu.")
         Me.BtnCancel.UseVisualStyleBackColor = False
         '
         'Label9
@@ -310,6 +319,7 @@ Partial Class FrNewAcc
         Me.ComboBox1.Size = New System.Drawing.Size(202, 26)
         Me.ComboBox1.Sorted = True
         Me.ComboBox1.TabIndex = 40
+        Me.ToolTip1.SetToolTip(Me.ComboBox1, "Select Account Type")
         '
         'BtnNewAccType
         '
@@ -325,7 +335,17 @@ Partial Class FrNewAcc
         Me.BtnNewAccType.Size = New System.Drawing.Size(75, 23)
         Me.BtnNewAccType.TabIndex = 41
         Me.BtnNewAccType.Text = "New"
+        Me.ToolTip1.SetToolTip(Me.BtnNewAccType, "Create a New Account Type")
         Me.BtnNewAccType.UseVisualStyleBackColor = False
+        '
+        'ToolTip1
+        '
+        Me.ToolTip1.AutoPopDelay = 5000
+        Me.ToolTip1.InitialDelay = 1000
+        Me.ToolTip1.IsBalloon = True
+        Me.ToolTip1.ReshowDelay = 100
+        Me.ToolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
+        Me.ToolTip1.ToolTipTitle = "MyBank"
         '
         'FrNewAcc
         '
@@ -397,4 +417,5 @@ Partial Class FrNewAcc
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents BtnNewAccType As Button
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

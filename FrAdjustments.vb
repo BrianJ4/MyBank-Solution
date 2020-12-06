@@ -62,7 +62,7 @@ Public Class FrAdjustments
             My.Settings.TransRefNo = Z
             My.Settings.Save()
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrAdjustments CleanTransactions " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -95,7 +95,7 @@ Public Class FrAdjustments
             Loop
             thereader.Close()
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrAdjustments LoadTrans " & ex.Message
             FrError.Show()
         End Try
     End Sub

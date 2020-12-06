@@ -22,6 +22,7 @@ Partial Class FrEditDirectDebits
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -53,6 +54,7 @@ Partial Class FrEditDirectDebits
         Me.Button3 = New System.Windows.Forms.Button()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.PageSetupDialog1 = New System.Windows.Forms.PageSetupDialog()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -197,6 +199,7 @@ Partial Class FrEditDirectDebits
         Me.BtnClose.Size = New System.Drawing.Size(92, 37)
         Me.BtnClose.TabIndex = 26
         Me.BtnClose.Text = "(: Close :)"
+        Me.ToolTip1.SetToolTip(Me.BtnClose, "Close and return to Main Menu")
         Me.BtnClose.UseVisualStyleBackColor = False
         '
         'Label1
@@ -226,6 +229,7 @@ Partial Class FrEditDirectDebits
         Me.BtnEdit.Size = New System.Drawing.Size(95, 36)
         Me.BtnEdit.TabIndex = 29
         Me.BtnEdit.Text = "(: Edit :)"
+        Me.ToolTip1.SetToolTip(Me.BtnEdit, "This Starts the Edit Order Function")
         Me.BtnEdit.UseVisualStyleBackColor = False
         '
         'BtnDelete
@@ -243,6 +247,7 @@ Partial Class FrEditDirectDebits
         Me.BtnDelete.Size = New System.Drawing.Size(92, 38)
         Me.BtnDelete.TabIndex = 32
         Me.BtnDelete.Text = "(:Delete:)"
+        Me.ToolTip1.SetToolTip(Me.BtnDelete, "This will Delete the chosen Order")
         Me.BtnDelete.UseVisualStyleBackColor = False
         '
         'Label2
@@ -318,6 +323,7 @@ Partial Class FrEditDirectDebits
         Me.Button2.Size = New System.Drawing.Size(92, 37)
         Me.Button2.TabIndex = 45
         Me.Button2.Text = "(: Close :)"
+        Me.ToolTip1.SetToolTip(Me.Button2, "Cancel Edit Order")
         Me.Button2.UseVisualStyleBackColor = False
         '
         'Button1
@@ -335,6 +341,7 @@ Partial Class FrEditDirectDebits
         Me.Button1.Size = New System.Drawing.Size(95, 36)
         Me.Button1.TabIndex = 45
         Me.Button1.Text = "(: Edit :)"
+        Me.ToolTip1.SetToolTip(Me.Button1, "Commit the new Value of Order")
         Me.Button1.UseVisualStyleBackColor = False
         '
         'tbAmount
@@ -344,6 +351,7 @@ Partial Class FrEditDirectDebits
         Me.tbAmount.Name = "tbAmount"
         Me.tbAmount.Size = New System.Drawing.Size(142, 29)
         Me.tbAmount.TabIndex = 0
+        Me.ToolTip1.SetToolTip(Me.tbAmount, "Enter New Order Value")
         '
         'Button3
         '
@@ -360,10 +368,20 @@ Partial Class FrEditDirectDebits
         Me.Button3.Size = New System.Drawing.Size(92, 38)
         Me.Button3.TabIndex = 45
         Me.Button3.Text = "(: Print :)"
+        Me.ToolTip1.SetToolTip(Me.Button3, "This will Print a List of your Standing Orders and Direct Debits")
         Me.Button3.UseVisualStyleBackColor = False
         '
         'PrintDocument1
         '
+        '
+        'ToolTip1
+        '
+        Me.ToolTip1.AutoPopDelay = 5000
+        Me.ToolTip1.InitialDelay = 1000
+        Me.ToolTip1.IsBalloon = True
+        Me.ToolTip1.ReshowDelay = 100
+        Me.ToolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
+        Me.ToolTip1.ToolTipTitle = "MyBank"
         '
         'FrEditDirectDebits
         '
@@ -416,4 +434,5 @@ Partial Class FrEditDirectDebits
     Friend WithEvents CSubCat As DataGridViewTextBoxColumn
     Friend WithEvents CValue As DataGridViewTextBoxColumn
     Friend WithEvents cDebCred As DataGridViewTextBoxColumn
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

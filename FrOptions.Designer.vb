@@ -22,6 +22,7 @@ Partial Class FrOptions
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.BtnChTextCol = New System.Windows.Forms.Button()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.BtnChFormCol = New System.Windows.Forms.Button()
@@ -32,6 +33,7 @@ Partial Class FrOptions
         Me.BtnEditClient = New System.Windows.Forms.Button()
         Me.BtnAdjustments = New System.Windows.Forms.Button()
         Me.BtnAbout = New System.Windows.Forms.Button()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.SuspendLayout()
         '
         'BtnChTextCol
@@ -49,6 +51,7 @@ Partial Class FrOptions
         Me.BtnChTextCol.Size = New System.Drawing.Size(225, 30)
         Me.BtnChTextCol.TabIndex = 0
         Me.BtnChTextCol.Text = "(: Change the TEXT Colour :)"
+        Me.ToolTip1.SetToolTip(Me.BtnChTextCol, "Choose a Text Colour for all Windows")
         Me.BtnChTextCol.UseVisualStyleBackColor = False
         '
         'BtnChFormCol
@@ -66,6 +69,7 @@ Partial Class FrOptions
         Me.BtnChFormCol.Size = New System.Drawing.Size(225, 30)
         Me.BtnChFormCol.TabIndex = 2
         Me.BtnChFormCol.Text = "(: Change the FORM Colour :)"
+        Me.ToolTip1.SetToolTip(Me.BtnChFormCol, "Choose a Background Colour for all Windows")
         Me.BtnChFormCol.UseVisualStyleBackColor = False
         '
         'LblSampleText
@@ -106,6 +110,7 @@ Partial Class FrOptions
         Me.BtnClose.Size = New System.Drawing.Size(225, 28)
         Me.BtnClose.TabIndex = 8
         Me.BtnClose.Text = "(: Save and Close :)"
+        Me.ToolTip1.SetToolTip(Me.BtnClose, "Save the Settings and return to Main Menu")
         Me.BtnClose.UseVisualStyleBackColor = False
         '
         'BtnEditClient
@@ -122,6 +127,7 @@ Partial Class FrOptions
         Me.BtnEditClient.Size = New System.Drawing.Size(160, 30)
         Me.BtnEditClient.TabIndex = 28
         Me.BtnEditClient.Text = "(: Edit Client :)"
+        Me.ToolTip1.SetToolTip(Me.BtnEditClient, "Return to the Client Window")
         Me.BtnEditClient.UseVisualStyleBackColor = False
         '
         'BtnAdjustments
@@ -138,6 +144,7 @@ Partial Class FrOptions
         Me.BtnAdjustments.Size = New System.Drawing.Size(216, 30)
         Me.BtnAdjustments.TabIndex = 29
         Me.BtnAdjustments.Text = "(: Reset Transactions :)"
+        Me.ToolTip1.SetToolTip(Me.BtnAdjustments, "Reset all your Transactions" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "and runs a general Clean Up")
         Me.BtnAdjustments.UseVisualStyleBackColor = False
         '
         'BtnAbout
@@ -155,6 +162,15 @@ Partial Class FrOptions
         Me.BtnAbout.TabIndex = 30
         Me.BtnAbout.Text = "(: About :)"
         Me.BtnAbout.UseVisualStyleBackColor = False
+        '
+        'ToolTip1
+        '
+        Me.ToolTip1.AutoPopDelay = 5000
+        Me.ToolTip1.InitialDelay = 1000
+        Me.ToolTip1.IsBalloon = True
+        Me.ToolTip1.ReshowDelay = 100
+        Me.ToolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
+        Me.ToolTip1.ToolTipTitle = "MyBank"
         '
         'FrOptions
         '
@@ -197,4 +213,5 @@ Partial Class FrOptions
     Friend WithEvents BtnEditClient As Button
     Friend WithEvents BtnAdjustments As Button
     Friend WithEvents BtnAbout As Button
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

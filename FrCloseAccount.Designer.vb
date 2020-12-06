@@ -34,6 +34,7 @@ Partial Class FrCloseAccount
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.BtnCancel = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -65,6 +66,7 @@ Partial Class FrCloseAccount
         Me.CBoxBank.Name = "CBoxBank"
         Me.CBoxBank.Size = New System.Drawing.Size(160, 26)
         Me.CBoxBank.TabIndex = 25
+        Me.ToolTip1.SetToolTip(Me.CBoxBank, "Select the Bank")
         '
         'CBoxAccount
         '
@@ -76,6 +78,7 @@ Partial Class FrCloseAccount
         Me.CBoxAccount.Name = "CBoxAccount"
         Me.CBoxAccount.Size = New System.Drawing.Size(160, 26)
         Me.CBoxAccount.TabIndex = 26
+        Me.ToolTip1.SetToolTip(Me.CBoxAccount, "Select the Account to Close")
         Me.CBoxAccount.Visible = False
         '
         'BtnCloseAcc
@@ -93,6 +96,7 @@ Partial Class FrCloseAccount
         Me.BtnCloseAcc.Size = New System.Drawing.Size(189, 29)
         Me.BtnCloseAcc.TabIndex = 40
         Me.BtnCloseAcc.Text = "(: Close Account :)"
+        Me.ToolTip1.SetToolTip(Me.BtnCloseAcc, "Close Account and return to Main Menu")
         Me.BtnCloseAcc.UseVisualStyleBackColor = False
         '
         'LblBank
@@ -144,6 +148,7 @@ Partial Class FrCloseAccount
         Me.BtnCancel.Size = New System.Drawing.Size(108, 30)
         Me.BtnCancel.TabIndex = 47
         Me.BtnCancel.Text = "(: Cancel :)"
+        Me.ToolTip1.SetToolTip(Me.BtnCancel, "Cancel and return to Main Menu")
         Me.BtnCancel.UseVisualStyleBackColor = False
         '
         'PictureBox1
@@ -156,6 +161,15 @@ Partial Class FrCloseAccount
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 48
         Me.PictureBox1.TabStop = False
+        '
+        'ToolTip1
+        '
+        Me.ToolTip1.AutoPopDelay = 5000
+        Me.ToolTip1.InitialDelay = 1000
+        Me.ToolTip1.IsBalloon = True
+        Me.ToolTip1.ReshowDelay = 100
+        Me.ToolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
+        Me.ToolTip1.ToolTipTitle = "MyBank"
         '
         'FrCloseAccount
         '
@@ -198,4 +212,5 @@ Partial Class FrCloseAccount
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents BtnCancel As Button
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

@@ -52,7 +52,7 @@ Public Class FrCloseAccount
                 Me.Close()
             End If
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrCloseAccount BtnCloseAcc " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -161,7 +161,7 @@ Timer1_Tick:
                 FrMsgOk.ShowDialog()
             End If
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrCloseAccount SetAccDetails " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -317,7 +317,7 @@ Timer1_Tick:
             MakePath = "Current_Orders.mbtd"
             My.Computer.FileSystem.RenameFile(MakePathOld, MakePath)
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrCloseAccount CloseAccount " & ex.Message
             FrError.Show()
         End Try
     End Sub

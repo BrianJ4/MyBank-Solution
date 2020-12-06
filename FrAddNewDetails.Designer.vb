@@ -22,11 +22,13 @@ Partial Class FrAddNewDetails
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrAddNewDetails))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.BtnSave = New System.Windows.Forms.Button()
         Me.BtnCancel = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.SuspendLayout()
         '
         'Label1
@@ -57,6 +59,7 @@ Partial Class FrAddNewDetails
         Me.BtnSave.Size = New System.Drawing.Size(96, 28)
         Me.BtnSave.TabIndex = 1
         Me.BtnSave.Text = "Save"
+        Me.ToolTip1.SetToolTip(Me.BtnSave, "Save yournew input")
         Me.BtnSave.UseVisualStyleBackColor = False
         '
         'BtnCancel
@@ -74,6 +77,7 @@ Partial Class FrAddNewDetails
         Me.BtnCancel.Size = New System.Drawing.Size(75, 32)
         Me.BtnCancel.TabIndex = 2
         Me.BtnCancel.Text = "Cancel"
+        Me.ToolTip1.SetToolTip(Me.BtnCancel, "Cancel and go back.")
         Me.BtnCancel.UseVisualStyleBackColor = False
         '
         'TextBox1
@@ -82,6 +86,16 @@ Partial Class FrAddNewDetails
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(156, 22)
         Me.TextBox1.TabIndex = 3
+        Me.ToolTip1.SetToolTip(Me.TextBox1, "Enter new title?")
+        '
+        'ToolTip1
+        '
+        Me.ToolTip1.AutoPopDelay = 5000
+        Me.ToolTip1.InitialDelay = 1000
+        Me.ToolTip1.IsBalloon = True
+        Me.ToolTip1.ReshowDelay = 100
+        Me.ToolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
+        Me.ToolTip1.ToolTipTitle = "MyBank"
         '
         'FrAddNewDetails
         '
@@ -111,4 +125,5 @@ Partial Class FrAddNewDetails
     Friend WithEvents BtnSave As Button
     Friend WithEvents BtnCancel As Button
     Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

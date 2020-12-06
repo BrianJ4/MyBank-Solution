@@ -39,7 +39,7 @@ Public Class FrProcessDirectDebits
                 Call AddTransactonRows()
             End If
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrProcessDirectDebits BtnRefresh.Click " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -99,7 +99,7 @@ Public Class FrProcessDirectDebits
             NumberOfEntries = I - 1
             thereader.Close()
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrProcessDirectDebits LoadOrders " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -116,7 +116,7 @@ Public Class FrProcessDirectDebits
             Next
             FileClose(1)
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrProcessDirectDebits SaveOrders " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -148,7 +148,7 @@ Public Class FrProcessDirectDebits
             'write the file
             My.Computer.FileSystem.WriteAllText(MakePath, thecsvfile, True)
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrProcessDirectDebits SaveTransaction " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -351,7 +351,7 @@ Public Class FrProcessDirectDebits
             'My.Settings.TotalTrans = TotalRef - 1
             'My.Settings.Save()
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrProcessDirectDebits AddTransactonRows " & ex.Message
             FrError.Show()
         End Try
     End Sub

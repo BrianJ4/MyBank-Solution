@@ -39,6 +39,7 @@ Partial Class FrBackUp
         Me.LblComplete = New System.Windows.Forms.Label()
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.BtnClose = New System.Windows.Forms.Button()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -56,6 +57,7 @@ Partial Class FrBackUp
         Me.Button1.Size = New System.Drawing.Size(166, 30)
         Me.Button1.TabIndex = 0
         Me.Button1.Text = "(: Current Directory :)"
+        Me.ToolTip1.SetToolTip(Me.Button1, "This will set a New path to your Data")
         Me.Button1.UseVisualStyleBackColor = False
         '
         'Button2
@@ -72,6 +74,7 @@ Partial Class FrBackUp
         Me.Button2.Size = New System.Drawing.Size(166, 30)
         Me.Button2.TabIndex = 1
         Me.Button2.Text = "(: Destiny Directory :)"
+        Me.ToolTip1.SetToolTip(Me.Button2, "This will set a new path to your Back Up Data")
         Me.Button2.UseVisualStyleBackColor = False
         '
         'BtnCopy
@@ -88,6 +91,7 @@ Partial Class FrBackUp
         Me.BtnCopy.Size = New System.Drawing.Size(90, 30)
         Me.BtnCopy.TabIndex = 2
         Me.BtnCopy.Text = "(: Copy :)"
+        Me.ToolTip1.SetToolTip(Me.BtnCopy, "This will Back Up your Data to the Destination Directory")
         Me.BtnCopy.UseVisualStyleBackColor = False
         '
         'LblCurrentDir
@@ -197,7 +201,17 @@ Partial Class FrBackUp
         Me.BtnClose.Size = New System.Drawing.Size(97, 35)
         Me.BtnClose.TabIndex = 42
         Me.BtnClose.Text = "(: Close :)"
+        Me.ToolTip1.SetToolTip(Me.BtnClose, "Close Back Up and return to Main Menu")
         Me.BtnClose.UseVisualStyleBackColor = False
+        '
+        'ToolTip1
+        '
+        Me.ToolTip1.AutoPopDelay = 5000
+        Me.ToolTip1.InitialDelay = 1000
+        Me.ToolTip1.IsBalloon = True
+        Me.ToolTip1.ReshowDelay = 100
+        Me.ToolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
+        Me.ToolTip1.ToolTipTitle = "MyBank"
         '
         'FrBackUp
         '
@@ -246,4 +260,5 @@ Partial Class FrBackUp
     Friend WithEvents LblComplete As Label
     Friend WithEvents ProgressBar1 As ProgressBar
     Friend WithEvents BtnClose As Button
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

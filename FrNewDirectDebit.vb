@@ -265,7 +265,7 @@ Timer1_Tick:
             LblSelect2.Visible = True
             CBoxAccount.Visible = True
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrNewDirectDebit ComboBox1_SelectedIndexChanged " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -321,7 +321,7 @@ Timer1_Tick:
             Loop
             thereader.Close()
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrNewDirectDebit LoadMasterList " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -358,7 +358,7 @@ Timer1_Tick:
                 ComboBox5.Items.Add(TempTrans(I))
             Next
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrNewDirectDebit SplitMasterList " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -381,7 +381,7 @@ Timer1_Tick:
                 Loop
             Next S
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrNewDirectDebit SortLists " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -542,7 +542,7 @@ Timer1_Tick:
             LblSelect2.Visible = False
 
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrNewDirectDebit SaveCloseAll " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -566,7 +566,7 @@ Timer1_Tick:
             PrintLine(1, OrderRef & "," & OrderAccRef & "," & OrderStartDate & "," & OrderEndDate & "," & OrderPointDate & "," & OrderValue & "," & FrDebCre & "," & FrSODD & "," & OrderToFrom & "," & OrderCategory & "," & OrderSubCategory & "," & DayCount & "," & IntervalType & "," & FrState)
             FileClose(1)
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrNewDirectDebit SaveOrder " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -598,7 +598,7 @@ Timer1_Tick:
             For I = 1 To 1000
             Next
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrNewDirectDebit SaveFirstEntry " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -660,7 +660,7 @@ Timer1_Tick:
                 Label19.Text = FrAccType
             End If
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrNewDirectDebit CBoxTransAcc_SelectedIndexChanged " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -717,7 +717,7 @@ Timer1_Tick:
                 End If
             Next I
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrNewDirectDebit Transfer " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -735,7 +735,7 @@ Timer1_Tick:
             For I = 1 To 1000
             Next
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrNewDirectDebit SaveTransferOrder " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -752,7 +752,7 @@ Timer1_Tick:
             For I = 1 To 1000
             Next
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrNewDirectDebit SaveTransferTransaction " & ex.Message
             FrError.Show()
         End Try
     End Sub

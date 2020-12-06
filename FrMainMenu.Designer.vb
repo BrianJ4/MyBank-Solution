@@ -54,6 +54,7 @@ Partial Class FrMainMenu
         Me.BtnCalculator = New System.Windows.Forms.Button()
         Me.LblBalances = New System.Windows.Forms.Label()
         Me.BtnDelTrans = New System.Windows.Forms.Button()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -74,6 +75,7 @@ Partial Class FrMainMenu
         Me.BtnNewAccount.Size = New System.Drawing.Size(170, 40)
         Me.BtnNewAccount.TabIndex = 10
         Me.BtnNewAccount.Text = "New Account"
+        Me.ToolTip1.SetToolTip(Me.BtnNewAccount, "Create a new Account")
         Me.BtnNewAccount.UseVisualStyleBackColor = False
         '
         'Timer1
@@ -96,6 +98,7 @@ Partial Class FrMainMenu
         Me.BtnExit.Size = New System.Drawing.Size(120, 40)
         Me.BtnExit.TabIndex = 17
         Me.BtnExit.Text = "(; Exit :)"
+        Me.ToolTip1.SetToolTip(Me.BtnExit, "Exit MyBank." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Goodbye and see you soon.")
         Me.BtnExit.UseVisualStyleBackColor = False
         '
         'BtnTransactions
@@ -114,6 +117,7 @@ Partial Class FrMainMenu
         Me.BtnTransactions.Size = New System.Drawing.Size(170, 40)
         Me.BtnTransactions.TabIndex = 18
         Me.BtnTransactions.Text = "Transactions"
+        Me.ToolTip1.SetToolTip(Me.BtnTransactions, " The most used Window where you can View, Add, Edit, and Delete Transactions.")
         Me.BtnTransactions.UseVisualStyleBackColor = False
         '
         'ListView1
@@ -131,6 +135,7 @@ Partial Class FrMainMenu
         Me.ListView1.Scrollable = False
         Me.ListView1.Size = New System.Drawing.Size(486, 279)
         Me.ListView1.TabIndex = 19
+        Me.ToolTip1.SetToolTip(Me.ListView1, "A List of your Accounts and the Balances up to the last cleared Transactions")
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details
         '
@@ -193,6 +198,7 @@ Partial Class FrMainMenu
         Me.BtnStandingOrder.Size = New System.Drawing.Size(170, 40)
         Me.BtnStandingOrder.TabIndex = 22
         Me.BtnStandingOrder.Text = "D.D's or S.O's"
+        Me.ToolTip1.SetToolTip(Me.BtnStandingOrder, "Create a new Standing Order or Direct Debit")
         Me.BtnStandingOrder.UseVisualStyleBackColor = False
         '
         'LblHead
@@ -221,6 +227,8 @@ Partial Class FrMainMenu
         Me.BtnProcessOrders.Size = New System.Drawing.Size(170, 40)
         Me.BtnProcessOrders.TabIndex = 24
         Me.BtnProcessOrders.Text = " Process Ordes"
+        Me.ToolTip1.SetToolTip(Me.BtnProcessOrders, "UpDate Standing Orders and Direct Debits to a given date" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "and creates the Transac" &
+        "tions for each Account.")
         Me.BtnProcessOrders.UseVisualStyleBackColor = False
         '
         'BtnOptions
@@ -237,6 +245,7 @@ Partial Class FrMainMenu
         Me.BtnOptions.Size = New System.Drawing.Size(120, 40)
         Me.BtnOptions.TabIndex = 26
         Me.BtnOptions.Text = "Options"
+        Me.ToolTip1.SetToolTip(Me.BtnOptions, "Change MyBank Settings")
         Me.BtnOptions.UseVisualStyleBackColor = False
         '
         'Label1
@@ -287,6 +296,7 @@ Partial Class FrMainMenu
         Me.BtnEditOrder.Size = New System.Drawing.Size(170, 40)
         Me.BtnEditOrder.TabIndex = 38
         Me.BtnEditOrder.Text = "Edit Ordes"
+        Me.ToolTip1.SetToolTip(Me.BtnEditOrder, "Edit and Delete Standing Order and Direct Debit")
         Me.BtnEditOrder.UseVisualStyleBackColor = False
         '
         'BtnCloseAccount
@@ -304,6 +314,7 @@ Partial Class FrMainMenu
         Me.BtnCloseAccount.Size = New System.Drawing.Size(170, 40)
         Me.BtnCloseAccount.TabIndex = 39
         Me.BtnCloseAccount.Text = "Close Account"
+        Me.ToolTip1.SetToolTip(Me.BtnCloseAccount, "Close one of your Accounts")
         Me.BtnCloseAccount.UseVisualStyleBackColor = False
         '
         'BtnQuickLook
@@ -321,6 +332,8 @@ Partial Class FrMainMenu
         Me.BtnQuickLook.Size = New System.Drawing.Size(148, 33)
         Me.BtnQuickLook.TabIndex = 40
         Me.BtnQuickLook.Text = "(: Quick Look :)"
+        Me.ToolTip1.SetToolTip(Me.BtnQuickLook, "A glance of your Standing Order and Direct Debits calculating anual Values and a " &
+        "weekly Balance")
         Me.BtnQuickLook.UseVisualStyleBackColor = False
         '
         'BtnPrint
@@ -338,6 +351,7 @@ Partial Class FrMainMenu
         Me.BtnPrint.Size = New System.Drawing.Size(170, 40)
         Me.BtnPrint.TabIndex = 41
         Me.BtnPrint.Text = "Statements"
+        Me.ToolTip1.SetToolTip(Me.BtnPrint, "View and Print List's of Transactions between given dates")
         Me.BtnPrint.UseVisualStyleBackColor = False
         '
         'BtnBackup
@@ -355,6 +369,7 @@ Partial Class FrMainMenu
         Me.BtnBackup.Size = New System.Drawing.Size(170, 40)
         Me.BtnBackup.TabIndex = 42
         Me.BtnBackup.Text = "Backup"
+        Me.ToolTip1.SetToolTip(Me.BtnBackup, "Backup your Data to a Directory of your choice.")
         Me.BtnBackup.UseVisualStyleBackColor = False
         '
         'PictureBox4
@@ -383,6 +398,7 @@ Partial Class FrMainMenu
         Me.BtnEvent.Size = New System.Drawing.Size(170, 40)
         Me.BtnEvent.TabIndex = 46
         Me.BtnEvent.Text = "Events"
+        Me.ToolTip1.SetToolTip(Me.BtnEvent, "Event Calendar")
         Me.BtnEvent.UseVisualStyleBackColor = False
         '
         'Label3
@@ -408,6 +424,7 @@ Partial Class FrMainMenu
         Me.LblFooter.Size = New System.Drawing.Size(223, 23)
         Me.LblFooter.TabIndex = 80
         Me.LblFooter.Text = "Left click to move Panel"
+        Me.ToolTip1.SetToolTip(Me.LblFooter, "Highlights If a n Event is due.")
         '
         'BtnCalculator
         '
@@ -423,7 +440,8 @@ Partial Class FrMainMenu
         Me.BtnCalculator.Name = "BtnCalculator"
         Me.BtnCalculator.Size = New System.Drawing.Size(148, 33)
         Me.BtnCalculator.TabIndex = 81
-        Me.BtnCalculator.Text = "(: Calculatorr :)"
+        Me.BtnCalculator.Text = "(: Calculator :)"
+        Me.ToolTip1.SetToolTip(Me.BtnCalculator, "A handy simple Calculator")
         Me.BtnCalculator.UseVisualStyleBackColor = False
         '
         'LblBalances
@@ -453,7 +471,17 @@ Partial Class FrMainMenu
         Me.BtnDelTrans.Size = New System.Drawing.Size(170, 40)
         Me.BtnDelTrans.TabIndex = 83
         Me.BtnDelTrans.Text = "Delet Transactions"
+        Me.ToolTip1.SetToolTip(Me.BtnDelTrans, "Delete Transactions in blocks by given dates.")
         Me.BtnDelTrans.UseVisualStyleBackColor = False
+        '
+        'ToolTip1
+        '
+        Me.ToolTip1.AutoPopDelay = 5000
+        Me.ToolTip1.InitialDelay = 1000
+        Me.ToolTip1.IsBalloon = True
+        Me.ToolTip1.ReshowDelay = 100
+        Me.ToolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
+        Me.ToolTip1.ToolTipTitle = "MyBank"
         '
         'FrMainMenu
         '
@@ -497,6 +525,7 @@ Partial Class FrMainMenu
         Me.Name = "FrMainMenu"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Main Menu"
+        Me.ToolTip1.SetToolTip(Me, "If you left click on this window you can change it's posision.")
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -533,4 +562,5 @@ Partial Class FrMainMenu
     Friend WithEvents BtnCalculator As Button
     Friend WithEvents LblBalances As Label
     Friend WithEvents BtnDelTrans As Button
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

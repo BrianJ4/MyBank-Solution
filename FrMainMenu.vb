@@ -1,5 +1,6 @@
 ﻿Imports System.IO
 Public Class FrMainMenu
+    Dim blink As Boolean
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.BackColor = My.Settings.BkColour
         ListView1.BackColor = My.Settings.BkColour
@@ -179,7 +180,7 @@ Timer1_Tick:
             lvi2.SubItems.Add(Format(RuningBal, "£##,#00.00"))
             ListView1.Items.Add(lvi2)
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrMainMenu AccountLoad " & ex.Message
             FrError.Show()
         End Try
     End Sub

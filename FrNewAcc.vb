@@ -47,7 +47,7 @@ Public Class FrNewAcc
                 FileClose(1)
             ComboBox1.SelectedItem = "Select Type"
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrNewAcc Form4_Load " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -213,7 +213,7 @@ Public Class FrNewAcc
             FrMainMenu.Show()
             Me.Close()
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrNewAcc SaveNewAccount " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -270,7 +270,7 @@ Public Class FrNewAcc
             FrMainMenu.Show()
             Me.Close()
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrNewAcc SaveFirstAccount " & ex.Message
             FrError.Show()
         End Try
     End Sub

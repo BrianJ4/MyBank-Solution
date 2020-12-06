@@ -22,6 +22,7 @@ Partial Class FrAnnualIncome
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ListView1 = New System.Windows.Forms.ListView()
         Me.ClName = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -37,6 +38,7 @@ Partial Class FrAnnualIncome
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.SuspendLayout()
         '
         'Label1
@@ -65,6 +67,7 @@ Partial Class FrAnnualIncome
         Me.ListView1.Scrollable = False
         Me.ListView1.Size = New System.Drawing.Size(380, 178)
         Me.ListView1.TabIndex = 20
+        Me.ToolTip1.SetToolTip(Me.ListView1, "Your Income Standing Order & Derect Debits")
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details
         '
@@ -101,6 +104,7 @@ Partial Class FrAnnualIncome
         Me.Label2.Size = New System.Drawing.Size(62, 18)
         Me.Label2.TabIndex = 22
         Me.Label2.Text = "Income"
+        Me.ToolTip1.SetToolTip(Me.Label2, "Total Income of your Standing Orders & Direct Debits")
         '
         'ListView2
         '
@@ -116,6 +120,7 @@ Partial Class FrAnnualIncome
         Me.ListView2.Scrollable = False
         Me.ListView2.Size = New System.Drawing.Size(380, 367)
         Me.ListView2.TabIndex = 23
+        Me.ToolTip1.SetToolTip(Me.ListView2, "Your outgoings Standing Orders & Direct Debits")
         Me.ListView2.UseCompatibleStateImageBehavior = False
         Me.ListView2.View = System.Windows.Forms.View.Details
         '
@@ -157,6 +162,7 @@ Partial Class FrAnnualIncome
         Me.Button2.Size = New System.Drawing.Size(82, 34)
         Me.Button2.TabIndex = 24
         Me.Button2.Text = "Close"
+        Me.ToolTip1.SetToolTip(Me.Button2, "Close and back to Main Menu")
         Me.Button2.UseVisualStyleBackColor = False
         '
         'Label3
@@ -169,6 +175,7 @@ Partial Class FrAnnualIncome
         Me.Label3.Size = New System.Drawing.Size(79, 18)
         Me.Label3.TabIndex = 25
         Me.Label3.Text = "Payments"
+        Me.ToolTip1.SetToolTip(Me.Label3, "Total outgoings of Your Standing Orders & Direct Debits")
         '
         'Label4
         '
@@ -180,6 +187,16 @@ Partial Class FrAnnualIncome
         Me.Label4.Size = New System.Drawing.Size(77, 18)
         Me.Label4.TabIndex = 26
         Me.Label4.Text = "FreeCash"
+        Me.ToolTip1.SetToolTip(Me.Label4, "The Balance of your Standing Orders & Direct Debits")
+        '
+        'ToolTip1
+        '
+        Me.ToolTip1.AutoPopDelay = 5000
+        Me.ToolTip1.InitialDelay = 1000
+        Me.ToolTip1.IsBalloon = True
+        Me.ToolTip1.ReshowDelay = 100
+        Me.ToolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
+        Me.ToolTip1.ToolTipTitle = "MyBank"
         '
         'FrAnnualIncome
         '
@@ -221,4 +238,5 @@ Partial Class FrAnnualIncome
     Friend WithEvents Button2 As Button
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

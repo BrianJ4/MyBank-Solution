@@ -113,7 +113,7 @@ Public Class FrPrint
             End If
             openFileDialog1.Dispose()
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrPrint BtnOpenDoc.Click " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -149,7 +149,7 @@ Public Class FrPrint
                 Call SetAccDetails()
             End If
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrPrint ComboBox1_SelectedIndexChange " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -242,7 +242,7 @@ Public Class FrPrint
             'CBoxBank.SelectedItem = ""
             'CBoxAccount.SelectedItem = ""
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrPrint LoadAccounts " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -269,7 +269,7 @@ Public Class FrPrint
                 CheckBox4.Checked = False
             End If
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrPrint SetAccDetails " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -406,7 +406,7 @@ Public Class FrPrint
             If CheckBox9.Checked = True Then Flag = True
             If CheckBox10.Checked = True Then Flag = True
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrPrint FillGrid " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -442,7 +442,7 @@ Public Class FrPrint
             NumberOfEntries = I - 1
             thereader.Close()
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrPrint  LoadTrans " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -572,7 +572,7 @@ Public Class FrPrint
                 End If
             Next I
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrPrint ViewAcc " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -714,7 +714,7 @@ Public Class FrPrint
                 End If
             Next I
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrPrint ViewAcc2 " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -780,7 +780,7 @@ Public Class FrPrint
             End If
 
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrPrint MakePDF " & ex.Message
             FrError.Show()
         End Try
     End Sub

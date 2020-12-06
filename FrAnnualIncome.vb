@@ -108,7 +108,7 @@ Public Class FrAnnualIncome
             Label3.Text = "Weekly Payments = " & (Format(WeeklyDebit, "£##,#00.00")).ToString
             Label4.Text = "Weekly Balance     = " & (Format(WeeklyIncome - WeeklyDebit, "£##,#00.00")).ToString
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrAnnualIncome FillList " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -148,7 +148,7 @@ Public Class FrAnnualIncome
             My.Settings.TotalTrans = NumberOfEntries
             My.Settings.Save()
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrAnnualIncome LoadTrans " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -190,7 +190,7 @@ Public Class FrAnnualIncome
             TotalNumberOfOrders = I - 1
             thereader.Close()
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrAnnualIncome LoadOrders " & ex.Message
             FrError.Show()
         End Try
     End Sub

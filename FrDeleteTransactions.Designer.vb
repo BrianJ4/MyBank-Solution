@@ -50,6 +50,7 @@ Partial Class FrDeleteTransactions
         Me.BtnClose = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Gbox1.SuspendLayout()
         Me.Gbox2.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -115,6 +116,7 @@ Partial Class FrDeleteTransactions
         Me.Gbox1.TabIndex = 23
         Me.Gbox1.TabStop = False
         Me.Gbox1.Text = "Accounts"
+        Me.ToolTip1.SetToolTip(Me.Gbox1, "Select one of the Account Options?")
         '
         'RbNoAcc
         '
@@ -157,6 +159,7 @@ Partial Class FrDeleteTransactions
         Me.Gbox2.TabIndex = 25
         Me.Gbox2.TabStop = False
         Me.Gbox2.Text = "Dates"
+        Me.ToolTip1.SetToolTip(Me.Gbox2, "Select one of the Date Options?")
         '
         'RbNoDates
         '
@@ -233,6 +236,7 @@ Partial Class FrDeleteTransactions
         Me.CBoxBank.Name = "CBoxBank"
         Me.CBoxBank.Size = New System.Drawing.Size(145, 24)
         Me.CBoxBank.TabIndex = 26
+        Me.ToolTip1.SetToolTip(Me.CBoxBank, "Choose a bank?")
         '
         'CBoxAccount
         '
@@ -244,6 +248,7 @@ Partial Class FrDeleteTransactions
         Me.CBoxAccount.Name = "CBoxAccount"
         Me.CBoxAccount.Size = New System.Drawing.Size(140, 24)
         Me.CBoxAccount.TabIndex = 27
+        Me.ToolTip1.SetToolTip(Me.CBoxAccount, "Choose the Account?")
         Me.CBoxAccount.Visible = False
         '
         'Dpicker1
@@ -252,6 +257,7 @@ Partial Class FrDeleteTransactions
         Me.Dpicker1.Name = "Dpicker1"
         Me.Dpicker1.Size = New System.Drawing.Size(200, 20)
         Me.Dpicker1.TabIndex = 28
+        Me.ToolTip1.SetToolTip(Me.Dpicker1, "Select this Date?")
         '
         'Dpicker2
         '
@@ -259,6 +265,7 @@ Partial Class FrDeleteTransactions
         Me.Dpicker2.Name = "Dpicker2"
         Me.Dpicker2.Size = New System.Drawing.Size(200, 20)
         Me.Dpicker2.TabIndex = 29
+        Me.ToolTip1.SetToolTip(Me.Dpicker2, "Select this Date?")
         '
         'BtnContinue
         '
@@ -275,7 +282,8 @@ Partial Class FrDeleteTransactions
         Me.BtnContinue.Name = "BtnContinue"
         Me.BtnContinue.Size = New System.Drawing.Size(139, 39)
         Me.BtnContinue.TabIndex = 30
-        Me.BtnContinue.Text = "(:  Continue :)"
+        Me.BtnContinue.Text = "(:  Delete :)"
+        Me.ToolTip1.SetToolTip(Me.BtnContinue, "This will remove Transactions after you have selected your options")
         Me.BtnContinue.UseVisualStyleBackColor = False
         '
         'LblInfo
@@ -359,6 +367,7 @@ Partial Class FrDeleteTransactions
         Me.BtnClose.Size = New System.Drawing.Size(139, 39)
         Me.BtnClose.TabIndex = 51
         Me.BtnClose.Text = "(:  Close :)"
+        Me.ToolTip1.SetToolTip(Me.BtnClose, "Back to the Main Menu")
         Me.BtnClose.UseVisualStyleBackColor = False
         '
         'PictureBox2
@@ -382,6 +391,15 @@ Partial Class FrDeleteTransactions
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 53
         Me.PictureBox1.TabStop = False
+        '
+        'ToolTip1
+        '
+        Me.ToolTip1.AutoPopDelay = 5000
+        Me.ToolTip1.InitialDelay = 1000
+        Me.ToolTip1.IsBalloon = True
+        Me.ToolTip1.ReshowDelay = 100
+        Me.ToolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
+        Me.ToolTip1.ToolTipTitle = "MyBank"
         '
         'FrDeleteTransactions
         '
@@ -449,4 +467,5 @@ Partial Class FrDeleteTransactions
     Friend WithEvents BtnClose As Button
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

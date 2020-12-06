@@ -56,6 +56,7 @@ Partial Class FrStart
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.LblInfo = New System.Windows.Forms.Label()
         Me.LblTiip = New System.Windows.Forms.Label()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -162,6 +163,7 @@ Partial Class FrStart
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(243, 22)
         Me.TextBox1.TabIndex = 9
+        Me.ToolTip1.SetToolTip(Me.TextBox1, "Enter your Name or Title ofthis account." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10))
         '
         'TextBox2
         '
@@ -170,6 +172,7 @@ Partial Class FrStart
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(243, 22)
         Me.TextBox2.TabIndex = 10
+        Me.ToolTip1.SetToolTip(Me.TextBox2, "Enter the first line of your address")
         '
         'TextBox3
         '
@@ -178,6 +181,7 @@ Partial Class FrStart
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(243, 22)
         Me.TextBox3.TabIndex = 11
+        Me.ToolTip1.SetToolTip(Me.TextBox3, "Enter the second line of your address." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "This is optional")
         '
         'TextBox4
         '
@@ -186,6 +190,7 @@ Partial Class FrStart
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(243, 22)
         Me.TextBox4.TabIndex = 12
+        Me.ToolTip1.SetToolTip(Me.TextBox4, "Enter the Town")
         '
         'TextBox5
         '
@@ -194,6 +199,7 @@ Partial Class FrStart
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(243, 22)
         Me.TextBox5.TabIndex = 13
+        Me.ToolTip1.SetToolTip(Me.TextBox5, "Enter the City")
         '
         'TextBox6
         '
@@ -202,6 +208,7 @@ Partial Class FrStart
         Me.TextBox6.Name = "TextBox6"
         Me.TextBox6.Size = New System.Drawing.Size(243, 22)
         Me.TextBox6.TabIndex = 14
+        Me.ToolTip1.SetToolTip(Me.TextBox6, "Enter the County")
         '
         'TextBox7
         '
@@ -210,6 +217,7 @@ Partial Class FrStart
         Me.TextBox7.Name = "TextBox7"
         Me.TextBox7.Size = New System.Drawing.Size(243, 22)
         Me.TextBox7.TabIndex = 15
+        Me.ToolTip1.SetToolTip(Me.TextBox7, "Enter your contact number")
         '
         'LblFilePath
         '
@@ -222,6 +230,7 @@ Partial Class FrStart
         Me.LblFilePath.Size = New System.Drawing.Size(149, 16)
         Me.LblFilePath.TabIndex = 16
         Me.LblFilePath.Text = "C:\Windows\MyBank"
+        Me.ToolTip1.SetToolTip(Me.LblFilePath, "Thiis is the current path to your data")
         '
         'BtnSetFolder
         '
@@ -238,6 +247,7 @@ Partial Class FrStart
         Me.BtnSetFolder.Size = New System.Drawing.Size(202, 33)
         Me.BtnSetFolder.TabIndex = 17
         Me.BtnSetFolder.Text = "(: Set File Location :)"
+        Me.ToolTip1.SetToolTip(Me.BtnSetFolder, "Choose the location on your computer where your data will be kept")
         Me.BtnSetFolder.UseVisualStyleBackColor = False
         '
         'LblHead
@@ -272,6 +282,7 @@ Partial Class FrStart
         Me.TextBox8.Name = "TextBox8"
         Me.TextBox8.Size = New System.Drawing.Size(106, 24)
         Me.TextBox8.TabIndex = 22
+        Me.ToolTip1.SetToolTip(Me.TextBox8, "Enter the Post Code")
         '
         'BtnContinue
         '
@@ -289,6 +300,8 @@ Partial Class FrStart
         Me.BtnContinue.Size = New System.Drawing.Size(139, 39)
         Me.BtnContinue.TabIndex = 26
         Me.BtnContinue.Text = "(:  Continue :)"
+        Me.ToolTip1.SetToolTip(Me.BtnContinue, "Continue to the Main Menu" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "This Saves your client details." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "the details can be ch" &
+        "anged at any time.")
         Me.BtnContinue.UseVisualStyleBackColor = False
         '
         'Timer1
@@ -324,6 +337,7 @@ Partial Class FrStart
         Me.BtnExit.Size = New System.Drawing.Size(97, 35)
         Me.BtnExit.TabIndex = 29
         Me.BtnExit.Text = "(: Exit :)"
+        Me.ToolTip1.SetToolTip(Me.BtnExit, "GoodBye  See you soon and thank you for using MyBank")
         Me.BtnExit.UseVisualStyleBackColor = False
         '
         'Label14
@@ -357,6 +371,7 @@ Partial Class FrStart
         Me.TextBox10.Name = "TextBox10"
         Me.TextBox10.Size = New System.Drawing.Size(243, 22)
         Me.TextBox10.TabIndex = 40
+        Me.ToolTip1.SetToolTip(Me.TextBox10, "Enter Your Email Address")
         '
         'PictureBox2
         '
@@ -386,6 +401,7 @@ Partial Class FrStart
         Me.LblInfo.Size = New System.Drawing.Size(113, 18)
         Me.LblInfo.TabIndex = 45
         Me.LblInfo.Text = "Tip Of The Day"
+        Me.ToolTip1.SetToolTip(Me.LblInfo, "Tips what MyBank can do plus a few suggetions.")
         '
         'LblTiip
         '
@@ -399,6 +415,15 @@ Partial Class FrStart
         Me.LblTiip.Size = New System.Drawing.Size(119, 18)
         Me.LblTiip.TabIndex = 46
         Me.LblTiip.Text = "Tip of the day :-"
+        '
+        'ToolTip1
+        '
+        Me.ToolTip1.AutoPopDelay = 5000
+        Me.ToolTip1.InitialDelay = 1000
+        Me.ToolTip1.IsBalloon = True
+        Me.ToolTip1.ReshowDelay = 100
+        Me.ToolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
+        Me.ToolTip1.ToolTipTitle = "MyBank"
         '
         'FrStart
         '
@@ -489,4 +514,5 @@ Partial Class FrStart
     Friend WithEvents Timer2 As Timer
     Friend WithEvents LblInfo As Label
     Friend WithEvents LblTiip As Label
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

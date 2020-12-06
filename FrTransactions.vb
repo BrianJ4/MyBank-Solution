@@ -29,22 +29,18 @@ Public Class FrTransactions
         If FrNewTransaction.Flag = True Then
             CBoxBank.SelectedItem = My.Settings.AccBank
             CBoxAccount.SelectedItem = My.Settings.AccType
+            Call SortTransactionData()
         End If
         If FrEditTransactions.Flag = True Then
             CBoxBank.SelectedItem = My.Settings.AccBank
             CBoxAccount.SelectedItem = My.Settings.AccType
+            Call SortTransactionData()
         End If
-        Call SortTransactionData()
         LblLastAction.Text = "Please Choose a Bank"
         Timer2.Start()
         Timer1.Stop()
         BtnClear.BackColor = Color.RosyBrown
         LblNotCleared.Visible = False
-        With ProgressBar1
-            .Minimum = 0
-            .Maximum = 10000
-            .Increment(1)
-        End With
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BtnClear.Click
         My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
@@ -215,7 +211,7 @@ Timer2_Tick:
                 End If
             Next I
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrTransactions LoadAccounts " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -255,7 +251,7 @@ Timer2_Tick:
                 FrMsgOk.ShowDialog()
             End If
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrTransactions SetAccDetails " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -348,15 +344,12 @@ Timer2_Tick:
             PrintLine(1, LastBalance)
             PrintLine(1, LastBalDate)
             FileClose(1)
-            '#####################  Manualy set the Number of Entries  ##########################
+            '#####################  Manually set the Number of Entries  ##########################
             'My.Settings.TotalTrans = 214
             'My.Settings.Save()
             '####################################################################################
-            For I = 1 To 9999
-                ProgressBar1.Value = I
-            Next
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrTransactions ViewAcc " & ex.Message
             FrError.Show()
         End Try
     End Sub
@@ -511,7 +504,7 @@ Timer2_Tick:
             My.Settings.Save()
             LblLastAction.Text = "Sorting Complete"
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "FrTransactions SortTransactionData " & ex.Message
             FrError.Show()
         End Try
     End Sub

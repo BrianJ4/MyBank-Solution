@@ -53,6 +53,7 @@ Partial Class FrNewTransaction
         Me.Label11 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -180,6 +181,7 @@ Partial Class FrNewTransaction
         Me.TbAmount.Name = "TbAmount"
         Me.TbAmount.Size = New System.Drawing.Size(100, 22)
         Me.TbAmount.TabIndex = 12
+        Me.ToolTip1.SetToolTip(Me.TbAmount, "Enter Value")
         '
         'Label10
         '
@@ -200,6 +202,7 @@ Partial Class FrNewTransaction
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(200, 22)
         Me.DateTimePicker1.TabIndex = 14
+        Me.ToolTip1.SetToolTip(Me.DateTimePicker1, "Select Date")
         '
         'BtnAddDebit
         '
@@ -216,6 +219,7 @@ Partial Class FrNewTransaction
         Me.BtnAddDebit.Size = New System.Drawing.Size(140, 34)
         Me.BtnAddDebit.TabIndex = 15
         Me.BtnAddDebit.Text = "(: Add As Debit :)"
+        Me.ToolTip1.SetToolTip(Me.BtnAddDebit, "This Transaction will be a Debit" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "and return to Main Transaction Window")
         Me.BtnAddDebit.UseVisualStyleBackColor = False
         '
         'BtnAddCredit
@@ -233,6 +237,7 @@ Partial Class FrNewTransaction
         Me.BtnAddCredit.Size = New System.Drawing.Size(149, 34)
         Me.BtnAddCredit.TabIndex = 16
         Me.BtnAddCredit.Text = "(: Add As Credit :)"
+        Me.ToolTip1.SetToolTip(Me.BtnAddCredit, "This Transaction will be a Credit" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "and return to Main Transaction Window")
         Me.BtnAddCredit.UseVisualStyleBackColor = False
         '
         'BtnCancel
@@ -250,6 +255,7 @@ Partial Class FrNewTransaction
         Me.BtnCancel.Size = New System.Drawing.Size(140, 34)
         Me.BtnCancel.TabIndex = 18
         Me.BtnCancel.Text = "(: Cancel :)"
+        Me.ToolTip1.SetToolTip(Me.BtnCancel, "Cancel and return to Main Transaction Window.")
         Me.BtnCancel.UseVisualStyleBackColor = False
         '
         'Timer1
@@ -307,6 +313,7 @@ Partial Class FrNewTransaction
         Me.ComboBox1.Size = New System.Drawing.Size(163, 24)
         Me.ComboBox1.Sorted = True
         Me.ComboBox1.TabIndex = 23
+        Me.ToolTip1.SetToolTip(Me.ComboBox1, "Select To/From or Create New")
         '
         'ComboBox2
         '
@@ -320,6 +327,7 @@ Partial Class FrNewTransaction
         Me.ComboBox2.Size = New System.Drawing.Size(163, 24)
         Me.ComboBox2.Sorted = True
         Me.ComboBox2.TabIndex = 26
+        Me.ToolTip1.SetToolTip(Me.ComboBox2, "Select Main Category or Create New")
         '
         'ComboBox3
         '
@@ -333,6 +341,7 @@ Partial Class FrNewTransaction
         Me.ComboBox3.Size = New System.Drawing.Size(163, 24)
         Me.ComboBox3.Sorted = True
         Me.ComboBox3.TabIndex = 27
+        Me.ToolTip1.SetToolTip(Me.ComboBox3, "Select Sub Category or Create New")
         '
         'BtnNewToFrom
         '
@@ -348,6 +357,7 @@ Partial Class FrNewTransaction
         Me.BtnNewToFrom.Size = New System.Drawing.Size(75, 23)
         Me.BtnNewToFrom.TabIndex = 38
         Me.BtnNewToFrom.Text = "New"
+        Me.ToolTip1.SetToolTip(Me.BtnNewToFrom, "Create New To/From")
         Me.BtnNewToFrom.UseVisualStyleBackColor = False
         '
         'BtnNewCat
@@ -364,6 +374,7 @@ Partial Class FrNewTransaction
         Me.BtnNewCat.Size = New System.Drawing.Size(75, 23)
         Me.BtnNewCat.TabIndex = 39
         Me.BtnNewCat.Text = "New"
+        Me.ToolTip1.SetToolTip(Me.BtnNewCat, "Create New Main Category")
         Me.BtnNewCat.UseVisualStyleBackColor = False
         '
         'BtnNewSubCat
@@ -379,6 +390,7 @@ Partial Class FrNewTransaction
         Me.BtnNewSubCat.Size = New System.Drawing.Size(75, 23)
         Me.BtnNewSubCat.TabIndex = 40
         Me.BtnNewSubCat.Text = "New"
+        Me.ToolTip1.SetToolTip(Me.BtnNewSubCat, "Create New Sub Category")
         Me.BtnNewSubCat.UseVisualStyleBackColor = False
         '
         'NotifyIcon1
@@ -418,6 +430,15 @@ Partial Class FrNewTransaction
         Me.ProgressBar1.Name = "ProgressBar1"
         Me.ProgressBar1.Size = New System.Drawing.Size(138, 15)
         Me.ProgressBar1.TabIndex = 43
+        '
+        'ToolTip1
+        '
+        Me.ToolTip1.AutoPopDelay = 5000
+        Me.ToolTip1.InitialDelay = 1000
+        Me.ToolTip1.IsBalloon = True
+        Me.ToolTip1.ReshowDelay = 100
+        Me.ToolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
+        Me.ToolTip1.ToolTipTitle = "MyBank"
         '
         'FrNewTransaction
         '
@@ -497,4 +518,5 @@ Partial Class FrNewTransaction
     Friend WithEvents Label11 As Label
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents ProgressBar1 As ProgressBar
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

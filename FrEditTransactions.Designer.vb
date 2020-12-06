@@ -22,6 +22,7 @@ Partial Class FrEditTransactions
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrEditTransactions))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
@@ -40,6 +41,7 @@ Partial Class FrEditTransactions
         Me.Label9 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BtnClose = New System.Windows.Forms.Button()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -61,6 +63,7 @@ Partial Class FrEditTransactions
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(220, 22)
         Me.TextBox1.TabIndex = 1
+        Me.ToolTip1.SetToolTip(Me.TextBox1, "Transaction Name")
         '
         'TextBox2
         '
@@ -69,6 +72,7 @@ Partial Class FrEditTransactions
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(220, 22)
         Me.TextBox2.TabIndex = 2
+        Me.ToolTip1.SetToolTip(Me.TextBox2, "Transaction Category")
         '
         'TextBox3
         '
@@ -77,6 +81,7 @@ Partial Class FrEditTransactions
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(220, 22)
         Me.TextBox3.TabIndex = 3
+        Me.ToolTip1.SetToolTip(Me.TextBox3, "Transaction SubCategory")
         '
         'tbAmount
         '
@@ -85,6 +90,7 @@ Partial Class FrEditTransactions
         Me.tbAmount.Name = "tbAmount"
         Me.tbAmount.Size = New System.Drawing.Size(167, 22)
         Me.tbAmount.TabIndex = 4
+        Me.ToolTip1.SetToolTip(Me.tbAmount, "Transaction Value")
         '
         'Label2
         '
@@ -140,6 +146,7 @@ Partial Class FrEditTransactions
         Me.BtnDebit.Size = New System.Drawing.Size(160, 30)
         Me.BtnDebit.TabIndex = 11
         Me.BtnDebit.Text = "(: Save as Debit :)"
+        Me.ToolTip1.SetToolTip(Me.BtnDebit, "Save Transaction as a Debit")
         Me.BtnDebit.UseVisualStyleBackColor = False
         '
         'BtnCredit
@@ -156,6 +163,7 @@ Partial Class FrEditTransactions
         Me.BtnCredit.Size = New System.Drawing.Size(160, 30)
         Me.BtnCredit.TabIndex = 12
         Me.BtnCredit.Text = "(: Save as Credit :)"
+        Me.ToolTip1.SetToolTip(Me.BtnCredit, "Save the Transaction as a Credit")
         Me.BtnCredit.UseVisualStyleBackColor = False
         '
         'Label7
@@ -184,6 +192,7 @@ Partial Class FrEditTransactions
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(179, 22)
         Me.DateTimePicker1.TabIndex = 16
+        Me.ToolTip1.SetToolTip(Me.DateTimePicker1, "Transaction Date")
         '
         'Label9
         '
@@ -221,7 +230,17 @@ Partial Class FrEditTransactions
         Me.BtnClose.Size = New System.Drawing.Size(86, 32)
         Me.BtnClose.TabIndex = 38
         Me.BtnClose.Text = "(; Close :)"
+        Me.ToolTip1.SetToolTip(Me.BtnClose, "Close and back to your Transactions")
         Me.BtnClose.UseVisualStyleBackColor = False
+        '
+        'ToolTip1
+        '
+        Me.ToolTip1.AutoPopDelay = 5000
+        Me.ToolTip1.InitialDelay = 1000
+        Me.ToolTip1.IsBalloon = True
+        Me.ToolTip1.ReshowDelay = 100
+        Me.ToolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
+        Me.ToolTip1.ToolTipTitle = "MyBank"
         '
         'FrEditTransactions
         '
@@ -256,6 +275,7 @@ Partial Class FrEditTransactions
         Me.Name = "FrEditTransactions"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Edit Transaction"
+        Me.ToolTip1.SetToolTip(Me, "Edit the Current Transaction")
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -279,4 +299,5 @@ Partial Class FrEditTransactions
     Friend WithEvents Label9 As Label
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents BtnClose As Button
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

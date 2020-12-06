@@ -42,7 +42,7 @@
                 Me.Close()
             End If
         Catch ex As Exception
-            MyErrors = ex.Message
+            MyErrors = "Add New Details Save " & ex.Message
             FrError.Show()
         End Try
     End Sub

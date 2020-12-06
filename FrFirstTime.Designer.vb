@@ -22,6 +22,7 @@ Partial Class FrFirstTime
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrFirstTime))
         Me.Label14 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
@@ -34,6 +35,7 @@ Partial Class FrFirstTime
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -169,8 +171,20 @@ Partial Class FrFirstTime
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(396, 39)
         Me.Button1.TabIndex = 56
-        Me.Button1.Text = "or Continue to MyBank and don't show this again"
+        Me.Button1.Text = "Continue to MyBank and don't show this again"
+        Me.ToolTip1.SetToolTip(Me.Button1, "Create the First Instance of your Data on your C drive root folder and continue t" &
+        "o the Client Window." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Note You can change the Data Folder in the following windo" &
+        "w.")
         Me.Button1.UseVisualStyleBackColor = False
+        '
+        'ToolTip1
+        '
+        Me.ToolTip1.AutoPopDelay = 5000
+        Me.ToolTip1.InitialDelay = 1000
+        Me.ToolTip1.IsBalloon = True
+        Me.ToolTip1.ReshowDelay = 100
+        Me.ToolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
+        Me.ToolTip1.ToolTipTitle = "MyBank"
         '
         'FrFirstTime
         '
@@ -195,6 +209,7 @@ Partial Class FrFirstTime
         Me.Name = "FrFirstTime"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FrFirstTime"
+        Me.ToolTip1.SetToolTip(Me, "You should only see this the first time you open MyBank")
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -212,4 +227,5 @@ Partial Class FrFirstTime
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents Button1 As Button
+    Friend WithEvents ToolTip1 As ToolTip
 End Class
