@@ -479,6 +479,7 @@ Partial Class FrTransactions
         Me.BtnCalculator.Size = New System.Drawing.Size(103, 23)
         Me.BtnCalculator.TabIndex = 36
         Me.BtnCalculator.Text = "Calculator"
+        Me.ToolTip1.SetToolTip(Me.BtnCalculator, "Simple Calculator")
         Me.BtnCalculator.UseVisualStyleBackColor = False
         '
         'LblNotCleared
@@ -547,6 +548,7 @@ Partial Class FrTransactions
         Me.Name = "FrTransactions"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Account Transactions"
+        Me.ToolTip1.SetToolTip(Me, "Simple Calculator")
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

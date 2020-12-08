@@ -23,14 +23,14 @@ Partial Class FrEditDirectDebits
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrEditDirectDebits))
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.COrderRef = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -48,10 +48,10 @@ Partial Class FrEditDirectDebits
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.BtnEditClose = New System.Windows.Forms.Button()
+        Me.BtnEditEdit = New System.Windows.Forms.Button()
         Me.tbAmount = New System.Windows.Forms.TextBox()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.BtnPrint = New System.Windows.Forms.Button()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.PageSetupDialog1 = New System.Windows.Forms.PageSetupDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
@@ -66,22 +66,22 @@ Partial Class FrEditDirectDebits
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.AllowUserToResizeColumns = False
         Me.DataGridView1.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Lime
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Lime
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black
-        Me.DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle9.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.Lime
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Lime
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black
+        Me.DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle9
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.Navy
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.COrderRef, Me.CToFrom, Me.CCat, Me.CSubCat, Me.CValue, Me.cDebCred})
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle8.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Arial Black", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.LimeGreen
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.LimeGreen
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle16.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle16.Font = New System.Drawing.Font("Arial Black", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle16.ForeColor = System.Drawing.Color.LimeGreen
+        DataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.LimeGreen
+        DataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle16
         Me.DataGridView1.Location = New System.Drawing.Point(70, 37)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -90,13 +90,13 @@ Partial Class FrEditDirectDebits
         '
         'COrderRef
         '
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Arial Black", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black
-        Me.COrderRef.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle10.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Arial Black", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black
+        Me.COrderRef.DefaultCellStyle = DataGridViewCellStyle10
         Me.COrderRef.HeaderText = "Ref"
         Me.COrderRef.Name = "COrderRef"
         Me.COrderRef.ReadOnly = True
@@ -106,13 +106,13 @@ Partial Class FrEditDirectDebits
         '
         'CToFrom
         '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Arial Black", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.CToFrom.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle11.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("Arial Black", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.CToFrom.DefaultCellStyle = DataGridViewCellStyle11
         Me.CToFrom.HeaderText = "To / From"
         Me.CToFrom.Name = "CToFrom"
         Me.CToFrom.ReadOnly = True
@@ -122,13 +122,13 @@ Partial Class FrEditDirectDebits
         '
         'CCat
         '
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Arial Black", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.CCat.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle12.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle12.Font = New System.Drawing.Font("Arial Black", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.CCat.DefaultCellStyle = DataGridViewCellStyle12
         Me.CCat.HeaderText = "Category"
         Me.CCat.Name = "CCat"
         Me.CCat.ReadOnly = True
@@ -138,13 +138,13 @@ Partial Class FrEditDirectDebits
         '
         'CSubCat
         '
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Arial Black", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.CSubCat.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle13.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle13.Font = New System.Drawing.Font("Arial Black", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        DataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.CSubCat.DefaultCellStyle = DataGridViewCellStyle13
         Me.CSubCat.HeaderText = "SubCategory"
         Me.CSubCat.Name = "CSubCat"
         Me.CSubCat.ReadOnly = True
@@ -154,13 +154,13 @@ Partial Class FrEditDirectDebits
         '
         'CValue
         '
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Arial Black", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.CValue.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle14.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle14.Font = New System.Drawing.Font("Arial Black", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.CValue.DefaultCellStyle = DataGridViewCellStyle14
         Me.CValue.HeaderText = "Value"
         Me.CValue.Name = "CValue"
         Me.CValue.ReadOnly = True
@@ -170,13 +170,13 @@ Partial Class FrEditDirectDebits
         '
         'cDebCred
         '
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Arial Black", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.cDebCred.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle15.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle15.Font = New System.Drawing.Font("Arial Black", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        DataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.cDebCred.DefaultCellStyle = DataGridViewCellStyle15
         Me.cDebCred.HeaderText = "Debit / Credit"
         Me.cDebCred.Name = "cDebCred"
         Me.cDebCred.ReadOnly = True
@@ -289,8 +289,8 @@ Partial Class FrEditDirectDebits
         Me.Panel1.BackColor = System.Drawing.Color.White
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Panel1.Controls.Add(Me.Label5)
-        Me.Panel1.Controls.Add(Me.Button2)
-        Me.Panel1.Controls.Add(Me.Button1)
+        Me.Panel1.Controls.Add(Me.BtnEditClose)
+        Me.Panel1.Controls.Add(Me.BtnEditEdit)
         Me.Panel1.Controls.Add(Me.tbAmount)
         Me.Panel1.Location = New System.Drawing.Point(415, 237)
         Me.Panel1.Name = "Panel1"
@@ -308,41 +308,41 @@ Partial Class FrEditDirectDebits
         Me.Label5.TabIndex = 45
         Me.Label5.Text = "Edit Order Value"
         '
-        'Button2
+        'BtnEditClose
         '
-        Me.Button2.BackColor = System.Drawing.Color.Tomato
-        Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.Button2.FlatAppearance.BorderSize = 2
-        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.Color.Black
-        Me.Button2.Location = New System.Drawing.Point(223, 98)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(92, 37)
-        Me.Button2.TabIndex = 45
-        Me.Button2.Text = "(: Close :)"
-        Me.ToolTip1.SetToolTip(Me.Button2, "Cancel Edit Order")
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.BtnEditClose.BackColor = System.Drawing.Color.Tomato
+        Me.BtnEditClose.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnEditClose.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.BtnEditClose.FlatAppearance.BorderSize = 2
+        Me.BtnEditClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
+        Me.BtnEditClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnEditClose.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnEditClose.ForeColor = System.Drawing.Color.Black
+        Me.BtnEditClose.Location = New System.Drawing.Point(223, 98)
+        Me.BtnEditClose.Name = "BtnEditClose"
+        Me.BtnEditClose.Size = New System.Drawing.Size(92, 37)
+        Me.BtnEditClose.TabIndex = 45
+        Me.BtnEditClose.Text = "(: Close :)"
+        Me.ToolTip1.SetToolTip(Me.BtnEditClose, "Cancel Edit Order")
+        Me.BtnEditClose.UseVisualStyleBackColor = False
         '
-        'Button1
+        'BtnEditEdit
         '
-        Me.Button1.BackColor = System.Drawing.Color.RosyBrown
-        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.Button1.FlatAppearance.BorderSize = 2
-        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.Black
-        Me.Button1.Location = New System.Drawing.Point(105, 98)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(95, 36)
-        Me.Button1.TabIndex = 45
-        Me.Button1.Text = "(: Edit :)"
-        Me.ToolTip1.SetToolTip(Me.Button1, "Commit the new Value of Order")
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.BtnEditEdit.BackColor = System.Drawing.Color.RosyBrown
+        Me.BtnEditEdit.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnEditEdit.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.BtnEditEdit.FlatAppearance.BorderSize = 2
+        Me.BtnEditEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
+        Me.BtnEditEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnEditEdit.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnEditEdit.ForeColor = System.Drawing.Color.Black
+        Me.BtnEditEdit.Location = New System.Drawing.Point(105, 98)
+        Me.BtnEditEdit.Name = "BtnEditEdit"
+        Me.BtnEditEdit.Size = New System.Drawing.Size(95, 36)
+        Me.BtnEditEdit.TabIndex = 45
+        Me.BtnEditEdit.Text = "(: Edit :)"
+        Me.ToolTip1.SetToolTip(Me.BtnEditEdit, "Commit the new Value of Order")
+        Me.BtnEditEdit.UseVisualStyleBackColor = False
         '
         'tbAmount
         '
@@ -353,23 +353,23 @@ Partial Class FrEditDirectDebits
         Me.tbAmount.TabIndex = 0
         Me.ToolTip1.SetToolTip(Me.tbAmount, "Enter New Order Value")
         '
-        'Button3
+        'BtnPrint
         '
-        Me.Button3.BackColor = System.Drawing.Color.RosyBrown
-        Me.Button3.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button3.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.Button3.FlatAppearance.BorderSize = 2
-        Me.Button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.ForeColor = System.Drawing.Color.Black
-        Me.Button3.Location = New System.Drawing.Point(951, 419)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(92, 38)
-        Me.Button3.TabIndex = 45
-        Me.Button3.Text = "(: Print :)"
-        Me.ToolTip1.SetToolTip(Me.Button3, "This will Print a List of your Standing Orders and Direct Debits")
-        Me.Button3.UseVisualStyleBackColor = False
+        Me.BtnPrint.BackColor = System.Drawing.Color.RosyBrown
+        Me.BtnPrint.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnPrint.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.BtnPrint.FlatAppearance.BorderSize = 2
+        Me.BtnPrint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
+        Me.BtnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnPrint.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnPrint.ForeColor = System.Drawing.Color.Black
+        Me.BtnPrint.Location = New System.Drawing.Point(951, 419)
+        Me.BtnPrint.Name = "BtnPrint"
+        Me.BtnPrint.Size = New System.Drawing.Size(92, 38)
+        Me.BtnPrint.TabIndex = 45
+        Me.BtnPrint.Text = "(: Print :)"
+        Me.ToolTip1.SetToolTip(Me.BtnPrint, "This will Print a List of your Standing Orders and Direct Debits")
+        Me.BtnPrint.UseVisualStyleBackColor = False
         '
         'PrintDocument1
         '
@@ -388,7 +388,7 @@ Partial Class FrEditDirectDebits
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1059, 611)
-        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.BtnPrint)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.Label3)
@@ -423,9 +423,9 @@ Partial Class FrEditDirectDebits
     Friend WithEvents Panel1 As Panel
     Friend WithEvents tbAmount As TextBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button3 As Button
+    Friend WithEvents BtnEditClose As Button
+    Friend WithEvents BtnEditEdit As Button
+    Friend WithEvents BtnPrint As Button
     Friend WithEvents PrintDocument1 As Printing.PrintDocument
     Friend WithEvents PageSetupDialog1 As PageSetupDialog
     Friend WithEvents COrderRef As DataGridViewTextBoxColumn

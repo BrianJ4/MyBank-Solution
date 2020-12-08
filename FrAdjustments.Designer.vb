@@ -194,7 +194,7 @@ Partial Class FrAdjustments
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Red
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(804, 451)
         Me.ControlBox = False
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
@@ -207,6 +207,8 @@ Partial Class FrAdjustments
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.BtnReset)
         Me.Controls.Add(Me.BtnClose)
+        Me.MaximumSize = New System.Drawing.Size(820, 490)
+        Me.MinimumSize = New System.Drawing.Size(820, 490)
         Me.Name = "FrAdjustments"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Reset"

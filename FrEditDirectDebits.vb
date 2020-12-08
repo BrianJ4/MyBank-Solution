@@ -3,8 +3,6 @@ Imports System.Text
 Imports System.Data
 Public Class FrEditDirectDebits
     Dim BlankValue As Double = 0.00
-    Dim strCurrency As String = ""
-    Dim acceptableKey As Boolean = False
     Private Sub Form17_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.BackColor = My.Settings.BkColour
         DataGridView1.BackgroundColor = My.Settings.BkColour
@@ -20,6 +18,7 @@ Public Class FrEditDirectDebits
         Label5.BackColor = My.Settings.BkColour
         Label5.ForeColor = My.Settings.TxColour
         Panel1.Visible = False
+        tbAmount.Text = ""
         BaseForm_Load()
         CommonLoadAccount()
         LoadOrders()
@@ -45,7 +44,7 @@ Public Class FrEditDirectDebits
         FrMainMenu.Show()
         Me.Close()
     End Sub
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub BtnEditEdit_Click(sender As Object, e As EventArgs) Handles BtnEditEdit.Click
         My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
         DataGridView1.CurrentRow.Cells(4).Value = Me.tbAmount.Text
         strCurrency = ""
@@ -58,12 +57,18 @@ Public Class FrEditDirectDebits
         BtnDelete.Visible = True
         BtnClose.Visible = True
     End Sub
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub BtnEditClose_Click(sender As Object, e As EventArgs) Handles BtnEditClose.Click
         strCurrency = ""
         Panel1.Visible = False
         BtnEdit.Visible = True
         BtnDelete.Visible = True
         BtnClose.Visible = True
+    End Sub
+    Private Sub BtnPrint_Click(sender As Object, e As EventArgs) Handles BtnPrint.Click
+        PageSetupDialog1.Document = PrintDocument1
+        PageSetupDialog1.Document.DefaultPageSettings.Color = False
+        PageSetupDialog1.Document.DefaultPageSettings.Landscape = True
+        PrintDocument1.Print()
     End Sub
     Private Sub DataGridView1_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellClick
         Dim row As DataGridViewRow = DataGridView1.CurrentRow
@@ -278,16 +283,49 @@ Public Class FrEditDirectDebits
             FrError.Show()
         End Try
     End Sub
-
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        PageSetupDialog1.Document = PrintDocument1
-        PageSetupDialog1.Document.DefaultPageSettings.Color = False
-        PageSetupDialog1.Document.DefaultPageSettings.Landscape = True
-        PrintDocument1.Print()
-    End Sub
     Private Sub PrintDocument1_PrintPage(ByVal sender As System.Object, ByVal e As System.Drawing.Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
         Dim bm As New Bitmap(Me.DataGridView1.Width, Me.DataGridView1.Height)
         DataGridView1.DrawToBitmap(bm, New Rectangle(0, 0, Me.DataGridView1.Width, Me.DataGridView1.Height))
         e.Graphics.DrawImage(bm, 0, 0)
+    End Sub
+    Public Sub MoveForm_MouseDown(sender As Object, e As MouseEventArgs) Handles _
+  MyBase.MouseDown ' Add more handles here (Example: PictureBox1.MouseDown)
+        Try
+            If e.Button = MouseButtons.Left Then
+                MoveForm = True
+                Me.Cursor = Cursors.NoMove2D
+                MoveForm_MousePosition = e.Location
+            End If
+        Catch ex As Exception
+            MyErrors = ex.Message
+            FrError.Show()
+        End Try
+    End Sub
+    Public Sub MoveForm_MouseMove(sender As Object, e As MouseEventArgs) Handles _
+    MyBase.MouseMove ' Add more handles here (Example: PictureBox1.MouseMove)
+        Try
+            If MoveForm Then
+#Disable Warning BC42016 ' Implicit conversion from 'Point' to 'Size'.
+#Disable Warning BC42016 ' Implicit conversion from 'Point' to 'Size'.
+                Me.Location = Me.Location + (e.Location - MoveForm_MousePosition)
+#Enable Warning BC42016 ' Implicit conversion from 'Point' to 'Size'.
+#Enable Warning BC42016 ' Implicit conversion from 'Point' to 'Size'.
+            End If
+        Catch ex As Exception
+            MyErrors = ex.Message
+            FrError.Show()
+        End Try
+    End Sub
+    Public Sub MoveForm_MouseUp(sender As Object, e As MouseEventArgs) Handles _
+    MyBase.MouseUp ' Add more handles here (Example: PictureBox1.MouseUp)
+        Try
+            If e.Button = MouseButtons.Left Then
+                MoveForm = False
+                Me.Cursor = Cursors.Default
+            End If
+        Catch ex As Exception
+            MyErrors = ex.Message
+            FrError.Show()
+        End Try
     End Sub
 End Class

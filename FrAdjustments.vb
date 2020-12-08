@@ -24,9 +24,13 @@ Public Class FrAdjustments
             .Increment(1)
         End With
     End Sub
-    Private Sub BtnAbout_Click(sender As Object, e As EventArgs) Handles BtnReset.Click
+    Private Sub BtnReset_Click(sender As Object, e As EventArgs) Handles BtnReset.Click
         Try
+            BtnClose.Visible = False
+            LoadTrans()
             CleanTransactions()
+            FinishUp()
+            BtnClose.Visible = True
         Catch ex As Exception
             MyErrors = ex.Message
             FrError.Show()
@@ -42,8 +46,51 @@ Public Class FrAdjustments
         End Try
     End Sub
     Private Sub CleanTransactions()
+        '######### Clean Performed in LoadTrans  ###########
+    End Sub
+    Private Sub LoadTrans()
         Try
-            LoadTrans()
+            '#####  Open Append New Transaction File  ############
+            Z = 2
+            FileOpen(1, My.Settings.ProSetPath & "Current_Transaction1_Data.mbtd", OpenMode.Append)
+            '#### Open Current Transaction File #######
+            MakePath = My.Settings.ProSetPath & "Current_Transaction_Data.mbtd"
+            Dim colsexpected As Integer = 10
+            Dim thereader As New StreamReader(MakePath, Encoding.Default)
+            Dim sline As String = ""
+            Do
+                sline = thereader.ReadLine
+                If sline = Nothing Then Exit Do
+#Disable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
+                Dim words() As String = sline.Split(",")
+#Enable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
+                AccRef = CInt(words(0))
+                FrDate = CDate(words(1))
+                TransNo = CInt(words(2))
+                TransDeb = CDbl(words(3))
+                TransCre = CDbl(words(4))
+                ToFrom = words(5)
+                Cat = words(6)
+                SubCat = words(7)
+                Balance = CDbl(words(8))
+                TransState = words(9)
+                '######### Update Transaction Number and Append File  ###########
+                TransNo = Z
+                PrintLine(1, AccRef & "," & FrDate & "," & TransNo & "," & TransDeb & "," & TransCre & "," & ToFrom & "," & Cat & "," & SubCat & "," & Balance & "," & TransState)
+                Z = Z + 1
+                '################################################################
+            Loop
+            '#### Close Current Transaction File #######
+            thereader.Close()
+            '##########   Close Append File  ###########
+            FileClose(1)
+        Catch ex As Exception
+            MyErrors = "FrAdjustments LoadTrans " & ex.Message
+            FrError.Show()
+        End Try
+    End Sub
+    Private Sub FinishUp()
+        Try
             '#############  Delete Old file ################
             My.Computer.FileSystem.DeleteFile(
       My.Settings.ProSetPath & "Current_Transaction_Data.mbtd",
@@ -66,50 +113,6 @@ Public Class FrAdjustments
             FrError.Show()
         End Try
     End Sub
-    Private Sub LoadTrans()
-        Try
-            MakePath = My.Settings.ProSetPath & "Current_Transaction_Data.mbtd"
-            Dim colsexpected As Integer = 10
-            Dim thereader As New StreamReader(MakePath, Encoding.Default)
-            Dim sline As String = ""
-            Z = 2
-            Do
-                sline = thereader.ReadLine
-                If sline = Nothing Then Exit Do
-#Disable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
-                Dim words() As String = sline.Split(",")
-#Enable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
-                AccRef = CInt(words(0))
-                FrDate = CDate(words(1))
-                TransNo = CInt(words(2))
-                TransDeb = CDbl(words(3))
-                TransCre = CDbl(words(4))
-                ToFrom = words(5)
-                Cat = words(6)
-                SubCat = words(7)
-                Balance = CDbl(words(8))
-                TransState = words(9)
-                TransNo = Z
-                Z = Z + 1
-                SaveTrans()
-            Loop
-            thereader.Close()
-        Catch ex As Exception
-            MyErrors = "FrAdjustments LoadTrans " & ex.Message
-            FrError.Show()
-        End Try
-    End Sub
-    Private Sub SaveTrans()
-        Try
-            FileOpen(1, My.Settings.ProSetPath & "Current_Transaction1_Data.mbtd", OpenMode.Append)
-            PrintLine(1, AccRef & "," & FrDate & "," & TransNo & "," & TransDeb & "," & TransCre & "," & ToFrom & "," & Cat & "," & SubCat & "," & Balance & "," & TransState)
-            FileClose(1)
-        Catch ex As Exception
-            MyErrors = ex.Message
-            FrError.Show()
-        End Try
-    End Sub
-
     Private Sub BaseForm_Load()
         Try
             If Not Me.DesignMode Then
@@ -131,6 +134,46 @@ Public Class FrAdjustments
                 Me.Region = New Region(p)
                 Me.BackColor = Me.BackColor
                 p.Dispose()
+            End If
+        Catch ex As Exception
+            MyErrors = ex.Message
+            FrError.Show()
+        End Try
+    End Sub
+    Public Sub MoveForm_MouseDown(sender As Object, e As MouseEventArgs) Handles _
+  MyBase.MouseDown ' Add more handles here (Example: PictureBox1.MouseDown)
+        Try
+            If e.Button = MouseButtons.Left Then
+                MoveForm = True
+                Me.Cursor = Cursors.NoMove2D
+                MoveForm_MousePosition = e.Location
+            End If
+        Catch ex As Exception
+            MyErrors = ex.Message
+            FrError.Show()
+        End Try
+    End Sub
+    Public Sub MoveForm_MouseMove(sender As Object, e As MouseEventArgs) Handles _
+    MyBase.MouseMove ' Add more handles here (Example: PictureBox1.MouseMove)
+        Try
+            If MoveForm Then
+#Disable Warning BC42016 ' Implicit conversion from 'Point' to 'Size'.
+#Disable Warning BC42016 ' Implicit conversion from 'Point' to 'Size'.
+                Me.Location = Me.Location + (e.Location - MoveForm_MousePosition)
+#Enable Warning BC42016 ' Implicit conversion from 'Point' to 'Size'.
+#Enable Warning BC42016 ' Implicit conversion from 'Point' to 'Size'.
+            End If
+        Catch ex As Exception
+            MyErrors = ex.Message
+            FrError.Show()
+        End Try
+    End Sub
+    Public Sub MoveForm_MouseUp(sender As Object, e As MouseEventArgs) Handles _
+    MyBase.MouseUp ' Add more handles here (Example: PictureBox1.MouseUp)
+        Try
+            If e.Button = MouseButtons.Left Then
+                MoveForm = False
+                Me.Cursor = Cursors.Default
             End If
         Catch ex As Exception
             MyErrors = ex.Message

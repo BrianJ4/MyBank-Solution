@@ -2,9 +2,9 @@
 Imports System.Text
 Public Class FrNewTransaction
     Dim Cb1Value As String
-    Dim ToFrom(My.Settings.TotalTrans + 300) As String
-    Dim Category(My.Settings.TotalTrans + 300) As String
-    Dim SubCategory(My.Settings.TotalTrans + 300) As String
+    Dim ToFrom1(My.Settings.TotalTrans + 300) As String
+    Dim Category1(My.Settings.TotalTrans + 300) As String
+    Dim SubCategory1(My.Settings.TotalTrans + 300) As String
     Dim TempTrans(My.Settings.TotalTrans + 300) As String
     Public Flag As Boolean = False
     Public NewCatNum As Integer
@@ -33,18 +33,16 @@ Public Class FrNewTransaction
             Label5.Text = My.Settings.AccType
             FrDebCre = "B"
             FrValue = 0
-            strCurrency = ""
-            acceptableKey = False
+            TbAmount.Text = ""
             With ProgressBar1
                 .Minimum = 0
                 .Maximum = 10000
                 .Increment(1)
             End With
             BaseForm_Load()
-            LoadFormData()
-            LoadTransactions()
             CreateMasterList()
             LoadMasterList()
+            LoadFormData()
         Catch ex As Exception
             MyErrors = ex.Message
             FrError.Show()
@@ -166,7 +164,7 @@ Public Class FrNewTransaction
             '######################## Sort ToFrom  #########################
             P = My.Settings.MLIndex
             For I = 1 To P
-                TempTrans(I) = ToFrom(I)
+                TempTrans(I) = ToFrom1(I)
             Next I
             Call SortLists()
             '#######################################   Load ToFrom Data  ######################
@@ -178,7 +176,7 @@ Public Class FrNewTransaction
             '######################## Sort Category  #########################
             P = My.Settings.MLIndex
             For I = 1 To P
-                TempTrans(I) = Category(I)
+                TempTrans(I) = Category1(I)
             Next I
             Call SortLists()
             '#######################################   Load Category Data  ######################
@@ -190,7 +188,7 @@ Public Class FrNewTransaction
             '######################## Sort SubCategory  #########################
             P = My.Settings.MLIndex
             For I = 1 To P
-                TempTrans(I) = SubCategory(I)
+                TempTrans(I) = SubCategory1(I)
             Next I
             Call SortLists()
             '#######################################   Load SubCategory Data  ######################
@@ -209,9 +207,9 @@ Public Class FrNewTransaction
         Try
             Cb1Value = ComboBox1.SelectedItem.ToString
             For I = 1 To My.Settings.MLIndex
-                If ToFrom(I) = Cb1Value Then
-                    ComboBox2.SelectedItem = Category(I)
-                    ComboBox3.SelectedItem = SubCategory(I)
+                If ToFrom1(I) = Cb1Value Then
+                    ComboBox2.SelectedItem = Category1(I)
+                    ComboBox3.SelectedItem = SubCategory1(I)
                     Exit For
                 End If
             Next I
@@ -298,9 +296,9 @@ Public Class FrNewTransaction
                 Dim words() As String = sline.Split(",")
 #Enable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 I = I + 1
-                ToFrom(I) = words(0)
-                Category(I) = words(1)
-                SubCategory(I) = words(2)
+                ToFrom1(I) = words(0)
+                Category1(I) = words(1)
+                SubCategory1(I) = words(2)
             Loop
             thereader.Close()
         Catch ex As Exception
@@ -331,8 +329,10 @@ Public Class FrNewTransaction
             FrError.Show()
         End Try
     End Sub
-    Public Sub LoadTransactions()
+
+    Public Sub CreateMasterList()
         Try
+            '##########  Load Transactions  #########
             MakePath = My.Settings.ProSetPath & "Current_Transaction_Data.mbtd"
             Dim thereader As New StreamReader(MakePath, Encoding.Default)
             Dim sline As String = ""
@@ -344,31 +344,26 @@ Public Class FrNewTransaction
                 Dim words() As String = sline.Split(",")
 #Enable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 I += 1
-                ToFrom(I) = words(5)
-                Category(I) = words(6)
-                SubCategory(I) = words(7)
+                ToFrom1(I) = words(5)
+                Category1(I) = words(6)
+                SubCategory1(I) = words(7)
             Loop
             thereader.Close()
             NumberOfEntries = I
-        Catch ex As Exception
-            MyErrors = "FrNewTransaction LoadTransactions " & ex.Message
-            FrError.Show()
-        End Try
-    End Sub
-    Public Sub CreateMasterList()
-        Try
+            '##########  Create Master list  #########
             P = NumberOfEntries
             For S = 1 To P
                 Do
                     Flag = False
+
                     For I = S + 1 To P
-                        If ToFrom(S) = ToFrom(I) And Category(S) = Category(I) And SubCategory(S) = SubCategory(I) Then
-                            ToFrom(I) = ToFrom(P)
-                            Category(I) = Category(P)
-                            SubCategory(I) = SubCategory(P)
-                            ToFrom(P) = ""
-                            Category(P) = ""
-                            SubCategory(P) = ""
+                        If ToFrom1(S) = ToFrom1(I) And Category1(S) = Category1(I) And SubCategory1(S) = SubCategory1(I) Then
+                            ToFrom1(I) = ToFrom1(P)
+                            Category1(I) = Category1(P)
+                            SubCategory1(I) = SubCategory1(P)
+                            ToFrom1(P) = ""
+                            Category1(P) = ""
+                            SubCategory1(P) = ""
                             P = P - 1
                             Flag = True
                         End If
@@ -378,11 +373,12 @@ Public Class FrNewTransaction
                     End If
                 Loop
             Next S
+
             '########################################################   Save Master List  ################################
             MakePath = My.Settings.ProSetPath & "Master_List_Data.mbtd"
             FileOpen(1, MakePath, OpenMode.Output)
             For I = 1 To P
-                PrintLine(1, ToFrom(I) & "," & Category(I) & "," & SubCategory(I))
+                PrintLine(1, ToFrom1(I) & "," & Category1(I) & "," & SubCategory1(I))
             Next I
             FileClose(1)
             NumberOfEntries = P
@@ -461,6 +457,46 @@ Public Class FrNewTransaction
                 TbAmount.Select(TbAmount.Text.Length, 0)
             End If
             e.Handled = True
+        Catch ex As Exception
+            MyErrors = ex.Message
+            FrError.Show()
+        End Try
+    End Sub
+    Public Sub MoveForm_MouseDown(sender As Object, e As MouseEventArgs) Handles _
+   MyBase.MouseDown ' Add more handles here (Example: PictureBox1.MouseDown)
+        Try
+            If e.Button = MouseButtons.Left Then
+                MoveForm = True
+                Me.Cursor = Cursors.NoMove2D
+                MoveForm_MousePosition = e.Location
+            End If
+        Catch ex As Exception
+            MyErrors = ex.Message
+            FrError.Show()
+        End Try
+    End Sub
+    Public Sub MoveForm_MouseMove(sender As Object, e As MouseEventArgs) Handles _
+    MyBase.MouseMove ' Add more handles here (Example: PictureBox1.MouseMove)
+        Try
+            If MoveForm Then
+#Disable Warning BC42016 ' Implicit conversion from 'Point' to 'Size'.
+#Disable Warning BC42016 ' Implicit conversion from 'Point' to 'Size'.
+                Me.Location = Me.Location + (e.Location - MoveForm_MousePosition)
+#Enable Warning BC42016 ' Implicit conversion from 'Point' to 'Size'.
+#Enable Warning BC42016 ' Implicit conversion from 'Point' to 'Size'.
+            End If
+        Catch ex As Exception
+            MyErrors = ex.Message
+            FrError.Show()
+        End Try
+    End Sub
+    Public Sub MoveForm_MouseUp(sender As Object, e As MouseEventArgs) Handles _
+    MyBase.MouseUp ' Add more handles here (Example: PictureBox1.MouseUp)
+        Try
+            If e.Button = MouseButtons.Left Then
+                MoveForm = False
+                Me.Cursor = Cursors.Default
+            End If
         Catch ex As Exception
             MyErrors = ex.Message
             FrError.Show()

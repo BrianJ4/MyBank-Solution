@@ -103,6 +103,18 @@
         FrMainMenu.Show()
         Me.Close()
     End Sub
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+Timer1_Tick:
+        If (blink) Then
+            Me.BtnCopy.BackColor = Color.Lime
+            blink = False
+            Application.DoEvents()
+        Else
+            Me.BtnCopy.BackColor = Color.Orange
+            blink = True
+            Application.DoEvents()
+        End If
+    End Sub
     Private Sub DeleteFolders()
         Try
             '#################  Delete To Recycle  ################
@@ -146,16 +158,44 @@
             p.Dispose()
         End If
     End Sub
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-Timer1_Tick:
-        If (blink) Then
-            Me.BtnCopy.BackColor = Color.Lime
-            blink = False
-            Application.DoEvents()
-        Else
-            Me.BtnCopy.BackColor = Color.Orange
-            blink = True
-            Application.DoEvents()
-        End If
+    Public Sub MoveForm_MouseDown(sender As Object, e As MouseEventArgs) Handles _
+   MyBase.MouseDown ' Add more handles here (Example: PictureBox1.MouseDown)
+        Try
+            If e.Button = MouseButtons.Left Then
+                MoveForm = True
+                Me.Cursor = Cursors.NoMove2D
+                MoveForm_MousePosition = e.Location
+            End If
+        Catch ex As Exception
+            MyErrors = ex.Message
+            FrError.Show()
+        End Try
+    End Sub
+    Public Sub MoveForm_MouseMove(sender As Object, e As MouseEventArgs) Handles _
+    MyBase.MouseMove ' Add more handles here (Example: PictureBox1.MouseMove)
+        Try
+            If MoveForm Then
+#Disable Warning BC42016 ' Implicit conversion from 'Point' to 'Size'.
+#Disable Warning BC42016 ' Implicit conversion from 'Point' to 'Size'.
+                Me.Location = Me.Location + (e.Location - MoveForm_MousePosition)
+#Enable Warning BC42016 ' Implicit conversion from 'Point' to 'Size'.
+#Enable Warning BC42016 ' Implicit conversion from 'Point' to 'Size'.
+            End If
+        Catch ex As Exception
+            MyErrors = ex.Message
+            FrError.Show()
+        End Try
+    End Sub
+    Public Sub MoveForm_MouseUp(sender As Object, e As MouseEventArgs) Handles _
+    MyBase.MouseUp ' Add more handles here (Example: PictureBox1.MouseUp)
+        Try
+            If e.Button = MouseButtons.Left Then
+                MoveForm = False
+                Me.Cursor = Cursors.Default
+            End If
+        Catch ex As Exception
+            MyErrors = ex.Message
+            FrError.Show()
+        End Try
     End Sub
 End Class

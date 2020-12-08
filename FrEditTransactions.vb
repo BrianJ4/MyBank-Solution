@@ -146,28 +146,6 @@ Public Class FrEditTransactions
             FrError.Show()
         End Try
     End Sub
-    Private Sub BaseForm_Load()
-        If Not Me.DesignMode Then
-            Me.FormBorderStyle = FormBorderStyle.None
-            Me.StartPosition = FormStartPosition.CenterScreen
-            Me.Size = New Size(800, 500)
-            Dim p As New System.Drawing.Drawing2D.GraphicsPath
-            Dim CurveSize As Int32 = 250
-            p.StartFigure()
-            p.AddArc(New Rectangle(0, 0, CurveSize, CurveSize), 180, 90)
-            p.AddLine(CurveSize, 0, Me.Width - CurveSize, 0)
-            p.AddArc(New Rectangle(Me.Width - CurveSize, 0, CurveSize,
-            CurveSize), -90, 90)
-            p.AddLine(Me.Width, CurveSize, Me.Width, Me.Height - CurveSize)
-            p.AddArc(New Rectangle(Me.Width - CurveSize, Me.Height - CurveSize, CurveSize, CurveSize), 0, 90)
-            p.AddLine(Me.Width - 40, Me.Height, 40, Me.Height)
-            p.AddArc(New Rectangle(0, Me.Height - CurveSize, CurveSize, CurveSize), 90, 90)
-            p.CloseFigure()
-            Me.Region = New Region(p)
-            Me.BackColor = Me.BackColor
-            p.Dispose()
-        End If
-    End Sub
     Private Sub tbAmount_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles tbAmount.KeyDown
         Try
             If (e.KeyCode >= Keys.D0 And e.KeyCode <= Keys.D9) OrElse (e.KeyCode >= Keys.NumPad0 And e.KeyCode <= Keys.NumPad9) OrElse e.KeyCode = Keys.Back Then
@@ -208,6 +186,68 @@ Public Class FrEditTransactions
                 tbAmount.Select(tbAmount.Text.Length, 0)
             End If
             e.Handled = True
+        Catch ex As Exception
+            MyErrors = ex.Message
+            FrError.Show()
+        End Try
+    End Sub
+    Private Sub BaseForm_Load()
+        If Not Me.DesignMode Then
+            Me.FormBorderStyle = FormBorderStyle.None
+            Me.StartPosition = FormStartPosition.CenterScreen
+            Me.Size = New Size(800, 500)
+            Dim p As New System.Drawing.Drawing2D.GraphicsPath
+            Dim CurveSize As Int32 = 250
+            p.StartFigure()
+            p.AddArc(New Rectangle(0, 0, CurveSize, CurveSize), 180, 90)
+            p.AddLine(CurveSize, 0, Me.Width - CurveSize, 0)
+            p.AddArc(New Rectangle(Me.Width - CurveSize, 0, CurveSize,
+            CurveSize), -90, 90)
+            p.AddLine(Me.Width, CurveSize, Me.Width, Me.Height - CurveSize)
+            p.AddArc(New Rectangle(Me.Width - CurveSize, Me.Height - CurveSize, CurveSize, CurveSize), 0, 90)
+            p.AddLine(Me.Width - 40, Me.Height, 40, Me.Height)
+            p.AddArc(New Rectangle(0, Me.Height - CurveSize, CurveSize, CurveSize), 90, 90)
+            p.CloseFigure()
+            Me.Region = New Region(p)
+            Me.BackColor = Me.BackColor
+            p.Dispose()
+        End If
+    End Sub
+    Public Sub MoveForm_MouseDown(sender As Object, e As MouseEventArgs) Handles _
+  MyBase.MouseDown ' Add more handles here (Example: PictureBox1.MouseDown)
+        Try
+            If e.Button = MouseButtons.Left Then
+                MoveForm = True
+                Me.Cursor = Cursors.NoMove2D
+                MoveForm_MousePosition = e.Location
+            End If
+        Catch ex As Exception
+            MyErrors = ex.Message
+            FrError.Show()
+        End Try
+    End Sub
+    Public Sub MoveForm_MouseMove(sender As Object, e As MouseEventArgs) Handles _
+    MyBase.MouseMove ' Add more handles here (Example: PictureBox1.MouseMove)
+        Try
+            If MoveForm Then
+#Disable Warning BC42016 ' Implicit conversion from 'Point' to 'Size'.
+#Disable Warning BC42016 ' Implicit conversion from 'Point' to 'Size'.
+                Me.Location = Me.Location + (e.Location - MoveForm_MousePosition)
+#Enable Warning BC42016 ' Implicit conversion from 'Point' to 'Size'.
+#Enable Warning BC42016 ' Implicit conversion from 'Point' to 'Size'.
+            End If
+        Catch ex As Exception
+            MyErrors = ex.Message
+            FrError.Show()
+        End Try
+    End Sub
+    Public Sub MoveForm_MouseUp(sender As Object, e As MouseEventArgs) Handles _
+    MyBase.MouseUp ' Add more handles here (Example: PictureBox1.MouseUp)
+        Try
+            If e.Button = MouseButtons.Left Then
+                MoveForm = False
+                Me.Cursor = Cursors.Default
+            End If
         Catch ex As Exception
             MyErrors = ex.Message
             FrError.Show()
