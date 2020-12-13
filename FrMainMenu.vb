@@ -37,6 +37,7 @@ Public Class FrMainMenu
             BtnCloseAccount.Visible = True
             LblInfo.Text = "This is the Main Menu”
         End If
+        CheckForEvent()
         If EventFlag = True Then
             LblFooter.Text = "     You Have an Event”
             Timer1.Start()
@@ -155,7 +156,7 @@ Timer1_Tick:
                 LBalDate(I) = CDate(LineInput(1))
                 FileClose(1)
             Next I
-            'Fil ListView Details
+            'Fill ListView Details
             For I = 1 To AccIndex
                 Dim lvi As New ListViewItem(LvBank(I))
                 lvi.SubItems.Add(LvType(I))
@@ -173,7 +174,7 @@ Timer1_Tick:
                 Dim lvi3 As New ListViewItem("Available")
                 ListView1.Items.Add(lvi3)
             Next
-            'Fil ListView Totals
+            'Fill ListView Totals
             Dim lvi2 As New ListViewItem("Current")
             lvi2.SubItems.Add("Total")
             lvi2.SubItems.Add(ToDay.ToString)
@@ -204,6 +205,33 @@ Timer1_Tick:
             PrintLine(1, My.Settings.activeDir)
             PrintLine(1, My.Settings.BkUpDir)
             FileClose(1)
+        Catch ex As Exception
+            MyErrors = ex.Message
+            FrError.Show()
+        End Try
+    End Sub
+    Private Sub CheckForEvent()
+        Try
+            If File.Exists(My.Settings.ProSetPath & "Events.mbtd") Then
+                CommonLoadEvent()
+                '################ Load Events  ##############
+                EventFlag = False
+                If EventNo = 0 Then
+                    ' Do Nothing
+                Else
+                    For I = 1 To EventNo
+                        '################ Check for Events  ##############
+                        If Now > DateAdd(DateInterval.Day, -4, EventDate(I)) Then
+                            EventFlag = True
+                        End If
+                    Next I
+                End If
+            Else
+                '################ If No File then create Events  ##############
+                FileOpen(1, SetPath & "Events.mbtd", OpenMode.Output)
+                PrintLine(1, 0)
+                FileClose(1)
+            End If
         Catch ex As Exception
             MyErrors = ex.Message
             FrError.Show()

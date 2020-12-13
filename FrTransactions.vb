@@ -25,20 +25,22 @@ Public Class FrTransactions
         My.Settings.StateC = False
         My.Settings.StateNotC = False
         My.Settings.Save()
+        Timer2.Start()
+        Timer1.Stop()
         Call LoadAccounts()
         If FrNewTransaction.Flag = True Then
             CBoxBank.SelectedItem = My.Settings.AccBank
             CBoxAccount.SelectedItem = My.Settings.AccType
             Call SortTransactionData()
+            Timer2.Stop()
         End If
         If FrEditTransactions.Flag = True Then
             CBoxBank.SelectedItem = My.Settings.AccBank
             CBoxAccount.SelectedItem = My.Settings.AccType
             Call SortTransactionData()
+            Timer2.Stop()
         End If
         LblLastAction.Text = "Please Choose a Bank"
-        Timer2.Start()
-        Timer1.Stop()
         BtnClear.BackColor = Color.RosyBrown
         LblNotCleared.Visible = False
     End Sub

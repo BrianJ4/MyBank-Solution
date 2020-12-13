@@ -308,24 +308,24 @@ Partial Class FrTransactions
         'CBoxBank
         '
         Me.CBoxBank.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.CBoxBank.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CBoxBank.Font = New System.Drawing.Font("Arial Black", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CBoxBank.ForeColor = System.Drawing.Color.Black
         Me.CBoxBank.FormattingEnabled = True
-        Me.CBoxBank.Location = New System.Drawing.Point(410, 7)
+        Me.CBoxBank.Location = New System.Drawing.Point(429, 1)
         Me.CBoxBank.Name = "CBoxBank"
-        Me.CBoxBank.Size = New System.Drawing.Size(145, 24)
+        Me.CBoxBank.Size = New System.Drawing.Size(170, 26)
         Me.CBoxBank.TabIndex = 9
         Me.ToolTip1.SetToolTip(Me.CBoxBank, "Select Bank")
         '
         'CBoxAccount
         '
         Me.CBoxAccount.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.CBoxAccount.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CBoxAccount.Font = New System.Drawing.Font("Arial Black", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CBoxAccount.ForeColor = System.Drawing.Color.Black
         Me.CBoxAccount.FormattingEnabled = True
-        Me.CBoxAccount.Location = New System.Drawing.Point(602, 7)
+        Me.CBoxAccount.Location = New System.Drawing.Point(663, 1)
         Me.CBoxAccount.Name = "CBoxAccount"
-        Me.CBoxAccount.Size = New System.Drawing.Size(140, 24)
+        Me.CBoxAccount.Size = New System.Drawing.Size(170, 26)
         Me.CBoxAccount.TabIndex = 10
         Me.ToolTip1.SetToolTip(Me.CBoxAccount, "Select Account")
         Me.CBoxAccount.Visible = False
@@ -337,11 +337,11 @@ Partial Class FrTransactions
         Me.BtnDelete.FlatAppearance.BorderColor = System.Drawing.Color.White
         Me.BtnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
         Me.BtnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnDelete.Font = New System.Drawing.Font("Arial Black", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnDelete.ForeColor = System.Drawing.Color.Black
-        Me.BtnDelete.Location = New System.Drawing.Point(1116, 361)
+        Me.BtnDelete.Location = New System.Drawing.Point(1116, 360)
         Me.BtnDelete.Name = "BtnDelete"
-        Me.BtnDelete.Size = New System.Drawing.Size(56, 23)
+        Me.BtnDelete.Size = New System.Drawing.Size(65, 30)
         Me.BtnDelete.TabIndex = 2
         Me.BtnDelete.Text = "Delete"
         Me.ToolTip1.SetToolTip(Me.BtnDelete, "Delete a Transaction")
@@ -354,10 +354,10 @@ Partial Class FrTransactions
         Me.BtnEdit.FlatAppearance.BorderColor = System.Drawing.Color.White
         Me.BtnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
         Me.BtnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnEdit.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnEdit.Font = New System.Drawing.Font("Arial Black", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnEdit.Location = New System.Drawing.Point(1116, 296)
         Me.BtnEdit.Name = "BtnEdit"
-        Me.BtnEdit.Size = New System.Drawing.Size(56, 23)
+        Me.BtnEdit.Size = New System.Drawing.Size(65, 30)
         Me.BtnEdit.TabIndex = 4
         Me.BtnEdit.Text = "Edit"
         Me.ToolTip1.SetToolTip(Me.BtnEdit, "Edit A Transaction")
@@ -370,12 +370,12 @@ Partial Class FrTransactions
         Me.BtnAdd.FlatAppearance.BorderColor = System.Drawing.Color.White
         Me.BtnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
         Me.BtnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnAdd.Font = New System.Drawing.Font("Arial Black", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnAdd.Location = New System.Drawing.Point(1116, 217)
         Me.BtnAdd.Name = "BtnAdd"
-        Me.BtnAdd.Size = New System.Drawing.Size(56, 23)
+        Me.BtnAdd.Size = New System.Drawing.Size(65, 30)
         Me.BtnAdd.TabIndex = 3
-        Me.BtnAdd.Text = "Add"
+        Me.BtnAdd.Text = "ADD"
         Me.ToolTip1.SetToolTip(Me.BtnAdd, "Create New Transaction")
         Me.BtnAdd.UseVisualStyleBackColor = False
         '
@@ -386,11 +386,11 @@ Partial Class FrTransactions
         Me.BtnNotClear.FlatAppearance.BorderColor = System.Drawing.Color.White
         Me.BtnNotClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
         Me.BtnNotClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnNotClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnNotClear.Font = New System.Drawing.Font("Arial Black", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnNotClear.ForeColor = System.Drawing.Color.Black
         Me.BtnNotClear.Location = New System.Drawing.Point(1116, 153)
         Me.BtnNotClear.Name = "BtnNotClear"
-        Me.BtnNotClear.Size = New System.Drawing.Size(56, 23)
+        Me.BtnNotClear.Size = New System.Drawing.Size(65, 29)
         Me.BtnNotClear.TabIndex = 1
         Me.BtnNotClear.Text = "Not Clr"
         Me.ToolTip1.SetToolTip(Me.BtnNotClear, "Marks the Transaction as Not Cleared")
@@ -403,10 +403,10 @@ Partial Class FrTransactions
         Me.BtnClear.FlatAppearance.BorderColor = System.Drawing.Color.White
         Me.BtnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
         Me.BtnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnClear.Location = New System.Drawing.Point(1116, 110)
+        Me.BtnClear.Font = New System.Drawing.Font("Arial Black", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnClear.Location = New System.Drawing.Point(1116, 106)
         Me.BtnClear.Name = "BtnClear"
-        Me.BtnClear.Size = New System.Drawing.Size(56, 23)
+        Me.BtnClear.Size = New System.Drawing.Size(65, 27)
         Me.BtnClear.TabIndex = 0
         Me.BtnClear.Text = "Clear"
         Me.ToolTip1.SetToolTip(Me.BtnClear, "Marks Transaction as Cleared")
@@ -423,7 +423,7 @@ Partial Class FrTransactions
         Me.BtnClose.ForeColor = System.Drawing.Color.Black
         Me.BtnClose.Location = New System.Drawing.Point(1116, 504)
         Me.BtnClose.Name = "BtnClose"
-        Me.BtnClose.Size = New System.Drawing.Size(56, 23)
+        Me.BtnClose.Size = New System.Drawing.Size(65, 30)
         Me.BtnClose.TabIndex = 23
         Me.BtnClose.Text = "Close"
         Me.ToolTip1.SetToolTip(Me.BtnClose, "Close and return to Main Menu")
@@ -474,9 +474,9 @@ Partial Class FrTransactions
         Me.BtnCalculator.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnCalculator.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCalculator.ForeColor = System.Drawing.Color.Black
-        Me.BtnCalculator.Location = New System.Drawing.Point(944, 567)
+        Me.BtnCalculator.Location = New System.Drawing.Point(942, 562)
         Me.BtnCalculator.Name = "BtnCalculator"
-        Me.BtnCalculator.Size = New System.Drawing.Size(103, 23)
+        Me.BtnCalculator.Size = New System.Drawing.Size(103, 30)
         Me.BtnCalculator.TabIndex = 36
         Me.BtnCalculator.Text = "Calculator"
         Me.ToolTip1.SetToolTip(Me.BtnCalculator, "Simple Calculator")

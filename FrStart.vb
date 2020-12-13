@@ -51,7 +51,6 @@ Public Class FrStart
             LblFilePath.Text = My.Settings.ProSetPath
             LblFilePath.Text = My.Settings.ProSetPath
             OldDir = ""
-            CheckForEvent()
             If My.Settings.AccLive = True Then
                 LoadOldSettings()
                 My.Settings.AccLive = True
@@ -420,33 +419,6 @@ Timer1_Tick:
             My.Settings.TotalTrans = I - 1
             My.Settings.TransRefNo = RefN
             My.Settings.Save()
-        Catch ex As Exception
-            MyErrors = ex.Message
-            FrError.Show()
-        End Try
-    End Sub
-    Private Sub CheckForEvent()
-        Try
-            If File.Exists(My.Settings.ProSetPath & "Events.mbtd") Then
-                CommonLoadEvent()
-                '################ Load Events  ##############
-                EventFlag = False
-                If EventNo = 0 Then
-                    ' Do Nothing
-                Else
-                    For I = 1 To EventNo
-                        '################ Check for Events  ##############
-                        If EventDate(I) < DateAdd(DateInterval.Day, +7, Now) Then
-                            EventFlag = True
-                        End If
-                    Next I
-                End If
-            Else
-                '################ If No File then create Events  ##############
-                FileOpen(1, SetPath & "Events.mbtd", OpenMode.Output)
-                PrintLine(1, 0)
-                FileClose(1)
-            End If
         Catch ex As Exception
             MyErrors = ex.Message
             FrError.Show()

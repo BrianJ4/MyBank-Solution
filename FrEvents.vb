@@ -96,9 +96,7 @@ Public Class FrEvents
     Private Sub BtnEventUpDate_Click(sender As Object, e As EventArgs) Handles BtnEventUpDate.Click
         My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
         UpdateEvent()
-        MyMsg = "Event successfully Updated to next Date"
-        MyMsgFlag = False
-        FrMsgOk.ShowDialog()
+
         CheckForEvent()
     End Sub
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
@@ -263,7 +261,7 @@ Timer1_Tick:
                 Else
                     For I = 1 To EventNo
                         '################ Check for Events  ##############
-                        If EventDate(I) < DateAdd(DateInterval.Day, +7, Now) Then
+                        If Now > DateAdd(DateInterval.Day, -4, EventDate(I)) Then
                             ListBox2.Items.Add(EventDate(I).ToShortDateString & " :- " & EventItem(I))
                             EventFlag = True
                             LblReminderFooter.Text = "You can (UpDate) Events up to " & Now.ToShortDateString
@@ -292,16 +290,22 @@ Timer1_Tick:
                     ' Do Nothing
                 Else
                     For I = 1 To EventNo
-                        If EventDate(I) < DateAdd(DateInterval.Day, +7, Now) Then
+                        If Now > DateAdd(DateInterval.Day, -4, EventDate(I)) Then
                             EventFlag = True
                         End If
                         '################ Update Events  ##############
                         If EventDate(I) < Now Then
                             If EventDayCount(I) = 0 And EventIntervalType(I) = "0" Then
-                                ' Do Nothing
+                                Z = Z + 1
+                                MyMsg = "One Event can not be Updated"
+                                MyMsgFlag = False
+                                FrMsgOk.ShowDialog()
                             Else
                                 If EventDate(I) < Now Then
                                     EventDate(I) = DateAdd(EventIntervalType(I), EventDayCount(I), EventDate(I))
+                                    MyMsg = "Event successfully Updated to next Date"
+                                    MyMsgFlag = False
+                                    FrMsgOk.ShowDialog()
                                 End If
                             End If
                         End If
