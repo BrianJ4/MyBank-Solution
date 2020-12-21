@@ -254,7 +254,7 @@ Partial Class FrPrint
         Me.DataGridView1.AllowUserToResizeRows = False
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(273, 129)
+        Me.DataGridView1.Location = New System.Drawing.Point(273, 134)
         Me.DataGridView1.Margin = New System.Windows.Forms.Padding(2)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
@@ -328,7 +328,7 @@ Partial Class FrPrint
         Me.BtnSaveDoc.Name = "BtnSaveDoc"
         Me.BtnSaveDoc.Size = New System.Drawing.Size(165, 30)
         Me.BtnSaveDoc.TabIndex = 24
-        Me.BtnSaveDoc.Text = "Save Document"
+        Me.BtnSaveDoc.Text = "Save  /  Print"
         Me.ToolTip1.SetToolTip(Me.BtnSaveDoc, "Saves the selected Transactions to a Web Document")
         Me.BtnSaveDoc.UseVisualStyleBackColor = False
         '

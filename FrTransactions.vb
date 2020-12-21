@@ -270,6 +270,8 @@ Timer2_Tick:
 #Enable Warning BC42024 ' Unused local variable: 'P'.
             Dim LastBalance As Double
             Dim LastBalDate As Date
+            Dim LowBalance As Double = 9999.99
+            Dim LowtBalDate As Date
             Dim ScrollPoint As Integer = 0
             Dim colsexpected As Integer = 10
             Dim thereader As New StreamReader(MakePath, Encoding.Default)
@@ -283,50 +285,75 @@ Timer2_Tick:
 #Disable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
                 Dim words() As String = sline.Split(",")
 #Enable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
-                If CInt(words(0)) = My.Settings.ProAccRef Then
+                If CInt(words(0)) = My.Settings.ProAccRef Or CInt(words(0)) = 0 Then
                     DataGridView1.Rows.Add("")
                     Cr = DataGridView1.Rows.Count - 1
+                    '####### DELETE ZERO ACCOUNTS  ########################
+                    If CInt(words(0)) = 0 Then
+                        'Report Error
+                        MyErrors = Now.ToShortDateString & " )  Zero Account Deleted"
+                        FileOpen(3, My.Settings.ProSetPath & "ErrorLog.mbtd", OpenMode.Append)
+                        PrintLine(3, MyErrors)
+                        FileClose(3)
+                        'Call Delete Errors
+                        RowValue = CInt(DataGridView1.CurrentRow.Cells(2).Value)
+                        My.Settings.EditTransNo = RowValue
+                        My.Settings.StateC = False
+                        My.Settings.StateNotC = False
+                        My.Settings.DeleteTrans = True
+                        My.Settings.Save()
+                        Call SortTransactionData()
+                        Call ViewAcc()
+                    End If
+                    '##########################################################
                     If words.Length = colsexpected Then
-                        For ix As Integer = 0 To 9
-                            If ix = 3 Then
-                                Deb = CDbl(words(ix))
-                            End If
-                            If ix = 4 Then
-                                Cre = CDbl(words(ix))
-                            Else
-                                DataGridView1.Rows(Cr).Cells(ix).Value = words(ix)
-                            End If
-                        Next
-                        Bal = Bal - Deb
-                        Bal = Bal + Cre
-                        DataGridView1.Rows(Cr).Cells(8).Value = "£" & Format(Bal, "#####0.00")
-                        DataGridView1.Rows(Cr).Cells(3).Value = "£" & Format(Deb, "#####0.00")
+                            For ix As Integer = 0 To 9
+                                If ix = 3 Then
+                                    Deb = CDbl(words(ix))
+                                End If
+                                If ix = 4 Then
+                                    Cre = CDbl(words(ix))
+                                Else
+                                    DataGridView1.Rows(Cr).Cells(ix).Value = words(ix)
+                                End If
+                            Next
+                            Bal = Bal - Deb
+                            Bal = Bal + Cre
+                            DataGridView1.Rows(Cr).Cells(8).Value = "£" & Format(Bal, "#####0.00")
+                            DataGridView1.Rows(Cr).Cells(3).Value = "£" & Format(Deb, "#####0.00")
                         DataGridView1.Rows(Cr).Cells(4).Value = "£" & Format(Cre, "#####0.00")
+                        '##  Check for Last Balance
                         If CDate(DataGridView1.Rows(Cr).Cells(1).Value) <= Now Or CStr(DataGridView1.Rows(Cr).Cells(9).Value) = "C" Then
                             LastBalance = CDbl(DataGridView1.Rows(Cr).Cells(8).Value)
                             LastBalDate = CDate(DataGridView1.Rows(Cr).Cells(1).Value)
                             ScrollPoint = I
                             RunNo = I
                         End If
+                        '## Check for Low Balance
+                        If CDate(DataGridView1.Rows(Cr).Cells(1).Value) >= Now And CDbl(DataGridView1.Rows(Cr).Cells(8).Value) < LowBalance Then
+                            LowBalance = CDbl(DataGridView1.Rows(Cr).Cells(8).Value)
+                            LowtBalDate = CDate(DataGridView1.Rows(Cr).Cells(1).Value)
+                            LblLastAction.Text = FrAccName & "  " & FrAccType & "      Spend  Limited  to   £" & LowBalance.ToString & "   on the   " & LowtBalDate.ToShortDateString
+                        End If
                         '#####  check that transactions are cleared  #####
                         If CDate(DataGridView1.Rows(Cr).Cells(1).Value) <= Now And CStr(DataGridView1.Rows(Cr).Cells(9).Value) = "---" Then
-                            Timer1.Start()
-                            LblNotCleared.Visible = True
+                                Timer1.Start()
+                                LblNotCleared.Visible = True
+                            End If
+                            '######################  Errors  ###########################
+                            If Not IsNumeric(words(0)) Then DataGridView1.Rows(Cr).Cells(0).Style.BackColor = Color.Yellow
+                            If Not IsDate(words(1)) Then DataGridView1.Rows(Cr).Cells(1).Style.BackColor = Color.Yellow
+                            If Not IsNumeric(words(2)) Then DataGridView1.Rows(Cr).Cells(2).Style.BackColor = Color.Yellow
+                            If Not IsNumeric(words(3)) Then DataGridView1.Rows(Cr).Cells(3).Style.BackColor = Color.Yellow
+                            If Not IsNumeric(words(4)) Then DataGridView1.Rows(Cr).Cells(4).Style.BackColor = Color.Yellow
+                            If Not IsNumeric(words(8)) Then DataGridView1.Rows(Cr).Cells(8).Style.BackColor = Color.Yellow
+                        Else
+                            DataGridView1.Rows(Cr).Cells(0).Value = "error"
+                            DataGridView1.Rows(Cr).DefaultCellStyle.BackColor = Color.Pink
                         End If
-                        '######################  Errors  ###########################
-                        If Not IsNumeric(words(0)) Then DataGridView1.Rows(Cr).Cells(0).Style.BackColor = Color.Yellow
-                        If Not IsDate(words(1)) Then DataGridView1.Rows(Cr).Cells(1).Style.BackColor = Color.Yellow
-                        If Not IsNumeric(words(2)) Then DataGridView1.Rows(Cr).Cells(2).Style.BackColor = Color.Yellow
-                        If Not IsNumeric(words(3)) Then DataGridView1.Rows(Cr).Cells(3).Style.BackColor = Color.Yellow
-                        If Not IsNumeric(words(4)) Then DataGridView1.Rows(Cr).Cells(4).Style.BackColor = Color.Yellow
-                        If Not IsNumeric(words(8)) Then DataGridView1.Rows(Cr).Cells(8).Style.BackColor = Color.Yellow
-                    Else
-                        DataGridView1.Rows(Cr).Cells(0).Value = "error"
-                        DataGridView1.Rows(Cr).DefaultCellStyle.BackColor = Color.Pink
+                        I = I + 1
                     End If
-                    I = I + 1
-                End If
-                Z = Z + 1
+                    Z = Z + 1
             Loop
             thereader.Close()
             Z = Z - 1

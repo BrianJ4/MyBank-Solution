@@ -317,7 +317,6 @@ Partial Class FrNewAcc
         Me.ComboBox1.MaxLength = 12
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(202, 26)
-        Me.ComboBox1.Sorted = True
         Me.ComboBox1.TabIndex = 40
         Me.ToolTip1.SetToolTip(Me.ComboBox1, "Select Account Type")
         '

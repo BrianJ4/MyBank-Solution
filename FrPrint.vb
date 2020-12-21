@@ -278,8 +278,7 @@ Public Class FrPrint
             My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
             Me.DataGridView1.Columns.Clear()
             Dim Col As DataGridViewTextBoxColumn
-            If CheckBox1.Checked = True Then
-                Col = New DataGridViewTextBoxColumn With {
+            Col = New DataGridViewTextBoxColumn With {
                 .Name = "DgBank",
                 .HeaderText = "Bank",
                 .Width = 120,
@@ -296,10 +295,8 @@ Public Class FrPrint
                .MaxInputLength = 10,
                .ToolTipText = "Entry Account Reference"
            }
-                Me.DataGridView1.Columns.Add(Col)
-            End If
-            If CheckBox2.Checked = True Then
-                Col = New DataGridViewTextBoxColumn With {
+            Me.DataGridView1.Columns.Add(Col)
+            Col = New DataGridViewTextBoxColumn With {
                .Name = "DgDate",
                .HeaderText = "Date",
                .Width = 90,
@@ -307,10 +304,8 @@ Public Class FrPrint
                .MaxInputLength = 12,
                .ToolTipText = "Entry Date"
            }
-                Me.DataGridView1.Columns.Add(Col)
-            End If
-            If CheckBox3.Checked = True Then
-                Col = New DataGridViewTextBoxColumn With {
+            Me.DataGridView1.Columns.Add(Col)
+            Col = New DataGridViewTextBoxColumn With {
                 .Name = "DgRef",
                 .HeaderText = "RefNo",
                 .Width = 65,
@@ -318,10 +313,8 @@ Public Class FrPrint
                 .MaxInputLength = 12,
                 .ToolTipText = "Entry Account Reference"
             }
-                Me.DataGridView1.Columns.Add(Col)
-            End If
-            If CheckBox5.Checked = True Then
-                Col = New DataGridViewTextBoxColumn With {
+            Me.DataGridView1.Columns.Add(Col)
+            Col = New DataGridViewTextBoxColumn With {
                 .Name = "DgDebit",
                 .HeaderText = "Debit",
                 .Width = 75,
@@ -329,10 +322,8 @@ Public Class FrPrint
                 .MaxInputLength = 10,
                 .ToolTipText = "Entry Debit Value"
             }
-                Me.DataGridView1.Columns.Add(Col)
-            End If
-            If CheckBox6.Checked = True Then
-                Col = New DataGridViewTextBoxColumn With {
+            Me.DataGridView1.Columns.Add(Col)
+            Col = New DataGridViewTextBoxColumn With {
                 .Name = "DgCredit",
                 .HeaderText = "Credit",
                 .Width = 75,
@@ -340,10 +331,8 @@ Public Class FrPrint
                 .MaxInputLength = 10,
                 .ToolTipText = "Entry Credit Value"
             }
-                Me.DataGridView1.Columns.Add(Col)
-            End If
-            If CheckBox7.Checked = True Then
-                Col = New DataGridViewTextBoxColumn With {
+            Me.DataGridView1.Columns.Add(Col)
+            Col = New DataGridViewTextBoxColumn With {
                 .Name = "DgToFrom",
                 .HeaderText = "To / From",
                 .Width = 140,
@@ -351,10 +340,8 @@ Public Class FrPrint
                 .MaxInputLength = 30,
                 .ToolTipText = "Entry Paid To or Received From"
             }
-                Me.DataGridView1.Columns.Add(Col)
-            End If
-            If CheckBox8.Checked = True Then
-                Col = New DataGridViewTextBoxColumn With {
+            Me.DataGridView1.Columns.Add(Col)
+            Col = New DataGridViewTextBoxColumn With {
                .Name = "DgCategory",
                .HeaderText = "Category",
                .Width = 140,
@@ -362,10 +349,8 @@ Public Class FrPrint
                .MaxInputLength = 30,
                .ToolTipText = "Entry Falls in to this Category"
            }
-                Me.DataGridView1.Columns.Add(Col)
-            End If
-            If CheckBox9.Checked = True Then
-                Col = New DataGridViewTextBoxColumn With {
+            Me.DataGridView1.Columns.Add(Col)
+            Col = New DataGridViewTextBoxColumn With {
                .Name = "DgSubCategory",
                .HeaderText = "Sub Category",
                .Width = 140,
@@ -373,10 +358,8 @@ Public Class FrPrint
                .MaxInputLength = 30,
                .ToolTipText = "Entry Falls in to this SubCategory"
            }
-                Me.DataGridView1.Columns.Add(Col)
-            End If
-            If CheckBox10.Checked = True Then
-                Col = New DataGridViewTextBoxColumn With {
+            Me.DataGridView1.Columns.Add(Col)
+            Col = New DataGridViewTextBoxColumn With {
               .Name = "DgState",
               .HeaderText = "State",
               .Width = 45,
@@ -384,8 +367,7 @@ Public Class FrPrint
               .MaxInputLength = 10,
               .ToolTipText = "Entry Transaction Type"
           }
-                Me.DataGridView1.Columns.Add(Col)
-            End If
+            Me.DataGridView1.Columns.Add(Col)
             Col = New DataGridViewTextBoxColumn With {
                 .Name = "DgBalance",
                 .HeaderText = "Balance",
@@ -571,6 +553,67 @@ Public Class FrPrint
                     End If
                 End If
             Next I
+            '###### Add  All Accounts to Foot Note  #############
+            Dim LastBalance As Double
+            Dim LastBalDate As Date
+            CommonLoadAccount()
+            For I = 1 To AccIndex
+                MakePath = My.Settings.ProSetPath
+                MakePath = MakePath + LvBank(I) + "_" + LvType(I) + "_CBalData.txt"
+                FileOpen(1, MakePath, OpenMode.Input)
+                LastBalance = CDec(LineInput(1))
+                LastBalDate = CDate(LineInput(1))
+                FileClose(1)
+                Dim R As New DataGridViewRow
+                Dim Rt As New DataGridViewTextBoxCell
+                Rt = New DataGridViewTextBoxCell With {
+                                          .Value = LvBank(I)
+                                          }
+                R.Cells.Add(Rt)
+                Rt = New DataGridViewTextBoxCell With {
+                                          .Value = LvType(I)
+                                          }
+                R.Cells.Add(Rt)
+                Rt = New DataGridViewTextBoxCell With {
+                                           .Value = Format(LastBalDate, "dd/MM/yyyy")
+                                          }
+                R.Cells.Add(Rt)
+                Rt = New DataGridViewTextBoxCell With {
+                                          .Value = "---"
+                                          }
+                R.Cells.Add(Rt)
+                Rt = New DataGridViewTextBoxCell With {
+                                          .Value = "---"
+                                          }
+                R.Cells.Add(Rt)
+                Rt = New DataGridViewTextBoxCell With {
+                                          .Value = "---"
+                                          }
+                R.Cells.Add(Rt)
+                Rt = New DataGridViewTextBoxCell With {
+                                          .Value = "Cleared Balance"
+                                          }
+                R.Cells.Add(Rt)
+                Rt = New DataGridViewTextBoxCell With {
+                                          .Value = "    As of the"
+                                          }
+                R.Cells.Add(Rt)
+                Rt = New DataGridViewTextBoxCell With {
+                                          .Value = "" & Now.ToShortDateString
+                                          }
+                R.Cells.Add(Rt)
+                Rt = New DataGridViewTextBoxCell With {
+                                          .Value = "==="
+                                          }
+                R.Cells.Add(Rt)
+                Rt = New DataGridViewTextBoxCell With {
+                                           .Value = Format(LastBalance, "##,##0.00")
+                                          }
+                R.Cells.Add(Rt)
+
+                Rt.Style.Alignment = DataGridViewContentAlignment.MiddleLeft
+                Me.DataGridView1.Rows.Add(R)
+            Next I
         Catch ex As Exception
             MyErrors = "FrPrint ViewAcc " & ex.Message
             FrError.Show()
@@ -713,6 +756,67 @@ Public Class FrPrint
                     End If
                 End If
             Next I
+            '###### Add  All Accounts to Foot Note  #############
+            Dim LastBalance As Double
+            Dim LastBalDate As Date
+            CommonLoadAccount()
+            For I = 1 To AccIndex
+                MakePath = My.Settings.ProSetPath
+                MakePath = MakePath + LvBank(I) + "_" + LvType(I) + "_CBalData.txt"
+                FileOpen(1, MakePath, OpenMode.Input)
+                LastBalance = CDec(LineInput(1))
+                LastBalDate = CDate(LineInput(1))
+                FileClose(1)
+                Dim R As New DataGridViewRow
+                Dim Rt As New DataGridViewTextBoxCell
+                Rt = New DataGridViewTextBoxCell With {
+                                          .Value = LvBank(I)
+                                          }
+                R.Cells.Add(Rt)
+                Rt = New DataGridViewTextBoxCell With {
+                                          .Value = LvType(I)
+                                          }
+                R.Cells.Add(Rt)
+                Rt = New DataGridViewTextBoxCell With {
+                                           .Value = Format(LastBalDate, "dd/MM/yyyy")
+                                          }
+                R.Cells.Add(Rt)
+                Rt = New DataGridViewTextBoxCell With {
+                                          .Value = "---"
+                                          }
+                R.Cells.Add(Rt)
+                Rt = New DataGridViewTextBoxCell With {
+                                          .Value = "---"
+                                          }
+                R.Cells.Add(Rt)
+                Rt = New DataGridViewTextBoxCell With {
+                                          .Value = "---"
+                                          }
+                R.Cells.Add(Rt)
+                Rt = New DataGridViewTextBoxCell With {
+                                          .Value = "Cleared Balance"
+                                          }
+                R.Cells.Add(Rt)
+                Rt = New DataGridViewTextBoxCell With {
+                                          .Value = "    As of the"
+                                          }
+                R.Cells.Add(Rt)
+                Rt = New DataGridViewTextBoxCell With {
+                                          .Value = "" & Now.ToShortDateString
+                                          }
+                R.Cells.Add(Rt)
+                Rt = New DataGridViewTextBoxCell With {
+                                          .Value = "==="
+                                          }
+                R.Cells.Add(Rt)
+                Rt = New DataGridViewTextBoxCell With {
+                                           .Value = Format(LastBalance, "##,##0.00")
+                                          }
+                R.Cells.Add(Rt)
+
+                Rt.Style.Alignment = DataGridViewContentAlignment.MiddleLeft
+                Me.DataGridView1.Rows.Add(R)
+            Next I
         Catch ex As Exception
             MyErrors = "FrPrint ViewAcc2 " & ex.Message
             FrError.Show()
@@ -722,7 +826,7 @@ Public Class FrPrint
         Try
             'create empty string
             Dim the_html_file As String = String.Empty
-
+            Dim ColumnCounter As Integer = 0
             Dim stylesheet As String = "  table.gridtable {margin:0 auto;width:95%;overflow:auto;font-family: helvetica,arial,sans-serif;"
             stylesheet &= "font-size:14px;color:#333333;border-width: 1px;border-color: #666666;border-collapse: collapse;text-align: center}"
             stylesheet &= "table.gridtable th {border-width: 1px;padding: 8px; border-style: solid;border-color: #666666;background-color: #F6B4A5;}"
@@ -736,6 +840,7 @@ Public Class FrPrint
             'get the column headers
             For Each column As DataGridViewColumn In DataGridView1.Columns
                 the_html_file = the_html_file & "<th>" & column.HeaderText & "</th>"
+                ColumnCounter = ColumnCounter + 1
             Next
 
             the_html_file = the_html_file & "</tr></thead><tbody>"
@@ -758,30 +863,70 @@ Public Class FrPrint
                 the_html_file &= "</tr>"
             Next
             the_html_file &= "</tbody></table></body></html>"
-            '################  Add prefix and date to file Name  #####################################
-            DocNum = My.Settings.DocNumber.ToString
-            Dim FileName As String = "MyBank" & DocNum & ".html"
-            FileName = FileName.Replace(".html", "_" & System.DateTime.Now.ToString("ddMMyyyy") & ".html")
-            SetPath = My.Settings.ProSetPath & "\Documents\" & FileName
-            'write the file
-            My.Computer.FileSystem.WriteAllText(SetPath, the_html_file, False)
-            My.Settings.DocNumber = My.Settings.DocNumber + 1
-            My.Settings.Save()
-
-            If MessageBox.Show("Would you like to Print Document?", "MyBank Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
-                My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
-                'pass file to default browser
-                Dim pinfo As New ProcessStartInfo()
-                pinfo.WindowStyle = ProcessWindowStyle.Normal
-                pinfo.FileName = SetPath
-                Dim p As Process = Process.Start(pinfo)
+            If ColumnCounter = 0 Then
+                MyMsg = "     The Document is Empty"
+                MyMsgFlag = False
+                FrMsgOk.ShowDialog()
             Else
-                My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
+                '################  Add prefix and date to file Name  #####################################
+                DocNum = My.Settings.DocNumber.ToString
+                Dim FileName As String = "MyBank" & DocNum & ".html"
+                FileName = FileName.Replace(".html", "_" & System.DateTime.Now.ToString("ddMMyyyy") & ".html")
+                SetPath = My.Settings.ProSetPath & "\Documents\" & FileName
+                'write the file
+                My.Computer.FileSystem.WriteAllText(SetPath, the_html_file, False)
+                My.Settings.DocNumber = My.Settings.DocNumber + 1
+                My.Settings.Save()
+                MyMsg = " Document Saved. Would you like to Print?"
+                MyMsgFlag = False
+                FrMsgYesNo.ShowDialog()
+                If MyMsgFlag = True Then
+                    My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
+                    'pass file to default browser
+                    Dim pinfo As New ProcessStartInfo()
+                    pinfo.WindowStyle = ProcessWindowStyle.Normal
+                    pinfo.FileName = SetPath
+                    Dim p As Process = Process.Start(pinfo)
+                Else
+                    My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
+                End If
             End If
-
         Catch ex As Exception
             MyErrors = "FrPrint MakePDF " & ex.Message
             FrError.Show()
         End Try
+    End Sub
+    Private Sub AddAccountBalances()
+        CommonLoadAccount()
+        Dim R As New DataGridViewRow
+        Dim Rt As New DataGridViewTextBoxCell
+        Dim LastBalance As Double
+        Dim LastBalDate As Date
+        For I = 1 To AccIndex
+            MakePath = My.Settings.ProSetPath
+            MakePath = MakePath + LvBank(I) + "_" + LvType(I) + "_CBalData.txt"
+            FileOpen(1, MakePath, OpenMode.Input)
+            LastBalance = CDec(LineInput(1))
+            LastBalDate = CDate(LineInput(1))
+            FileClose(1)
+            Rt = New DataGridViewTextBoxCell With {
+                                          .Value = LvBank(I)
+                                          }
+            R.Cells.Add(Rt)
+            Rt = New DataGridViewTextBoxCell With {
+                                          .Value = LvType(I)
+                                          }
+            R.Cells.Add(Rt)
+            Rt = New DataGridViewTextBoxCell With {
+                                           .Value = Format(LastBalDate, "dd/MM/yyyy")
+                                          }
+            R.Cells.Add(Rt)
+            Rt = New DataGridViewTextBoxCell With {
+                                           .Value = Format(LastBalDate, "##,##0.00")
+                                          }
+            R.Cells.Add(Rt)
+            Rt.Style.Alignment = DataGridViewContentAlignment.MiddleLeft
+            Me.DataGridView1.Rows.Add(R)
+        Next I
     End Sub
 End Class

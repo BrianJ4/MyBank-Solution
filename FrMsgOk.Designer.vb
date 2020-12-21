@@ -44,7 +44,7 @@ Partial Class FrMsgOk
         Me.LblMsg.AutoSize = True
         Me.LblMsg.BackColor = System.Drawing.Color.Transparent
         Me.LblMsg.Font = New System.Drawing.Font("Arial Black", 11.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblMsg.Location = New System.Drawing.Point(24, 81)
+        Me.LblMsg.Location = New System.Drawing.Point(22, 77)
         Me.LblMsg.Name = "LblMsg"
         Me.LblMsg.Size = New System.Drawing.Size(82, 22)
         Me.LblMsg.TabIndex = 32
