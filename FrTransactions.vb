@@ -279,6 +279,8 @@ Timer2_Tick:
             Timer1.Stop()
             LblNotCleared.Visible = False
             BtnClear.BackColor = Color.RosyBrown
+            I = 1
+            Z = 1
             Do
                 sline = thereader.ReadLine
                 If sline = Nothing Then Exit Do

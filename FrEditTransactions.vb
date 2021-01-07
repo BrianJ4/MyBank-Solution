@@ -22,9 +22,7 @@ Public Class FrEditTransactions
         Label6.ForeColor = My.Settings.TxColour
         Label7.ForeColor = My.Settings.TxColour
         Label8.ForeColor = My.Settings.TxColour
-        Label9.ForeColor = My.Settings.TxColour
         Label7.Text = "Make changes and Save as Debit or Credit"
-
         Call BaseForm_Load()
         Call EditThisTrans()
     End Sub
@@ -33,18 +31,12 @@ Public Class FrEditTransactions
         'LedgerDebCre(EditTransNo) = "D"
         Label7.Text = "Debit"
         Call SaveEditedTrans()
-        Flag = True
-        FrTransactions.Show()
-        Me.Close()
     End Sub
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles BtnCredit.Click
         My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
         'LedgerDebCre(EditTransNo) = "C"
         Label7.Text = "Credit"
         Call SaveEditedTrans()
-        Flag = True
-        FrTransactions.Show()
-        Me.Close()
     End Sub
     Private Sub BtnExit_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
@@ -54,10 +46,6 @@ Public Class FrEditTransactions
         Flag = True
         FrTransactions.Show()
         Me.Close()
-    End Sub
-    Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker1.ValueChanged
-        LedgerDate(EditTransNo) = CDate(Me.DateTimePicker1.Value.ToShortDateString)
-        Label9.Text = LedgerDate(EditTransNo).ToShortDateString
     End Sub
     Public Sub EditThisTrans()
         Try
@@ -91,9 +79,9 @@ Public Class FrEditTransactions
                 I = I + 1
             Loop
             thereader.Close()
-            Label9.Text = LedgerDate(TransNo).ToShortDateString
-            TextBox1.Text = LedgerToFrom(TransNo)
-            If TextBox1.Text = "" Then
+            My.Settings.TotalTrans = I - 1
+            My.Settings.Save()
+            If LedgerToFrom(TransNo) = "" Then
                 If MessageBox.Show("ERROR No Transaction Found", "MyBank Information", MessageBoxButtons.OK, MessageBoxIcon.Question) = MsgBoxResult.Ok Then
                     My.Settings.TransDataChanged = True
                     My.Settings.EditTransNo = 0
@@ -103,6 +91,9 @@ Public Class FrEditTransactions
                     Me.Close()
                 End If
             End If
+            AccRef = LedgerAcc(TransNo)
+            Me.DateTimePicker1.Value = LedgerDate(TransNo)
+            TextBox1.Text = LedgerToFrom(TransNo)
             TextBox2.Text = LedgerCategory(TransNo)
                 TextBox3.Text = LedgerSubCategory(TransNo)
                 If LedgerDebit(TransNo) > 0 Then
@@ -111,7 +102,8 @@ Public Class FrEditTransactions
                 If LedgerCredit(TransNo) > 0 Then
                     tbAmount.Text = LedgerCredit(TransNo).ToString
                 End If
-
+            Label8.Text = AccRef.ToString
+            'Label8.Text = My.Settings.EditTransNo.ToString
         Catch ex As Exception
             MyErrors = "FrEditTransactions EditThisTrans " & ex.Message
             FrError.Show()
@@ -119,10 +111,9 @@ Public Class FrEditTransactions
     End Sub
     Public Sub SaveEditedTrans()
         Try
-            LedgerDate(TransNo) = CDate(Label9.Text)
-            LedgerToFrom(TransNo) = TextBox1.Text
-            LedgerCategory(TransNo) = TextBox2.Text
-            LedgerSubCategory(TransNo) = TextBox3.Text
+            LedgerAcc(TransNo) = AccRef
+            LedgerDate(TransNo) = CDate(Me.DateTimePicker1.Value.ToShortDateString)
+            LedgerRef(TransNo) = My.Settings.EditTransNo
             If Label7.Text = "Debit" Then
                 LedgerDebit(TransNo) = CDbl(tbAmount.Text)
                 LedgerCredit(TransNo) = 0
@@ -131,7 +122,11 @@ Public Class FrEditTransactions
                 LedgerDebit(TransNo) = 0
                 LedgerCredit(TransNo) = CDbl(tbAmount.Text)
             End If
+            LedgerToFrom(TransNo) = TextBox1.Text
+            LedgerCategory(TransNo) = TextBox2.Text
+            LedgerSubCategory(TransNo) = TextBox3.Text
             Dim TempBal As Double = 0
+            LedgerState(TransNo) = "---"
             MakePath = My.Settings.ProSetPath & "Current_Transaction_Data.mbtd"
             FileOpen(1, MakePath, OpenMode.Output)
             For I = 1 To My.Settings.TotalTrans
@@ -141,6 +136,9 @@ Public Class FrEditTransactions
             My.Settings.TransDataChanged = True
             My.Settings.EditTransNo = 0
             My.Settings.Save()
+            Flag = True
+            FrTransactions.Show()
+            Me.Close()
         Catch ex As Exception
             MyErrors = "FrEditTransactions SaveEditedTran " & ex.Message
             FrError.Show()

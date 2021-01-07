@@ -5,9 +5,9 @@
         Dim MyErrorList As String
         MyErrorList = Now.ToShortDateString & " ) " & MyErrors
         MakePath = My.Settings.ProSetPath & "ErrorLog.mbtd"
-        FileOpen(1, MakePath, OpenMode.Append)
-        PrintLine(1, MyErrorList)
-        FileClose(1)
+        FileOpen(4, MakePath, OpenMode.Append)
+        PrintLine(4, MyErrorList)
+        FileClose(4)
     End Sub
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles BtnLeaveData.Click
         Me.Close()

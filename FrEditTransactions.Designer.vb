@@ -38,7 +38,6 @@ Partial Class FrEditTransactions
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BtnClose = New System.Windows.Forms.Button()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
@@ -188,21 +187,11 @@ Partial Class FrEditTransactions
         '
         'DateTimePicker1
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(292, 69)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(191, 69)
         Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(179, 22)
+        Me.DateTimePicker1.Size = New System.Drawing.Size(220, 22)
         Me.DateTimePicker1.TabIndex = 16
         Me.ToolTip1.SetToolTip(Me.DateTimePicker1, "Transaction Date")
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.ForeColor = System.Drawing.Color.White
-        Me.Label9.Location = New System.Drawing.Point(188, 75)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(41, 16)
-        Me.Label9.TabIndex = 17
-        Me.Label9.Text = "Date"
         '
         'PictureBox1
         '
@@ -251,7 +240,6 @@ Partial Class FrEditTransactions
         Me.ControlBox = False
         Me.Controls.Add(Me.BtnClose)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
@@ -296,7 +284,6 @@ Partial Class FrEditTransactions
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents DateTimePicker1 As DateTimePicker
-    Friend WithEvents Label9 As Label
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents BtnClose As Button
     Friend WithEvents ToolTip1 As ToolTip

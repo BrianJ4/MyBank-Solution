@@ -52,6 +52,7 @@ Public Class FrAdjustments
         Try
             '#####  Open Append New Transaction File  ############
             Z = 2
+            I = 1
             FileOpen(1, My.Settings.ProSetPath & "Current_Transaction1_Data.mbtd", OpenMode.Append)
             '#### Open Current Transaction File #######
             MakePath = My.Settings.ProSetPath & "Current_Transaction_Data.mbtd"
@@ -78,12 +79,16 @@ Public Class FrAdjustments
                 TransNo = Z
                 PrintLine(1, AccRef & "," & FrDate & "," & TransNo & "," & TransDeb & "," & TransCre & "," & ToFrom & "," & Cat & "," & SubCat & "," & Balance & "," & TransState)
                 Z = Z + 1
+                I = I + 1
                 '################################################################
             Loop
             '#### Close Current Transaction File #######
             thereader.Close()
             '##########   Close Append File  ###########
             FileClose(1)
+            My.Settings.TotalTrans = I - 1
+            My.Settings.TransRefNo = Z
+            My.Settings.Save()
         Catch ex As Exception
             MyErrors = "FrAdjustments LoadTrans " & ex.Message
             FrError.Show()
@@ -105,9 +110,6 @@ Public Class FrAdjustments
                 ProgressBar1.Value = I
             Next I
             Label4.Text = "Complete"
-            My.Settings.TotalTrans = Z - 3
-            My.Settings.TransRefNo = Z
-            My.Settings.Save()
         Catch ex As Exception
             MyErrors = "FrAdjustments CleanTransactions " & ex.Message
             FrError.Show()
