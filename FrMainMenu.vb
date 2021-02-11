@@ -349,5 +349,8 @@ Timer1_Tick:
         End Try
     End Sub
 
-
+    Private Sub BtnChart_Click(sender As Object, e As EventArgs) Handles BtnChart.Click
+        FrChart1.Show()
+        Me.Close()
+    End Sub
 End Class

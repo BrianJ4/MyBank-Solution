@@ -340,8 +340,8 @@ Timer2_Tick:
                         '#####  check that transactions are cleared  #####
                         If CDate(DataGridView1.Rows(Cr).Cells(1).Value) <= Now And CStr(DataGridView1.Rows(Cr).Cells(9).Value) = "---" Then
                                 Timer1.Start()
-                                LblNotCleared.Visible = True
-                            End If
+                            LblNotCleared.Visible = True
+                        End If
                             '######################  Errors  ###########################
                             If Not IsNumeric(words(0)) Then DataGridView1.Rows(Cr).Cells(0).Style.BackColor = Color.Yellow
                             If Not IsDate(words(1)) Then DataGridView1.Rows(Cr).Cells(1).Style.BackColor = Color.Yellow
@@ -362,10 +362,10 @@ Timer2_Tick:
             My.Settings.TotalTrans = Z
             My.Settings.Save()
             ' SCROLL TO CURRENT DATE
-            If ScrollPoint - 10 < I And I > 33 Then
-                ScrollPoint -= 10
+            If ScrollPoint - 10 < I And I > 21 Then
+                ScrollPoint = ScrollPoint - 10
             End If
-            If ScrollPoint > 17 Then
+            If ScrollPoint > 21 Then
                 DataGridView1.FirstDisplayedScrollingRowIndex = ScrollPoint
             End If
             ' SAVE ACCOUNT BALANCES FOR FORM2 USE
@@ -500,6 +500,41 @@ Timer2_Tick:
                     End If
                 Next I
             End While
+            '########################################### Main Sort by value ####################################
+            For I = 1 To NumberOfEntries
+                If I + 1 > NumberOfEntries Then
+                Else
+                    If LedgerDate(I) = LedgerDate(I + 1) And LedgerCredit(I + 1) > 0 Then
+                        TempAcc = LedgerAcc(I)
+                        TempDate = LedgerDate(I)
+                        TempRef = LedgerRef(I)
+                        TempDebit = LedgerDebit(I)
+                        TempCredit = LedgerCredit(I)
+                        TempToFrom = LedgerToFrom(I)
+                        TempCat = LedgerCategory(I)
+                        TempSubCat = LedgerSubCategory(I)
+                        TempState = LedgerState(I)
+                        LedgerAcc(I) = LedgerAcc(I + 1)
+                        LedgerDate(I) = LedgerDate(I + 1)
+                        LedgerRef(I) = LedgerRef(I + 1)
+                        LedgerDebit(I) = LedgerDebit(I + 1)
+                        LedgerCredit(I) = LedgerCredit(I + 1)
+                        LedgerToFrom(I) = LedgerToFrom(I + 1)
+                        LedgerCategory(I) = LedgerCategory(I + 1)
+                        LedgerSubCategory(I) = LedgerSubCategory(I + 1)
+                        LedgerState(I) = LedgerState(I + 1)
+                        LedgerAcc(I + 1) = TempAcc
+                        LedgerDate(I + 1) = TempDate
+                        LedgerRef(I + 1) = TempRef
+                        LedgerDebit(I + 1) = TempDebit
+                        LedgerCredit(I + 1) = TempCredit
+                        LedgerToFrom(I + 1) = TempToFrom
+                        LedgerCategory(I + 1) = TempCat
+                        LedgerSubCategory(I + 1) = TempSubCat
+                        LedgerState(I + 1) = TempState
+                    End If
+                End If
+            Next I
             '################################################ Clear and Not Clear Transactions  #####################
             If My.Settings.EditTransNo > 0 Then
                 I = 1

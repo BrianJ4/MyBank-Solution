@@ -3,6 +3,11 @@ Imports System.Text
 Imports System.Data
 Public Class FrEditDirectDebits
     Dim BlankValue As Double = 0.00
+    Dim EditedToFrom As String
+    Dim EditedCat As String
+    Dim EditedSubCat As String
+    Dim EditedValue As String
+
     Private Sub Form17_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.BackColor = My.Settings.BkColour
         DataGridView1.BackgroundColor = My.Settings.BkColour
@@ -47,6 +52,10 @@ Public Class FrEditDirectDebits
     Private Sub BtnEditEdit_Click(sender As Object, e As EventArgs) Handles BtnEditEdit.Click
         My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
         DataGridView1.CurrentRow.Cells(4).Value = Me.tbAmount.Text
+        EditedToFrom = DataGridView1.CurrentRow.Cells(1).Value
+        EditedCat = DataGridView1.CurrentRow.Cells(2).Value
+        EditedSubCat = DataGridView1.CurrentRow.Cells(3).Value
+        EditedValue = DataGridView1.CurrentRow.Cells(4).Value
         strCurrency = ""
         SaveOrders()
         Me.DataGridView1.Rows.Clear()
@@ -56,6 +65,67 @@ Public Class FrEditDirectDebits
         BtnEdit.Visible = True
         BtnDelete.Visible = True
         BtnClose.Visible = True
+        UpdateTransactions()
+    End Sub
+    Public Sub UpdateTransactions()
+        NumberOfEntries = My.Settings.TotalTrans
+        NumberOfEntries = NumberOfEntries + 50
+        Dim LedgerAcc(NumberOfEntries) As Integer
+        Dim LedgerDate(NumberOfEntries) As Date
+        Dim LedgerRef(NumberOfEntries) As Integer
+        Dim LedgerDebit(NumberOfEntries) As Double
+        Dim LedgerCredit(NumberOfEntries) As Double
+        Dim LedgerToFrom(NumberOfEntries) As String
+        Dim LedgerCategory(NumberOfEntries) As String
+        Dim LedgerSubCategory(NumberOfEntries) As String
+        Dim LedgerState(NumberOfEntries) As String
+        MakePath = My.Settings.ProSetPath & "Current_Transaction_Data.mbtd"
+        Dim thereader As New StreamReader(MakePath, Encoding.Default)
+        Dim sline As String = ""
+        I = 1
+        Do
+            '#################################  Read Data  #############
+            sline = thereader.ReadLine
+            If sline = Nothing Then Exit Do
+#Disable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
+            Dim Words() As String = sline.Split(",")
+#Enable Warning BC42016 ' Implicit conversion from 'String' to 'Char'.
+            '############################################# Add Row  ################
+            LedgerAcc(I) = CInt(Words(0))
+            LedgerDate(I) = CDate(Words(1))
+            LedgerRef(I) = CInt(Words(2))
+            LedgerDebit(I) = CDbl(Words(3))
+            LedgerCredit(I) = CDbl(Words(4))
+            LedgerToFrom(I) = Words(5)
+            LedgerCategory(I) = Words(6)
+            LedgerSubCategory(I) = Words(7)
+            LedgerState(I) = Words(9)
+            I = I + 1
+        Loop
+        thereader.Close()
+        NumberOfEntries = I - 1
+        My.Settings.TotalTrans = NumberOfEntries
+        My.Settings.Save()
+        For I = 1 To My.Settings.TotalTrans
+            If LedgerDate(I) >= Now Then
+                If LedgerToFrom(I) = EditedToFrom And LedgerCategory(I) = EditedCat And LedgerSubCategory(I) = EditedSubCat Then
+                    If LedgerCredit(I) > 0 Then
+                        LedgerCredit(I) = CDbl(EditedValue)
+                    End If
+                    If LedgerDebit(I) > 0 Then
+                        LedgerDebit(I) = CDbl(EditedValue)
+                    End If
+                End If
+            End If
+        Next I
+        '########################################################   Save Transactions  ################################
+        Dim TempBal As Double = 1
+        MakePath = My.Settings.ProSetPath & "Current_Transaction_Data.mbtd"
+        FileOpen(1, MakePath, OpenMode.Output)
+        For I = 1 To NumberOfEntries
+            PrintLine(1, LedgerAcc(I) & "," & LedgerDate(I) & "," & LedgerRef(I) & "," & LedgerDebit(I) & "," & LedgerCredit(I) & "," & LedgerToFrom(I) & "," & LedgerCategory(I) & "," & LedgerSubCategory(I) & "," & TempBal & "," & LedgerState(I))
+        Next I
+        FileClose(1)
     End Sub
     Private Sub BtnEditClose_Click(sender As Object, e As EventArgs) Handles BtnEditClose.Click
         strCurrency = ""

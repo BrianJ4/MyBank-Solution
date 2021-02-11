@@ -55,6 +55,7 @@ Partial Class FrMainMenu
         Me.LblBalances = New System.Windows.Forms.Label()
         Me.BtnDelTrans = New System.Windows.Forms.Button()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.BtnChart = New System.Windows.Forms.Button()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -483,6 +484,25 @@ Partial Class FrMainMenu
         Me.ToolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
         Me.ToolTip1.ToolTipTitle = "MyBank"
         '
+        'BtnChart
+        '
+        Me.BtnChart.BackColor = System.Drawing.Color.RosyBrown
+        Me.BtnChart.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnChart.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.BtnChart.FlatAppearance.BorderSize = 2
+        Me.BtnChart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black
+        Me.BtnChart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
+        Me.BtnChart.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnChart.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnChart.ForeColor = System.Drawing.Color.Black
+        Me.BtnChart.Location = New System.Drawing.Point(714, 32)
+        Me.BtnChart.Name = "BtnChart"
+        Me.BtnChart.Size = New System.Drawing.Size(170, 40)
+        Me.BtnChart.TabIndex = 84
+        Me.BtnChart.Text = "Chart"
+        Me.ToolTip1.SetToolTip(Me.BtnChart, " The most used Window where you can View, Add, Edit, and Delete Transactions.")
+        Me.BtnChart.UseVisualStyleBackColor = False
+        '
         'FrMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -490,6 +510,7 @@ Partial Class FrMainMenu
         Me.BackColor = System.Drawing.Color.Navy
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(934, 411)
+        Me.Controls.Add(Me.BtnChart)
         Me.Controls.Add(Me.BtnDelTrans)
         Me.Controls.Add(Me.LblBalances)
         Me.Controls.Add(Me.BtnCalculator)
@@ -563,4 +584,5 @@ Partial Class FrMainMenu
     Friend WithEvents LblBalances As Label
     Friend WithEvents BtnDelTrans As Button
     Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents BtnChart As Button
 End Class
