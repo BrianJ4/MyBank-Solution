@@ -20,7 +20,8 @@ Public Class FrStart
 
             'BtnDelTrans.Visible = False
             'BtnDelTrans.Enabled = False
-
+            'My.Settings.NumberOfContacts = 12
+            'My.Settings.Save()
 
             Me.BackColor = My.Settings.BkColour
             LblName.ForeColor = My.Settings.TxColour
@@ -353,6 +354,7 @@ Timer1_Tick:
             My.Settings.ProSetPath = LineInput(1)
             My.Settings.activeDir = LineInput(1)
             My.Settings.BkUpDir = LineInput(1)
+            My.Settings.NumberOfContacts = LineInput(1)
             FileClose(1)
             My.Settings.Save()
         Catch ex As Exception
@@ -379,6 +381,7 @@ Timer1_Tick:
             PrintLine(1, My.Settings.ProSetPath)
             PrintLine(1, My.Settings.activeDir)
             PrintLine(1, My.Settings.BkUpDir)
+            PrintLine(1, My.Settings.NumberOfContacts)
             FileClose(1)
         Catch ex As Exception
             MyErrors = ex.Message
@@ -547,8 +550,6 @@ Timer1_Tick:
         End Try
     End Sub
 
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
-        FrChart1.Show()
-    End Sub
+
 End Class
 

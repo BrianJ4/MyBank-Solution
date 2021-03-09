@@ -22,7 +22,7 @@ Public Class FrMainMenu
             BtnTransactions.Visible = False
             BtnProcessOrders.Visible = False
             BtnEditOrder.Visible = False
-            BtnQuickLook.Visible = False
+            BtnContacts.Visible = False
             BtnBackup.Visible = False
             BtnPrint.Visible = False
             BtnCloseAccount.Visible = False
@@ -31,7 +31,7 @@ Public Class FrMainMenu
             BtnTransactions.Visible = True
             BtnProcessOrders.Visible = True
             BtnEditOrder.Visible = True
-            BtnQuickLook.Visible = True
+            BtnContacts.Visible = True
             BtnBackup.Visible = True
             BtnPrint.Visible = True
             BtnCloseAccount.Visible = True
@@ -108,10 +108,7 @@ Public Class FrMainMenu
         ExitApp()
         End
     End Sub
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BtnQuickLook.Click
-        FrAnnualIncome.Show()
-        Me.Close()
-    End Sub
+
     Private Sub Button1_Click_2(sender As Object, e As EventArgs) Handles BtnPrint.Click
         FrPrint.Show()
         Me.Close()
@@ -204,6 +201,7 @@ Timer1_Tick:
             PrintLine(1, My.Settings.ProSetPath)
             PrintLine(1, My.Settings.activeDir)
             PrintLine(1, My.Settings.BkUpDir)
+            PrintLine(1, My.Settings.NumberOfContacts)
             FileClose(1)
         Catch ex As Exception
             MyErrors = ex.Message
@@ -261,7 +259,7 @@ Timer1_Tick:
     Private Sub BtnEditOrder_MouseHover(sender As Object, e As EventArgs) Handles BtnEditOrder.MouseHover
         LblInfo.Text = “(: Edit Orders :)   Click Here to Edit the Values of the Standing Orders and Direct Debits"
     End Sub
-    Private Sub BtnStatements_MouseHover(sender As Object, e As EventArgs) Handles BtnQuickLook.MouseHover
+    Private Sub BtnStatements_MouseHover(sender As Object, e As EventArgs) Handles BtnContacts.MouseHover
         LblInfo.Text = “(: Quick Look :)   Click Here for a Quick Roundup of your  Standing Orders and Direct Debits”
     End Sub
     Private Sub BtnBackup_MouseHover(sender As Object, e As EventArgs) Handles BtnBackup.MouseHover
@@ -350,7 +348,14 @@ Timer1_Tick:
     End Sub
 
     Private Sub BtnChart_Click(sender As Object, e As EventArgs) Handles BtnChart.Click
+        My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
         FrChart1.Show()
+        Me.Close()
+    End Sub
+
+    Private Sub BtnContacts_Click(sender As Object, e As EventArgs) Handles BtnContacts.Click
+        My.Computer.Audio.Play(My.Resources.MyButton01, AudioPlayMode.Background)
+        FrContacts.Show()
         Me.Close()
     End Sub
 End Class

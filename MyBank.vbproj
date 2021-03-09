@@ -24,7 +24,7 @@
     <PublisherName>Brian Johnson</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <TrustUrlParameters>true</TrustUrlParameters>
-    <ApplicationRevision>107</ApplicationRevision>
+    <ApplicationRevision>119</ApplicationRevision>
     <ApplicationVersion>1.3.3.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -149,10 +149,10 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ApplicationEvents.vb" />
-    <Compile Include="FrAnnualIncome.Designer.vb">
-      <DependentUpon>FrAnnualIncome.vb</DependentUpon>
+    <Compile Include="FrContacts.Designer.vb">
+      <DependentUpon>FrContacts.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrAnnualIncome.vb">
+    <Compile Include="FrContacts.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrCalculator.Designer.vb">
@@ -324,8 +324,8 @@
     <EmbeddedResource Include="FrAdjustments.resx">
       <DependentUpon>FrAdjustments.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrAnnualIncome.resx">
-      <DependentUpon>FrAnnualIncome.vb</DependentUpon>
+    <EmbeddedResource Include="FrContacts.resx">
+      <DependentUpon>FrContacts.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrCalculator.resx">

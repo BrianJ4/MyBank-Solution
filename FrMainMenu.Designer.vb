@@ -44,7 +44,7 @@ Partial Class FrMainMenu
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.BtnEditOrder = New System.Windows.Forms.Button()
         Me.BtnCloseAccount = New System.Windows.Forms.Button()
-        Me.BtnQuickLook = New System.Windows.Forms.Button()
+        Me.BtnContacts = New System.Windows.Forms.Button()
         Me.BtnPrint = New System.Windows.Forms.Button()
         Me.BtnBackup = New System.Windows.Forms.Button()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
@@ -318,24 +318,24 @@ Partial Class FrMainMenu
         Me.ToolTip1.SetToolTip(Me.BtnCloseAccount, "Close one of your Accounts")
         Me.BtnCloseAccount.UseVisualStyleBackColor = False
         '
-        'BtnQuickLook
+        'BtnContacts
         '
-        Me.BtnQuickLook.BackColor = System.Drawing.Color.RosyBrown
-        Me.BtnQuickLook.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnQuickLook.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.BtnQuickLook.FlatAppearance.BorderSize = 2
-        Me.BtnQuickLook.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
-        Me.BtnQuickLook.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnQuickLook.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnQuickLook.ForeColor = System.Drawing.Color.Black
-        Me.BtnQuickLook.Location = New System.Drawing.Point(466, 376)
-        Me.BtnQuickLook.Name = "BtnQuickLook"
-        Me.BtnQuickLook.Size = New System.Drawing.Size(148, 33)
-        Me.BtnQuickLook.TabIndex = 40
-        Me.BtnQuickLook.Text = "(: Quick Look :)"
-        Me.ToolTip1.SetToolTip(Me.BtnQuickLook, "A glance of your Standing Order and Direct Debits calculating anual Values and a " &
+        Me.BtnContacts.BackColor = System.Drawing.Color.RosyBrown
+        Me.BtnContacts.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnContacts.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.BtnContacts.FlatAppearance.BorderSize = 2
+        Me.BtnContacts.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime
+        Me.BtnContacts.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnContacts.Font = New System.Drawing.Font("Arial Black", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnContacts.ForeColor = System.Drawing.Color.Black
+        Me.BtnContacts.Location = New System.Drawing.Point(466, 376)
+        Me.BtnContacts.Name = "BtnContacts"
+        Me.BtnContacts.Size = New System.Drawing.Size(148, 33)
+        Me.BtnContacts.TabIndex = 40
+        Me.BtnContacts.Text = "(: Contacts :)"
+        Me.ToolTip1.SetToolTip(Me.BtnContacts, "A glance of your Standing Order and Direct Debits calculating anual Values and a " &
         "weekly Balance")
-        Me.BtnQuickLook.UseVisualStyleBackColor = False
+        Me.BtnContacts.UseVisualStyleBackColor = False
         '
         'BtnPrint
         '
@@ -520,7 +520,7 @@ Partial Class FrMainMenu
         Me.Controls.Add(Me.PictureBox4)
         Me.Controls.Add(Me.BtnBackup)
         Me.Controls.Add(Me.BtnPrint)
-        Me.Controls.Add(Me.BtnQuickLook)
+        Me.Controls.Add(Me.BtnContacts)
         Me.Controls.Add(Me.BtnCloseAccount)
         Me.Controls.Add(Me.BtnEditOrder)
         Me.Controls.Add(Me.PictureBox2)
@@ -573,7 +573,7 @@ Partial Class FrMainMenu
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents BtnEditOrder As Button
     Friend WithEvents BtnCloseAccount As Button
-    Friend WithEvents BtnQuickLook As Button
+    Friend WithEvents BtnContacts As Button
     Friend WithEvents BtnPrint As Button
     Friend WithEvents BtnBackup As Button
     Friend WithEvents PictureBox4 As PictureBox
